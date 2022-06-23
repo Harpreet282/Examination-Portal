@@ -1,8 +1,13 @@
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Index from "./Routes";
 
 function App() {
   return (
     <>
-   <h1>hlo</h1>
+    <Header />
+    <Index />
+    <Footer />
     </>
   );
 }
