@@ -2,7 +2,7 @@
 function App() {
   return (
     <>
-   <h1>hlo</h1>
+   <h1>Pratigya  first chng</h1>
     </>
   );
 }
