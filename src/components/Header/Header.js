@@ -20,7 +20,6 @@ const Header = () => {
       <li className="nav-item">
         <NavLink className="nav-link" to='/'>Pricing</NavLink>
       </li>
-      
     </ul>
   </div>
 </nav>
