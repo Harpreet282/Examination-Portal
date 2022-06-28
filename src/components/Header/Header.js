@@ -8,13 +8,12 @@ const Header = () => {
   const dispatch=useDispatch();
   const isLogged=useSelector(state=>state.loginState.authenticated);
 
-  useEffect(() => {
+ useEffect(() => {
     const data=JSON.parse(localStorage.getItem('data'));
       if(JSON.parse(localStorage.getItem('data'))) {
         dispatch(loginAccount(data.token,data.userType));
       }
     });
-
   
    if(localStorage.data){
     var currentUser =  JSON.parse(localStorage.getItem('data')).userType;   
@@ -85,11 +84,13 @@ const Header = () => {
             <>
              {
               currentUser==='ADMIN'?
-<li className="nav-item">
-              <NavLink className="nav-link" to="/changes" >
-             Make Changes
+             <>
+              <li className="nav-item">
+              <NavLink className="nav-link" to="/adminDashboard" >
+             Dashboard
               </NavLink>
             </li>
+             </>
               :
               <li className="nav-item">
               <NavLink className="nav-link" to="/takeExam" >

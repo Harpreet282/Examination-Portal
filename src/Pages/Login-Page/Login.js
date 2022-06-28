@@ -32,7 +32,16 @@ const Login = () => {
     })
     .catch((err)=>{
       console.log(err)
+      if(err.response.data.message==='INVALID_PASSWORD')
+      {
+        toast.error("Invalid Password!");
+      }
+      else if(err.response.data.message==='USER_NOT_FOUND'){
+        toast.error("User not found!");
+      }
+      else{
       toast.error("Error!");
+      }
     })
   }
 
@@ -42,12 +51,12 @@ const Login = () => {
   <div className="container all-containers my-5">
 <div className="row">
   <div className="col-md-6 left-content">
-  <div className="content">
+  <div className="content absolute-center">
   <h1>Please Login by Enter your Credentials</h1>
   </div>
   </div>
   <div className="col-md-6 right-content">
- <div className="content">
+ <div className="content absolute-center">
  <form className='px-5' onSubmit={submitHandler}>
   <div className="">
       <input type="text" name="email" onChange={chaneHandler} placeholder="E-mail" autoComplete='' />

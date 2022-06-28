@@ -7,3 +7,18 @@
     overflow: hidden;
     border-radius: 8px;
 }
+
+.absolute-center{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+}
+
+.center-content-in-div{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

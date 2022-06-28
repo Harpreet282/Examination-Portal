@@ -9,7 +9,7 @@ const Home = () => {
   <div className="container all-containers my-5">
 <div className="row">
   <div className="col-md-6 left-content">
-  <div className="content">
+  <div className="content absolute-center">
   <h1>Login To View Your Profile</h1>
   <button className='btn'>
     <NavLink to='login'>Login Now</NavLink>

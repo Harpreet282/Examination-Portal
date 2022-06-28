@@ -3,14 +3,6 @@ position: relative;
 background-color: var(--main-gray-color);
 }
 
-.home-page .left-content .content{
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 80%;
-}
 .home-page .left-content .content h1{
     transition: 1s ease-in-out;
     margin-bottom: 2rem;

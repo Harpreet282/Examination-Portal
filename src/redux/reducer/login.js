@@ -22,8 +22,6 @@ const loginState=(state=initialState,action)=>{
             };
 
         case 'LOGOUT':
-            // const user = JSON.parse(localStorage.getItem('data'))
-            //  localStorage.removeItem(user.token);
              localStorage.removeItem('data')
                return state=false
         default:

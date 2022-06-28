@@ -6,9 +6,7 @@ import axios from 'axios';
 
 const SignUp = () => {
 
-  const[data,setData]=useState({
-   
-    });
+  const[data,setData]=useState({ });
   
     const chaneHandler = e =>{
       setData({...data,[e.target.name]:e.target.value})
@@ -34,12 +32,12 @@ const SignUp = () => {
       <div className="container all-containers my-5">
     <div className="row">
       <div className="col-md-6 left-content">
-      <div className="content">
+      <div className="content absolute-center">
       <h1>Please Sign-up by Enter your Details</h1>
       </div>
       </div>
       <div className="col-md-6 right-content">
-     <div className="content">
+     <div className="content absolute-center">
      <form className='px-5' onSubmit={submitHandler}>
         <div className="">
         <input type="text" onChange={chaneHandler} name='firstName' placeholder="First Name" />
