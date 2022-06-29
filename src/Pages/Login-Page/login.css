@@ -1,0 +1,62 @@
+.login-page .left-content{
+position: relative;
+background-color: var(--main-gray-color);
+height: 480px;
+}
+
+.login-page .left-content .content h1{
+    transition: 1s ease-in-out;
+    margin-bottom: 2rem;
+    color: var(--main-theme-color);
+    font-weight: 700;
+}
+
+.login-page .left-content .content:hover h1{
+    color: var(--main-black-color);
+    transition: 1s ease-in-out;
+}
+
+.login-page .right-content{
+    overflow: hidden;
+    position: relative;
+    /* padding: 0px; */
+}
+
+.login-page .right-content .content input{
+    /* text-align: center; */
+    background-color: transparent;
+    width: 100%;
+    padding:12px 20px 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border:none;
+    border-bottom: 2px solid var(--main-theme-color);
+    font-weight: 500;
+  }
+
+  .login-page .right-content .content input:focus-visible{
+    outline: none;
+  }
+
+  .login-page .right-content .content ::placeholder{
+    color: grey;
+  }
+
+  .login-page .right-content .content button{
+    margin-top: 15px;
+    width: 50%;
+    border: 2px solid var( --main-theme-color);
+border-radius: 25px;
+font-weight: 700;
+color: var(--main-theme-color);
+  }
+
+  .login-page .right-content .content button:hover{
+    border: 2px solid var( --main-black-color);
+    background-color: var(--main-black-color);
+  }
+
+  .login-page .right-content .content .signupLink{
+    margin-top: 15px;
+    font-weight: 500;
+  }
