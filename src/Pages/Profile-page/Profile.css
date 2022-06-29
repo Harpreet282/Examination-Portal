@@ -1,0 +1,115 @@
+
+.profile-page .all-containers{
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.profile-page .all-containers .content{
+    height: 480px;   
+}
+.profile-user-icon img{
+    height: 220px;
+    width: 220px;  
+}
+.profile-user-icon{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.profile-content{
+    text-align: center;
+    margin-top: 50px;
+}
+.left-content p{
+    width: 80%;
+    text-align: left;
+    border-bottom: 2px solid #F4831F;
+    margin: 30px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.left-content p{
+    margin-left: auto;
+    margin-right: auto;
+    color:#F4831F; 
+}
+.left-content span{
+   color: black;
+}
+.right-content p{
+    width: 80%;
+    text-align: left;
+    border-bottom: 2px solid #F4831F;
+    margin: 30px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.right-content p{
+    margin-left: auto;
+    margin-right: auto;
+    color: #F4831F;
+}
+.right-content span{
+    color: black;
+ }
+
+
+ @media (max-width: 768px) {
+    .profile-page .all-containers{
+        width: 380px;
+    }
+    .left-content p{
+        font-size: 15px !important;
+    }
+    .right-content p{
+        font-size: 15px !important;
+    }
+    .profile-user-icon img{
+        height: 150px !important;
+        width: 150px !important;  
+    }
+}
+
+@media(min-width: 375px){
+    .profile-page .all-containers{
+        width: 300px !important ;
+    }
+}
+@media(min-width: 320px){
+    .profile-page .all-containers{
+        width: 280px !important;
+    }
+    .left-content p{
+        font-size: 12px !important;
+    }
+    .right-content p{
+        font-size: 12px !important;
+    }
+}
+@media(width: 1024px){
+    .profile-page .all-containers{
+        width: 900px !important ;
+    }
+    .left-content p{
+        font-size: 20px !important;
+    }
+    .right-content p{
+        font-size: 20px !important;
+    }
+}
+@media(width: 768px){
+    .profile-page .all-containers{
+        width: 800px !important ;
+    }
+}
+@media(width: 1440px){
+    .profile-page .all-containers{
+        width: 1200px !important ;
+    } 
+    .left-content p{
+        font-size: 20px !important;
+    }
+    .right-content p{
+        font-size: 20px !important;
+    }
+}
