@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import {useDispatch} from 'react-redux';
 import { loginAccount } from '../../redux/actions';
+import { LOGIN_API } from '../../Apis/apis';
 
 const Login = () => {
 
@@ -23,7 +24,7 @@ const Login = () => {
   const submitHandler=e=>{
     e.preventDefault()
     console.log('state',state)
-    axios.post('https://exam-portal-by-hritik-sanam.herokuapp.com/login',state)
+    axios.post(LOGIN_API,state)
     .then((res)=>{
       console.log(res)
       toast.success("Login Successfully!");

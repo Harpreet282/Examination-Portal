@@ -3,6 +3,7 @@ import './sign-up.css'
 import {NavLink} from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import { SIGN_UP_API } from '../../Apis/apis';
 
 const SignUp = () => {
 
@@ -15,7 +16,7 @@ const SignUp = () => {
     const submitHandler=e=>{
       e.preventDefault()
       console.log('data',data)
-      axios.post('https://exam-portal-by-hritik-sanam.herokuapp.com/register',data)
+      axios.post(SIGN_UP_API ,data)
       .then((res)=>{
         console.log(res)
         toast.success("Register Successfully!");
