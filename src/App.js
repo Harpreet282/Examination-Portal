@@ -1,15 +1,17 @@
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+
+import Courses from "./Pages/Examiner-Page/Courses/Courses";
+import ExaminerDashboard from "./Pages/Examiner-Page/Examiner-Dashboard/ExaminerDashboard";
 import StudentSignup from "./Pages/Examiner-Page/Examiner-Signup/StudentSignup";
 import Index from "./Routes";
 
 function App() {
   return (
     <>
-    {/* <Header /> */}
-    <StudentSignup/>
-    {/* <Index />
-    <Footer /> */}
+   
+    {/* <StudentSignup/>  */}
+    <ExaminerDashboard/>
+     {/* <Courses/> */}
+   
     </>
   );
 }

@@ -1,20 +1,17 @@
-.examinerDashboard .all-containers{
+.Student-Courses .all-containers{
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
     overflow: hidden;
-    border-radius: 8px;  
+    border-radius: 8px;
+    background-color:#e2dede;
 }
-
-.examinerDashboard .all-content{
+.Student-Courses .all-containers .all-content{
+    height:480px;
     overflow: hidden;
+    top:20px;
     position: relative;
     text-align: center;
- }
-
- .examinerDashboard .all-containers .dashboard-left-content{
-    background-color: grey;
-    color: white;
- }
- .examinerDashboard .all-containers .all-content button{
+}
+.Student-Courses .all-containers .all-content button{
     margin-top: 15px;
     width: 50%;
     border: 2px solid #F4831F;
@@ -22,7 +19,7 @@
     font-weight: 700;
     color:#F4831F
 }
-.examinerDashboard .all-containers .all-content button:hover{
+.Student-Courses .all-containers .all-content button:hover{
     border: 2px solid black;
     background-color: black;
 }  

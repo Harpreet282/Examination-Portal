@@ -5,7 +5,6 @@ import Home from '../Pages/Home-Page/Home';
 import Login from '../Pages/Login-Page/Login';
 import SignUp from '../Pages/Signup-Page/SignUp';
 
-
 const Index = () => {
   return (
     <>
