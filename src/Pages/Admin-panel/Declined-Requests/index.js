@@ -1,12 +1,15 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import axios from 'axios';
 import { DECLINED_REQUESTS_API,UPDATE_REQUESTS_API } from '../../../Apis/apis';
 import './declinedRequests.css'
 
 const DeclinedRequests = () => {
   const [declinedRequests, setDeclinedRequests] = useState([]);
+  var shouldLog=useRef(true);
 
   useEffect(() => {
+    if(shouldLog.current){
+      shouldLog=false;
     const token=JSON.parse(localStorage.getItem('data')).token;
     // console.log(token)
     axios
@@ -18,6 +21,7 @@ const DeclinedRequests = () => {
     .catch((error) => {
       console.log(error);
     });
+  }
   }, []);
 
   const handleAction=(id,action)=>{
@@ -40,7 +44,7 @@ console.log(id)
   }
 //   useEffect(()=>{
 //     handleAction();
-//  },[]);
+//  });
 
 
   return (

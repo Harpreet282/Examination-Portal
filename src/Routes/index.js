@@ -1,11 +1,11 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
-import About from '../Pages/About-Page/About';
-import Home from '../Pages/Home-Page/Home';
-import Login from '../Pages/Login-Page/Login';
+import About from '../Pages/About';
+import Home from '../Pages/Home';
+import Login from '../Pages/Login';
 // import Profile from '../Pages/Profile-page/Profile';
-import SignUp from '../Pages/Signup-Page/SignUp';
-import AdminDashboard from '../Pages/Admin-panel/Dashboard/Dashboard';
+import SignUp from '../Pages/Signup';
+import AdminDashboard from '../Pages/Admin-panel/Admin-Dashboard';
 
 const Index = () => {
   return (

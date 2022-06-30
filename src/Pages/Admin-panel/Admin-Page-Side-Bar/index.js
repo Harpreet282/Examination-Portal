@@ -2,20 +2,17 @@ import React from 'react'
 import './requests.css'
 import { NavLink } from 'react-router-dom'
 
-const Requests = () => {
-
+const AdminPageSideBar = () => {
  
-
-  
   return (
-    <section className='requests-page '>
+    <section className='admin-sidebar-page'>
    
 <div>
     <div >
     <div className="side-bar">
     <ul>
     <li className="nav-item">
-              <NavLink className="nav-link" to="/adminDashboard/newRequests" >
+              <NavLink className="nav-link" to="/adminDashboard/" >
             New Requests
               </NavLink>
             </li>
@@ -40,4 +37,4 @@ const Requests = () => {
   )
 }
 
-export default Requests
+export default AdminPageSideBar
