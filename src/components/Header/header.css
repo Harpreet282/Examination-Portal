@@ -15,15 +15,19 @@
     font-size: 20px;
     font-weight: 700;
     margin: 0px 20px 0px 20px;
+    color: var(--main-black-color) !important;
 }
 
 .header ul li:hover{
     background-color: var(--main-black-color);
-    
 }
 .header ul li:hover a{
     color: var(--main-white-color) !important;
 }
 .header ul li a.active{
-    color: var(--main-black-color);
+    color: var(--main-theme-color) !important;
 }
+
+/* .header ul li a.active li{ 
+    background-color: var(--main-black-color);
+} */

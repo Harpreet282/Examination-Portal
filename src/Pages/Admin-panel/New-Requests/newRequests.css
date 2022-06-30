@@ -10,18 +10,10 @@
     font-weight: 500;
     font-size: 18px;
 }
-.new-requests-page .content-box .requests-right-content{
-    justify-content: right;
-}
+
 .new-requests-page .content-box .requests-right-content .btn{
 padding: 0;
 margin: 0px 10px;
 font-weight: 500;
     font-size: 18px;
 }
-.new-requests-page .content-box .requests-right-content .approveButton{
-color: green;
-}
-.new-requests-page .content-box .requests-right-content .declineButton{
-    color: red;
-    }

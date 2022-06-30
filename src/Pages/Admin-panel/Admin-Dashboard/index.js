@@ -1,7 +1,7 @@
 import React from 'react'
 import './dashboard.css'
+import AdminPageSideBar from '../Admin-Page-Side-Bar';
 import Index from '../../../Routes/Admin-routes'
-import Requests from '../Requests/Requests'
 
 const AdminDashboard = () => {
   return (
@@ -9,7 +9,7 @@ const AdminDashboard = () => {
       <div className="container all-containers my-5">
      <div className="row">
       <div className="col-md-3 left-content">
-      <Requests/>
+      <AdminPageSideBar/>
       </div>
       <div className="col-md-9">
         <Index/>

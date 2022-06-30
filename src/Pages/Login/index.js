@@ -23,7 +23,7 @@ const Login = () => {
 
   const submitHandler=e=>{
     e.preventDefault()
-    console.log('state',state)
+    // console.log('state',state)
     axios.post(LOGIN_API,state)
     .then((res)=>{
       console.log(res)

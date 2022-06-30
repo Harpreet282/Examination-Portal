@@ -17,7 +17,7 @@ const Header = () => {
   
    if(localStorage.data){
     var currentUser =  JSON.parse(localStorage.getItem('data')).userType;   
-    console.log(currentUser)
+    // console.log(currentUser)
    }
 
   return (
