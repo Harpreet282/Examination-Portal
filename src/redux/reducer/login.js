@@ -9,7 +9,7 @@ const loginState=(state=initialState,action)=>{
         case 'LOGIN':
             const token=action.payload.token;
             const userType=action.payload.userType;
-            console.log(userType)
+            // console.log(userType)
             const data={
                 token,
                 userType

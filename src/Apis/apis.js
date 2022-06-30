@@ -7,4 +7,4 @@ export const SIGN_UP_API = getApiUrl('/register');
 export const PENDING_REQUESTS_API = getApiUrl('/admin/examiners/pending');
 export const APPROVED_REQUESTS_API = getApiUrl('/admin/examiners/approved');
 export const DECLINED_REQUESTS_API = getApiUrl('/admin/examiners/declined');
-export const UPDATE_REQUESTS_API = getApiUrl('/admin/examiners/action');
+export const UPDATE_REQUESTS_API = getApiUrl('/admin/examiner/action');

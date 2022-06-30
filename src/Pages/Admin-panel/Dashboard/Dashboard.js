@@ -1,7 +1,7 @@
 import React from 'react'
 import './dashboard.css'
+import Requests from '../Requests/Requests';
 import Index from '../../../Routes/Admin-routes'
-import Requests from '../Requests/Requests'
 
 const AdminDashboard = () => {
   return (

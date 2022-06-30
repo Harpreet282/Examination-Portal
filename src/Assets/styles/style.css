@@ -22,3 +22,17 @@
     justify-content: center;
     display: flex;
 }
+
+.approveButton{
+    color: green;
+    }
+     .declineButton{
+        color: red;
+        }
+        .deleteButton{
+            color: red;
+            }
+
+            .requests-right-content{
+                justify-content: right;
+            }

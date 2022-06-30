@@ -25,5 +25,5 @@
     color: var(--main-white-color) !important;
 }
 .header ul li a.active{
-    color: var(--main-black-color);
+    color: var(--main-theme-color) !important;
 }
