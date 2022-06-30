@@ -1,0 +1,33 @@
+.student-page .all-containers{
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.student-left-container li{
+     list-style: none;  
+     padding: 25px;
+     text-align: left;
+}
+.student-col-3{
+    background-color: #e2dede;
+}
+.student-left-container button{
+    border: none;
+    background-color: #e2dede;
+    font-weight: 600;
+    font-size: 25px;
+    width: 100%;
+}
+.student-left-container button:hover{
+    background-color: black;
+    color: white;
+}
+.student-left-container button:focus{
+    background-color: black;
+    color: white;
+}
+.student-col-9 p{
+    font-size: 25px;
+    margin: 45px;
+    text-align: center;
+}
