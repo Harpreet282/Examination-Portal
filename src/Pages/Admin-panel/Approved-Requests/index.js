@@ -2,9 +2,11 @@ import React,{useState,useEffect,useRef} from 'react'
 import { APPROVED_REQUESTS_API,UPDATE_REQUESTS_API } from '../../../Apis/apis';
 import axios from 'axios';
 import './approvedRequests.css'
+import Loader from '../../../Loader';
 
 const ApprovedRequests = () => {
   const [approvedRequests, setApprovedRequests] = useState([]);
+  const [loading,setLoading]=useState(true)
   var shouldLog=useRef(true);
 
   useEffect(() => {
@@ -16,6 +18,7 @@ const ApprovedRequests = () => {
     .get(APPROVED_REQUESTS_API, { headers: { Authorization: `Bearer ${token}` } })
     .then((response) => {
       setApprovedRequests(response.data.data.Examiners);
+      setLoading(false);
       console.log(response.data.data.Examiners);
     })
     .catch((error) => {
@@ -49,17 +52,27 @@ console.log(id)
 
   return (
     <section className='approved-requests-page my-3'>
-      {approvedRequests.length>0?
+     {
+      loading?<Loader /> :
+      <>
+       {approvedRequests.length>0?
         <>
         <h2>All Approved Request :</h2>
         {approvedRequests.map((req) => {
           return (
             <div key={req._id} className="content-box p-2 my-2" >
             <div className="row">
-             <div className="col-md-6 requests-left-content">
-             <div className="email">{req.email}</div>
+             <div className="col-md-8 requests-left-content">
+            <div className="row">
+                <div className="col-md-6">
+                <div className="reqData">{req.firstName} {req.lastName}</div>
+                </div>
+              <div className="col-md-6">
+                <div className="reqData">{req.email}</div>
+                </div>
+            </div>
              </div>
-             <div className="col-md-6 d-flex requests-right-content">
+             <div className="col-md-4 d-flex requests-right-content">
              <div ><button className='btn declineButton' onClick={()=>handleAction(req._id,'DECLINED')}>Decline</button></div>
                  <div ><button className='btn deleteButton' onClick={()=>handleAction(req._id,'DELETED')}>Delete</button></div>
              </div>
@@ -71,6 +84,8 @@ console.log(id)
       :
       <h2>No Approved Accounts</h2>
 }
+</>
+     }
     </section>
   )
 }
