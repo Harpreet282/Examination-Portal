@@ -48,7 +48,9 @@ const Student = () => {
                         </div>
                     </div>
                     <div className='col-md-9 student-col'>
-                        <p>Get the  Exam details here !!</p>
+                        
+
+                        {path === "" && <p>Get the  Exam details here !!</p> }
                         {path === "viewexams" && <Exams />}
                         {path === "result" && <Results />}
                         {path === "transaction" && <Transaction />}          

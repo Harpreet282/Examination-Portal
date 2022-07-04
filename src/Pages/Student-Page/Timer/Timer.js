@@ -1,20 +1,49 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import "./Timer.css"
+
+import getDaysToGo from 'get-days-to-go'
+
 
 const Timer = (props) => {
 
+  console.log(">>>>>props", props);
 
-    let today = Date.now()
-    let exam = Date.parse(new Date('2022-07-05'));
-    
-    let ms = exam - today;
-    let days = Math.ceil(ms/86400000);
-    
-    console.log(days)
+  const time = getDaysToGo(props.date)  
+  console.log(time,'timers')    
+
+
+
+
+
+  console.log(time.days);
   return (
-    <div>
-        <h1>{days}<span>days to go</span></h1>
+   
+    <section className='timer-content'>
+      <p className='timer-content-para' style={{display:"flex", textAlign:"center",justifyContent:"center"}}>
 
-    </div>
+        <div className='timer-span'>
+          <span>{time.days}</span><br/>
+          
+          <span>{time.days === 1 ? "DAY" : "DAYS"} </span>
+        </div>
+        <a>:</a>
+        <div className='timer-span'>
+          <span>{time.hrs}</span><br/>
+          <span>HRS</span>
+        </div>
+        <a>:</a>
+        <div className='timer-span'>
+          <span>{time.mins}</span><br/>
+          <span>MINS</span>
+        </div>
+        <a>:</a>
+        <div className='timer-span'>
+          <span>{time.secs}</span><br/>
+          <span>SEC</span>
+        </div>
+      
+    </p>
+    </section>
   )
 }
 

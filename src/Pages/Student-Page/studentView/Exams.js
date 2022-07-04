@@ -6,7 +6,7 @@ const Exams = () => {
     {
       id: 1,
       subject: "Data Structure",
-      date: "2022-07-04",
+      date: "2022-07-15",
       timings: "9:00am to 12:00pm"
     },
     {
@@ -32,7 +32,7 @@ const Exams = () => {
     <div>
       <div className='container'>
         <div className='row'>
-            {data?.map((content) => {
+            {data.map((content) => {
               return (
                 <div className='col-md-6 exams-col' key={content.id}>
                   <div className="card exams-card">
@@ -41,7 +41,7 @@ const Exams = () => {
                       <p>Exams date: {content.date}</p>
                       <p className="card-text  exams-timings">Timings: {content.timings}</p>
                     </div>
-                    <div className="card-body">
+                    <div className=" student-card-body">
                       {/* <a href="#" className="card-link">Card link</a> */}
                       <a href="#" className="card-link">
                         <Timer date={content.date}/>
