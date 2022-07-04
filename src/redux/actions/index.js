@@ -8,7 +8,6 @@ export const loginAccount=(token,userType)=>{
     };
 };
 
-
 export const logoutAccount=()=>{
     return{
         type:"LOGOUT",
