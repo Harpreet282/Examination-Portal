@@ -1,38 +1,51 @@
-.margin-from-top{
-    margin-top: 5rem;
+.margin-from-top {
+  margin-top: 5rem;
 }
 
-.all-containers{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    overflow: hidden;
-    border-radius: 8px;
+.all-containers {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
-.absolute-center{
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 80%;
+.absolute-center {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%;
 }
 
-.center-content-in-div{
-    align-items: center;
-    justify-content: center;
-    display: flex;
+.center-content-in-div {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
-.approveButton{
-    color: green;
-    }
-     .declineButton{
-        color: red;
-        }
-        .deleteButton{
-            color: red;
-            }
+.approveButton {
+  color: green;
+}
+.declineButton {
+  color: red;
+}
+.deleteButton {
+  color: red;
+}
 
-            .requests-right-content{
-                justify-content: right;
-            }
+.requests-right-content {
+  justify-content: right;
+}
+
+.reqData {
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0px 20px;
+}
+
+.error{
+font-size: 14px;
+font-weight: 500;
+padding: 0;
+margin: 0;
+}
