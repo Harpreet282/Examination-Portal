@@ -14,3 +14,15 @@ export const logoutAccount=()=>{
         type:"LOGOUT",
     };
 };
+
+export const loaderValue=()=>{
+    return{
+        type:"LOADING_FALSE",
+    };
+};
+
+export const loaderValue2=()=>{
+    return{
+        type:"LOADING_TRUE",
+    };
+};
