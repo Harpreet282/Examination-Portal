@@ -5,7 +5,7 @@ import { PENDING_REQUESTS_API, UPDATE_REQUESTS_API } from "../../../Apis/apis";
 import Loader from "../../../Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { loaderValue, loaderValue2 } from "../../../redux/actions";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 const NewRequests = () => {
   const [requests, setRequests] = useState([]);
@@ -53,21 +53,19 @@ const NewRequests = () => {
         let newData = requests.filter((x) => x._id !== id);
         setRequests(newData);
         dispatch(loaderValue());
-        
-        const str=(data.action).toLowerCase()
-        toast.success(`User ${str.charAt(0).toUpperCase()+str.slice(1)} Successfully!`);
+
+        const str = data.action.toLowerCase();
+        toast.success(
+          `User ${str.charAt(0).toUpperCase() + str.slice(1)} Successfully!`
+        );
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  //   useEffect(()=>{
-  //     handleAction();
-  //  });
-
   return (
-    <section className="new-requests-page my-3">
+    <section className="new-requests-page my-4">
       {loadingState ? (
         <Loader />
       ) : (
