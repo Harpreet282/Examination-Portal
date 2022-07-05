@@ -11,17 +11,17 @@ const Requests = () => {
     <div className="side-bar">
     <ul>
     <li className="nav-item">
-              <NavLink className="nav-link" to="/newRequests" >
+              <NavLink className="nav-link" to="/adminDashboard/" >
             New Requests
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/approvedRequests" >
+              <NavLink className="nav-link" to="/adminDashboard/approvedRequests" >
               Approved Requests
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/declinedRequests" >
+              <NavLink className="nav-link" to="/adminDashboard/declinedRequests" >
               Declined Requests
               </NavLink>
             </li>

@@ -1,9 +1,3 @@
-.Student-Signup .all-containers{
-    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
-    overflow: hidden;
-    border-radius: 8px;
-    
-}
 .Student-Signup .all-content{
 height: 480px;
 overflow: hidden;
@@ -20,7 +14,7 @@ text-align: center;
     width: 80%;
     }
 
-    .Student-Signup h1{
+    .Student-Signup h2{
         margin-top: 20px;
         color:#F4831F;
     margin-left: auto !important;
@@ -74,9 +68,9 @@ text-align: center;
         border: 2px solid #F4831F;
         border-radius: 25px;
         font-weight: 700;
-        color:#F4831F
+        color:var(--main-theme-color)
     }
     .Student-Signup .all-content .content form button:hover{
-        border: 2px solid black;
+        border: 2px solid var(--main-black-color);
         background-color: black;
     }  

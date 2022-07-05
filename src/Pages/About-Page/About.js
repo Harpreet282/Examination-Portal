@@ -3,9 +3,6 @@ import './about.css'
 
 const About = () => {
   return (
-<<<<<<< HEAD
-    <div><h1> About</h1></div>
-=======
     <>
     <section className="about-page">
 <div className="container all-containers my-5">
@@ -40,7 +37,6 @@ const About = () => {
 </div>
     </section>
     </>
->>>>>>> 79b68a115711de00be177cdbefcd005ff578ed16
   )
 }
 
