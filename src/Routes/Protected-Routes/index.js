@@ -1,17 +1,32 @@
 import React from 'react'
 import {Outlet} from 'react-router'
-import Home from '../../Pages/Home'
 import {useSelector} from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 const ProtectedRoutes = () => {
+  const navigate = useNavigate();
     const isLogged=useSelector(state=>state.loginState.authenticated);
   return (
     <div> 
 {
-    isLogged?<Outlet />:<Home/>
+    isLogged?<Outlet />:
+ 
+     navigate("/")
+
 }
     </div>
   )
 }
+const ProtectedRoutes2 = () => {
+  const navigate = useNavigate();
+  const isLogged=useSelector(state=>state.loginState.authenticated);
+return (
+  <div> 
+{
+  !isLogged?<Outlet />:   navigate("/adminDashboard/")
+}
+  </div>
+)
+}
 
-export default ProtectedRoutes
+export  {ProtectedRoutes,ProtectedRoutes2}
