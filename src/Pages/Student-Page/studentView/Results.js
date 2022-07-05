@@ -1,77 +1,75 @@
 import React from 'react'
+import "./Result.css"
 
 const Results = () => {
 
   const data = [
     {
       id: 1,
-      subject:"Discrete Mathematics",
+      subject: "Discrete Mathematics",
+      code: "DM34751",
       marksObtained: 39,
       totalMarks: 50,
-      grade: "B"
+      grade: "B+"
     },
     {
       id: 2,
-      subject:"Programming in C",
+      subject: "Programming in C",
+      code: "PC00842",
       marksObtained: 47,
       totalMarks: 50,
-      grade: "A"
+      grade: "A+"
     },
     {
       id: 3,
-      subject:"Discrete Mathematics",
+      subject: "Core Java",
+      code: "CQ55674",
       marksObtained: 45,
       totalMarks: 50,
-      grade: "A"
+      grade: "A+"
     },
     {
       id: 4,
-      subject:"human Values and Ethics",
+      subject: "human Values and Ethics",
+      code: "HM99100",
       marksObtained: 40,
       totalMarks: 50,
-      grade: "A"
+      grade: "A+"
     },
     {
       id: 5,
-      subject:"English Communication",
+      subject: "English Communication",
+      code: "CE44187",
       totalMarks: 50,
       marksObtained: 48,
-      grade: "A"
+      grade: "A+"
     },
   ]
   return (
     <div>
-      <div className='container'>
+      <div className='container results-container'>
         <div className='row'>
-          <div className='col'>
-            <table className='table table-bordered'>
-              <thead className='thead-light'>
-                <tr>
-                  <th scope='col'></th>
-                  <th scope='col'>Subject</th>
-                  <th scope='col'>Marks Obtained</th>
-                  <th scope='col'> Total Marks</th>
-                  <th scope='col'>Grade</th>
-                </tr>
-              </thead>
-                  <tbody>
-                  {data.map((content) => {
-                    return(
-                      <>
-
-                        <tr key={content.id}>
-                          <td scope='col'>{content.id}</td>
-                          <td scope='row'>{content.subject}</td>
-                          <td scope='row'>{content.marksObtained}</td>
-                          <td scope='row'>{content.totalMarks}</td>
-                          <td scope='row'>{content.grade}</td>
-                        </tr>
-                      </>
-                    )
-                   })}
-                </tbody> 
-            </table>
-          </div>
+          {data.map((content) => {
+            return (
+              <div className='col-md-6 results-col' key={content.id}>
+                <div className='card'>
+                  <div className='card-body'>
+                    <div className='result-title'>
+                    <h3 className='card-title '>
+                      {content.subject}
+                    </h3>
+                    </div>
+                    <p>Subject Code: {content.code}</p>
+                    <p className='card-text'>Marks Obtained: {content.marksObtained} /50</p>
+                    <div className='result-bottom'>
+                      <p>Grade: {content.grade}</p>
+                      <button type="button" className="btn">View Details</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>

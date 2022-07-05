@@ -1,7 +1,7 @@
 import React from 'react'
 import './Student.css'
 import {useNavigate, useLocation} from "react-router-dom"
-import Exams from '../studentView/Exams'
+import Exams from '../studentView/Exams/Exams'
 import Results from '../studentView/Results'
 import Transaction from '../studentView/Transaction'
 

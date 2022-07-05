@@ -6,30 +6,28 @@ import getDaysToGo from 'get-days-to-go'
 
 const Timer = (props) => {
 
-  console.log(">>>>>props", props);
 
-  const time = getDaysToGo(props.date)  
-  console.log(time,'timers')    
+    const [time,setTime] = useState(getDaysToGo(props.date))
+   
+      setInterval(() => {
+        setTime(getDaysToGo(props.date))
+      },1000)
 
-
-
-
-
-  console.log(time.days);
+  
   return (
    
     <section className='timer-content'>
       <p className='timer-content-para' style={{display:"flex", textAlign:"center",justifyContent:"center"}}>
-
         <div className='timer-span'>
-          <span>{time.days}</span><br/>
-          
+          <span>{time.days}</span><br/>        
           <span>{time.days === 1 ? "DAY" : "DAYS"} </span>
+          
         </div>
         <a>:</a>
         <div className='timer-span'>
           <span>{time.hrs}</span><br/>
           <span>HRS</span>
+          {time.hrs === props.time ? "Apply for exam" : ""}
         </div>
         <a>:</a>
         <div className='timer-span'>
@@ -41,8 +39,7 @@ const Timer = (props) => {
           <span>{time.secs}</span><br/>
           <span>SEC</span>
         </div>
-      
-    </p>
+      </p>
     </section>
   )
 }
