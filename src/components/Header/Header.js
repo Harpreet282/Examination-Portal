@@ -70,15 +70,11 @@ const Header = () => {
             {currentUser==='EXAMINER'?
             <>
              <li className="nav-item">
-              <NavLink className="nav-link" to="/exam">
-                Make Exam
+              <NavLink className="nav-link" to="/examinerDashboard">
+                Dashboard
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/check" >
-              Check Exams
-              </NavLink>
-            </li>
+            
             </>
             :
             <>

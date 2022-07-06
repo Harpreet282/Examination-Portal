@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
+<<<<<<< HEAD
 import About from '../Pages/About';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
@@ -18,10 +19,23 @@ const Index = () => {
   {/* <Route element={<ProtectedRoutes2/>}> */}
 
   
+=======
+import About from '../Pages/About-Page/About';
+import Home from '../Pages/Home-Page/Home';
+import Login from '../Pages/Login-Page/Login';
+import SignUp from '../Pages/Signup-Page/SignUp';
+import AdminDashboard from '../Pages/Admin-panel/Dashboard/Dashboard'
+import ExaminerDashbord from '../Pages/Examiner-Panel/Dashboard/ExaminerDashbord';
+const Index = () => {
+  return (
+    <>
+ <Routes>
+>>>>>>> 9bc6dec142c5ed6189272c91af0a8aded061927d
     <Route path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
+<<<<<<< HEAD
     <Route path="/modal" element={<Modal />} />
     {/* </Route> */}
     {/* </Route> */}
@@ -34,6 +48,12 @@ const Index = () => {
     <Route path="*" element={<Home/>} />
 </Routes>
     </>
+=======
+    <Route path="/adminDashboard/*" element={<AdminDashboard />} />
+    <Route path="/examinerDashboard/*" element={<ExaminerDashbord />} />
+     </Routes> 
+    </> 
+>>>>>>> 9bc6dec142c5ed6189272c91af0a8aded061927d
   )
 }
 
