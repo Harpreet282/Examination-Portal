@@ -14,13 +14,24 @@ const Index = () => {
   return (
     <>
 <Routes>
+<<<<<<< HEAD
     {/* <Route element={<ProtectedRoutes2/>}> */}
+=======
+  {/* <Route element={<ProtectedRoutes2/>}> */}
+
+  
+>>>>>>> c76a3e89d36d5f3acef796af5b4747138381ace4
     <Route path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
+<<<<<<< HEAD
     <Route path="/modal" element={<Modal />} />
     {/* </Route> */}
+=======
+    {/* </Route> */}
+   
+>>>>>>> c76a3e89d36d5f3acef796af5b4747138381ace4
     <Route element={<ProtectedRoutes/>}>
        <Route path="/profile" element={<Profile />} />
     <Route path="/adminDashboard/*" element={<AdminDashboard />} />
