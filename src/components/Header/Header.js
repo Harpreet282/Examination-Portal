@@ -70,15 +70,11 @@ const Header = () => {
             {currentUser==='EXAMINER'?
             <>
              <li className="nav-item">
-              <NavLink className="nav-link" to="/exam">
-                Make Exam
+              <NavLink className="nav-link" to="/examinerDashboard">
+                Dashboard
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/check" >
-              Check Exams
-              </NavLink>
-            </li>
+            
             </>
             :
             <>
@@ -93,14 +89,15 @@ const Header = () => {
              </>
               :
               <li className="nav-item">
-              <NavLink className="nav-link" to="/takeExam" >
-             Take Exam
+              <NavLink className="nav-link" to="/studentDashboard" >
+             Dashboard
               </NavLink>
             </li>
              }
             </>
             
             }
+            
             <li className="nav-item">
               <NavLink className="nav-link" to="/login" onClick={()=>dispatch(logoutAccount())}>
               Logout

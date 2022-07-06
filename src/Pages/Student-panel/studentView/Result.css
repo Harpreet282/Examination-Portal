@@ -1,0 +1,14 @@
+.result-bottom{
+    display: flex;
+    
+}
+.results-col{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.result-bottom .btn{
+    background-color: #F4831F;
+    color: white;
+    font-weight: 600;
+    margin-left:150px;  
+}

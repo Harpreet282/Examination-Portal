@@ -4,10 +4,10 @@ import Index from "./Routes";
 function App() {
   return (
     <>
-    <Header />
-    <Index />
+      <Header/>
+      <Index/>
     </>
-  );
+      );
 }
 
 export default App;
