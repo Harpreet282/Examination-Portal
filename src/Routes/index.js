@@ -12,14 +12,14 @@ const Index = () => {
   return (
     <>
 <Routes>
-  <Route element={<ProtectedRoutes2/>}>
+  {/* <Route element={<ProtectedRoutes2/>}> */}
 
   
     <Route path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
-    </Route>
+    {/* </Route> */}
    
     <Route element={<ProtectedRoutes/>}>
        {/* <Route path="/profile" element={<Profile />} /> */}
