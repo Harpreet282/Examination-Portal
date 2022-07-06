@@ -13,4 +13,4 @@ export const VIEW_COURSES =getApiUrl('/examiner/dashboard');
 export const CREATE_STUDENT =getApiUrl('/examiner/student');
 export const VIEW_STUDENT =getApiUrl('/examiner/students/');
 export const ADD_SUBECT =getApiUrl('/examiner/subjects');
-export const VIEW_SUBECTS =getApiUrl('/examiner/course/viewSubjects');
+export const VIEW_SUBECTS =getApiUrl('/examiner/subjects/');
