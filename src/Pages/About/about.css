@@ -1,0 +1,30 @@
+.about-page .left-content{
+position: relative;
+height: 480px;
+}
+
+.about-page .left-content .content h1{
+    color: var(--main-theme-color);
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.about-page .left-content .content ul li{
+    font-size: 20px;
+    line-height: 50px;
+}
+.about-page .right-content{
+    position: relative;
+background-color: var(--main-gray-color);
+}
+
+.about-page .right-content .content h1{
+    color: var(--main-theme-color);
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.about-page .right-content .content ul li{
+    font-size: 20px;
+    line-height: 50px;
+}

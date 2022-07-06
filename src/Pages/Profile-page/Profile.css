@@ -54,9 +54,34 @@
  }
 
 
+
+
+ @media(width: 1440px){
+    .profile-page .all-containers{
+        width: 1200px !important ;
+    } 
+    .left-content p{
+        font-size: 20px !important;
+    }
+    .right-content p{
+        font-size: 20px !important;
+    }
+}
+@media(width: 1024px){
+    .profile-page .all-containers{
+        width: 900px !important ;
+    }
+    .left-content p{
+        font-size: 20px !important;
+    }
+    .right-content p{
+        font-size: 20px !important;
+    }
+}
+
  @media (max-width: 768px) {
     .profile-page .all-containers{
-        width: 380px;
+        width: 800px;
     }
     .left-content p{
         font-size: 15px !important;
@@ -84,32 +109,5 @@
     }
     .right-content p{
         font-size: 12px !important;
-    }
-}
-@media(width: 1024px){
-    .profile-page .all-containers{
-        width: 900px !important ;
-    }
-    .left-content p{
-        font-size: 20px !important;
-    }
-    .right-content p{
-        font-size: 20px !important;
-    }
-}
-@media(width: 768px){
-    .profile-page .all-containers{
-        width: 800px !important ;
-    }
-}
-@media(width: 1440px){
-    .profile-page .all-containers{
-        width: 1200px !important ;
-    } 
-    .left-content p{
-        font-size: 20px !important;
-    }
-    .right-content p{
-        font-size: 20px !important;
     }
 }

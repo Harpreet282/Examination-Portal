@@ -1,4 +1,7 @@
 import React from 'react'
+import StudentPageSideBar from '../StudentPageSideBar'
+import Index from '../../../Routes/Student-routes/index'
+import './studentDashboard.css'
 
 const StudentDashboard = () => {
   return (
