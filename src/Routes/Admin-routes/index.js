@@ -13,6 +13,7 @@ const Index = () => {
     <Route path="/declinedRequests" element={<DeclinedRequests />} />
     </Routes>
     </>
+    
   )
 }
 
