@@ -20,7 +20,7 @@
     text-align: center;
     margin-top: 50px;
 }
-.left-content p{
+.profile-page .left-content p{
     width: 80%;
     text-align: left;
     border-bottom: 2px solid #F4831F;
@@ -28,15 +28,15 @@
     font-size: 20px;
     font-weight: 500;
 }
-.left-content p{
+.profile-page .left-content p{
     margin-left: auto;
     margin-right: auto;
     color:#F4831F; 
 }
-.left-content span{
+.profile-page .left-content span{
    color: black;
 }
-.right-content p{
+.profile-page .right-content p{
     width: 80%;
     text-align: left;
     border-bottom: 2px solid #F4831F;
@@ -44,12 +44,12 @@
     font-size: 20px;
     font-weight: 500;
 }
-.right-content p{
+.profile-page .right-content p{
     margin-left: auto;
     margin-right: auto;
     color: #F4831F;
 }
-.right-content span{
+.profile-page .right-content span{
     color: black;
  }
 
@@ -60,10 +60,10 @@
     .profile-page .all-containers{
         width: 1200px !important ;
     } 
-    .left-content p{
+    .profile-page  .left-content p{
         font-size: 20px !important;
     }
-    .right-content p{
+    .profile-page.right-content p{
         font-size: 20px !important;
     }
 }
@@ -71,10 +71,10 @@
     .profile-page .all-containers{
         width: 900px !important ;
     }
-    .left-content p{
+    .profile-page .left-content p{
         font-size: 20px !important;
     }
-    .right-content p{
+    .profile-page .right-content p{
         font-size: 20px !important;
     }
 }
@@ -83,13 +83,13 @@
     .profile-page .all-containers{
         width: 800px;
     }
-    .left-content p{
+    .profile-page .left-content p{
         font-size: 15px !important;
     }
-    .right-content p{
+    .profile-page .right-content p{
         font-size: 15px !important;
     }
-    .profile-user-icon img{
+    .profile-page .profile-user-icon img{
         height: 150px !important;
         width: 150px !important;  
     }
@@ -104,10 +104,10 @@
     .profile-page .all-containers{
         width: 280px !important;
     }
-    .left-content p{
+    .profile-page .left-content p{
         font-size: 12px !important;
     }
-    .right-content p{
+    .profile-page .right-content p{
         font-size: 12px !important;
     }
 }
