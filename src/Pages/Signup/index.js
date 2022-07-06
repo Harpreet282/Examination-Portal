@@ -43,14 +43,15 @@ const SignUp = () => {
      .required('**Required!'),
   })
 
-  const onSubmit=values=>{
+  const onSubmit=(values,onSubmitProps)=>{
     // console.log('Submit Values',values)
     setLoading(true)
     axios.post(SIGN_UP_API ,values)
     .then((res)=>{
       setLoading(false)
       console.log(res)
-      toast.success("Register Successfully!");
+      toast.success("Register Successfully! Please Login.");
+      onSubmitProps.resetForm()
     })
     .catch((err)=>{
       setLoading(false)
@@ -105,7 +106,7 @@ const SignUp = () => {
       { formik.touched.password && formik.errors.password?  <p className='text-danger error'>{formik.errors.password}</p> : null}
         </div>
         <div>
-          <button className='btn'>Sign-up</button>
+          <button type='submit' className='btn'>Sign-up</button>
         </div>
         <div className='signupLink'>
           <p>Already have an Account?
