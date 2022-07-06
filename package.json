@@ -14,12 +14,8 @@
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
-<<<<<<< HEAD
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.3",
-=======
-    "react-scripts": "^5.0.1",
->>>>>>> 9bc6dec142c5ed6189272c91af0a8aded061927d
     "react-toastify": "^9.0.5",
     "redux": "^4.2.0",
     "web-vitals": "^2.1.4",
