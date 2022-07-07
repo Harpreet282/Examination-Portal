@@ -107,7 +107,7 @@ const Login = () => {
                         ) : null}
                       </div>
                       <div>
-                        <button className="btn">Login</button>
+                        <button type="submit" className="btn">Login</button>
                       </div>
                       <div className="signupLink">
                         <p>

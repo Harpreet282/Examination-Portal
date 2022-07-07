@@ -1,7 +1,6 @@
 .signup-page .left-content{
 position: relative;
 background-color: var(--main-gray-color);
-height: 533px;
 }
 
 .signup-page .left-content .content h1{
@@ -20,6 +19,7 @@ height: 533px;
     overflow: hidden;
     position: relative;
     /* padding: 0px; */
+height: 533px;
 }
 
 .signup-page .right-content .content input{
@@ -61,4 +61,21 @@ color: var(--main-theme-color);
     font-weight: 500;
   }
 
+
+
+  
+  @media (max-width: 1199.98px) {
+
+  }
+  @media (max-width: 991.98px) {
+
+  }
+@media (max-width: 767.98px) {
+
+}
+@media (max-width: 575.98px) {
+  .signup-page .left-content{
+    display: none;
+  }
+}
   

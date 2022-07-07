@@ -95,10 +95,7 @@
     }
 }
 
-@media(min-width: 375px){
-    .profile-page .all-containers{
-        width: 300px !important ;
-    }
+@media(max-width: 375px){
 }
 @media(min-width: 320px){
     .profile-page .all-containers{

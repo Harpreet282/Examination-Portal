@@ -24,6 +24,7 @@ const Index = () => {
     <Route path="/modal" element={<Modal />} />
    
     <Route element={<ProtectedRoutes/>}>
+      <Route path="/modal" element={<Modal />} />
        <Route path="/profile" element={<Profile />} />
     <Route path="/adminDashboard/*" element={<AdminDashboard />} />
     <Route path="/studentDashboard/*" element={<StudentDashboard />} />
