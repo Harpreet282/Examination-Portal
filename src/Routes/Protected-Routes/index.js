@@ -10,9 +10,7 @@ const ProtectedRoutes = () => {
     <div> 
 {
     isLogged?<Outlet />:
- 
      navigate("/")
-
 }
     </div>
   )
@@ -23,7 +21,7 @@ const ProtectedRoutes2 = () => {
 return (
   <div> 
 {
-  !isLogged?<Outlet />:   navigate("/adminDashboard/")
+  !isLogged?<Outlet />:   navigate("/profile")
 }
   </div>
 )

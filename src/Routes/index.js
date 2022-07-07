@@ -17,13 +17,16 @@ const Index = () => {
   return (
     <>
  <Routes>
+
+ {/* <Route element={<ProtectedRoutes2/>}>   */}
     <Route path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
     <Route path="/login" element={<Login />} />
-    <Route path="/signup" element={<SignUp />} />
-    <Route path="/modal" element={<Modal />} />
-   
+    <Route path="/signup" element={<SignUp />} /> 
+    {/* </Route> */}
+
     <Route element={<ProtectedRoutes/>}>
+      <Route path="/modal" element={<Modal />} />
        <Route path="/profile" element={<Profile />} />
     <Route path="/adminDashboard/*" element={<AdminDashboard />} />
     <Route path="/studentDashboard/*" element={<StudentDashboard />} />
@@ -31,6 +34,7 @@ const Index = () => {
     <Route path="/examinerDashboard/*" element={<ExaminerDashbord />} />
     <Route path="*" element={<Home/>} />
     </Route>
+    
      </Routes> 
     </> 
   )

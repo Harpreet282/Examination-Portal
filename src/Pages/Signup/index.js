@@ -50,7 +50,7 @@ const SignUp = () => {
     .then((res)=>{
       setLoading(false)
       console.log(res)
-      toast.success("Register Successfully! Please Login.");
+      toast.success("Register Successfully!");
       onSubmitProps.resetForm()
     })
     .catch((err)=>{
