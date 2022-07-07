@@ -7,7 +7,7 @@ export  const getApiUrl = (endpoint) => API_BASE_URL + endpoint;
  const PENDING_REQUESTS_API = getApiUrl('/admin/examiners/pending');
  const APPROVED_REQUESTS_API = getApiUrl('/admin/examiners/approved');
  const DECLINED_REQUESTS_API = getApiUrl('/admin/examiners/declined');
- const UPDATE_REQUESTS_API = getApiUrl('/admin/examiners/action');
+ const UPDATE_REQUESTS_API = getApiUrl('/admin/examiner/action');
  const CREATE_COURSE_API = getApiUrl('/examiner/course');
  const VIEW_COURSES =getApiUrl('/examiner/dashboard');
  const CREATE_STUDENT =getApiUrl('/examiner/student');
