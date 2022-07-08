@@ -2,6 +2,7 @@ import React,{useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import './header.css'
 import  {loginAccount,logoutAccount} from '../../redux/actions';
+import * as myConstants from '../../Constants'
 import {useDispatch,useSelector} from 'react-redux';
 
 const Header = () => {
@@ -67,7 +68,7 @@ const Header = () => {
               </NavLink>
             </li>
          
-            {currentUser==='EXAMINER'?
+            {currentUser===myConstants.EXAMINER?
             <>
              <li className="nav-item">
               <NavLink className="nav-link" to="/examinerDashboard">
@@ -79,7 +80,7 @@ const Header = () => {
             :
             <>
              {
-              currentUser==='ADMIN'?
+              currentUser===myConstants.ADMIN?
              <>
               <li className="nav-item">
               <NavLink className="nav-link" to="/adminDashboard" >

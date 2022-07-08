@@ -49,13 +49,13 @@ const SignUp = () => {
     axios.post(SIGN_UP_API ,values)
     .then((res)=>{
       setLoading(false)
-      console.log(res)
+      // console.log(res)
       toast.success("Register Successfully!");
       onSubmitProps.resetForm()
     })
     .catch((err)=>{
       setLoading(false)
-      console.log(err)
+      // console.log(err)
       toast.error("Error!");
     })
   }

@@ -7,11 +7,9 @@ import SignUp from '../Pages/Signup';
 import StudentDashboard from '../Pages/Student-panel/Student-Dashboard'
 import AdminDashboard from '../Pages/Admin-panel/Admin-Dashboard';
 import {ProtectedRoutes,ProtectedRoutes2} from './Protected-Routes';
-import Profile from '../Pages/Profile-page/Profile'
+import Profile from '../Pages/Profile'
 import Modal from '../Pages/Student-panel/Timer/Modal'
 import ExaminerDashbord from '../Pages/Examiner-Panel/Dashboard/ExaminerDashbord'
-
-
 
 const Index = () => {
   return (
