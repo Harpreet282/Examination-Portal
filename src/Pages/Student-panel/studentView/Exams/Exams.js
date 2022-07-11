@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Exams.css"
 import Timer from "../../Timer/Timer" 
 import {  useNavigate } from 'react-router-dom'
@@ -21,7 +21,7 @@ const Exams = () => {
     {
       id: 2,
       subject: "Programming in C",
-      date: "2022-07-20",
+      date: "2022-07-11",
       timings: "9:00am to 12:00pm"
     },
     {
@@ -37,6 +37,19 @@ const Exams = () => {
       timings: "12:00am to 3:00pm"
     },
   ]
+
+
+  
+  // const [time,setTime] = useState();
+
+  // var dta = '';
+  // console.log(dta,'dta')
+   
+  // setInterval(() => {
+  //   setTime()
+  // },1000)
+
+
   return (
     <div>
       <div className='container'>
@@ -49,10 +62,11 @@ const Exams = () => {
                       <h3 className="card-title">{content.subject}</h3>
                       <p>Exams date: {content.date}</p>
                       <p className="card-text  exams-timings">Timings: {content.timings}</p>
+                      {/* dta = {content.date} */}
                     </div>
                     <div className="student-card-body">
                       <button href="#" className="card-button" data-toggle="modal" data-target="#exampleModalCenter" onClick={openModal}>
-                        <Timer date={content.date} time={content.time}/>
+                        <Timer date={content.date}/>
                       </button>
                     </div>
                   </div>

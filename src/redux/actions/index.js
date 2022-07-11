@@ -1,9 +1,9 @@
 export const loginAccount = (token, userType) => {
   return {
-    type: "LOGIN",
-    payload: {
-      token,
-      userType,
+      type: "LOGIN",
+      payload: {
+        token,
+        userType,
     },
   };
 };

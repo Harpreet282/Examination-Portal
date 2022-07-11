@@ -15,19 +15,22 @@ const Timer = (props) => {
 
   
   return (
-   
+    <>
+    { time.days === 0 && time.hrs === 0 && time.mins === 10 ? 
+      <>
+        apply now
+      </>
+      :
     <section className='timer-content'>
       <p className='timer-content-para' style={{display:"flex", textAlign:"center",justifyContent:"center"}}>
         <div className='timer-span'>
           <span>{time.days}</span><br/>        
           <span>{time.days === 1 ? "DAY" : "DAYS"} </span>
-          
         </div>
         <a>:</a>
         <div className='timer-span'>
           <span>{time.hrs}</span><br/>
           <span>HRS</span>
-          {time.hrs === props.time ? "Apply for exam" : ""}
         </div>
         <a>:</a>
         <div className='timer-span'>
@@ -41,7 +44,9 @@ const Timer = (props) => {
         </div>
       </p>
     </section>
+    }
+</>
+
   )
 }
-
 export default Timer

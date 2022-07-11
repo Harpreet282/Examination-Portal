@@ -4,6 +4,7 @@ import Exam from '../../Pages/Student-panel/studentView/Exams/Exams'
 import Results from '../../Pages/Student-panel/studentView/Results'
 import ExamGuildelines from '../../Pages/Student-panel/studentView/Exams/ExamGuildelines';
 import Transaction from '../../Pages/Student-panel/studentView/Transaction'
+import ExamTimer from '../../Pages/Student-panel/studentView/Exams/ExamTimer';
 
 const Index = () => {
   return (
@@ -13,7 +14,8 @@ const Index = () => {
     <Route path="/results" element={<Results />} />
     <Route path="/transaction" element={<Transaction />} />
     <Route path="/examguidelines" element={<ExamGuildelines />} />
-    </Routes>
+    <Route path="/examtimer" element={<ExamTimer />} />
+  </Routes>
     </>
   )
 }

@@ -10,6 +10,7 @@ import {ProtectedRoutes,ProtectedRoutes2} from './Protected-Routes';
 import Profile from '../Pages/Profile-page/Profile'
 import Modal from '../Pages/Student-panel/Timer/Modal'
 import ExaminerDashbord from '../Pages/Examiner-Panel/Dashboard/ExaminerDashbord'
+import TimerModal from '../Pages/Student-panel/studentView/Exams/TimerModal';
 
 
 
@@ -22,6 +23,7 @@ const Index = () => {
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
     <Route path="/modal" element={<Modal />} />
+    <Route path='timermodal' element={<TimerModal />} />
    
     <Route element={<ProtectedRoutes/>}>
        <Route path="/profile" element={<Profile />} />
