@@ -54,7 +54,7 @@ useEffect(()=>{
                 <div className='row'>
                     <div className='col-md-12'>
                         <div className='content'>
-                            <div className='profile-user-icon'>
+                            <div className='profile-user-icon mt-1 mb-5'>
                                 <img 
                                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-HmAlYRaMiTx6PqSGcL9ifkAFxWHVPvhiHQ&usqp=CAU' 
                                 alt='user-icon' />

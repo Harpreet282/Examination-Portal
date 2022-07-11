@@ -1,30 +1,68 @@
 import React from 'react'
 import {Outlet} from 'react-router'
 import {useSelector} from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import * as myConst from '../../Constants'
+import Profile from '../../Pages/Profile';
+import Home from '../../Pages/Home';
 
 const ProtectedRoutes = () => {
-  const navigate = useNavigate();
     const isLogged=useSelector(state=>state.loginState.authenticated);
+    
   return (
     <div> 
 {
     isLogged?<Outlet />:
-     navigate("/")
+     <Home/>
 }
     </div>
   )
 }
+
 const ProtectedRoutes2 = () => {
-  const navigate = useNavigate();
   const isLogged=useSelector(state=>state.loginState.authenticated);
 return (
   <div> 
 {
-  !isLogged?<Outlet />:   navigate("/profile")
+  !isLogged?<Outlet />:   <Profile/>
 }
   </div>
 )
 }
 
-export  {ProtectedRoutes,ProtectedRoutes2}
+const AdminProtectedRoutes = () => {
+  const userType= JSON.parse(localStorage.getItem('data')).userType;
+  console.log(userType);
+return (
+  <div> 
+{
+ userType===myConst.ADMIN?<Outlet />:   <Profile/>
+}
+  </div>
+)
+}
+
+const ExaminerProtectedRoutes = () => {
+  const userType= JSON.parse(localStorage.getItem('data')).userType;
+  console.log(userType);
+return (
+  <div> 
+{
+ userType===myConst.EXAMINER?<Outlet />:   <Profile/>
+}
+  </div>
+)
+}
+
+const StudentProtectedRoutes = () => {
+  const userType= JSON.parse(localStorage.getItem('data')).userType;
+  console.log(userType);
+return (
+  <div> 
+{
+ userType===myConst.STUDENT?<Outlet />:   <Profile/>
+}
+  </div>
+)
+}
+
+export  {ProtectedRoutes,ProtectedRoutes2,AdminProtectedRoutes,ExaminerProtectedRoutes,StudentProtectedRoutes}
