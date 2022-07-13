@@ -24,9 +24,9 @@ const Header = () => {
   return (
     <>
      <div className="header">
-     <nav className="navbar navbar-expand-lg navbar-light">
+     <nav className="navbar navbar-expand-lg fixed-top">
         <NavLink className="navbar-brand" to="/">
-         <img src="https://jthemes.net/themes/html/quizo/demo/demo_assets/images/logo/logo.png" alt="logo" />
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7_v03MXYtMYta3mga-w4zIuiTRnPJ_eEPAA&usqp=CAU" alt="logo" />
         </NavLink>
         <button
           className="navbar-toggler"

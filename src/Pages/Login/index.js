@@ -9,7 +9,6 @@ import { LOGIN_API } from "../../Apis/apis";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Loader from "../../Loader";
-import { useEffect } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
