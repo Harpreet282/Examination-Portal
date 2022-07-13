@@ -10,6 +10,7 @@ const loginState=(state=initialState,action)=>{
             const token=action.payload.token;
             const userType=action.payload.userType;
             // console.log(userType)
+
             const data={
                 token,
                 userType

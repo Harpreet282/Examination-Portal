@@ -2,10 +2,11 @@ import React from 'react'
 import './about.css'
 
 const About = () => {
+  
   return (
     <>
     <section className="about-page">
-<div className="container all-containers my-5">
+<div className="container">
 <div className="row">
   <div className="col-md-6 left-content">
     <div className="content">

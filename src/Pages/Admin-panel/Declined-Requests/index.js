@@ -5,6 +5,7 @@ import "./declinedRequests.css";
 import Loader from "../../../Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { loaderValue, loaderValue2 } from "../../../redux/actions";
+import * as myConstants from '../../../Constants'
 import { ToastContainer, toast } from "react-toastify";
 
 const DeclinedRequests = () => {
@@ -26,9 +27,10 @@ const DeclinedRequests = () => {
         .then((response) => {
           setDeclinedRequests(response.data.data.Examiners);
           dispatch(loaderValue());
-          console.log(response.data.data.Examiners);
+          // console.log(response.data.data.Examiners);
         })
         .catch((error) => {
+          dispatch(loaderValue());
           console.log(error);
         });
     }
@@ -47,7 +49,7 @@ const DeclinedRequests = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         let newData = declinedRequests.filter((x) => x._id !== id);
         setDeclinedRequests(newData);
         dispatch(loaderValue());
@@ -94,7 +96,7 @@ const DeclinedRequests = () => {
                         <div>
                           <button
                             className="btn approveButton"
-                            onClick={() => handleAction(req._id, "APPROVED")}
+                            onClick={() => handleAction(req._id, myConstants.APPROVED)}
                           >
                             Approve
                           </button>
@@ -102,7 +104,7 @@ const DeclinedRequests = () => {
                         <div>
                           <button
                             className="btn btn deleteButton"
-                            onClick={() => handleAction(req._id, "DELETED")}
+                            onClick={() => handleAction(req._id, myConstants.DELETED)}
                           >
                             Delete
                           </button>

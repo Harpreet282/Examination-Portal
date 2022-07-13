@@ -6,33 +6,39 @@ import Login from '../Pages/Login';
 import SignUp from '../Pages/Signup';
 import StudentDashboard from '../Pages/Student-panel/Student-Dashboard'
 import AdminDashboard from '../Pages/Admin-panel/Admin-Dashboard';
-import {ProtectedRoutes,ProtectedRoutes2} from './Protected-Routes';
-import Profile from '../Pages/Profile-page/Profile'
+import {ProtectedRoutes,ProtectedRoutes2,AdminProtectedRoutes,ExaminerProtectedRoutes,StudentProtectedRoutes} from './Protected-Routes';
+import Profile from '../Pages/Profile'
 import Modal from '../Pages/Student-panel/Timer/Modal'
 import ExaminerDashbord from '../Pages/Examiner-Panel/Dashboard/ExaminerDashbord'
-
-
 
 const Index = () => {
   return (
     <>
  <Routes>
+ <Route element={<ProtectedRoutes2/>}>
     <Route path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
     <Route path="/modal" element={<Modal />} />
+    </Route>
    
     <Route element={<ProtectedRoutes/>}>
       <Route path="/modal" element={<Modal />} />
        <Route path="/profile" element={<Profile />} />
+       <Route element={<AdminProtectedRoutes/>}>
     <Route path="/adminDashboard/*" element={<AdminDashboard />} />
-    <Route path="/studentDashboard/*" element={<StudentDashboard />} />
-    <Route path="/adminDashboard/*" element={<AdminDashboard />} />
-    <Route path="/examinerDashboard/*" element={<ExaminerDashbord />} />
-    <Route path="*" element={<Home/>} />
     </Route>
+    <Route element={<ExaminerProtectedRoutes/>}>
+    <Route path="/examinerDashboard/*" element={<ExaminerDashbord />} />
+    </Route>
+    <Route element={<StudentProtectedRoutes/>}>
+    <Route path="/studentDashboard/*" element={<StudentDashboard />} />
+    </Route>
+    </Route>
+    <Route path="*" element={<Home/>} />
      </Routes> 
+     
     </> 
   )
 }

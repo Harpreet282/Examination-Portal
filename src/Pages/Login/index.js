@@ -35,7 +35,7 @@ const Login = () => {
       .post(LOGIN_API, values)
       .then((res) => {
         setLoading(false);
-        console.log(res);
+        // console.log(res);
         toast.success("Login Successfully!");
         dispatch(
           loginAccount(res.data.data.accessToken, res.data.data.userType)
@@ -44,7 +44,7 @@ const Login = () => {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
+        // console.log(err);
         if (err.response.data.message === "INVALID_PASSWORD") {
           toast.error("Invalid Password!");
         } else if (err.response.data.message === "USER_NOT_FOUND") {

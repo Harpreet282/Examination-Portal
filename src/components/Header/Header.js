@@ -2,6 +2,7 @@ import React,{useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import './header.css'
 import  {loginAccount,logoutAccount} from '../../redux/actions';
+import * as myConstants from '../../Constants'
 import {useDispatch,useSelector} from 'react-redux';
 
 const Header = () => {
@@ -23,9 +24,9 @@ const Header = () => {
   return (
     <>
      <div className="header">
-     <nav className="navbar navbar-expand-lg navbar-light">
+     <nav className="navbar navbar-expand-lg fixed-top">
         <NavLink className="navbar-brand" to="/">
-         <img src="https://jthemes.net/themes/html/quizo/demo/demo_assets/images/logo/logo.png" alt="logo" />
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7_v03MXYtMYta3mga-w4zIuiTRnPJ_eEPAA&usqp=CAU" alt="logo" />
         </NavLink>
         <button
           className="navbar-toggler"
@@ -67,7 +68,7 @@ const Header = () => {
               </NavLink>
             </li>
          
-            {currentUser==='EXAMINER'?
+            {currentUser===myConstants.EXAMINER?
             <>
              <li className="nav-item">
               <NavLink className="nav-link" to="/examinerDashboard">
@@ -79,7 +80,7 @@ const Header = () => {
             :
             <>
              {
-              currentUser==='ADMIN'?
+              currentUser===myConstants.ADMIN?
              <>
               <li className="nav-item">
               <NavLink className="nav-link" to="/adminDashboard" >

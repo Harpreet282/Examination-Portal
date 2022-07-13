@@ -7,7 +7,7 @@ const Loader = () => {
     <div className="loader">
 <ClimbingBoxLoader
 size={30}
-color={"#F4831F"}
+color={"#000"}
 />
   </div>
   )
