@@ -1,0 +1,43 @@
+.subject p{
+    font-size: 20px;
+    font-weight: 300;
+}
+.questions p{
+    font-size: 20px;
+    font-weight: 350;
+}
+.questions input{
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+    top: 0;
+}
+.questions .options p{
+    margin-left: 10px;
+}
+
+.verticalLine {
+    height: 500px;
+    border-right: 1px solid #d2d7d2;
+    position: absolute;
+    /* right: 35%; */
+}
+/*  */
+.give-exam-btn {
+    float: right;
+}
+.give-exam-btn .btn-right{
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.section-bottom-left .questions{
+    margin-right: 150px;
+}
+.btn-right-section .btn{
+    border: 1px solid rgb(180, 177, 177);
+    background-color: #d2d7d2;
+    padding: 8px 15px 8px 15px ; 
+    font-weight: 350;
+    border-radius: 5px;
+}

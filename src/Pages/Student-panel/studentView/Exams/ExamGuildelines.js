@@ -7,7 +7,7 @@ const ExamGuildelines = () => {
   const navigate = useNavigate();
 
   const openModal = () => {
-    navigate("/timermodal")
+    navigate("/fullScreenModal")
   }
 
   const handleButton=()=>{
@@ -16,14 +16,15 @@ const ExamGuildelines = () => {
     const cb = document.getElementById("exam-checkbox")
     // console.log(cb.checked);
 
-    cb.checked  === false ? toast.error('Please accept the terms and conditions') : navigate('/timermodal')
+    cb.checked  === false ? toast.error('Please accept the terms and conditions') :  navigate("/fullScreenModal");
     
   }
   return (
     <div className='exam-guideline-section'> 
-      <h1 className='text-center mt-3'>Examination Instructions to students</h1>
-      <div className='instruction-section my-5'>
+      <h1 className='text-center mt-5'>Examination Instructions to students</h1>
+      <div className='instruction-section my-5 mx-3'>
         <ol>
+          <div className='instructions'>
           <li>Be in uniform(except pass out and PG students). If not, get HOD’s/class advisor’s letter of permission.</li>
           <li>Be Punctual. Late entry permitted only till the first 30 minutes. Students are expected to be seated in the examination hall by 09:30am/01:30pm. The exam hall will be closed between 09:30am/01:30pm and 09:50am/01:50pm to avoid inconvenience during question paper distribution. Late comers can enter the exam hall only by 09:50 am/01:50 pm.</li>
           <li>You may leave the hall after the first 30 minutes of the exam.</li>
@@ -35,6 +36,7 @@ const ExamGuildelines = () => {
           <li>Students are not permitted to leave the examination hall in the first half an hour.</li>
           <li>Students are advised to leave the examination premises as soon as the examination is over. Thronging in the verandah causes inconvenience.</li>
           <li>Students are not allowed to stand outside the examination hall after the first bell. Students are generally not permitted to enter the examination hall after the second bell. Genuine late comers will be allowed to enter the hall, but only in the first half an hour.</li>
+          </div>
         </ol>
       </div>
       <div className='checkbox-section'>
@@ -43,11 +45,11 @@ const ExamGuildelines = () => {
           <p>I have read all the conditions mentioned above and accept all the terms and conditions.</p>
         </label>
       </div>
-      <div className='button-section text-center'>
+      <div className='button-section'>
         <button type="button"
            onClick={handleButton} 
-           className="btn my-2 mr-5 btn-primary" 
-           style={{ padding:"8px 25px 8px 25px"}}
+           className="btn my-2 mr-5" 
+           style={{ padding:"8px 25px 8px 25px", float:"right", backgroundColor:" #F4831F",fontWeight:"500"}}
            data-toggle="modal" 
            data-target="#exampleModalCenter"
            onSubmit={openModal}

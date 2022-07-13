@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import "./Exams.css"
 import Timer from "../../Timer/Timer" 
 import {  useNavigate } from 'react-router-dom'
+
 const Exams = () => {
 
   const navigate = useNavigate()
 
-
   const openModal = () => {
-    navigate("/modal")
+    navigate("/keymodal")
   } 
 
   const data = [
@@ -39,16 +39,6 @@ const Exams = () => {
   ]
 
 
-  
-  // const [time,setTime] = useState();
-
-  // var dta = '';
-  // console.log(dta,'dta')
-   
-  // setInterval(() => {
-  //   setTime()
-  // },1000)
-
 
   return (
     <div>
@@ -62,7 +52,6 @@ const Exams = () => {
                       <h3 className="card-title">{content.subject}</h3>
                       <p>Exams date: {content.date}</p>
                       <p className="card-text  exams-timings">Timings: {content.timings}</p>
-                      {/* dta = {content.date} */}
                     </div>
                     <div className="student-card-body">
                       <button href="#" className="card-button" data-toggle="modal" data-target="#exampleModalCenter" onClick={openModal}>

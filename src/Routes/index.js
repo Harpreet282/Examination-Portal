@@ -8,10 +8,12 @@ import StudentDashboard from '../Pages/Student-panel/Student-Dashboard'
 import AdminDashboard from '../Pages/Admin-panel/Admin-Dashboard';
 import {ProtectedRoutes,ProtectedRoutes2} from './Protected-Routes';
 import Profile from '../Pages/Profile-page/Profile'
-import Modal from '../Pages/Student-panel/Timer/Modal'
 import ExaminerDashbord from '../Pages/Examiner-Panel/Dashboard/ExaminerDashbord'
-import TimerModal from '../Pages/Student-panel/studentView/Exams/TimerModal';
-
+import ExamGuildelines from "../Pages/Student-panel/studentView/Exams/ExamGuildelines"
+import GiveExam from '../Pages/Student-panel/studentView/Exams/GiveExam';
+import KeyModal from '../Modals/KeyModal';
+import FullScreenModal from '../Modals/FullScreenModal';
+ 
 
 
 const Index = () => {
@@ -22,16 +24,20 @@ const Index = () => {
     <Route path="/about" element={<About />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
-    <Route path="/modal" element={<Modal />} />
-    <Route path='timermodal' element={<TimerModal />} />
+    <Route path="/keymodal" element={<KeyModal />} />
+    <Route path="/fullScreenModal" element={<FullScreenModal/>} />
+
    
     <Route element={<ProtectedRoutes/>}>
        <Route path="/profile" element={<Profile />} />
-    <Route path="/adminDashboard/*" element={<AdminDashboard />} />
-    <Route path="/studentDashboard/*" element={<StudentDashboard />} />
-    <Route path="/adminDashboard/*" element={<AdminDashboard />} />
-    <Route path="/examinerDashboard/*" element={<ExaminerDashbord />} />
-    <Route path="*" element={<Home/>} />
+      <Route path="/adminDashboard/*" element={<AdminDashboard />} />
+      <Route path="/studentDashboard/*" element={<StudentDashboard />} />
+      <Route path="/adminDashboard/*" element={<AdminDashboard />} />
+      <Route path="/examinerDashboard/*" element={<ExaminerDashbord />} />
+
+      <Route path="/examguidelines" element={<ExamGuildelines />} />
+      <Route path='/giveexam' element={<GiveExam />} />
+      <Route path="*" element={<Home/>} />
     </Route>
      </Routes> 
     </> 

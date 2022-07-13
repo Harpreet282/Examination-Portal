@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import "./Timer.css"
 
 import getDaysToGo from 'get-days-to-go'
+import { useNavigate } from 'react-router-dom'
 
 
 const Timer = (props) => {
 
+  const navigate = useNavigate()
 
     const [time,setTime] = useState(getDaysToGo(props.date))
    
@@ -13,12 +15,11 @@ const Timer = (props) => {
         setTime(getDaysToGo(props.date))
       },1000)
 
-  
   return (
     <>
     { time.days === 0 && time.hrs === 0 && time.mins === 10 ? 
       <>
-        apply now
+         apply now
       </>
       :
     <section className='timer-content'>

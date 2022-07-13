@@ -14,7 +14,7 @@ const Results = () => {
     },
     {
       id: 2,
-      subject: "Programming in C",
+      subject: "x",
       code: "PC00842",
       marksObtained: 47,
       totalMarks: 50,
