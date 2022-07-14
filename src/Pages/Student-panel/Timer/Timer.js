@@ -23,7 +23,7 @@ const Timer = (props) => {
       </>
       :
     <section className='timer-content'>
-      <p className='timer-content-para' style={{display:"flex", textAlign:"center",justifyContent:"center"}}>
+      <div className='timer-content-para' style={{display:"flex", textAlign:"center",justifyContent:"center"}}>
         <div className='timer-span'>
           <span>{time.days}</span><br/>        
           <span>{time.days === 1 ? "DAY" : "DAYS"} </span>
@@ -43,7 +43,7 @@ const Timer = (props) => {
           <span>{time.secs}</span><br/>
           <span>SEC</span>
         </div>
-      </p>
+      </div>
     </section>
     }
 </>

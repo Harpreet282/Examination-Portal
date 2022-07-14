@@ -1,11 +1,11 @@
 import React from 'react'
 import './loader.css'
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import PuffLoader from 'react-spinners/PuffLoader'
 
 const Loader = () => {
   return (
     <div className="loader">
-<ClimbingBoxLoader
+<PuffLoader
 size={30}
 color={"#F4831F"}
 />

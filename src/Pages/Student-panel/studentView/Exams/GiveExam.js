@@ -1,8 +1,23 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import ReactCountdown from './Countdown'
 import "./GiveExam.css"
+import Swal from "sweetalert2"
+
 
 const GiveExam = () => {
 
+    const navigate = useNavigate()
+    const submitHandle=()=>{
+        Swal.fire({
+            type: 'success',
+            text: 'You have successfully submit the exam ',
+            confirmButtonText:"Ok",
+          }).then(
+            ()=>{
+              navigate("/studentDashboard")
+          })
+    }
 
     const data =[
         {
@@ -90,16 +105,23 @@ const GiveExam = () => {
     <div>
         <div className='give-exam mx-5'>
             <div className='section-nav'>
-                <div className='subject  my-3'>
-                    <p>Subject: Progamming in c</p>
-                    <p>Code: #RDF004</p>
+                <div className='row'>
+                    <div className='col'>
+                        <div className='subject  my-3'>
+                            <p>Subject: Progamming in c</p>
+                            <p>Code: #RDF004</p>
+                        </div>
+                    </div>
+                    <div className='col timer my-4 mr-4'>
+                        <p>Remaining time: <button><ReactCountdown /></button> </p>   
+                        
+                    </div>
                 </div>
             </div>
             <hr/>
-            
         </div> 
        
-        <div className='row'>
+        <div className='row mr-0'>
 
             <div className='col-md-8'>
                 <div className='give-exam verticalLine'>
@@ -135,8 +157,8 @@ const GiveExam = () => {
                                 </div>
                         </div>
                         <div className='give-exam-btn button'>
-                                <button type="button" class="btn btn-info btn-left">Previous</button>
-                                <button type="button" class="btn btn-info btn-right">Next</button>
+                                <button type="button" className="btn btn-info btn-left">Previous</button>
+                                <button type="button" className="btn btn-info btn-right">Next</button>
                         </div>
                     </div>
                 </div>
@@ -147,8 +169,8 @@ const GiveExam = () => {
                     {
                         data.map((content) =>{
                             return(
-                                <div>
-                                    <div className='btn-right-section my-3 col-md-3' key={content.id}>
+                                <div key={content.id}>
+                                    <div className='btn-right-section my-3 col-md-4' >
                                         <button type='button'className='btn'>{content.btnNo}</button>
                                     </div>
                                 </div>
@@ -158,7 +180,9 @@ const GiveExam = () => {
                     } 
                 </div> 
                 <div className='col-md-12 mt-5 text-center'>
-                <button type="button" class="btn btn-success btn-left">Submit</button> 
+                    <div className='button'>
+                        <button type="button" className="btn btn-success btn-left" onClick={submitHandle}>Submit</button> 
+                    </div>
                 </div>
                  
             </div>
