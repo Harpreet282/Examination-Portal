@@ -31,7 +31,7 @@ return (
 
 const AdminProtectedRoutes = () => {
   const userType= JSON.parse(localStorage.getItem('data')).userType;
-  console.log(userType);
+  // console.log(userType);
 return (
   <div> 
 {

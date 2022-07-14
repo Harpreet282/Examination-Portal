@@ -15,7 +15,7 @@ const loginState=(state=initialState,action)=>{
                 token,
                 userType
             }
-            localStorage.setItem('data',JSON.stringify(data))
+            localStorage.setItem('data',JSON.stringify(data));
             // return state=token
             return {
                 ...state,

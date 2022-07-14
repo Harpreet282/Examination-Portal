@@ -68,21 +68,16 @@ const SignUp = () => {
 
   return (
     <>
-    <section className="signup-page">
+    <section className="signup-page margin-from-top">
     {loading?
 <Loader/>
 :
 <>
-<div className="container all-containers my-4">
-    <div className="row">
-      <div className="col-md-6 left-content">
-      <div className="content absolute-center">
-      <h1>Please Sign-up by Enter your Details</h1>
-      </div>
-      </div>
-      <div className="col-md-6 right-content">
-     <div className="content absolute-center">
-     <form className='px-5'onSubmit={formik.handleSubmit}>
+<div className='p-1'>
+<div className="formsSection all-containers my-3">
+<div className="">
+<h2>Sign-up Here!!</h2>
+     <form className='px-5' onSubmit={formik.handleSubmit}>
         <div className="">
         <input type="text" {...formik.getFieldProps('firstName')} placeholder="First Name" />
       { formik.touched.firstName && formik.errors.firstName?  <p className='text-danger error'>{formik.errors.firstName}</p> : null}
@@ -114,10 +109,9 @@ const SignUp = () => {
           </p>
         </div>
     </form>
-     </div>
+</div>
       </div>
-    </div>
-      </div>
+</div>
 </>
 }
      

@@ -71,8 +71,9 @@
 }
 
 .cardSection .content {
+    padding: 10px;
     display: none;
-    width: 90%;
+    width: 100%;
     color: #fff;
 }
 

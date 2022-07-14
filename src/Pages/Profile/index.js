@@ -18,10 +18,12 @@ useEffect(()=>{
     dispatch(loaderValue2());
     
     axios.get(      
-        data.userType===myConstants.ADMIN?ADMIN_PROFILE:data.userType===myConstants.STUDENT?STUDENT_PROFILE:data.userType===myConstants.EXAMINER?EXAMINER_PROFILE:ADMIN_PROFILE,{      
+        data.userType===myConstants.ADMIN?ADMIN_PROFILE:data.userType===myConstants.STUDENT?STUDENT_PROFILE:data.userType===myConstants.EXAMINER?EXAMINER_PROFILE:ADMIN_PROFILE,
+        {      
                 headers: { Authorization: `Bearer ${data.token}` },         
         }
     ).then((res)=>{
+        // console.log(res)
         dispatch(loaderValue());
         //  console.log(res.data.data.adminDetails);
 
@@ -31,7 +33,7 @@ useEffect(()=>{
         }else if(data.userType === myConstants.EXAMINER){
             profileDetails = res.data.data.examinerDetails;
         }else{
-            profileDetails = res.data.data.studentDetails; 
+            profileDetails = res.data.data.student; 
         }
         
          setProfileData(profileDetails);

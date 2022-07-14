@@ -1,29 +1,26 @@
-.login-page .left-content {
+.login-page {
   position: relative;
-  background-color: var(--main-gray-color);
+  height: 90vh;
+  background-image: url('https://wallpaperaccess.com/full/2785188.jpg');
+  background-size: cover;
+  }
+  .login-page::before {
+    content: "";
+    display: block;
+    background: #0a0a0a94;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
-.login-page .left-content .content h1 {
-  transition: 1s ease-in-out;
-  margin-bottom: 2rem;
-  color: var(--main-theme-color);
-  font-weight: 700;
-}
-
-.login-page .left-content .content:hover h1 {
-  color: var(--main-black-color);
-  transition: 1s ease-in-out;
-}
-
-.login-page .right-content {
+.login-page .formsSection {
+  background-color: #ffffffb5;
+  width: 50%;
   overflow: hidden;
-  position: relative;
-  /* padding: 0px; */
-  height: 480px;
-
+  padding: 50px;
 }
 
-.login-page .right-content .content input {
+.login-page .formsSection input {
   /* text-align: center; */
   background-color: transparent;
   width: 100%;
@@ -31,37 +28,36 @@
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  border-bottom: 2px solid var(--main-theme-color);
+  border-bottom: 2px solid var(--main-black-color);
   font-weight: 500;
 }
 
-.login-page .right-content .content input:focus-visible {
+.login-page .formsSection input:focus-visible {
   outline: none;
 }
 
-.login-page .right-content .content ::placeholder {
+.login-page .formsSection ::placeholder {
   color: grey;
 }
 
-.login-page .right-content .content button {
+.login-page .formsSection button {
   margin-top: 15px;
   width: 50%;
-  border: 2px solid var(--main-theme-color);
+  border: 2px solid var(--main-black-color);
   border-radius: 25px;
   font-weight: 700;
-  color: var(--main-theme-color);
+  color: var(--main-black-color);
 }
 
-.login-page .right-content .content button:hover {
-  border: 2px solid var(--main-black-color);
+.login-page .formsSection button:hover {
   background-color: var(--main-black-color);
+  color: white;
 }
 
-.login-page .right-content .content .signupLink {
+.login-page .formsSection .signupLink {
   margin-top: 15px;
   font-weight: 500;
 }
-
 
 @media (max-width: 1199.98px) {}
 
@@ -70,7 +66,4 @@
 @media (max-width: 767.98px) {}
 
 @media (max-width: 575.98px) {
-  .login-page .left-content {
-    display: none;
-  }
-}
+} 

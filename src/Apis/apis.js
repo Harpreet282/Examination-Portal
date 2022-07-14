@@ -1,6 +1,6 @@
-export const API_BASE_URL = "https://exam-portal-by-hritik-sanam.herokuapp.com";
+ const API_BASE_URL = "https://exam-portal-by-hritik-sanam.herokuapp.com";
 
-export  const getApiUrl = (endpoint) => API_BASE_URL + endpoint;
+  const getApiUrl = (endpoint) => API_BASE_URL + endpoint;
 
  const LOGIN_API = getApiUrl('/login');
  const SIGN_UP_API = getApiUrl('/register');
