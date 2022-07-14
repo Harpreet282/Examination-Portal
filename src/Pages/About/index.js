@@ -6,7 +6,8 @@ const About = () => {
   return (
     <>
     <section className="about-page">
-<div className="container">
+<div className=''>
+<div className="container all-containers mt-5">
 <div className="row">
   <div className="col-md-6 left-content">
     <div className="content">
@@ -34,6 +35,7 @@ const About = () => {
       </ul>
       </div>
   </div>
+</div>
 </div>
 </div>
     </section>

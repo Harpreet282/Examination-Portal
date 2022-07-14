@@ -1,12 +1,12 @@
 import React from 'react'
 import './loader.css'
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import FadeLoader from 'react-spinners/FadeLoader'
 
 const Loader = () => {
   return (
     <div className="loader">
-<ClimbingBoxLoader
-size={30}
+<FadeLoader
+// size={20}
 color={"#000"}
 />
   </div>
