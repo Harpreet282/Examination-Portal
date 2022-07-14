@@ -9,17 +9,28 @@ const Timer = (props) => {
 
   const navigate = useNavigate()
 
-    const [time,setTime] = useState(getDaysToGo(props.date))
-   
+    const [time,setTime] = useState(getDaysToGo())
+
+    //// y date  ko milliseconds mai convert krega 
+    const dataSec = new Date(props.date).getTime();
+
+    // y hrs ko milliseconds mai convert krega 
+    const hrsSec = parseInt(props.time.split(":"[0])) * 3600000;
+    // y mins ko milliseconds mai convert krega 
+    const minSec = parseInt(props.time.split(":")[1]) * 60000;
+
       setInterval(() => {
-        setTime(getDaysToGo(props.date))
+        setTime(getDaysToGo(new Date(dataSec+hrsSec+minSec)))
       },1000)
 
   return (
     <>
-    { time.days === 0 && time.hrs === 0 && time.mins === 10 ? 
+    { time.days === 0 && time.hrs === 0 && time.mins <= 10 ? 
       <>
-         apply now
+        <div className='timer-btn'>
+          <button>Apply Now!!</button>
+        </div>
+        
       </>
       :
     <section className='timer-content'>

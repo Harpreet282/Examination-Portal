@@ -11,7 +11,7 @@ const GiveExam = () => {
     const submitHandle=()=>{
         Swal.fire({
             type: 'success',
-            text: 'You have successfully submit the exam ',
+            text: 'You have successfully jaa oye the exam ',
             confirmButtonText:"Ok",
           }).then(
             ()=>{
@@ -113,8 +113,7 @@ const GiveExam = () => {
                         </div>
                     </div>
                     <div className='col timer my-4 mr-4'>
-                        <p>Remaining time: <button><ReactCountdown /></button> </p>   
-                        
+                        <p>Remaining time: <button><ReactCountdown /></button> </p>                          
                     </div>
                 </div>
             </div>

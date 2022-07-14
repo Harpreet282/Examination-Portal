@@ -55,7 +55,7 @@ const Exams = () => {
                     </div>
                     <div className="student-card-body">
                       <button href="#" className="card-button" data-toggle="modal" data-target="#exampleModalCenter" onClick={openModal}>
-                        <Timer date={content.examDate}/>
+                        <Timer date={content.examDate} time={content.startTime}/>
                       </button>
                     </div>
                   </div>

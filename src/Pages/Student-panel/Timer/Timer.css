@@ -17,3 +17,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+.timer-btn button{ 
+    border: none;
+    color: white;
+    padding: 25px;
+    font-size: 25px;
+    background-color:#d11212;
+    width: 100%;
+}
