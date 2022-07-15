@@ -123,7 +123,7 @@ const GiveExam = () => {
        
         <div className='row mr-0'>
 
-            <div className='col-md-8 mb-2 section-questions'>
+            <div className='col-md-8 mb-2  section-questions'>
                 <div className='give-exam mx-5'>
                     <div className=''>
                         <Questions />
