@@ -1,0 +1,21 @@
+.question-count{
+    font-weight: 300;
+    font-size: 20px;
+}
+.question-text{
+    font-weight: 300;
+    font-size: 25px;
+}
+.questions-button button{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    float: right;
+    margin-left: 70px;
+    width: 130px;
+    /* position: fixed; */
+    /* padding-left: 550px; */
+}
+.questions-button{
+    position: fixed;
+}

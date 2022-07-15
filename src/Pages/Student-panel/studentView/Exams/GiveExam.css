@@ -16,29 +16,15 @@
     margin-left: 10px;
 }
 
-.verticalLine {
-    height: 500px;
+.section-questions{
     border-right: 1px solid #d2d7d2;
-    position: absolute;
-    /* right: 35%; */
+    height: 420px;
 }
-/*  */
-.give-exam-btn {
-    float: right;
-}
-.give-exam-btn .btn-right{
-    margin-left: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.section-bottom-left .questions{
-    margin-right: 150px;
-}
+
 .btn-right-section .btn{
     border: 1px solid rgb(180, 177, 177);
     background-color: #d2d7d2;
     width:40px;
-    /* padding: 8px 15px 8px 15px ;  */
     font-weight: 350;
     border-radius: 5px;
 }
@@ -53,6 +39,5 @@
     color: white;
     padding: 2px 20px 2px 20px;
     border-radius: 10px;
-    /* width: 30%; */
 }
 

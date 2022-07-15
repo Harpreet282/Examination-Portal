@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import ReactCountdown from './Countdown'
 import "./GiveExam.css"
 import Swal from "sweetalert2"
+import Questions from './Questions'
 
 
 const GiveExam = () => {
@@ -11,7 +12,7 @@ const GiveExam = () => {
     const submitHandle=()=>{
         Swal.fire({
             type: 'success',
-            text: 'You have successfully jaa oye the exam ',
+            text: 'You have successfully completed the exam!! ',
             confirmButtonText:"Ok",
           }).then(
             ()=>{
@@ -122,49 +123,16 @@ const GiveExam = () => {
        
         <div className='row mr-0'>
 
-            <div className='col-md-8'>
-                <div className='give-exam verticalLine'>
-                    <div className='section-bottom-left mx-5 mt-5'>
-                        <div className='questions'>
-                                <p>1. Which of the following is true about return type of functions in C?</p>
-                                <div className='options ml-3'>
-                                    <input 
-                                        type="checkbox"
-                                    />
-                                    <label>
-                                        <p>Functions can return any type</p>
-                                    </label><br/>
-                                    <input 
-                                        type="checkbox"
-                                    />
-                                    <label>
-                                        <p>Functions can return any type except array and functions</p>
-                                    </label><br/>
-                                    <input 
-                                        type="checkbox"
-                                    />
-                                    <label>
-                                        <p>Functions can return any type except array, functions and union</p>
-                                    </label><br/>
-                                    <input 
-                                        type="checkbox"
-                                    />
-                                    <label>
-                                        <p>Functions can return any type except array, functions, function pointer and union</p>
-                                    </label>
-
-                                </div>
-                        </div>
-                        <div className='give-exam-btn button'>
-                                <button type="button" className="btn btn-info btn-left">Previous</button>
-                                <button type="button" className="btn btn-info btn-right">Next</button>
-                        </div>
+            <div className='col-md-8 mb-2 section-questions'>
+                <div className='give-exam mx-5'>
+                    <div className=''>
+                        <Questions />
                     </div>
                 </div>
             </div>
 
-            <div className='col-md-3'>
-                <div className='row'>
+            <div className='col-md-4'>
+                <div className='row mt-4'>
                     {
                         data.map((content) =>{
                             return(
@@ -178,7 +146,7 @@ const GiveExam = () => {
                         })
                     } 
                 </div> 
-                <div className='col-md-12 mt-5 text-center'>
+                <div className='col-md-12 mt-4 text-center'>
                     <div className='button'>
                         <button type="button" className="btn btn-success btn-left" onClick={submitHandle}>Submit</button> 
                     </div>
