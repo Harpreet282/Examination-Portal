@@ -1,8 +1,4 @@
-body{ 
-    background:linear-gradient(#eee,#333,black);
-    height:607px;
-}
-.Signup_Container{
+.Login_Container{
     margin-top: 50px;
     border: 1px solid grey;
     height:max-content;
@@ -13,7 +9,7 @@ body{
     margin-right: auto;
     border-radius: 10px;
 }
-.Signup_Container h1{
+.Login_Container h1{
     margin-bottom: 20px;
     margin-top: 20px;
     color: white;
@@ -23,21 +19,18 @@ body{
     -webkit-background-clip: text;
     font-size: 40px;
 }
-.Signup_Label{
+.Login_Label{
     color: white;
     
 }
-.Signup_input{
+.Login_input{
     box-shadow:1px 5px 7px saddlebrown;
-   
-
 }
-.Signup_Submit{
+.Login_Submit{
     background-image:linear-gradient( rgb(53, 51, 51) 20%, rgb(196, 187, 187) , rgb(48, 46, 46));
     color: saddlebrown;
     font-weight: 700;
     text-shadow:1px 1px 4px gainsboro;
-    margin-bottom: 30px;
     justify-content: center;
     align-items: center;
 }

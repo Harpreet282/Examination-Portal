@@ -1,0 +1,15 @@
+.viewExam .courseName{
+    text-align: center;
+    font-weight: bold;
+}
+.viewExam .duration{
+    font-weight: bold;
+}
+.viewExam .StartTime{
+    font-weight: bold;
+}
+
+.viewExam .subjectName{
+    text-align: center;
+    font-weight: bold;
+}

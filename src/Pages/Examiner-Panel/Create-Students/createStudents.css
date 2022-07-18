@@ -1,0 +1,109 @@
+.Student-Signup .all-content{
+height: 480px;
+overflow: hidden;
+position: relative;
+text-align: center;
+}
+
+.Student-Signup .all-content .content {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    width: 80%;
+    }
+
+    .Student-Signup h2{
+    margin-top: 20px;
+    color:var(--main-theme-color);
+    margin-left: auto !important;
+    margin-right: auto !important;
+    }
+
+    .Student-Signup .all-content .content input{
+        background-color: transparent;
+        width: 100%;
+        padding: 12px 20px 5px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid var(--main-theme-color);
+        font-weight: 500;
+
+    }
+
+    
+    .Student-Signup .all-content .content select{
+        color: black;
+    }
+    .Student-Signup .all-content .content select{
+        background-color: transparent;
+        width: 100%;
+        padding: 5px 20px 5px 20px;
+        margin: 13px 0;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid var(--main-theme-color);
+        font-weight: 500;
+
+    }
+  /* .Student-Signup .all-content .content  .studentGender{
+        border: 0;
+        border-bottom: 2px solid #F4831F;
+        margin-bottom: 7px;
+        padding-top: 15px;
+    } */
+
+    .Student-Signup .all-content .content input:focus-visible{
+        outline: none;
+    }
+    
+    .Student-Signup .all-content .content input::placeholder{
+        color: var(--main-gray-color)!important;
+    }
+    .Student-Signup .all-content .content form button{
+        margin-top: 15px;
+        width: 50%;
+        border: 2px solid var(--main-theme-color);
+        border-radius: 25px;
+        font-weight: 700;
+        color:var(--main-theme-color)
+    }
+    .Student-Signup .all-content .content form button:hover{
+        border: 2px solid var(--main-black-color);
+        background-color:var(--main-black-color) ;
+    }  
+@media only screen and (max-width:1199.98px) {
+    .Student-Signup .all-content{
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        }
+}
+@media (max-width: 991.98px) {
+    .Student-Signup .all-content{
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        }
+} 
+@media (max-width: 767.98px) {
+    .Student-Signup .all-content{
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        }
+        
+}
+@media (max-width:575.98px) { 
+    .Student-Signup .all-content{
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        }
+}

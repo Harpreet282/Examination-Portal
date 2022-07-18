@@ -1,0 +1,52 @@
+.examinerDashboard .all-content .course-card{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 12px;
+    /* width: 40%; */
+    
+   }
+
+.examinerDashboard .all-content{
+    overflow: hidden;
+    position: relative;
+    margin-left:auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .examinerDashboard  .dashboard-left-content{
+    background-color: var(--main-gray-color);
+    color: var(--main-white-color);
+ }
+ .examinerDashboard  .all-content button{
+    margin-top: 15px;
+    /* width: 50%; */
+    border: 2px solid var(--main-theme-color);
+    border-radius: 25px;
+    font-weight: 700;
+    color:var(--main-theme-color)
+}
+.examinerDashboard  .all-content button:hover{
+    border: 2px solid var(--main-black-color);
+    background-color: var(--main-black-color);
+}  
+.examinerDashboard  .all-content  .AddStudent{
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.examinerDashboard  .all-content  .SubjectAdd{
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.examinerDashboard  .all-content  .subjectShow{
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+} 
+

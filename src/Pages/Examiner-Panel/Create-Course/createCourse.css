@@ -1,0 +1,37 @@
+.Student-Courses .all-containers{
+    background-color:var(--main-white-color);
+}
+.Student-Courses .all-containers .all-content{
+    height:max-content;
+    overflow: hidden;
+    top:20px;
+    margin-bottom:30px;
+    position: relative;
+    text-align: center;
+}
+.Student-Courses .all-containers .all-content button{
+    margin-top: 15px;
+    width: 50%;
+    border: 2px solid var(--main-theme-color);
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    font-weight: 700;
+    color:var(--main-theme-color)
+}
+.Student-Courses .all-containers .all-content button:hover{
+    border: 2px solid var(--main-black-color);
+    background-color: var(--main-black-color);
+}  
+.Student-Courses .all-containers .all-content input{
+    background-color: transparent;
+    width: 100%;
+    padding: 12px 20px 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid var(--main-theme-color);
+    font-weight: 500;
+}
