@@ -11,7 +11,6 @@ function Index() {
       <Route path="/approvedRequests" element={<ApprovedRequests />} />
       <Route path="/declinedRequests" element={<DeclinedRequests />} />
     </Routes>
-
   );
 }
 
