@@ -1,10 +1,10 @@
-import loginState from './login'
+import { combineReducers } from 'redux';
+import loginState from './login';
 import loadingState from './loader';
-import { combineReducers } from "redux";
 
-const allReducers=combineReducers({
-    loginState:loginState,
-    loadingState:loadingState,
-})
+const allReducers = combineReducers({
+  loginState,
+  loadingState,
+});
 
 export default allReducers;

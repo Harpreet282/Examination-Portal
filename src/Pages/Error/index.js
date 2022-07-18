@@ -1,12 +1,15 @@
-import React from 'react'
-import './error.css'
+import React from 'react';
+import './error.css';
 
-const Error = () => {
+function Error() {
   return (
-    <div className='error-page margin-from-top'>
-        404 Page Not Found.
+    <div className="error-page margin-from-top">
+      <div className="absolute-center">
+        <h1>404 Error</h1>
+        <p>This page doesn't exist.</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Error
+export default Error;

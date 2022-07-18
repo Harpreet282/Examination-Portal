@@ -1,9 +1,9 @@
-import React from "react";
-import "./dashboard.css";
-import AdminPageSideBar from "../Admin-Page-Side-Bar";
-import Index from "../../../Routes/Admin-routes";
+import React from 'react';
+import './dashboard.css';
+import AdminPageSideBar from '../Admin-Page-Side-Bar';
+import Index from '../../../Routes/Admin-routes';
 
-const AdminDashboard = () => {
+function AdminDashboard() {
   return (
     <section className="dashboard-page margin-from-top">
       <div className="">
@@ -18,6 +18,6 @@ const AdminDashboard = () => {
       </div>
     </section>
   );
-};
+}
 
 export default AdminDashboard;
