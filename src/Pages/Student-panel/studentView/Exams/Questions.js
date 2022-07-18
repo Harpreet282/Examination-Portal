@@ -79,18 +79,25 @@ const Questions = () => {
                     </div>
                     <div className='question-text my-3 mx-5'>{questions[currentQuestion].questionText}</div>
                     <div className='answer-section mx-5'>
-                        {questions[currentQuestion].answerOptions.map((answerOption,i) => {
+                        {
+                        questions[currentQuestion].answerOptions.map((answerOption,i) => {
                             return (
 
                                 <div className='options'>
-                                    <input type="checkbox" />
+                                    <input type="checkbox" value=''/>
                                     <label>
                                         <p>{answerOption.answerText}</p>
-                                    </label>
-                                </div>
-
+                                    </label>       
+                                </div>  
+                                
+                                
+                            
+                                
                             )
-                        })}
+                            
+                        })
+                        
+                        }
                     </div>
                 </div>
                 <div className='buttons questions-button mt-4 mr-4'>
