@@ -1,5 +1,5 @@
 const initialState = {
-   payload:'',data:[]
+   payload:{},data:[]
 };
                         
 const examCreateReducer=(state=initialState,action)=>{
@@ -20,7 +20,7 @@ const examCreateReducer=(state=initialState,action)=>{
                 localStorage.setItem('Data',JSON.stringify(data))
                 // return state=token
                 return {
-                    data:[data]
+                    data:data
                 };
             
         // case 'Student_id':

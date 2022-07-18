@@ -27,6 +27,7 @@ const ViewStudent = () => {
       let ids = students.map((student)=>student._id);
       console.log(ids);
       const body = {
+        questions:exam.data,
         ...exam.payload,
         students:ids
       }

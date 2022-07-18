@@ -12,26 +12,6 @@ const CreateExam = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const location=useLocation();
-  const[questions,setQuestions]=useState([])
-  const[question,setQuestion]=useState({
-    question:"",
-    optionOne:"",
-    optionTwo:"",
-    optionThree:"",
-    optionFour:"",
-    correctOption:"",
-    marks:""
-  })
-    // const [exam,setExam]=useState({
-    //     // subjectID:'',
-    //     duration:'',
-    //     examDate:'',
-    //     startTime:'',
-    //     endTime:'',
-    //     passingMarks:'',
-    //     totalMarks:'',
-    //     accessCode:'',
-    //   })
 
       const initialValues = {
         examDate:"",
@@ -49,45 +29,14 @@ const CreateExam = () => {
 
       });
       
-    const changeHandler = e =>{
-        setQuestion({...question,[e.target.name]:e.target.value})
-      }
-      // const examHandler = e =>{
-      //   setExam({...exam,[e.target.name]:e.target.value})
-      // }
-    const questionSubmit=e=>{
-      e.preventDefault();
-      let que = {
-        question: question.question,
-        options:[question.optionOne,question.optionTwo,question.optionThree,question.optionFour],
-        correctOption:question.correctOption,
-        marks:question.marks
-      }
-      // console.log(que);
-      setQuestions([...questions,que]);
-      console.log(questions,"old onedfgh")
-      setQuestion({
-        question:"",
-        optionOne:"",
-        optionTwo:"",
-        optionThree:"",
-        optionFour:"",
-        correctOption:"",
-        marks:"",
-      })
-    }
-   
     const onSubmit = (values) => {
-       console.log(questions);
         const Data = {
           ...values,
-          // questions:questions,
           subjectID:location.state.subjectId
         }
 
         const token=JSON.parse(localStorage.getItem('data')).token;
         console.log(Data,'subectid');
-        // console.log(course,"courseid creae exam");
         navigate("/examinerDashboard/viewStudents",{state:{courseId :location.state.courseID}})
         dispatch(
         examCreate(Data)
@@ -105,44 +54,6 @@ const CreateExam = () => {
       <div className='row'>
             <CreateQuestion/>
     </div>
-    <form   className='px-5'>
-          <div className='row'>
-            <div className='col-md-12'>
-              <input type="text" onChange={changeHandler} value={question.question}   placeholder="Question" name='question'/>
-             
-            </div>
-            </div>
-            <div className='row'>
-            <div className='col-md-3'>
-            <input type="text" onChange={changeHandler} value={question.optionOne} placeholder="Option1" name='optionOne'/>
-            </div>
-         
-            <div className='col-md-3'>
-              <input type="text" onChange={changeHandler}  value={question.optionTwo} placeholder="Option2" name='optionTwo'/>
-            </div>
-            
-            <div className='col-md-3'>
-            <input type="text" onChange={changeHandler}  value={question.optionThree}  placeholder="Option3" name='optionThree'/>
-            </div>
-         
-         
-            <div className='col-md-3'>
-              <input type="text" onChange={changeHandler} value={question.optionFour} placeholder="Option4" name='optionFour'/>
-            </div>
-            </div>
-        
-          <div className='row'>
-            <div className='col-md-6'>
-              <input type="text" onChange={changeHandler}  value={question.marks}  placeholder="Marks"  name='marks'/>
-            </div>
-            <div className='col-md-6'>
-            <input type="text" onChange={changeHandler} value={question.correctOption}  placeholder="Answer" name='correctOption'/>
-            </div>
-          </div>
-          <div>
-            <button onClick={questionSubmit}  className='btn'>Submit</button>
-          </div>
-          </form>
           <form onSubmit={formik.handleSubmit}>
           <div className='row'>
             <div className='col-md-3'>

@@ -1,7 +1,7 @@
 .examiner-sidebar-page{
     padding: 0;
-background-color: var(--main-gray-color);
-border-radius: 8px;
+    background-color: var(--main-gray-color);
+    /* border-radius: 8px; */
 }
 .examiner-sidebar-page .side-bar ul {
     padding: 0;
@@ -15,11 +15,11 @@ display: flex;
 }
 
 .examiner-sidebar-page .side-bar ul li a{
-    width: 100%;
+    width:100%;
     font-size: 20px;
     font-weight: 700;
     margin: 0px 20px 0px 20px;
- color: rgba(0,0,0,.5);
+    color: rgba(0,0,0,.5);
 }
 
 .examiner-sidebar-page .side-bar  ul li:hover{

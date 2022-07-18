@@ -7,15 +7,7 @@ import { useDispatch } from 'react-redux';
 const CreateQuestion = () => {
     const[questions,setQuestions]=useState([])
     const dispatch=useDispatch()
-//   const[question,setQuestion]=useState({
-//     question:"",
-//     optionOne:"",
-//     optionTwo:"",
-//     optionThree:"",
-//     optionFour:"",
-//     correctOption:"",
-//     marks:""
-//   })
+
   const initialValues = {
     question:"",
     optionOne: "",
@@ -35,39 +27,26 @@ const CreateQuestion = () => {
     correctOption:Yup.string().required("**Required!")
 
   });
-  
-// const changeHandler = e =>{
-//     setQuestion({...question,[e.target.name]:e.target.value})
-//   }
 useEffect(()=>{
   console.log(questions);
   dispatch(question_detail(questions));
 },[questions])
-  const onSubmit = (values) => {
-   
+  const onSubmit = (values,{resetForm}) => {
     let que = {
         question: values.question,
         options:[values.optionOne,values.optionTwo,values.optionThree,values.optionFour],
         correctOption:values.correctOption,
         marks:values.marks
-    //   question: question.question,
-    //   options:[question.optionOne,question.optionTwo,question.optionThree,question.optionFour],
-    //   correctOption:question.correctOption,
-    //   marks:question.marks
     }
     
     console.log(que);
 
     setQuestions([...questions,que]);
-         // setQuestion({
-    //   question:"",
-    //   optionOne:"",
-    //   optionTwo:"",
-    //   optionThree:"",
-    //   optionFour:"",
-    //   correctOption:"",
-    //   marks:"",
-    // })
+    resetForm({values:""})
+    dispatch(
+      question_detail(questions)
+      );
+        
   }
   const formik = useFormik({
     initialValues,
