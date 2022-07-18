@@ -75,7 +75,7 @@ const Home = () => {
           <div className="row cardsRow">
             {data.map((item) => {
               return (
-                <div className="col-md-3 p-1 columns" key={item.id}>
+                <div className="col-md-3 col-sm-6 p-1 columns" key={item.id}>
                   <div className="my-img">
                     <img src={item.src} alt="Cards" />
                   </div>

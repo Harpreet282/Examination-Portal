@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Loader from '../../Loader'
 import * as myConstants from '../../Constants'
 import { useSelector, useDispatch } from "react-redux";
-import { loaderValue, loaderValue2 } from "../../redux/actions";
+import { loaderValueFalse, loaderValueTrue } from "../../redux/actions";
 
 const Profile = () => {
     const[profileData,setProfileData]=useState({})
@@ -15,7 +15,7 @@ const Profile = () => {
     const loadingState = useSelector((state) => state.loadingState.loading);
 
 useEffect(()=>{
-    dispatch(loaderValue2());
+    dispatch(loaderValueTrue());
     
     axios.get(      
         data.userType===myConstants.ADMIN?ADMIN_PROFILE:data.userType===myConstants.STUDENT?STUDENT_PROFILE:data.userType===myConstants.EXAMINER?EXAMINER_PROFILE:ADMIN_PROFILE,
@@ -24,7 +24,7 @@ useEffect(()=>{
         }
     ).then((res)=>{
         // console.log(res)
-        dispatch(loaderValue());
+        dispatch(loaderValueFalse());
         //  console.log(res.data.data.adminDetails);
 
         let profileDetails ;
@@ -39,7 +39,7 @@ useEffect(()=>{
          setProfileData(profileDetails);
            
     }).catch((err)=>{
-        dispatch(loaderValue());
+        dispatch(loaderValueFalse());
         console.log(err)
     })
 },[])

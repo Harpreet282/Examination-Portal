@@ -4,7 +4,7 @@ import axios from "axios";
 import "./approvedRequests.css";
 import Loader from "../../../Loader";
 import { useSelector, useDispatch } from "react-redux";
-import { loaderValue, loaderValue2 } from "../../../redux/actions";
+import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from '../../../Constants'
 import { ToastContainer, toast } from "react-toastify";
 
@@ -19,26 +19,26 @@ const ApprovedRequests = () => {
     if (shouldLog.current) {
       shouldLog = false;
       const token = JSON.parse(localStorage.getItem("data")).token;
-      dispatch(loaderValue2());
+      dispatch(loaderValueTrue());
       axios
         .get(APPROVED_REQUESTS_API, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
           setApprovedRequests(response.data.data.Examiners);
-          dispatch(loaderValue());
+          dispatch(loaderValueFalse());
           // console.log(response.data.data.Examiners);
         })
         .catch((error) => {
           console.log(error);
-          dispatch(loaderValue());
+          dispatch(loaderValueFalse());
         });
     }
   }, []);
 
   const handleAction = (id, action) => {
     const token = JSON.parse(localStorage.getItem("data")).token;
-    dispatch(loaderValue2());
+    dispatch(loaderValueTrue());
     // console.log(id)
     const data = {
       examinerID: id,
@@ -52,7 +52,7 @@ const ApprovedRequests = () => {
         // console.log(response);
         let newData = approvedRequests.filter((x) => x._id !== id);
         setApprovedRequests(newData);
-        dispatch(loaderValue());
+        dispatch(loaderValueFalse());
 
         const str = data.action.toLowerCase();
         toast.success(
@@ -62,6 +62,7 @@ const ApprovedRequests = () => {
       .catch((error) => {
         console.log(error);
         toast.error("Error");
+        dispatch(loaderValueFalse());
       });
   };
   //   useEffect(()=>{

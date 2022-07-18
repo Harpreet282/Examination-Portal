@@ -9,6 +9,7 @@ import { LOGIN_API } from "../../Apis/apis";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Loader from "../../Loader";
+const customId = "custom-id-yes";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,7 +37,9 @@ const Login = () => {
       .then((res) => {
         setLoading(false);
         // console.log(res);
-        toast.success("Login Successfully!");
+        toast.success("Login Successfully!",{
+          toastId: customId
+        });
         dispatch(
           loginAccount(res.data.data.accessToken, res.data.data.userType)
         );
@@ -46,11 +49,17 @@ const Login = () => {
         setLoading(false);
         // console.log(err);
         if (err.response.data.message === "INVALID_PASSWORD") {
-          toast.error("Invalid Password!");
+          toast.error("Invalid Password!",{
+            toastId: customId
+          });
         } else if (err.response.data.message === "USER_NOT_FOUND") {
-          toast.error("User not found!");
+          toast.error("User not found!",{
+            toastId: customId
+          });
         } else {
-          toast.error("Error!");
+          toast.error("Error!",{
+            toastId: customId
+          });
         }
       });
   };
@@ -72,8 +81,8 @@ const Login = () => {
         ) : (
        
             <div className="formsSection all-containers absolute-center">
-          <h2>Login Here!!</h2>
-                    <form className="px-5" onSubmit={formik.handleSubmit}>
+          <h3>Login Here !!</h3>
+                    <form className="" onSubmit={formik.handleSubmit}>
                       <div className="">
                         <input
                           type="text"

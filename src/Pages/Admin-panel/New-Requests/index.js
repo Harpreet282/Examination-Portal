@@ -4,7 +4,7 @@ import axios from "axios";
 import { PENDING_REQUESTS_API, UPDATE_REQUESTS_API } from "../../../Apis/apis";
 import Loader from "../../../Loader";
 import { useSelector, useDispatch } from "react-redux";
-import { loaderValue, loaderValue2 } from "../../../redux/actions";
+import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from '../../../Constants'
 import { ToastContainer, toast } from "react-toastify";
 
@@ -19,25 +19,25 @@ const NewRequests = () => {
       shouldLog = false;
       const token = JSON.parse(localStorage.getItem("data")).token;
       // console.log(token)
-      dispatch(loaderValue2());
+      dispatch(loaderValueTrue());
       axios
         .get(PENDING_REQUESTS_API, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
           setRequests(response.data.data.Examiners);
-          dispatch(loaderValue());
+          dispatch(loaderValueFalse());
           // console.log(response.data.data.Examiners);
         })
         .catch((error) => {
-          dispatch(loaderValue());
+          dispatch(loaderValueFalse());
           console.log(error);
         });
     }
   }, []);
 
   const handleAction = (id, action) => {
-    dispatch(loaderValue2());
+    dispatch(loaderValueTrue());
     const token = JSON.parse(localStorage.getItem("data")).token;
     // console.log(id);
     const data = {
@@ -52,7 +52,7 @@ const NewRequests = () => {
         // console.log(response);
         let newData = requests.filter((x) => x._id !== id);
         setRequests(newData);
-        dispatch(loaderValue());
+        dispatch(loaderValueFalse());
 
         const str = data.action.toLowerCase();
         toast.success(
@@ -60,6 +60,7 @@ const NewRequests = () => {
         );
       })
       .catch((error) => {
+        dispatch(loaderValueFalse());
         console.log(error);
       });
   };

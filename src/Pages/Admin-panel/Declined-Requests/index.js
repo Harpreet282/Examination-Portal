@@ -4,7 +4,7 @@ import { DECLINED_REQUESTS_API, UPDATE_REQUESTS_API } from "../../../Apis/apis";
 import "./declinedRequests.css";
 import Loader from "../../../Loader";
 import { useSelector, useDispatch } from "react-redux";
-import { loaderValue, loaderValue2 } from "../../../redux/actions";
+import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from '../../../Constants'
 import { ToastContainer, toast } from "react-toastify";
 
@@ -19,18 +19,18 @@ const DeclinedRequests = () => {
       shouldLog = false;
       const token = JSON.parse(localStorage.getItem("data")).token;
       // console.log(token)
-      dispatch(loaderValue2());
+      dispatch(loaderValueTrue());
       axios
         .get(DECLINED_REQUESTS_API, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
           setDeclinedRequests(response.data.data.Examiners);
-          dispatch(loaderValue());
+          dispatch(loaderValueFalse());
           // console.log(response.data.data.Examiners);
         })
         .catch((error) => {
-          dispatch(loaderValue());
+          dispatch(loaderValueFalse());
           console.log(error);
         });
     }
@@ -38,7 +38,7 @@ const DeclinedRequests = () => {
 
   const handleAction = (id, action) => {
     const token = JSON.parse(localStorage.getItem("data")).token;
-    dispatch(loaderValue2());
+    dispatch(loaderValueTrue());
     // console.log(id)
     const data = {
       examinerID: id,
@@ -52,7 +52,7 @@ const DeclinedRequests = () => {
         // console.log(response);
         let newData = declinedRequests.filter((x) => x._id !== id);
         setDeclinedRequests(newData);
-        dispatch(loaderValue());
+        dispatch(loaderValueFalse());
 
         const str = data.action.toLowerCase();
         toast.success(
@@ -61,6 +61,7 @@ const DeclinedRequests = () => {
       })
       .catch((error) => {
         console.log(error);
+        dispatch(loaderValueFalse());
       });
   };
   //   useEffect(()=>{

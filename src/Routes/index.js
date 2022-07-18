@@ -10,13 +10,14 @@ import {ProtectedRoutes,ProtectedRoutes2,AdminProtectedRoutes,ExaminerProtectedR
 import Profile from '../Pages/Profile'
 import Modal from '../Pages/Student-panel/Timer/Modal'
 import ExaminerDashbord from '../Pages/Examiner-Panel/Dashboard/ExaminerDashbord'
+import Error from '../Pages/Error';
 
 const Index = () => {
   return (
     <>
  <Routes>
+ <Route path="/" element={<Home />} />
  <Route element={<ProtectedRoutes2/>}>
-    <Route path="/" element={<Home />} />
     {/* <Route path="/about" element={<About />} /> */}
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
@@ -36,7 +37,7 @@ const Index = () => {
     <Route path="/studentDashboard/*" element={<StudentDashboard />} />
     </Route>
     </Route>
-    <Route path="*" element={<Home/>} />
+    <Route path="*" element={<Error/>} />
      </Routes> 
      
     </> 

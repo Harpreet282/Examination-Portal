@@ -1,5 +1,6 @@
 .dashboard-page .left-content {
   padding: 0;
-  background-color: var(--main-gray-color);
-  border-radius: 8px;
+  /* background-color: var(--main-gray-color); */
+  /* border-radius: 8px; */
+  /* height: 90vh; */
 }

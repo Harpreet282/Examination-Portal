@@ -1,3 +1,5 @@
+import * as reduxConstants from '../redux-constants'
+
 const initialState = {
     authenticated: false,
     userType:''
@@ -6,7 +8,7 @@ const initialState = {
 const loginState=(state=initialState,action)=>{
 
     switch(action.type){
-        case 'LOGIN':
+        case reduxConstants.LOGIN:
             const token=action.payload.token;
             const userType=action.payload.userType;
             // console.log(userType)
@@ -22,7 +24,7 @@ const loginState=(state=initialState,action)=>{
                 authenticated: true,
             };
 
-        case 'LOGOUT':
+        case reduxConstants.LOGOUT:
              localStorage.removeItem('data')
                return state=false
         default:

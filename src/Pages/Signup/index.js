@@ -73,14 +73,14 @@ const SignUp = () => {
 <Loader/>
 :
 <>
-<div className='p-1'>
-<div className="formsSection all-containers my-3">
+<div className=''>
+<div className="formsSection absolute-center all-containers">
 <div className="">
-<h2>Sign-up Here!!</h2>
-     <form className='px-5' onSubmit={formik.handleSubmit}>
+<h3>Sign-up Here !!</h3>
+     <form className='' onSubmit={formik.handleSubmit}>
         <div className="">
         <input type="text" {...formik.getFieldProps('firstName')} placeholder="First Name" />
-      { formik.touched.firstName && formik.errors.firstName?  <p className='text-danger error'>{formik.errors.firstName}</p> : null}
+      { formik.touched.firstName && formik.errors.firstName?  <p className='text-danger error pl-2'>{formik.errors.firstName}</p> : null}
         </div>
         <div className="">
         <input type="text" {...formik.getFieldProps('lastName')} placeholder="Last Name" />

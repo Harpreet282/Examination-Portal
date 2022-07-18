@@ -1,6 +1,7 @@
+import * as reduxConstants from '../redux-constants'
 export const loginAccount = (token, userType) => {
   return {
-    type: "LOGIN",
+    type: reduxConstants.LOGIN,
     payload: {
       token,
       userType,
@@ -10,18 +11,18 @@ export const loginAccount = (token, userType) => {
 
 export const logoutAccount = () => {
   return {
-    type: "LOGOUT",
+    type: reduxConstants.LOGOUT,
   };
 };
 
-export const loaderValue = () => {
+export const loaderValueFalse = () => {
   return {
-    type: "LOADING_FALSE",
+    type: reduxConstants.LOADING_FALSE,
   };
 };
 
-export const loaderValue2 = () => {
+export const loaderValueTrue = () => {
   return {
-    type: "LOADING_TRUE",
+    type: reduxConstants.LOADING_TRUE,
   };
 };
