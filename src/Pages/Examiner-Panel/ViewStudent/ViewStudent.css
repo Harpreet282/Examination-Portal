@@ -1,0 +1,31 @@
+.table .add{
+    margin-top: 15px;
+    border: 2px solid var(--main-theme-color);
+    border-radius: 25px;
+    font-weight: 700;
+    color:var(--main-theme-color)
+}
+.table .add:hover{
+    border: 2px solid var(--main-black-color);
+    background-color:var(--main-black-color);
+    color: var(--main-theme-color)
+}
+.viewStudent .submit{
+    margin-top: 15px;
+    width: 40%;
+    border: 2px solid var(--main-theme-color);
+    margin-bottom: 50px;
+    border-radius: 25px;
+    font-weight: 700;
+    color:var(--main-theme-color)
+}
+.viewStudent .submit:hover{
+    border: 2px solid var(--main-black-color);
+    background-color:var(--main-black-color);
+    color: var(--main-theme-color)
+}
+.viewStudent .submitButton{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}

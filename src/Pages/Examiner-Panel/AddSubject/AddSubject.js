@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { ADD_SUBECT } from '../../../Apis/apis';
+import { ToastContainer, toast } from 'react-toastify';
 import './AddSubject.css'
 const AddSubject = () => {
     const [CourseName,setCourseName]=useState('');
@@ -23,16 +24,21 @@ const AddSubject = () => {
        
         axios.post( ADD_SUBECT ,{subjects:[subject]},{headers:{Authorization:`Bearer ${token}`}})
        .then((res)=>{
+        toast.success(" Additional Subject is Registered")
         const data=res.data;
         console.log(data);
     })
 
     .catch((error)=>{
         console.log(error);
+        if(error.response.data.message==='Subject Name Is Not Valid'){
+          toast.error("please fill the subject");
+        }
     })
   }
   return (
     <div>
+    <ToastContainer/>
       <section className='Add-Subject'>
       <div className='container all-containers  my-5'>
       <div className='all-content'>

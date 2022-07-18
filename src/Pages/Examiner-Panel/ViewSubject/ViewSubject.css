@@ -1,13 +1,13 @@
 .table button{
     margin-top: 15px;
-    width: 50%;
-    border: 2px solid #F4831F;
+    width: 60%;
+    border: 2px solid var(--main-theme-color);
     border-radius: 25px;
     font-weight: 700;
-    color:#F4831F
+    color:var(--main-theme-color)
 }
 .table button:hover{
-    border: 2px solid black;
-    background-color: black;
-    color: #F4831F;
+    border: 2px solid var(--main-black-color);
+    background-color:var(--main-black-color);
+    color: var(--main-theme-color)
 }

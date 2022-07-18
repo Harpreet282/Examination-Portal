@@ -1,0 +1,33 @@
+.createExam input{
+    background-color: transparent;
+    width: 100%;
+    padding: 12px 20px 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid var(--main-theme-color);
+    font-weight: 500;
+
+}
+.createExam form button{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 50%;
+    /* justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto; */
+    margin-left:20%;
+    border: 2px solid var(--main-theme-color);
+    border-radius: 25px;
+    font-weight: 700;
+    color:var(--main-theme-color)
+}
+.createExam form button:hover{
+    border: 2px solid var(--main-black-color);
+    background-color: var(--main-black-color);
+    color: var(--main-theme-color);
+}  
+.createExam form input:focus-visible{
+    outline: none;
+}

@@ -1,5 +1,5 @@
 .Add-Subject .all-containers{
-    background-color:#e2dede;
+    background-color:var(--main-white-color);
 }
 .Add-Subject .all-containers .all-content{
     height:max-content;
@@ -12,18 +12,18 @@
 .Add-Subject .all-containers .all-content button{
     margin-top: 15px;
     width: 50%;
-    border: 2px solid #F4831F;
+    border: 2px solid var(--main-theme-color);
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
     border-radius: 25px;
     font-weight: 700;
-    color:#F4831F
+    color:var(--main-theme-color)
 }
 .Add-Subject .all-containers .all-content button:hover{
-    border: 2px solid black;
-    background-color: black;
+    border: 2px solid var(--main-black-color);
+    background-color:var(--main-black-color);
 }  
 .Add-Subject .all-containers .all-content input{
     background-color: transparent;
@@ -32,6 +32,9 @@
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #F4831F;
+    border-bottom: 2px solid var(--main-theme-color);
     font-weight: 500;
+}
+.Add-Subject .all-containers .all-content input:focus-visible{
+    outline: none;
 }

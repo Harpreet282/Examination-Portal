@@ -25,3 +25,17 @@ export const loaderValue2 = () => {
     type: "LOADING_TRUE",
   };
 };
+
+export const examCreate = (data) => {
+  return {
+    type: "CREATE_EXAM",
+    payload:data,
+  };
+};
+export const question_detail = (data) => {
+  console.log('QUESTION',data)
+  return {
+    type: "QUESTION_DETAILS",
+    data:data,
+  };
+};

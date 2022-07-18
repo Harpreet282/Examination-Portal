@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import { ADD_SUBECT } from '../../../Apis/apis';
 
 const CreateSubject = () => {
@@ -29,16 +30,21 @@ const CreateSubject = () => {
         console.log(subjects);
         axios.post( ADD_SUBECT ,{subjects:subjects},{headers:{Authorization:`Bearer ${token}`}})
        .then((res)=>{
+        toast.success("Sujects are Registered")
         const data=res.data;
         console.log(data);
     })
 
     .catch((error)=>{
         console.log(error);
+        if(error.response.data.message==='Subject Name Is Not Valid'){
+          toast.error("please fill the subjects");
+        }
     })
   }
   return (
     <div>
+    <ToastContainer/>
        <section className='Add-Subject'>
       <div className='container all-containers  my-5'>
       <div className='all-content'>

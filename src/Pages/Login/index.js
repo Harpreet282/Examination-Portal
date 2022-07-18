@@ -35,7 +35,7 @@ const Login = () => {
       .post(LOGIN_API, values)
       .then((res) => {
         setLoading(false);
-        console.log(res);
+        // console.log(res);
         toast.success("Login Successfully!");
         dispatch(
           loginAccount(res.data.data.accessToken, res.data.data.userType)
@@ -64,21 +64,15 @@ const Login = () => {
   // console.log('Visited Feilds', formik.touched)
 
   return (
-    <>
-      <section className="login-page">
+    <div className="">
+
+      <section className="login-page margin-from-top">
         {loading ? (
           <Loader />
         ) : (
-          <>
-            <div className="container all-containers my-5">
-              <div className="row">
-                <div className="col-md-6 left-content">
-                  <div className="content absolute-center">
-                    <h1>Please Login by Enter your Credentials</h1>
-                  </div>
-                </div>
-                <div className="col-md-6 right-content">
-                  <div className="content absolute-center">
+       
+            <div className="formsSection all-containers absolute-center">
+          <h2>Login Here!!</h2>
                     <form className="px-5" onSubmit={formik.handleSubmit}>
                       <div className="">
                         <input
@@ -107,7 +101,7 @@ const Login = () => {
                         ) : null}
                       </div>
                       <div>
-                        <button className="btn">Login</button>
+                        <button type="submit" className="btn">Login</button>
                       </div>
                       <div className="signupLink">
                         <p>
@@ -116,15 +110,12 @@ const Login = () => {
                         </p>
                       </div>
                     </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </>
+          </div>
+
         )}
+          <ToastContainer />
       </section>
-      <ToastContainer />
-    </>
+      </div>
   );
 };
 

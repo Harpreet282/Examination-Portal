@@ -26,8 +26,8 @@ const SideBar = () => {
                   </NavLink>
                 </li>
                 {/* <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/AddSubject" >
-                  Add Subject
+                  <NavLink className="nav-link" to="/examinerDashboard/examDetails" >
+                  Exam Details
                   </NavLink>
                 </li> */}
                 {/* <li className="nav-item">
