@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const ExamGuildelines = () => {
-  return (
-    <div>you have to follow exam guidelines</div>
-  )
+function ExamGuildelines() {
+  return <div>you have to follow exam guidelines</div>;
 }
 
-export default ExamGuildelines
+export default ExamGuildelines;

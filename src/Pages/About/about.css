@@ -1,10 +1,16 @@
+.about-page{
+    position: absolute;
+    width: 100%;
+    top: 10vh;
+    left:0;
+}
 .about-page .left-content{
 position: relative;
-height: 480px;
 }
-
+.about-page .left-content .content{
+    color: black;
+}
 .about-page .left-content .content h1{
-    color: var(--main-theme-color);
     margin: 10px 0px;
     text-align: center;
 }
@@ -15,11 +21,12 @@ height: 480px;
 }
 .about-page .right-content{
     position: relative;
-background-color: var(--main-gray-color);
+background-color: var(--main-black-color);
 }
-
+.about-page .right-content .content {
+    color: white;
+}
 .about-page .right-content .content h1{
-    color: var(--main-theme-color);
     margin: 10px 0px;
     text-align: center;
 }

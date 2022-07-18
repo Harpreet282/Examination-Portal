@@ -2,7 +2,7 @@ import React, { useEffect ,useState} from 'react';
 import axios from 'axios';
 import {useLocation,useNavigate} from 'react-router-dom';
 import Loader from "../../.././Loader";
-import { loaderValue, loaderValue2 } from "../../../redux/actions/index";
+import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions/index";
 import {VIEW_SUBECTS} from '../../../Apis/apis';
 import './ViewSubject.css'
 import {useSelector,useDispatch} from "react-redux";
@@ -14,17 +14,18 @@ const ViewSubject = () => {
   const loadingState = useSelector((state) => state.loadingState.loading);
   useEffect(()=>{
     const token=JSON.parse(localStorage.getItem('data')).token;
-    dispatch(loaderValue2());
+    dispatch(loaderValueTrue());
     console.log(location.state.courseId,'course id');
     axios.get(VIEW_SUBECTS  + location.state.courseId,{headers:{Authorization:`Bearer ${token}`}})
         .then((res)=>{
             console.log(res.data.data.subjects,'subjects');
-            dispatch(loaderValue());
+            dispatch(loaderValueFalse());
             setSubjects(res.data.data.subjects);
             console.log(Subjects,'subjects')
         })
         .catch((error)=>{
             console.log(error);
+            dispatch(loaderValueFalse());
         })
 },[location.state.courseId])
 

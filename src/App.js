@@ -1,13 +1,9 @@
-import Header from "./components/Header/Header";
-import Index from "./Routes";
+import Index from './Routes';
 
 function App() {
   return (
-    <>
-      <Header/>
-      <Index/>
-    </>
-      );
+    <Index />
+  );
 }
 
 export default App;

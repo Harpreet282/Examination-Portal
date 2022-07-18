@@ -1,62 +1,93 @@
-.login-page .left-content{
-position: relative;
-background-color: var(--main-gray-color);
-height: 480px;
-}
-
-.login-page .left-content .content h1{
-    transition: 1s ease-in-out;
-    margin-bottom: 2rem;
-    color: var(--main-theme-color);
-    font-weight: 700;
-}
-
-.login-page .left-content .content:hover h1{
-    color: var(--main-black-color);
-    transition: 1s ease-in-out;
-}
-
-.login-page .right-content{
-    overflow: hidden;
-    position: relative;
-    /* padding: 0px; */
-}
-
-.login-page .right-content .content input{
-    /* text-align: center; */
-    background-color: transparent;
+.login-page {
+  position: relative;
+  height: 90vh;
+  background-image: url('https://wallpaperaccess.com/full/1176274.jpg');
+  background-size: cover;
+  }
+  .login-page::before {
+    content: "";
+    display: block;
+    background: #0a0a0a94;
+    height: 100%;
     width: 100%;
-    padding:12px 20px 5px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border:none;
-    border-bottom: 2px solid var(--main-theme-color);
-    font-weight: 500;
-  }
+    position: absolute;
+}
 
-  .login-page .right-content .content input:focus-visible{
-    outline: none;
-  }
+.login-page .formsSection {
+  background-color: #ffffffa8;
+  width: 50%;
+  overflow: hidden;
+  padding: 50px;
+}
 
-  .login-page .right-content .content ::placeholder{
-    color: grey;
-  }
+.login-page .formsSection form{
+  padding-left: 50px;
+  padding-right: 50px;
+}
 
-  .login-page .right-content .content button{
-    margin-top: 15px;
-    width: 50%;
-    border: 2px solid var( --main-theme-color);
-border-radius: 25px;
-font-weight: 700;
-color: var(--main-theme-color);
-  }
+.login-page .formsSection input {
+  /* text-align: center; */
+  background-color: transparent;
+  font-size: 14px;
+  width: 100%;
+  padding: 5px 20px 5px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  /* border-bottom: 2px solid var(--main-black-color); */
+  font-weight: 500;
+  border:1px solid #4e4343;
+  border-radius: 4px;
+}
 
-  .login-page .right-content .content button:hover{
-    border: 2px solid var( --main-black-color);
-    background-color: var(--main-black-color);
-  }
+.login-page .formsSection input:focus-visible {
+  outline: none;
+}
 
-  .login-page .right-content .content .signupLink{
-    margin-top: 15px;
-    font-weight: 500;
+.login-page .formsSection ::placeholder {
+  color: rgb(63, 50, 50);
+}
+
+.login-page .formsSection button {
+  overflow: hidden;
+  margin-top: 15px;
+  width: 40%;
+  border: 1px solid var(--main-black-color);
+  border-radius: 4px;
+  font-weight: 500;
+  color: var(--main-black-color);
+  padding: 3px;
+}
+
+.login-page .formsSection button:hover {
+  background-color: var(--main-black-color);
+  color: white;
+}
+
+.login-page .formsSection .signupLink {
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 1199.98px) {}
+
+@media (max-width: 991.98px) {
+  .login-page .formsSection {
+    width: 70%;
+    padding: 20px;
   }
+}
+
+@media (max-width: 767.98px) {
+  .login-page .formsSection {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .login-page .formsSection form{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+} 

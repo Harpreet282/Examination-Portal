@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom"
 import { VIEW_COURSES } from '../../../Apis/apis';
 import {useSelector,useDispatch} from "react-redux";
 import Loader from "../../.././Loader";
-import { loaderValue, loaderValue2 } from "../../../redux/actions/index";
+import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions/index";
 import axios from 'axios';
 const ViewCourses = () => {
       const[request,setDeclineRequest]=useState([]);
@@ -13,17 +13,18 @@ const ViewCourses = () => {
       const loadingState = useSelector((state) => state.loadingState.loading);
       useEffect(()=>{
           const token=JSON.parse(localStorage.getItem('data')).token;
-          dispatch(loaderValue2());        
+          dispatch(loaderValueTrue());        
           axios.get(VIEW_COURSES,{headers:{Authorization:`Bearer ${token}`}})
           .then((res)=>{ 
               console.log(res.data.data.examinerCourses)
               setDeclineRequest(res.data.data.examinerCourses);
               console.log(request,'id');
-              dispatch(loaderValue());
+              dispatch(loaderValueFalse());
             
           })
           .catch((error)=>{
               console.log(error);
+              dispatch(loaderValueFalse());
           })
       },[])
   return (

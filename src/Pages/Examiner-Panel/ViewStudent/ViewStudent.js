@@ -1,13 +1,13 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios'; 
 import {  VIEW_STUDENT } from '../../../Apis/apis';
-import './viewStudent.css';
+import './ViewStudent.css';
 import { useLocation } from 'react-router-dom';
 import { useSelector,useDispatch} from "react-redux";
 import {CREATE_EXAM} from '../../../Apis/apis';
 import {toast,ToastContainer} from 'react-toastify'
 import Loader from "../../.././Loader";
-import { loaderValue, loaderValue2 } from "../../../redux/actions/index";
+import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions/index";
 
 const ViewStudent = () => {
     const[data,setData]=useState([]);
@@ -50,17 +50,18 @@ const ViewStudent = () => {
     
     useEffect(()=>{
         const token=JSON.parse(localStorage.getItem('data')).token;
-        dispatch(loaderValue2());
+        dispatch(loaderValueTrue());
         axios.get(VIEW_STUDENT + courseId ,{headers:{Authorization:`Bearer ${token}`}})
             .then((res)=>{
                 setData(res.data.data.students);
                 setCheckList(Array(res.data.data.students.length).fill(false));
-                dispatch(loaderValue());
+                dispatch(loaderValueFalse());
                 // localStorage.setItem("course",courseId);
                 console.log(data);
             })
             .catch((error)=>{
                 console.log(error);
+                dispatch(loaderValueFalse());
             })
     },[])
 
