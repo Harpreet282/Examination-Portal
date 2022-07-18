@@ -1,68 +1,70 @@
-import React from 'react'
-import {Outlet} from 'react-router'
-import {useSelector} from 'react-redux';
-import * as myConst from '../../Constants'
+import React from 'react';
+import { Outlet } from 'react-router';
+import { useSelector } from 'react-redux';
+import * as myConst from '../../Constants';
 import Profile from '../../Pages/Profile';
 import Home from '../../Pages/Home';
 
-const ProtectedRoutes = () => {
-    const isLogged=useSelector(state=>state.loginState.authenticated);
-    
+function ProtectedRoutes() {
+  const isLogged = useSelector((state) => state.loginState.authenticated);
+
   return (
-    <div> 
-{
-    isLogged?<Outlet />:
-     <Home/>
+    <div>
+      {
+    isLogged ? <Outlet />
+      : <Home />
 }
     </div>
-  )
+  );
 }
 
-const ProtectedRoutes2 = () => {
-  const isLogged=useSelector(state=>state.loginState.authenticated);
-return (
-  <div> 
-{
-  !isLogged?<Outlet />:   <Profile/>
+function ProtectedRoutes2() {
+  const isLogged = useSelector((state) => state.loginState.authenticated);
+  return (
+    <div>
+      {
+  !isLogged ? <Outlet /> : <Profile />
 }
-  </div>
-)
+    </div>
+  );
 }
 
-const AdminProtectedRoutes = () => {
-  const userType= JSON.parse(localStorage.getItem('data')).userType;
+function AdminProtectedRoutes() {
+  const { userType } = JSON.parse(localStorage.getItem('data'));
   // console.log(userType);
-return (
-  <div> 
-{
- userType===myConst.ADMIN?<Outlet />:   <Profile/>
+  return (
+    <div>
+      {
+ userType === myConst.ADMIN ? <Outlet /> : <Profile />
 }
-  </div>
-)
+    </div>
+  );
 }
 
-const ExaminerProtectedRoutes = () => {
-  const userType= JSON.parse(localStorage.getItem('data')).userType;
+function ExaminerProtectedRoutes() {
+  const { userType } = JSON.parse(localStorage.getItem('data'));
   console.log(userType);
-return (
-  <div> 
-{
- userType===myConst.EXAMINER?<Outlet />:   <Profile/>
+  return (
+    <div>
+      {
+ userType === myConst.EXAMINER ? <Outlet /> : <Profile />
 }
-  </div>
-)
+    </div>
+  );
 }
 
-const StudentProtectedRoutes = () => {
-  const userType= JSON.parse(localStorage.getItem('data')).userType;
+function StudentProtectedRoutes() {
+  const { userType } = JSON.parse(localStorage.getItem('data'));
   console.log(userType);
-return (
-  <div> 
-{
- userType===myConst.STUDENT?<Outlet />:   <Profile/>
+  return (
+    <div>
+      {
+ userType === myConst.STUDENT ? <Outlet /> : <Profile />
 }
-  </div>
-)
+    </div>
+  );
 }
 
-export  {ProtectedRoutes,ProtectedRoutes2,AdminProtectedRoutes,ExaminerProtectedRoutes,StudentProtectedRoutes}
+export {
+  ProtectedRoutes, ProtectedRoutes2, AdminProtectedRoutes, ExaminerProtectedRoutes, StudentProtectedRoutes,
+};

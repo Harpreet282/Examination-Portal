@@ -1,19 +1,22 @@
 .header .navbar{
     height: 10vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: rgb(0 0 0 / 15%) 0 0 8px;
-    background-color: var(--main-white-color);
+    background-color: var(--main-white-color) !important;
 }
 .header .navbar-brand img{
-    height: 50px ;
-    width: 150px;
+    height: 30px ;
+    width: 120px;
+}
+.header .navbar .navbar-collapse {
+    background-color: var(--main-white-color);
 }
 
 .header ul li a{
     font-size: 15px;
     font-weight: 700;
     padding: 5px 30px 5px 30px !important;
-    margin: 0px 5px 0px 5px;
+    margin:5px;
     color: var(--main-black-color) !important;
 }
 
@@ -26,6 +29,21 @@
     background-color: var(--main-black-color);
 }
 
-/* .header ul li a.active li{ 
-    background-color: var(--main-black-color);
-} */
+@media (max-width: 1199.98px) {}
+
+@media (max-width: 991.98px) {
+}
+
+@media (max-width: 767.98px) {
+    
+}
+
+@media (max-width: 575.98px) {
+ 
+}
+
+
+
+
+
+

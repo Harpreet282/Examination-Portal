@@ -1,13 +1,13 @@
-import React from 'react'
-import "./Transaction.css"
+import React from 'react';
+import './Transaction.css';
 
-const Transaction = () => {
+function Transaction() {
   return (
-    <section className='transaction-page'>
-      <h5>OOPS!!</h5> 
+    <section className="transaction-page">
+      <h5>OOPS!!</h5>
       <h6>your transaction details are empty.</h6>
     </section>
-  )
+  );
 }
 
-export default Transaction
+export default Transaction;

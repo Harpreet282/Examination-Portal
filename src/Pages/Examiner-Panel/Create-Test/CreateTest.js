@@ -1,12 +1,10 @@
-import React from 'react'
-import './createTest'
+import React from 'react';
+import './createTest';
 
-const CreateTest = () => {
+function CreateTest() {
   return (
-    <div>
-      
-    </div>
-  )
+    <div />
+  );
 }
 
-export default CreateTest
+export default CreateTest;
