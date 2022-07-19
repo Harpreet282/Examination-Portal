@@ -7,16 +7,16 @@ const ExaminerDashbord = () => {
   return (
     <div>
       <section className='examiner-dashboard-page'>
-      <div className=" all-containers ">
-     <div className="row">
+      
+     <div className="row main-content">
       <div className="col-md-3 left-content">
       <SideBar/>
       </div>
-      <div className="col-md-9">
+      <div className="col-md-9 right-content">
         <Index/>
       </div>
      </div>
-    </div>
+
     </section>
     </div>
   )

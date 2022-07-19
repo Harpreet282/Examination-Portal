@@ -44,7 +44,8 @@ const ViewCourses = () => {
   
   <div class="card-body">
     <h5 class="card-title">{item.name}</h5>
-    <p class="card-text">{item.description}</p>
+    <p class="card-text" style={{width:"120%", height:"20%"}}>{item.description}</p>
+    <div className='button-container'>
     {/* <div className='row'> */}
     <div className='row'>
         <button onClick={()=>navigate("/examinerDashboard/AddStudent" ,{ state: { courseId : item._id }})} className="btn AddStudent">Add Student </button>
@@ -59,7 +60,7 @@ const ViewCourses = () => {
     {/* </div> */}
    
 </div>
-
+</div>
 </div>
 </div>
 

@@ -1,7 +1,8 @@
 .examiner-sidebar-page{
     padding: 0;
-    background-color: var(--main-gray-color);
-    /* border-radius: 8px; */
+    background-color: var(--main-black-color);
+    height:90vh;
+    position: fixed;
 }
 .examiner-sidebar-page .side-bar ul {
     padding: 0;
@@ -15,20 +16,18 @@ display: flex;
 }
 
 .examiner-sidebar-page .side-bar ul li a{
-    width:100%;
+    width: 100%;
     font-size: 20px;
     font-weight: 700;
-    margin: 0px 20px 0px 20px;
-    color: rgba(0,0,0,.5);
+    margin: 0px 10px 0px 10px;
+    padding: 10px !important;
+    color: rgb(248 245 245 / 75%);
 }
-
-.examiner-sidebar-page .side-bar  ul li:hover{
-    background-color: var(--main-black-color);
-    
+.admin-sidebar-page .side-bar  ul a:hover{
+    background-color: var(--main-white-color);
+    color:var(--main-black-color) !important ;
 }
-.examiner-sidebar-page .side-bar  ul li:hover a{
-    color: var(--main-white-color) !important;
-}
-.examiner-sidebar-page .side-bar  ul li a.active{
-    color: var(--main-black-color);
+.admin-sidebar-page .side-bar  ul li a.active{
+    background-color: var(--main-white-color);
+    color:var(--main-black-color) !important ;
 }

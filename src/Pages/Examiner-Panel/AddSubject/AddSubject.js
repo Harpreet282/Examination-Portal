@@ -40,9 +40,9 @@ const AddSubject = () => {
     <div>
     <ToastContainer/>
       <section className='Add-Subject'>
-      <div className='container all-containers  my-5'>
+      <div className='container absolute-center'>
       <div className='all-content'>
-      <h1>Add Subject</h1>
+      <h2>Add Subject</h2>
       <form onSubmit={submitHandler}>
         <div className='row'>
         <div className='col-md-12'>

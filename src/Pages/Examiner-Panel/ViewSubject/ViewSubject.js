@@ -37,8 +37,8 @@ const ViewSubject = () => {
   return (
     <>
     {loadingState?<Loader/> :
-    <>
-     <h1>Subject List</h1>
+    <div className='viewSubject'>
+     <h2>Subject List</h2>
      <table className="table my-4">
   <thead>
     <tr>
@@ -62,8 +62,10 @@ const ViewSubject = () => {
         })
       }
       </table>
-      </>
+      
+      </div>
      }
+     
     </>
   )
 }

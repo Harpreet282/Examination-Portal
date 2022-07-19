@@ -16,19 +16,18 @@ text-align: center;
 
     .Student-Signup h2{
     margin-top: 20px;
-    color:var(--main-theme-color);
+    color:var(--main-black-color);
     margin-left: auto !important;
     margin-right: auto !important;
     }
 
     .Student-Signup .all-content .content input{
-        background-color: transparent;
         width: 100%;
-        padding: 12px 20px 5px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: none;
-        border-bottom: 2px solid var(--main-theme-color);
+        padding: 5px 20px 5px 20px;
+        border:none;
+        border-radius: 4px;
+        border:1px solid #4e4343;
+        margin: 15px 0;
         font-weight: 500;
 
     }
@@ -38,15 +37,13 @@ text-align: center;
         color: black;
     }
     .Student-Signup .all-content .content select{
-        background-color: transparent;
         width: 100%;
         padding: 5px 20px 5px 20px;
-        margin: 13px 0;
-        box-sizing: border-box;
-        border: none;
-        border-bottom: 2px solid var(--main-theme-color);
+        border:none;
+        border-radius: 4px;
+        border:1px solid #4e4343;
+        margin: 15px 0;
         font-weight: 500;
-
     }
   /* .Student-Signup .all-content .content  .studentGender{
         border: 0;
@@ -63,15 +60,21 @@ text-align: center;
         color: var(--main-gray-color)!important;
     }
     .Student-Signup .all-content .content form button{
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
         margin-top: 15px;
-        width: 50%;
-        border: 2px solid var(--main-theme-color);
-        border-radius: 25px;
-        font-weight: 700;
-        color:var(--main-theme-color)
+        width: 30%;
+        border: 1px solid var(--main-black-color);
+        border-radius: 4px;
+        font-weight: 500;
+        color: var(--main-black-color);
+        padding: 5px;
     }
     .Student-Signup .all-content .content form button:hover{
-        border: 2px solid var(--main-black-color);
+        color: white;
         background-color:var(--main-black-color) ;
     }  
 @media only screen and (max-width:1199.98px) {

@@ -77,7 +77,7 @@ const ViewStudent = () => {
     <>
     <div className='viewStudent'>
     <ToastContainer/>
-    <h1>Student List</h1>
+    <h2>Student List</h2>
       <table className="table my-4">
   <thead>
     <tr>

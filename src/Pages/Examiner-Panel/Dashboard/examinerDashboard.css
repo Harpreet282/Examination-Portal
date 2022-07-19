@@ -1,5 +1,18 @@
+.examiner-dashboard-page{
+    margin-top:60px;
+    background-image:url("https://c.wallhere.com/photos/9a/1a/background_spots_texture_surface_pale-671667.jpg!d")
+}
+
 .examiner-dashboard-page .left-content{
-    padding: 0;
-    background-color: var(--main-gray-color);
-    border-radius: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.examiner-dashboard-page .right-content{
+    padding-left:0px;
+    padding-right:0px;
+}
+.examiner-dashboard-page .main-content{
+    margin:0px;
+    padding: 0px;
 }

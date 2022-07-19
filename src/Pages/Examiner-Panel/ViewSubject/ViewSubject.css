@@ -1,13 +1,21 @@
-.table button{
+.viewSubject .table button{
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
     margin-top: 15px;
-    width: 60%;
-    border: 2px solid var(--main-theme-color);
-    border-radius: 25px;
-    font-weight: 700;
-    color:var(--main-theme-color)
+    width:60%;
+    border: 1px solid var(--main-black-color);
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--main-black-color);
+    padding: 3px;
 }
-.table button:hover{
-    border: 2px solid var(--main-black-color);
+.viewSubject .table button:hover{
     background-color:var(--main-black-color);
-    color: var(--main-theme-color)
+    color:white
+}
+.viewSubject h2{
+    padding-top: 30px;
 }

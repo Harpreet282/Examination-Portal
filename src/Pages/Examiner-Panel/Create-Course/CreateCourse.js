@@ -40,19 +40,21 @@ const CreateCourse = () => {
     <div>
       <section className='Student-Courses'>
       <ToastContainer/>
-      <div className='container all-containers  my-5'>
+      <div className='container absolute-center '>
       <div className='all-content'>
-      <h1>Create Course</h1>
+      <h2>Create Course</h2>
       <form onSubmit={submitHandler}>
         <div className='row'>
-        <div className='col-md-6'>
+        <div className='col'>
           <input type="text" onChange={chaneHandler}  placeholder="Name" name='name'/>
         </div>
-            <div className='col-md-6'>
+        </div>
+        <div className='row'>
+            <div className='col'>
           <input type="text"  onChange={chaneHandler}  placeholder="Description" name='description'/>
             </div> 
-     
-         </div>  
+            </div>
+         
          
          <div className='row'>
             <button className='btn'>Submit</button>

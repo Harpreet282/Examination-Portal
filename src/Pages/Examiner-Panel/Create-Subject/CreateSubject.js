@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { ADD_SUBECT } from '../../../Apis/apis';
+import './createSubject.css'
 
 const CreateSubject = () => {
     const [SubjectName,setSubjectName]=useState({
@@ -45,25 +46,28 @@ const CreateSubject = () => {
   return (
     <div>
     <ToastContainer/>
-       <section className='Add-Subject'>
-      <div className='container all-containers  my-5'>
+       <section className='create-Subject'>
+      <div className='container absolute-center'>
       <div className='all-content'>
-      <h1> Subjects</h1>
+      <h2> Subjects Registered</h2>
       <form onSubmit={submitHandler}>
         <div className='row'>
-        <div className='col-md-6'>
+        <div className='col-md'>
           <input type="text" onChange={chaneHandler}  placeholder=" Subject" name='name_1'/>
         </div>
-      
-        <div className='col-md-6'>
+        </div>
+        <div className='row'>
+        <div className='col-md'>
           <input type="text" onChange={chaneHandler}  placeholder="Subject" name='name_2'/>
         </div>
         </div>
         <div className='row'>
-        <div className='col-md-6'>
+        <div className='col-md'>
           <input type="text" onChange={chaneHandler}  placeholder="Subject" name='name_3'/>
         </div>
-        <div className='col-md-6'>
+        </div>
+        <div className='row'>
+        <div className='col-md'>
           <input type="text" onChange={chaneHandler}  placeholder="Subject" name='name_4'/>
         </div>
         </div>

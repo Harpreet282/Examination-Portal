@@ -1,17 +1,12 @@
-.Student-Courses  .all-content{
-    height:max-content;
-    overflow: hidden;
-    /* top:20px; */
-    margin-bottom:30px;
-    position: relative;
-    border-radius:4px;
-    text-align: center;
-    padding-bottom:20px;
-}
-.Student-Courses{
+.create-Subject{
     height: 90vh;
 }
-.Student-Courses .all-content button{
+.create-Subject  .all-content{
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.create-Subject  .all-content button{
     justify-content: center;
     align-items: center;
     margin-left: auto;
@@ -21,16 +16,15 @@
     width: 20%;
     border: 1px solid var(--main-black-color);
     border-radius: 4px;
-    font-weight: 500;
+    font-weight:500;
     color: var(--main-black-color);
     padding: 3px;
-    
 }
-.Student-Courses  .all-content button:hover{
+.create-Subject  .all-content button:hover{
     color: white;
-    background-color: var(--main-black-color);
+    background-color:var(--main-black-color);
 }  
-.Student-Courses .all-content input{
+.create-Subject .all-content input{
     width: 50%;
     padding: 5px 20px 5px 20px;
     border:none;
@@ -38,4 +32,7 @@
     border:1px solid #4e4343;
     margin: 15px 0;
     font-weight: 500;
+}
+.create-Subject .all-content input:focus-visible{
+    outline: none;
 }

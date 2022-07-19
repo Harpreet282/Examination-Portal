@@ -70,7 +70,7 @@ const CreateStudents = () => {
           <h2>Please Enter Student's Details to make their Accounts</h2>
         <div className='col-md-12 all-content'>
         <div className='content'>
-        <form onSubmit={formik.handleSubmit} className='px-5'>
+        <form onSubmit={formik.handleSubmit} >
           <div className='row'>
             <div className='col-md-6'>
               <input type="text"  {...formik.getFieldProps("firstName")} placeholder="First Name"/>

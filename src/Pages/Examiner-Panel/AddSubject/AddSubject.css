@@ -1,40 +1,39 @@
-.Add-Subject .all-containers{
-    background-color:var(--main-white-color);
+.Add-Subject{
+    height: 90vh;
 }
-.Add-Subject .all-containers .all-content{
+.Add-Subject  .all-content{
     height:max-content;
     overflow: hidden;
-    top:20px;
-    margin-bottom:30px;
     position: relative;
     text-align: center;
 }
-.Add-Subject .all-containers .all-content button{
-    margin-top: 15px;
-    width: 50%;
-    border: 2px solid var(--main-theme-color);
+.Add-Subject  .all-content button{
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 25px;
-    font-weight: 700;
-    color:var(--main-theme-color)
+    overflow: hidden;
+    margin-top: 15px;
+    width: 20%;
+    border: 1px solid var(--main-black-color);
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--main-black-color);
+    padding: 3px;
 }
-.Add-Subject .all-containers .all-content button:hover{
-    border: 2px solid var(--main-black-color);
+.Add-Subject  .all-content button:hover{
+    color: white;
     background-color:var(--main-black-color);
 }  
-.Add-Subject .all-containers .all-content input{
-    background-color: transparent;
-    width: 100%;
-    padding: 12px 20px 5px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid var(--main-theme-color);
+.Add-Subject .all-content input{
+    width: 50%;
+    padding: 5px 20px 5px 20px;
+    border:none;
+    border-radius: 4px;
+    border:1px solid #4e4343;
+    margin: 15px 0;
     font-weight: 500;
 }
-.Add-Subject .all-containers .all-content input:focus-visible{
+.Add-Subject .all-content input:focus-visible{
     outline: none;
 }
