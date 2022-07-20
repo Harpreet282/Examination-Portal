@@ -33,13 +33,7 @@ const Exams = () => {
 
   const navigate = useNavigate()
 
-  const openModal = (content) =>   {
-
-    // console.log(content.studentID)
-    navigate("/keymodal",{state:{studentID:content.studentID,examID:content.examID}})
-
-  } 
-
+  
   return (
     
     <div>
@@ -53,13 +47,13 @@ const Exams = () => {
                     <div className="card-body">
                       <h3 className="card-title">{content.subject}</h3>
                       <p>Exams date: {content.examDate.slice(0,10)}</p>
-                      <p className="card-text  exams-timings">Start Time: {content.startTime} AM</p>
-                      <p className="card-text  exams-timings">End time: {content.endTime}AM</p>
+                      <p className="card-text  exams-timings">Start Time: {content.startTime} {content.startTime.slice(0,2) <=12 ? "A.M." : "P.M."}</p>
+                      <p className="card-text  exams-timings">End time: {content.endTime} {content.endTime.slice(0,2) <=12 ? "A.M." : "P.M."}</p>
                     </div>
-                    <div className="student-card-body">
-                      <button href="#" className="card-button" data-toggle="modal" data-target="#exampleModalCenter" onClick={()=>{openModal(content)}}>
-                        <Timer date={content.examDate} time={content.startTime}/>
-                      </button>
+                    <div className="student">
+                      <div href="#">
+                        <Timer date={content.examDate} starttime={content.startTime} end ={content.endTime}/>
+                      </div>
                     </div>
                   </div>
                 </div>
