@@ -44,7 +44,7 @@ const Timer = (props) => {
         </div>
         
       :
-      getDaysToGo(props.date) === new Date().getDate() && Number(props.end.split(':')[0]) <=  new Date().getHours() && Number(props.end.split(':')[1]) <=  new Date().getMinutes() ? 
+      getDaysToGo(props.date).days < 0 && Number(props.end.split(':')[0]) <=  new Date().getHours() && Number(props.end.split(':')[1]) <=  new Date().getMinutes() ? 
       <div className='timer-btn-time-up'>
         <p>Time's Up!!</p>
       </div>
