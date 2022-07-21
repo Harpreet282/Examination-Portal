@@ -20,6 +20,7 @@ const Timer = (props) => {
     // y mins ko milliseconds mai convert krega 
     const minSec = parseInt(props.starttime.split(":")[1]) * 60000;
 
+    // console.log(new Date(dataSec+hrsSec+minSec))
       setInterval(() => {
         setTime(getDaysToGo(new Date(dataSec+hrsSec+minSec)))
       },1000)
@@ -38,7 +39,7 @@ const Timer = (props) => {
     <>
   
     {
-      getDaysToGo(props.date) === 0 && Number(props.starttime.split(':')[0]) ===  new Date().getHours() && Number(props.starttime.split(':')[1]) ===  new Date().getMinutes() ? 
+      getDaysToGo(props.date).days === 0 && Number(props.starttime.split(':')[0]) ===  new Date().getHours() && Number(props.starttime.split(':')[1]) <=  new Date().getMinutes() ? 
         <div className='timer-btn-apply' style={{backgroundColor:"blue"}}>
           <button data-toggle="modal" data-target="#staticBackdrop" onClick={()=>{openModal()}}>Apply Now!!</button>
         </div>
