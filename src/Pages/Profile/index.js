@@ -16,7 +16,6 @@ function Profile() {
         <StudentProfile/>:
         <About/>
       }
-     
     </section>
   );
 }
