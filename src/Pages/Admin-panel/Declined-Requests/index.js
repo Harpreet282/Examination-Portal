@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
 import * as myConstants from '../../../Constants';
 import { ToastContainer, toast } from 'react-toastify';
+import { FcApproval } from "react-icons/fc";
 
 function DeclinedRequests() {
   const dispatch = useDispatch();
@@ -69,55 +70,49 @@ function DeclinedRequests() {
   //  });
 
   return (
-    <section className="declined-requests-page my-4">
+    <section className="declined-requests-page ">
       {loadingState ? (
         <Loader />
       ) : (
         <>
           {declinedRequests.length > 0 ? (
-            <>
-              <h2>Declined Request :</h2>
-              {declinedRequests.map((req) => (
-                <div key={req._id} className="content-box p-2 my-2">
-                  <div className="row">
-                    <div className="col-md-8 requests-left-content">
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="reqData">
-                            {req.firstName}
-                            {' '}
-                            {req.lastName}
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="reqData">{req.email}</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 d-flex requests-right-content">
-                      <div>
+            <div className="py-4">
+            <h2>All Declined Requests</h2>
+            <table className="table all-containers">
+              <thead>
+                <tr>
+                  <th scope="col" className='pl-5'>#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col" style={{textAlign:'center'}}>Approve</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+                  {declinedRequests.map((req, i) => (
+                      <tr key={req._id} className="content-box">
+                        <th scope="row" className='pl-5'>{i + 1}</th>
+                        <td>
+                          {req.firstName} {req.lastName}
+                        </td>
+                        <td>{req.email}</td>
+                        <td align='center'>
                         <button
                           className="btn approveButton"
                           onClick={() => handleAction(req._id, myConstants.APPROVED)}
                         >
-                          Approve
-                        </button>
-                      </div>
-                      <div>
-                        <button
-                          className="btn btn deleteButton"
-                          onClick={() => handleAction(req._id, myConstants.DELETED)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </>
+                          <FcApproval size='25px' />
+                       </button>
+                        </td>
+                      </tr>
+                    ))}
+           
+              </tbody>
+            </table>
+          </div>
+            
           ) : (
-            <h2>No Declined Accounts</h2>
+            <h2 className='py-4'>No Declined Accounts</h2>
           )}
         </>
       )}

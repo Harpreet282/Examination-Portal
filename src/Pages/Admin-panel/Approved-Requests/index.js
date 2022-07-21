@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import { APPROVED_REQUESTS_API, UPDATE_REQUESTS_API } from '../../../Apis/apis';
-import './approvedRequests.css';
-import Loader from '../../../Loader';
-import { useSelector, useDispatch } from 'react-redux';
-import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
-import * as myConstants from '../../../Constants';
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { APPROVED_REQUESTS_API, UPDATE_REQUESTS_API } from "../../../Apis/apis";
+import "./approvedRequests.css";
+import Loader from "../../../Loader";
+import { useSelector, useDispatch } from "react-redux";
+import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
+import * as myConstants from "../../../Constants";
+import { ToastContainer, toast } from "react-toastify";
+import { FcDeleteRow } from "react-icons/fc";
 
 function ApprovedRequests() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function ApprovedRequests() {
   useEffect(() => {
     if (shouldLog.current) {
       shouldLog = false;
-      const { token } = JSON.parse(localStorage.getItem('data'));
+      const { token } = JSON.parse(localStorage.getItem("data"));
       dispatch(loaderValueTrue());
       axios
         .get(APPROVED_REQUESTS_API, {
@@ -27,7 +28,7 @@ function ApprovedRequests() {
         .then((response) => {
           setApprovedRequests(response.data.data.Examiners);
           dispatch(loaderValueFalse());
-          // console.log(response.data.data.Examiners);
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);
@@ -37,7 +38,7 @@ function ApprovedRequests() {
   }, []);
 
   const handleAction = (id, action) => {
-    const { token } = JSON.parse(localStorage.getItem('data'));
+    const { token } = JSON.parse(localStorage.getItem("data"));
     dispatch(loaderValueTrue());
     // console.log(id)
     const data = {
@@ -56,12 +57,12 @@ function ApprovedRequests() {
 
         const str = data.action.toLowerCase();
         toast.success(
-          `User ${str.charAt(0).toUpperCase() + str.slice(1)} Successfully!`,
+          `User ${str.charAt(0).toUpperCase() + str.slice(1)} Successfully!`
         );
       })
       .catch((error) => {
         console.log(error);
-        toast.error('Error');
+        toast.error("Error");
         dispatch(loaderValueFalse());
       });
   };
@@ -70,55 +71,51 @@ function ApprovedRequests() {
   //  },[]);
 
   return (
-    <section className="approved-requests-page my-4">
+    <section className="approved-requests-page">
       {loadingState ? (
         <Loader />
       ) : (
         <>
           {approvedRequests.length > 0 ? (
-            <>
-              <h2>All Approved Request :</h2>
-              {approvedRequests.map((req) => (
-                <div key={req._id} className="content-box p-2 my-2">
-                  <div className="row">
-                    <div className="col-md-8 requests-left-content">
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="reqData">
-                            {req.firstName}
-                            {' '}
-                            {req.lastName}
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="reqData">{req.email}</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 d-flex requests-right-content">
-                      <div>
-                        <button
-                          className="btn declineButton"
-                          onClick={() => handleAction(req._id, myConstants.DECLINED)}
-                        >
-                          Decline
-                        </button>
-                      </div>
-                      <div>
-                        <button
-                          className="btn deleteButton"
-                          onClick={() => handleAction(req._id, myConstants.DELETED)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </>
+            <div className="py-4">
+              <h2>All Approved Requests</h2>
+              <table className="table all-containers">
+                <thead>
+                  <tr>
+                    <th scope="col" className="pl-5">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col" style={{textAlign:'center'}}>Decline</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                    {approvedRequests.map((req, i) => (
+                        <tr key={req._id} className="content-box">
+                          <th scope="row" className="pl-5">{i + 1}</th>
+                          <td>
+                            {req.firstName} {req.lastName}
+                          </td>
+                          <td>{req.email}</td>
+                          <td align='center'>
+                            <button
+                              className="btn "
+                              onClick={() =>
+                                handleAction(req._id, myConstants.DECLINED)
+                              }
+                            >
+                        <FcDeleteRow size='25px'/>
+                            </button>
+                          </td>
+                        </tr>
+                      
+                    ))}
+             
+                </tbody>
+              </table>
+            </div>
           ) : (
-            <h2>No Approved Accounts</h2>
+            <h2 className='py-4'>No Approved Accounts</h2>
           )}
         </>
       )}

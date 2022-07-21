@@ -1,0 +1,37 @@
+.student-profile-page{
+    position: relative;
+}
+.student-profile-page-header{
+    display: flex;
+    background-color: #f6f6f6;
+    padding: 0px 0px 0px 25px;
+    border-radius: 10px;
+  
+}
+
+.student-profile-page-header img{
+    height: 150px;
+    width: 250px;
+    margin-left: 110px;
+}
+.student-profile-page h5{
+    font-weight: 400;
+}
+.student-profile-page .reviews{
+    display: flex;
+}
+.student-profile-page .reviews li{
+    list-style: none;
+    padding: 28px;
+    border-radius: 5px;
+    width: 205px;
+    height: 150px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 20px;
+}
+.student-profile-page .reviews span{
+    font-size: 24px;
+    font-weight: 700;
+}

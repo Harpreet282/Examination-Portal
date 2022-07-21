@@ -19,7 +19,7 @@ function ViewSubject() {
       });
   }, [location.state.courseId]);
   return (
-    <>
+    <div className='viewSubject'>
       <h1>Subject List</h1>
       <table className="table my-4">
         <thead>
@@ -42,7 +42,7 @@ function ViewSubject() {
         ))
       }
       </table>
-    </>
+    </div>
   );
 }
 

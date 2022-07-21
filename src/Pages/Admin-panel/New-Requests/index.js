@@ -7,6 +7,7 @@ import { PENDING_REQUESTS_API, UPDATE_REQUESTS_API } from '../../../Apis/apis';
 import Loader from '../../../Loader';
 import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
 import * as myConstants from '../../../Constants';
+import { FcApproval,FcDeleteRow } from "react-icons/fc";
 
 function NewRequests() {
   const [requests, setRequests] = useState([]);
@@ -66,65 +67,62 @@ function NewRequests() {
   };
 
   return (
-    <section className="new-requests-page my-4">
+    <section className="new-requests-page">
       {loadingState ? (
         <Loader />
       ) : (
         <>
-          {requests.length > 0 ? (
-            <>
-              <h2>All New Pending Request :</h2>
-              {requests.map((req) => (
-                <div key={req._id} className="content-box p-2 my-2">
-                  <div className="row">
-                    <div className="col-md-8 requests-left-content">
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="reqData">
-                            {req.firstName}
-                            {' '}
-                            {req.lastName}
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="reqData">{req.email}</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 d-flex requests-right-content">
-                      <div>
-                        <button
-                          className="btn approveButton"
-                          onClick={() => handleAction(req._id, myConstants.APPROVED)}
-                        >
-                          Approve
-                        </button>
-                      </div>
-                      <div>
-                        <button
+        {requests.length > 0 ? (
+          <div className="py-4">
+          <h2>All New Requests</h2>
+          <table className="table all-containers">
+            <thead>
+              <tr>
+                <th scope="col" className='pl-5'>#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col" style={{textAlign:'center'}}>Approve</th>
+                <th scope="col" style={{textAlign:'center'}}>Decline</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+                {requests.map((req, i) =>(
+                    <tr key={req._id} className="content-box">
+                      <th scope="row" className='pl-5'>{i + 1}</th>
+                      <td>
+                        {req.firstName} {req.lastName}
+                      </td>
+                      <td>{req.email}</td>
+                      <td align='center'>
+                      <button
+                         className="btn approveButton"
+                         onClick={() => handleAction(req._id, myConstants.APPROVED)}
+                       >
+                  <FcApproval size='25px' />
+                       </button>
+                      </td>
+                      <td align='center'>
+                      <button
                           className="btn declineButton"
                           onClick={() => handleAction(req._id, myConstants.DECLINED)}
                         >
-                          Decline
+                         <FcDeleteRow size='25px' />
                         </button>
-                      </div>
-                      <div>
-                        <button
-                          className="btn deleteButton"
-                          onClick={() => handleAction(req._id, myConstants.DELETED)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </>
-          ) : (
-            <h2>No Pending Requests</h2>
-          )}
-        </>
+                      </td>
+                     
+                    </tr>
+                  ))}
+         
+            </tbody>
+          </table>
+        </div>
+          
+        ) : (
+          <h2 className='py-4'>No Pending Requests</h2>
+        )}
+      </>
+      
       )}
       <ToastContainer />
     </section>

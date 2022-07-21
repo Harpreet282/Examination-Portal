@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { SIGN_UP_API } from '../../Apis/apis';
 import Loader from '../../Loader';
+const customId = 'custom-id';
 
 function SignUp() {
   const [loading, setLoading] = useState(false);
@@ -47,13 +48,17 @@ function SignUp() {
       .then((res) => {
         setLoading(false);
         // console.log(res)
-        toast.success('Register Successfully!');
+        toast.success('Register Successfully!', {
+          toastId: customId,
+        });
         onSubmitProps.resetForm();
       })
       .catch((err) => {
         setLoading(false);
         // console.log(err)
-        toast.error('Error!');
+        toast.error('Error!', {
+          toastId: customId,
+        });
       });
   };
 
@@ -93,7 +98,7 @@ function SignUp() {
                     </div>
 
                     <div className="">
-                      <input type="text" {...formik.getFieldProps('password')} placeholder="Password" />
+                      <input type="password" {...formik.getFieldProps('password')} placeholder="Password" />
                       { formik.touched.password && formik.errors.password ? <p className="text-danger error">{formik.errors.password}</p> : null}
                     </div>
                     <div>

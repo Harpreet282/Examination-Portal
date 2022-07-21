@@ -2,8 +2,8 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import { useSelector } from 'react-redux';
 import * as myConst from '../../Constants';
-// import Profile from '../../Pages/Profile';
 import Home from '../../Pages/Home';
+import Profile from '../../Pages/Profile';
 
 function ProtectedRoutes() {
   const isLogged = useSelector((state) => state.loginState.authenticated);
@@ -23,7 +23,7 @@ function ProtectedRoutes2() {
   return (
     <div>
       {
-  !isLogged ? <Outlet /> : <Home />
+  !isLogged ? <Outlet /> : <Profile />
 }
     </div>
   );
@@ -35,7 +35,7 @@ function AdminProtectedRoutes() {
   return (
     <div>
       {
- userType === myConst.ADMIN ? <Outlet /> : <Home />
+ userType === myConst.ADMIN ? <Outlet /> : <Profile />
 }
     </div>
   );
@@ -47,7 +47,7 @@ function ExaminerProtectedRoutes() {
   return (
     <div>
       {
- userType === myConst.EXAMINER ? <Outlet /> : <Home />
+ userType === myConst.EXAMINER ? <Outlet /> : <Profile />
 }
     </div>
   );
@@ -59,7 +59,7 @@ function StudentProtectedRoutes() {
   return (
     <div>
       {
- userType === myConst.STUDENT ? <Outlet /> : <Home />
+ userType === myConst.STUDENT ? <Outlet /> : <Profile />
 }
     </div>
   );

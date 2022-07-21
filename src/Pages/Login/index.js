@@ -9,8 +9,7 @@ import * as Yup from 'yup';
 import { loginAccount } from '../../redux/actions';
 import { LOGIN_API } from '../../Apis/apis';
 import Loader from '../../Loader';
-
-const customId = 'custom-id-yes';
+const customId = 'custom-id';
 
 function Login() {
   const navigate = useNavigate();

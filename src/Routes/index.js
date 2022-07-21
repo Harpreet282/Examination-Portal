@@ -13,7 +13,6 @@ import ExamGuildelines from "../Pages/Student-panel/studentView/Exams/ExamGuilde
 import GiveExam from '../Pages/Student-panel/studentView/Exams/GiveExam';
 import KeyModal from '../Modals/KeyModal';
 import FullScreenModal from '../Modals/FullScreenModal';
- 
 
 import Modal from '../Pages/Student-panel/Timer/Modal';
 import ExaminerDashbord from '../Pages/Examiner-Panel/Dashboard/ExaminerDashbord';
@@ -22,33 +21,44 @@ import Header from '../components/Header/Header';
 import {
   ProtectedRoutes, ProtectedRoutes2, AdminProtectedRoutes, ExaminerProtectedRoutes, StudentProtectedRoutes,
 } from './Protected-Routes';
+import Profile from '../Pages/Profile';
 
 const Index = () => {
   return (
     <>
       <Header />
+
       <Routes>
+      <Route element={<ProtectedRoutes2 />}>
         <Route path="/" element={<Home />} />
-        <Route element={<ProtectedRoutes2 />}>
+    
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/modal" element={<Modal />} />
+
         </Route>
 
         <Route element={<ProtectedRoutes />}>
+
+        <Route path="/profile" element={<Profile />} />     
           <Route path="/modal" element={<Modal />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
+
           <Route element={<AdminProtectedRoutes />}>
             <Route path="/adminDashboard/*" element={<AdminDashboard />} />
           </Route>
+
           <Route element={<ExaminerProtectedRoutes />}>
             <Route path="/examinerDashboard/*" element={<ExaminerDashbord />} />
           </Route>
+
           <Route element={<StudentProtectedRoutes />}>
             <Route path="/studentDashboard/*" element={<StudentDashboard />} />
           </Route>
+
         </Route>
+
         <Route path="*" element={<Error />} />
       </Routes>
 
