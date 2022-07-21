@@ -43,20 +43,15 @@ function Header() {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item ">
+            
+            {!isLogged
+              ? (
+                <>
+                <li className="nav-item ">
               <NavLink className="nav-link" to="/">
                 Home
               </NavLink>
             </li>
-            {!isLogged
-              ? (
-                <>
-
-                  {/* <li className="nav-item">
-              <NavLink className="nav-link" to="/about">
-                About
-              </NavLink>
-            </li> */}
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/login">
                       Login
@@ -71,37 +66,43 @@ function Header() {
               )
               : (
                 <>
-                  <li className="nav-item">
+                
+                <li className="nav-item">
                     <NavLink className="nav-link" to="/profile">
                       Profile
                     </NavLink>
                   </li>
-
                   {currentUser === myConstants.EXAMINER
                     ? (
+                    <>
                       <li className="nav-item">
                         <NavLink className="nav-link" to="/examinerDashboard">
                           Dashboard
                         </NavLink>
                       </li>
+                    </>
                     )
                     : (
                       <>
                         {
               currentUser === myConstants.ADMIN
                 ? (
+                 <>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/adminDashboard">
                       Dashboard
                     </NavLink>
                   </li>
+                 </>
                 )
                 : (
+                  <>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/studentDashboard">
                       Dashboard
                     </NavLink>
                   </li>
+                  </>
                 )
 }
                       </>

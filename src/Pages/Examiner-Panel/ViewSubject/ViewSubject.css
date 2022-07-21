@@ -1,4 +1,4 @@
-.table button{
+.viewSubject .table button{
     margin-top: 15px;
     width: 50%;
     border: 2px solid #F4831F;
@@ -6,7 +6,7 @@
     font-weight: 700;
     color:#F4831F
 }
-.table button:hover{
+.viewSubject .table button:hover{
     border: 2px solid black;
     background-color: black;
     color: #F4831F;
