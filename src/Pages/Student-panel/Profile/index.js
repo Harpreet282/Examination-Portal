@@ -27,7 +27,7 @@ const StudentProfile = () => {
         }
     ]
     return (
-        <section className=' margin-from-top p-1'>
+        <section className='margin-from-top p-1'>
             <div className='student-profile-page container my-5 '>
                 <div className=''>
                     <div className=' student-profile-page-header'>
@@ -39,13 +39,13 @@ const StudentProfile = () => {
                             <img src={profileImg} alt="/" /> 
                         </div>
                     </div>  
-                    <h5 className='mt-5 ml-1'>Overview</h5>
+                    <h5 className='mt-5 ml-5'>Overview</h5>
 
                     <div className='reviews'>
                         {data.map((content,i)=>(
                             <div key={content.id}>
-                                <div className='row' >
-                                    <div className='col-12'>
+                                <div className='row pl-0' >
+                                    <div className='col-12 pl-0'>
 
                                         <ul className='mt-2'>
                                             <div className='profile-page-content'>

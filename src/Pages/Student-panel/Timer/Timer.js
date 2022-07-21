@@ -52,17 +52,17 @@ function Timer(props) {
     <>
   
     {
-      // getDaysToGo(props.date).days === 0 && Number(props.starttime.split(':')[0]) ===  new Date().getHours() && Number(props.starttime.split(':')[1]) <=  new Date().getMinutes() ? 
-      //   <div className='timer-btn-apply' style={{backgroundColor:"blue"}}>
-      //     <button data-toggle="modal" data-target="#staticBackdrop" onClick={()=>{openModal()}}>Apply Now!!</button>
-      //   </div>
+      getDaysToGo(props.date).days === 0 && Number(props.starttime.split(':')[0]) ===  new Date().getHours() && Number(props.starttime.split(':')[1]) <=  new Date().getMinutes() ? 
+        <div className='timer-btn-apply' style={{backgroundColor:"blue"}}>
+          <button data-toggle="modal" data-target="#staticBackdrop" onClick={()=>{openModal()}}>Apply Now!!</button>
+        </div>
         
-      // :
-      // getDaysToGo(props.date).days > 0 && Number(props.end.split(':')[0]) <=  new Date().getHours() && Number(props.end.split(':')[1]) <=  new Date().getMinutes() ? 
-      // <div className='timer-btn-time-up'>
-      //   <p>Time's Up!!</p>
-      // </div>
-      // :
+      :
+      getDaysToGo(props.date).days > 0 && Number(props.end.split(':')[0]) <=  new Date().getHours() && Number(props.end.split(':')[1]) <=  new Date().getMinutes() ? 
+      <div className='timer-btn-time-up'>
+        <p>Time's Up!!</p>
+      </div>
+      :
     <section className='timer-content'>
       <div className='timer-content-para' style={{display:"flex", textAlign:"center",justifyContent:"center"}}>
         <div className='timer-span'>
