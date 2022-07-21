@@ -1,7 +1,7 @@
 .admin-dashboard-page .left-content {
   padding: 0;
   position: fixed;
-  background-color: var(--main-black-color);
+  background-color: var(--main-theme-color);
   height: 90vh;
 }
 

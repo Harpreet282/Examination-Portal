@@ -18,11 +18,12 @@
   width: 50%;
   overflow: hidden;
   padding: 50px;
+ color: var(--main-theme-color)
 }
 
 .login-page .formsSection form{
   padding-left: 50px;
-  padding-right: 50px;
+  padding-right: 50px; 
 }
 
 .login-page .formsSection input {

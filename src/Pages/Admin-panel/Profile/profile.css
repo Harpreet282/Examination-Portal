@@ -1,4 +1,4 @@
-.profile-page{
+/* .profile-page{
     position: relative;
     height: 90vh;
 }
@@ -94,4 +94,23 @@
     .profile-page .right-content p{
         font-size: 12px !important;
     }
+} */
+
+.profile-page{
+    position: relative;
+    height: 90vh;
+   
 }
+.profile-page .profile-conatiner {
+  padding: 20px;  
+}
+.profile-page .profile-conatiner .first-row-container .left-container .image{
+height: 300px;
+width: 100%;
+overflow: hidden;
+}
+.profile-page .profile-conatiner .first-row-container .left-container .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    }

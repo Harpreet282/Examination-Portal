@@ -78,7 +78,7 @@ function NewRequests() {
           <table className="table all-containers">
             <thead>
               <tr>
-                <th scope="col" className='pl-5'>#</th>
+                <th scope="col" className='pl-5 main-index'>#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col" style={{textAlign:'center'}}>Approve</th>

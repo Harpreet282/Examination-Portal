@@ -19,6 +19,7 @@
   width: 50%;
   overflow: hidden;
   padding: 40px;
+  color: var(--main-theme-color)
   /* padding: 20px; */
   /* margin-left: auto;
   margin-right: auto;

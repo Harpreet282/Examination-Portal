@@ -22,14 +22,17 @@ display: flex;
     font-weight: 700;
     margin: 0px 10px 0px 10px;
     padding: 10px !important;
-    color: rgb(248 245 245 / 75%);
+    color: var(--second-main-theme-color)
 }
 
 .admin-sidebar-page .side-bar  ul a:hover{
-    background-color: var(--main-white-color);
-    color:var(--main-black-color) !important ;
+    /* background-color: var(--main-white-color); */
+ color: var(--second-main-theme-color) !important ;
+ border-bottom: 2px solid var(--second-main-theme-color);
 }
 .admin-sidebar-page .side-bar  ul li a.active{
     background-color: var(--main-white-color);
-    color:var(--main-black-color) !important ;
+    color:var(--main-theme-color) !important ;
+    /* color: var(--second-main-theme-color) !important ;
+    border-bottom: 2px solid var(--second-main-theme-color); */
 }

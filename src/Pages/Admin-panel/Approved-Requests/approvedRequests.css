@@ -1,13 +1,18 @@
 .approved-requests-page h2 {
-  color: var(--main-black-color);
+  color: var(--main-theme-color);
   margin-bottom: 25px;
   /* text-align: center; */
 }
-
+.approved-requests-page .table thead tr th{
+  color: var(--main-theme-color);
+}
+.approved-requests-page .content-box .main-index{
+  color: var(--main-theme-color);
+}
 .approved-requests-page .content-box .btn {
   padding: 0;
   font-weight: 500;
 }
 .approved-requests-page .content-box:hover{
-  background-color: aliceblue;;
+  background-color: #ffe4b53d;
 }

@@ -91,7 +91,7 @@ function DeclinedRequests() {
               
                   {declinedRequests.map((req, i) => (
                       <tr key={req._id} className="content-box">
-                        <th scope="row" className='pl-5'>{i + 1}</th>
+                        <th scope="row" className='pl-5 main-index'>{i + 1}</th>
                         <td>
                           {req.firstName} {req.lastName}
                         </td>
