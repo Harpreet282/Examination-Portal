@@ -1,27 +1,21 @@
-export const loginAccount = (token, userType) => {
-  return {
-      type: "LOGIN",
-      payload: {
-        token,
-        userType,
-    },
-  };
-};
+import * as reduxConstants from '../redux-constants';
 
-export const logoutAccount = () => {
-  return {
-    type: "LOGOUT",
-  };
-};
+export const loginAccount = (token, userType) => ({
+  type: reduxConstants.LOGIN,
+  payload: {
+    token,
+    userType,
+  },
+});
 
-export const loaderValue = () => {
-  return {
-    type: "LOADING_FALSE",
-  };
-};
+export const logoutAccount = () => ({
+  type: reduxConstants.LOGOUT,
+});
 
-export const loaderValue2 = () => {
-  return {
-    type: "LOADING_TRUE",
-  };
-};
+export const loaderValueFalse = () => ({
+  type: reduxConstants.LOADING_FALSE,
+});
+
+export const loaderValueTrue = () => ({
+  type: reduxConstants.LOADING_TRUE,
+});

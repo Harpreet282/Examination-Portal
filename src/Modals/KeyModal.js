@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import axios from "axios"
-import {loaderValue, loaderValue2} from "../redux/actions/index"
+import {loaderValueFalse, loaderValueTrue} from "../redux/actions/index"
 import { useDispatch } from 'react-redux'
 
 const KeyModal = () => {
@@ -33,19 +33,20 @@ const KeyModal = () => {
 
     const getKey = () => {
         const token = JSON.parse(localStorage.getItem('data')).token;
-        dispatch(loaderValue2())
+        dispatch(loaderValueTrue())
         axios.get("https://exam-portal-by-hritik-sanam.herokuapp.com/student/exam",id,{headers: {Authorization: `Bearer ${token}`},}
         )
         .then(resp =>
            {
             console.log('resp',resp)
-            dispatch(loaderValue())
+            dispatch(loaderValueFalse())
             setItem(resp.data.data.student.exams)
             navigate('/examguidelines')
         })
         .catch(err => {
             alert("Enter the valid key")
-            {console.log(err.message)}
+            {console.log(err.message)} 
+            dispatch(loaderValueFalse())
         })
     }
 

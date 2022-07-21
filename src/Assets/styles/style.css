@@ -1,5 +1,5 @@
-.margin-from-top {
-  margin-top: 5rem;
+.margin-from-top{
+  margin-top: 10vh;
 }
 
 .all-containers {
@@ -14,7 +14,6 @@
   position: absolute;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 80%;
 }
 
 .center-content-in-div {

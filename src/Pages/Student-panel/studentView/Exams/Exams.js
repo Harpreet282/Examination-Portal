@@ -3,7 +3,7 @@ import "./Exams.css"
 import Timer from "../../Timer/Timer" 
 import {  useNavigate } from 'react-router-dom'
 import axios from "axios"
-import {loaderValue, loaderValue2} from "../../../../redux/actions/index"
+import {loaderValueFalse, loaderValueTrue} from "../../../../redux/actions/index"
 import {useDispatch, useSelector} from "react-redux"
 import Loader from "../../../../Loader/index"
 
@@ -19,27 +19,31 @@ const Exams = () => {
 
   const getData = () => {
     const token = JSON.parse(localStorage.getItem('data')).token;
-    dispatch(loaderValue2())
+    dispatch(loaderValueTrue())
     axios.get("https://exam-portal-by-hritik-sanam.herokuapp.com/student/dashboard",{headers: {Authorization: `Bearer ${token}`},}
     )
     .then(resp =>
        {
         console.log('resp',resp)
-        dispatch(loaderValue())
+        dispatch(loaderValueFalse())
         setItem(resp.data.data.student.exams)}
        )
-    .catch(err => console.log(err))
+    .catch(err => {console.log(err)
+    dispatch(loaderValueFalse())})
   }
 
   const navigate = useNavigate()
 
+  const openModal = () => {
+    navigate('/modal');
+  };
   
   return (
     
     <div>
       {isLoading ? <Loader /> : 
-      <div className='container'>
-        <div className='row'>
+        <div className='container'>
+          <div className='row'>
             {item?.map((content) => {
               return (
                 <div className='col-md-6 exams-col' key={content.examID}>
@@ -57,12 +61,12 @@ const Exams = () => {
                     </div>
                   </div>
                 </div>
-              )
-            })}
-        </div>
-      </div>}
+              )})}
+            
+          </div>
+        </div>}
     </div>
-  )
+  );
 }
 
-export default Exams
+export default Exams;

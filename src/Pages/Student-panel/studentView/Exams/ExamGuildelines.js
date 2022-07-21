@@ -62,4 +62,4 @@ const ExamGuildelines = () => {
   )
 }
 
-export default ExamGuildelines
+export default ExamGuildelines;

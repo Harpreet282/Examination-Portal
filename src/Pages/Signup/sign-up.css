@@ -1,64 +1,101 @@
-.signup-page .left-content{
-position: relative;
-background-color: var(--main-gray-color);
-height: 533px;
-}
-
-.signup-page .left-content .content h1{
-    transition: 1s ease-in-out;
-    margin-bottom: 2rem;
-    color: var(--main-theme-color);
-    font-weight: 700;
-}
-
-.signup-page .left-content .content:hover h1{
-    color: var(--main-black-color);
-    transition: 1s ease-in-out;
-}
-
-.signup-page .right-content{
-    overflow: hidden;
-    position: relative;
-    /* padding: 0px; */
-}
-
-.signup-page .right-content .content input{
-    /* text-align: center; */
-    background-color: transparent;
-    width: 100%;
-    padding: 12px 20px 5px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border:none;
-    border-bottom: 2px solid var(--main-theme-color);
-    font-weight: 500;
+.signup-page {
+  position: relative;
+  background-image: url('https://wallpaperaccess.com/full/1175481.jpg');
+  background-size: cover;
+  height: 90vh;
   }
-
-  .signup-page .right-content .content input:focus-visible{
-    outline: none;
-  }
-
-  .signup-page .right-content .content ::placeholder{
-    color: grey;
-  }
-
-  .signup-page .right-content .content button{
-    margin-top: 15px;
-    width: 50%;
-    border: 2px solid var( --main-theme-color);
-border-radius: 25px;
-font-weight: 700;
-color: var(--main-theme-color);
-  }
-
-  .signup-page .right-content .content button:hover{
-    border: 2px solid var( --main-black-color);
-    background-color: var(--main-black-color);
-  }
-
-  .signup-page .right-content .content .signupLink{
-    margin-top: 15px;
-    font-weight: 500;
-  }
-
   
+  .signup-page::before {
+    content: "";
+    display: block;
+    background: #0a0a0a94;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+  
+.signup-page .formsSection {
+  background-color: #ffffffa8;
+  width: 50%;
+  overflow: hidden;
+  padding: 40px;
+  /* padding: 20px; */
+  /* margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center; */
+}
+
+.signup-page .formsSection form{
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.signup-page .formsSection input {
+  background-color: transparent;
+  font-size: 14px;
+  width: 100%;
+  padding: 5px 20px 5px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  /* border-bottom: 2px solid var(--main-black-color); */
+  font-weight: 500;
+  border:1px solid #4e4343;
+  border-radius: 4px;
+}
+/* .signup-page .formsSection input:-internal-autofill-selected {
+  background-color: transparent !important;
+} */
+
+.signup-page .formsSection input:focus-visible {
+  outline: none;
+}
+
+.signup-page .formsSection ::placeholder {
+  color: rgb(63, 50, 50);
+}
+
+.signup-page .formsSection button {
+  overflow: hidden;
+  margin-top: 15px;
+  width: 40%;
+  border: 1px solid var(--main-black-color);
+  border-radius: 4px;
+  font-weight: 500;
+  color: var(--main-black-color);
+  padding: 3px;
+}
+
+.signup-page .formsSection button:hover {
+  background-color: var(--main-black-color);
+  color: white;
+}
+
+.signup-page .formsSection .signupLink {
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 1199.98px) {}
+
+@media (max-width: 991.98px) {
+  .signup-page .formsSection {
+    width: 70%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .signup-page .formsSection {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .signup-page .formsSection form{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+} 

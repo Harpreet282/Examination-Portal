@@ -1,8 +1,8 @@
-import React from "react";
-import "./requestsSideBar.css";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import './requestsSideBar.css';
+import { NavLink } from 'react-router-dom';
 
-const AdminPageSideBar = () => {
+function AdminPageSideBar() {
   return (
     <section className="admin-sidebar-page">
       <div>
@@ -36,6 +36,6 @@ const AdminPageSideBar = () => {
       </div>
     </section>
   );
-};
+}
 
 export default AdminPageSideBar;

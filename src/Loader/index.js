@@ -1,16 +1,16 @@
 import React from 'react'
-import './loader.css'
-import PuffLoader from 'react-spinners/PuffLoader'
+import './loader.css';
+import FadeLoader from 'react-spinners/FadeLoader';
 
-const Loader = () => {
+function Loader() {
   return (
     <div className="loader">
-<PuffLoader
-size={30}
-color={"#F4831F"}
-/>
+      <FadeLoader
+        // size={20}
+        color="#000"
+      />
   </div>
   )
 }
 
-export default Loader
+export default Loader;
