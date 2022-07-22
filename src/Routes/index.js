@@ -1,7 +1,6 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import About from '../Pages/About';
-// import About from '../Pages/About';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import SignUp from '../Pages/Signup';
@@ -32,7 +31,7 @@ const Index = () => {
       <Route element={<ProtectedRoutes2 />}>
         <Route path="/" element={<Home />} />
     
-          {/* <Route path="/about" element={<About />} /> */}
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/modal" element={<Modal />} />
@@ -43,6 +42,7 @@ const Index = () => {
 
         <Route path="/profile" element={<Profile />} />     
           <Route path="/modal" element={<Modal />} />
+          <Route path="/keymodal" element={<KeyModal />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
 
           <Route element={<AdminProtectedRoutes />}>

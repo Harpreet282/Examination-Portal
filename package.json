@@ -9,6 +9,7 @@
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "get-days-to-go": "^7.1.1",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-countdown": "^2.3.2",
     "react-dom": "^18.2.0",

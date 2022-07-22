@@ -1,37 +1,23 @@
-.about-page{
-    position: absolute;
-    width: 100%;
-    top: 10vh;
-    left:0;
+.about-page .about-container{
+    margin-top: 80px;
 }
-.about-page .left-content{
-position: relative;
+.about-page .about-container-img img{
+    margin-top: 40px;
+    height: 680px;
+    width: 617px;
+    /* align-items: right; */
+    margin-left: 70px;
 }
-.about-page .left-content .content{
-    color: black;
+.about-page .about-container-content .content-section h1, .about-page .about-container-content .content-section p{
+    text-align: left;
+    margin-left: 70px;
+    margin-top: 20px;
 }
-.about-page .left-content .content h1{
-    margin: 10px 0px;
-    text-align: center;
+.about-page .about-container-content .content-section h1{
+    font-size: 50px;
+    font-weight: 700;
 }
-
-.about-page .left-content .content ul li{
-    font-size: 20px;
-    line-height: 50px;
-}
-.about-page .right-content{
-    position: relative;
-background-color: var(--main-black-color);
-}
-.about-page .right-content .content {
-    color: white;
-}
-.about-page .right-content .content h1{
-    margin: 10px 0px;
-    text-align: center;
-}
-
-.about-page .right-content .content ul li{
-    font-size: 20px;
-    line-height: 50px;
+.about-page .about-container-content .content-section p{
+    font-size: 22px;
+    word-spacing: 5px;
 }

@@ -1,8 +1,8 @@
-.timer-content-para span{
+.timer-page .timer-content-para span{
     color: white;
     font-weight: 500; 
 }
-.timer-span{
+.timer-page .timer-span{
     margin: 15px;
     border-radius: 3px;
     padding: 5px;
@@ -13,11 +13,11 @@
     margin-top: 24px;
     font-size: 25px;
 } */
-.timer-content-para p{
+.timer-page .timer-content-para p{
     margin-left: auto;
     margin-right: auto;
 }
-.timer-btn-apply button{ 
+.timer-page .timer-btn-apply button{ 
     border: none;
     color: white;
     padding: 25px;
@@ -25,7 +25,7 @@
     background-color: #53b9f5;
     width: 100%;
 }
-.timer-btn-time-up p{
+.timer-page .timer-btn-time-up div{
     border: none;
     color: white;
     padding: 25px;
@@ -34,7 +34,7 @@
     width: 100%;
     /* background-color:#d11212 */
 }
-.timer-content-para{
+.timer-page .timer-content-para{
     border: none;
     color: white;
     /* padding: 25px; */
@@ -42,6 +42,6 @@
     background-color:#7e7e78;
     width: 100%;
 }
-.timer-content-para a{
+.timer-page .timer-content-para a{
     margin-top: 28px;
 }

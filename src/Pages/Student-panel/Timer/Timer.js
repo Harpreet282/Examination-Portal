@@ -1,100 +1,108 @@
-import React, { useEffect, useState } from 'react';
-import './Timer.css';
-import { useNavigate } from 'react-router-dom'
-import getDaysToGo from 'get-days-to-go';
+import moment from "moment";
+import React, { useEffect, useState } from "react";
+import "./Timer.css";
+import { useNavigate } from "react-router-dom";
+import getDaysToGo from "get-days-to-go";
 
-function Timer(props) {
+function Timer({ date, starttime, end , data}) {
+  let eventStartStamp = Date.parse(`${date.split("T")[0]} ${starttime}`);
+  let eventEndStamp = Date.parse(`${date.split("T")[0]} ${end}`);
+  let currentStamp = new Date().getTime();
+  let startTimeRemaining = eventStartStamp - currentStamp;
+  const [duration, setDuration] = useState(moment.duration(startTimeRemaining));
 
-  console.log(props);
-
-
-
-  const [time, setTime] = useState(getDaysToGo(props.date));
+  const [time, setTime] = useState(getDaysToGo(date));
 
   useEffect(() => {
+    // console.log(
+    //   eventStartStamp,
+    //   "...",
+    //   eventEndStamp,
+    //   "....",
+    //   currentStamp,
+    //   "....",
+    //   startTimeRemaining,
+    //   "...",
+    //   duration
+    // );
+
     const interval = setInterval(() => {
-      setTime(getDaysToGo(props.date));
+      startTimeRemaining = startTimeRemaining - 1000;
+      setDuration(moment.duration(startTimeRemaining));
     }, 1000);
 
-    return () => clearInterval(interval)
-  })
+    return () => clearInterval(interval);
+  }, []);
 
 
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
+  const openModal = () => {
 
-    //// y date  ko milliseconds mai convert krega 
-    const dataSec = new Date(props.date).getTime();
-
-    // y hrs ko milliseconds mai convert krega 
-    const hrsSec = parseInt(props.starttime.split(":")[0]) * 3600000;
-
-    // y mins ko milliseconds mai convert krega 
-    const minSec = parseInt(props.starttime.split(":")[1]) * 60000;
-
-    // console.log(new Date(dataSec+hrsSec+minSec))
-      setInterval(() => {
-        setTime(getDaysToGo(new Date(dataSec+hrsSec+minSec)))
-      },1000)
-
-      const openModal = () =>   {
-
-        console.log()
-        navigate("/keymodal")
-    
-      }
-    
-      
-
+    navigate("/keymodal",{state : { studentID : data.studentID,examID : data.examID}});
+  };
 
   return (
-    <>
-  
-    {
-      getDaysToGo(props.date).days === 0 && Number(props.starttime.split(':')[0]) ===  new Date().getHours() && Number(props.starttime.split(':')[1]) <=  new Date().getMinutes() ? 
-        <div className='timer-btn-apply' style={{backgroundColor:"blue"}}>
-          <button data-toggle="modal" data-target="#staticBackdrop" onClick={()=>{openModal()}}>Apply Now!!</button>
+    <div className="timer-page">
+      {eventStartStamp <= currentStamp && eventEndStamp >= currentStamp ? (
+        <div className="timer-btn-apply" style={{ backgroundColor: "blue" }}>
+          <button
+            data-toggle="modal"
+            data-target="#staticBackdrop"
+            onClick={() => {
+              openModal()
+            }}
+          >
+            Apply Now!!
+          </button>
         </div>
-        
-      :
-      getDaysToGo(props.date).days > 0 && Number(props.end.split(':')[0]) <=  new Date().getHours() && Number(props.end.split(':')[1]) <=  new Date().getMinutes() ? 
-      <div className='timer-btn-time-up'>
-        <p>Time's Up!!</p>
-      </div>
-      :
-    <section className='timer-content'>
-      <div className='timer-content-para' style={{display:"flex", textAlign:"center",justifyContent:"center"}}>
-        <div className='timer-span'>
-          <span>{time.days}</span><br/>        
-          <span>{time.days === 1 ? "DAY" : "DAYS"} </span>
+      ) : eventEndStamp < currentStamp ? (
+        <div className="timer-btn-time-up">
+          <div>Time's Up!!</div>
         </div>
-        <a>:</a>
-        <div className="timer-span">
-          <span>{time.hrs}</span>
-          <br />
-          <span>HRS</span>
-          {time.hrs === props.time ? 'Apply for exam' : ''}
-        </div>
-        <a>:</a>
-        <div className="timer-span">
-          <span>{time.mins}</span>
-          <br />
-          <span>MINS</span>
-        </div>
-        <a>:</a>
-        <div className="timer-span">
-          <span>{time.secs}</span>
-          <br />
-          <span>SEC</span>
-        </div>
-      </div> 
-    </section>
-    }
-</>
+      ) : (
+        ""
+      )}
 
-  )
+      {eventStartStamp > currentStamp && (
+        <section className="timer-content">
+          <div
+            className="timer-content-para"
+            style={{
+              display: "flex",
+              textAlign: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div className="timer-span">
+              <span>{duration._data.days}</span>
+              <br />
+              <span>{duration._data.days > 1 ? "DAYS" : "DAY"} </span>
+            </div>
+            <a>:</a>
+            <div className="timer-span">
+              <span>{duration._data.hours}</span>
+              <br />
+              <span>HRS</span>
+              {/* {time.hrs === time ? "Apply for exam" : ""} */}
+            </div>
+            <a>:</a>
+            <div className="timer-span">
+              <span>{duration._data.minutes}</span>
+              <br />
+              <span>MINS</span>
+            </div>
+            <a>:</a>
+            <div className="timer-span">
+              <span>{duration._data.seconds}</span>
+              <br />
+              <span>SEC</span>
+            </div>
+          </div>
+        </section>
+      )}
+    </div>
+  );
 }
-export default Timer
-
-
+export default Timer;

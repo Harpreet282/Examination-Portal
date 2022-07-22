@@ -8,7 +8,7 @@ import Transaction from '../../Pages/Student-panel/studentView/Transaction';
 function Index() {
   return (
     <>
-<Routes>
+    <Routes>
       <Route path="/" element={<Exam />} />
       <Route path="/results" element={<Results />} />
       <Route path="/transaction" element={<Transaction />} />

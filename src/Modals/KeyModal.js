@@ -11,9 +11,11 @@ const KeyModal = () => {
     const location = useLocation()
 
     const dispatch = useDispatch()
-    const [accessKey, setAccessKey] = useState({})
+    const [accessKey, setAccessKey] = useState('')
     const [id, setId] = useState({})
 
+    console.log(location.state.studentID,'studentid')
+    console.log(location.state.examID,'exam')
     useEffect(() => {
         setId(
             {
@@ -24,17 +26,19 @@ const KeyModal = () => {
         )
     }, [accessKey])
 
-    const submitHandler = () => {
-        console.log(id)
 
-    }
+    // const submitHandler = () => {
+    //     axios   
+    //         .get('https://exam-portal-by-hritik-sanam.herokuapp.com/student/exam')
+    // }
 
     const[item, setItem] = useState()
 
-    const getKey = () => {
+    const submitHandler = () => {
         const token = JSON.parse(localStorage.getItem('data')).token;
+        console.log(id);
         dispatch(loaderValueTrue())
-        axios.get("https://exam-portal-by-hritik-sanam.herokuapp.com/student/exam",id,{headers: {Authorization: `Bearer ${token}`},}
+        axios.post("https://exam-portal-by-hritik-sanam.herokuapp.com/student/exam",id,{headers: {Authorization: `Bearer ${token}`},}
         )
         .then(resp =>
            {
@@ -44,14 +48,14 @@ const KeyModal = () => {
             navigate('/examguidelines')
         })
         .catch(err => {
-            alert("Enter the valid key")
-            {console.log(err.message)} 
+            console.log(err)
             dispatch(loaderValueFalse())
+            // alert("Enter the valid key")
         })
     }
 
     useEffect(() => {
-        getKey()
+        submitHandler();
     },[])
 
 

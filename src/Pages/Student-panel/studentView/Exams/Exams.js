@@ -34,19 +34,22 @@ const Exams = () => {
 
   const navigate = useNavigate()
 
-  const openModal = () => {
-    navigate('/modal');
-  };
+  // const openModal = () => {
+  //   navigate('/modal');
+  // };
   
   return (
-    
-    <div>
+    <div className='exam-page'>
+      { 
+  console.log(item,'item')
+      
+      }
       {isLoading ? <Loader /> : 
         <div className='container'>
           <div className='row'>
             {item?.map((content) => {
               return (
-                <div className='col-md-6 exams-col' key={content.examID}>
+                <div className='col-md-4 exams-col' key={content.examID}>
                   <div className="card exams-card">
                     <div className="card-body">
                       <h3 className="card-title">{content.subject}</h3>
@@ -56,7 +59,7 @@ const Exams = () => {
                     </div>
                     <div className="student">
                       <div href="#">
-                        <Timer date={content.examDate} starttime={content.startTime} end ={content.endTime}/>
+                        <Timer data={content} date={content.examDate} starttime={content.startTime} end ={content.endTime}/>
                       </div>
                     </div>
                   </div>
