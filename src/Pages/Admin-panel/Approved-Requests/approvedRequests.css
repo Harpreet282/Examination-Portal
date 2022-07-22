@@ -3,6 +3,10 @@
   margin-bottom: 25px;
   /* text-align: center; */
 }
+.approved-requests-page .table{
+  background-color: var(--main-white-color);
+}
+
 .approved-requests-page .table thead tr th{
   color: var(--main-theme-color);
 }

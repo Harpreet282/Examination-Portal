@@ -27,12 +27,12 @@ display: flex;
 
 .admin-sidebar-page .side-bar  ul a:hover{
     /* background-color: var(--main-white-color); */
- color: var(--second-main-theme-color) !important ;
- border-bottom: 2px solid var(--second-main-theme-color);
+ color: #b19c6e !important ;
+ border-bottom: 2px solid #b19c6e;
 }
 .admin-sidebar-page .side-bar  ul li a.active{
-    background-color: var(--main-white-color);
-    color:var(--main-theme-color) !important ;
-    /* color: var(--second-main-theme-color) !important ;
-    border-bottom: 2px solid var(--second-main-theme-color); */
+    /* background-color: var(--main-white-color);
+    color:var(--main-theme-color) !important ; */
+    /* color: var(--second-main-theme-color) !important ; */
+    border-bottom: 2px solid var(--second-main-theme-color);
 }

@@ -28,7 +28,7 @@ function ApprovedRequests() {
         .then((response) => {
           setApprovedRequests(response.data.data.Examiners);
           dispatch(loaderValueFalse());
-          console.log(response);
+          // console.log(response.data.data.Examiners);
         })
         .catch((error) => {
           console.log(error);
@@ -85,6 +85,7 @@ function ApprovedRequests() {
                     <th scope="col" className="pl-5">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Created-On</th>
                     <th scope="col" style={{textAlign:'center'}}>Decline</th>
                   </tr>
                 </thead>
@@ -97,9 +98,10 @@ function ApprovedRequests() {
                             {req.firstName} {req.lastName}
                           </td>
                           <td>{req.email}</td>
+                          <td>{new Date(new Date(req.createdOn).getTime() - 5 * 3600000 - 1800000).toLocaleString()}</td>
                           <td align='center'>
                             <button
-                              className="btn "
+                              className="btn"
                               onClick={() =>
                                 handleAction(req._id, myConstants.DECLINED)
                               }

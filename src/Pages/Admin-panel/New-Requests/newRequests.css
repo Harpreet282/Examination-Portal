@@ -2,6 +2,9 @@
   color: var(--main-theme-color);
   margin-bottom: 25px;
 }
+.new-requests-page .table{
+  background-color: var(--main-white-color);
+}
 .new-requests-page .table thead tr th{
   color: var(--main-theme-color);
 }

@@ -5,8 +5,8 @@
     background-color: var(--main-white-color) !important;
 }
 .header .navbar-brand img{
-    height: 50px ;
-    width: 250px;
+    height: 40px ;
+    width: 200px;
 }
 .header .navbar .navbar-collapse {
     background-color: var(--main-white-color);
@@ -23,7 +23,7 @@
 .header ul a:hover{
     /* color: var(--main-white-color) !important;
     background-color: var(--main-black-color); */
-    color: var(--main-theme-color) !important;
+    /* color: var(--main-theme-color) !important; */
     border-bottom: 2px solid var(--main-theme-color);
 }
 .header ul li a.active{

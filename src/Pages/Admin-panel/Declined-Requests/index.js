@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { DECLINED_REQUESTS_API, UPDATE_REQUESTS_API } from '../../../Apis/apis';
 import './declinedRequests.css';
@@ -12,12 +12,9 @@ import { FcApproval } from "react-icons/fc";
 function DeclinedRequests() {
   const dispatch = useDispatch();
   const [declinedRequests, setDeclinedRequests] = useState([]);
-  let shouldLog = useRef(true);
   const loadingState = useSelector((state) => state.loadingState.loading);
 
   useEffect(() => {
-    if (shouldLog.current) {
-      shouldLog = false;
       const { token } = JSON.parse(localStorage.getItem('data'));
       // console.log(token)
       dispatch(loaderValueTrue());
@@ -34,7 +31,7 @@ function DeclinedRequests() {
           dispatch(loaderValueFalse());
           console.log(error);
         });
-    }
+    
   }, []);
 
   const handleAction = (id, action) => {
@@ -84,6 +81,7 @@ function DeclinedRequests() {
                   <th scope="col" className='pl-5'>#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
+                  <th scope="col">Created-On</th>
                   <th scope="col" style={{textAlign:'center'}}>Approve</th>
                 </tr>
               </thead>
@@ -96,6 +94,7 @@ function DeclinedRequests() {
                           {req.firstName} {req.lastName}
                         </td>
                         <td>{req.email}</td>
+                        <td>{new Date(new Date(req.createdOn).getTime() - 5 * 3600000 - 1800000).toLocaleString()}</td>
                         <td align='center'>
                         <button
                           className="btn approveButton"
