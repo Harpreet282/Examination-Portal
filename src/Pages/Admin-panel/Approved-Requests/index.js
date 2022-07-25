@@ -6,7 +6,7 @@ import Loader from "../../../Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from "../../../Constants";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { FcDeleteRow } from "react-icons/fc";
 
 function ApprovedRequests() {
@@ -121,7 +121,6 @@ function ApprovedRequests() {
           )}
         </>
       )}
-      <ToastContainer />
     </section>
   );
 }

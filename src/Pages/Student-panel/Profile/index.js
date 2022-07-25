@@ -1,6 +1,6 @@
 import React from 'react'
 import './profile.css'
-import profileImg from "../../../Assets/images/profile-image.png"
+import Images from '../../../Assets/images'
 
 const StudentProfile = () => {
 
@@ -36,7 +36,7 @@ const StudentProfile = () => {
                             <p>Ready to start your day with some pitch decks.</p>
                         </div>
                         <div className='col-md-6'>
-                            <img src={profileImg} alt="/" /> 
+                            <img src={Images.studentProfile} alt="/" /> 
                         </div>
                     </div>  
                     <h5 className='mt-5 ml-1'>Overview</h5>

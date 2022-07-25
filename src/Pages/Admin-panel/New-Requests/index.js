@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './newRequests.css';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { PENDING_REQUESTS_API, UPDATE_REQUESTS_API } from '../../../Apis/apis';
 import Loader from '../../../Loader';
 import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
@@ -123,7 +123,6 @@ function NewRequests() {
       </>
       
       )}
-      <ToastContainer />
     </section>
   );
 }

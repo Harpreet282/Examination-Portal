@@ -22,7 +22,8 @@ display: flex;
     font-weight: 700;
     margin: 0px 10px 0px 10px;
     padding: 10px !important;
-    color: var(--second-main-theme-color)
+    color: var(--second-main-theme-color);
+    /* color: #b19c6e; */
 }
 
 .admin-sidebar-page .side-bar  ul a:hover{
@@ -35,4 +36,5 @@ display: flex;
     color:var(--main-theme-color) !important ; */
     /* color: var(--second-main-theme-color) !important ; */
     border-bottom: 2px solid var(--second-main-theme-color);
+    /* color: var(--second-main-theme-color) !important; */
 }

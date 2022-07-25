@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import { useNavigate, NavLink } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -9,8 +9,9 @@ import * as Yup from 'yup';
 import { loginAccount } from '../../redux/actions';
 import { LOGIN_API } from '../../Apis/apis';
 import Loader from '../../Loader';
-const customId = 'custom-id';
+import Button from '../../components/Button';
 
+const customId = 'custom-id';
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -108,7 +109,8 @@ function Login() {
                 ) : null}
               </div>
               <div>
-                <button type="submit" className="btn">Login</button>
+                {/* <button type="submit" className="btn">Login</button> */}
+                <Button type='submit' text='Login' />
               </div>
               <div className="signupLink">
                 <p>
@@ -120,7 +122,6 @@ function Login() {
           </div>
 
         )}
-        <ToastContainer />
       </section>
     </div>
   );

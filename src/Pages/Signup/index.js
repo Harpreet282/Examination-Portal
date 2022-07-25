@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import './sign-up.css';
-import { NavLink } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import {useNavigate, NavLink, Navigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { SIGN_UP_API } from '../../Apis/apis';
 import Loader from '../../Loader';
+import Button from '../../components/Button';
+
 const customId = 'custom-id';
 
 function SignUp() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
@@ -51,7 +54,9 @@ function SignUp() {
         toast.success('Register Successfully!', {
           toastId: customId,
         });
+     
         onSubmitProps.resetForm();
+        navigate('/login');
       })
       .catch((err) => {
         setLoading(false);
@@ -102,7 +107,7 @@ function SignUp() {
                       { formik.touched.password && formik.errors.password ? <p className="text-danger error">{formik.errors.password}</p> : null}
                     </div>
                     <div>
-                      <button type="submit" className="btn">Sign-up</button>
+                    <Button type='submit' className='btn' text='Sign-up' />
                     </div>
                     <div className="signupLink">
                       <p>
@@ -117,7 +122,6 @@ function SignUp() {
           )}
 
       </section>
-      <ToastContainer />
     </>
   );
 }
