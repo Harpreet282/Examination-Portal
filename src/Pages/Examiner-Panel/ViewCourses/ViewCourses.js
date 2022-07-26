@@ -15,12 +15,11 @@ const ViewCourses = () => {
           const token=JSON.parse(localStorage.getItem('data')).token;
           dispatch(loaderValueTrue());        
           axios.get(VIEW_COURSES,{headers:{Authorization:`Bearer ${token}`}})
-          .then((res)=>{ 
+          .then((res)=>{
               console.log(res.data.data.examinerCourses)
               setDeclineRequest(res.data.data.examinerCourses);
               console.log(request,'id');
-              dispatch(loaderValueFalse());
-            
+              dispatch(loaderValueFalse());   
           })
           .catch((error)=>{
               console.log(error);
