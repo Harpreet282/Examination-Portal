@@ -1,16 +1,15 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios'; 
-import {  VIEW_STUDENT } from '../../../Apis/apis';
-import './ViewStudent.css';
+import {VIEW_STUDENT} from '../../../../Apis/apis'
+import './studentAddToExam.css';
 import { useLocation } from 'react-router-dom';
 import { useSelector,useDispatch} from "react-redux";
-import {CREATE_EXAM} from '../../../Apis/apis';
+import {CREATE_EXAM} from '../../../../Apis/apis';
 import {toast,ToastContainer} from 'react-toastify'
-import Loader from "../../.././Loader";
-import {IoTrashOutline} from 'react-icons/io5'
-import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions/index";
+import Loader from '../../../../Loader'
+import { loaderValueFalse, loaderValueTrue } from "../../../../redux/actions";
 
-const ViewStudent = () => {
+const StudentAddToExam = () => {
     const[data,setData]=useState([]);
     const dispatch=useDispatch();
     const[checklist,setCheckList]=useState([]);
@@ -79,14 +78,13 @@ const ViewStudent = () => {
     <div className='viewStudent'>
     <ToastContainer/>
     <h2>Student List</h2>
-      <table className="table  my-4 table-bordered">
-  <thead >
-    <tr className='table-primary' >
-      <th scope='col'>#</th>
+      <table className="table my-4">
+  <thead>
+    <tr>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Gender</th>
-      <th scope="col">Delete</th>
+      <th scope="col">Add</th>
     </tr>
   </thead>
   
@@ -95,12 +93,11 @@ const ViewStudent = () => {
             return(
             
              <tbody>
-                <tr >
-                <td>{index+1}</td>
+                <tr>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
                 <td>{item.gender}</td>
-                <td><IoTrashOutline className='trashIcon'/> </td>  
+                <td><input type="checkbox" defaultChecked={checklist[index]} className='btn add' onClick={()=>checkHandler(index)}/></td>  
                 </tr>
             </tbody>
 
@@ -124,4 +121,4 @@ const ViewStudent = () => {
   
 }
 
-export default ViewStudent
+export default StudentAddToExam

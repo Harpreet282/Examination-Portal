@@ -1,5 +1,6 @@
 .Add-Subject{
     height: 90vh;
+    background-color: slategrey;
 }
 .Add-Subject  .all-content{
     height:max-content;
@@ -7,33 +8,52 @@
     position: relative;
     text-align: center;
 }
-.Add-Subject  .all-content button{
+
+.Add-Subject .all-content .modal.show .modal-header{
+    color: rgb(92, 92, 43);
+}
+.Add-Subject .all-content .modal.show .modal-body input{
+    
+    padding: 5px 20px 5px 20px;
+    border-radius: 4px;
+    border:1px solid #4e4343;
+    font-weight: 500;
+}
+.Add-Subject .all-content .modal.show .modal-body .label{
+    font-weight: 500;
+    font-size: 20px;
+}
+.Add-Subject .all-content .modal.show .modal-body input:focus-visible{
+    outline: none;
+}
+.Add-Subject .all-content .modal.show{ 
+     /* display:block !important;  */
+     /* position: relative; */
+     display: contents !important;
+}
+.Add-Subject .all-content .modal.show .modal-footer  button{
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
     margin-top: 15px;
-    width: 20%;
-    border: 1px solid var(--main-black-color);
-    border-radius: 4px;
+    width: 30%;
+    border-radius: 15px;
     font-weight: 500;
     color: var(--main-black-color);
-    padding: 3px;
+    padding: 6px;
+    outline: none;   
 }
-.Add-Subject  .all-content button:hover{
-    color: white;
-    background-color:var(--main-black-color);
-}  
-.Add-Subject .all-content input{
-    width: 50%;
-    padding: 5px 20px 5px 20px;
-    border:none;
-    border-radius: 4px;
-    border:1px solid #4e4343;
-    margin: 15px 0;
-    font-weight: 500;
-}
-.Add-Subject .all-content input:focus-visible{
+.Add-Subject .all-content .modal.show .modal-footer button:active {
     outline: none;
+    border: none;
+    }
+.Add-Subject .all-content .modal.show .modal-footer button:focus {
+    outline:0;
+    border: none;
 }
+.Add-Subject .all-content .modal.show .modal-footer button:hover{
+    color: white;
+    background-color: var(--main-black-color);
+}  

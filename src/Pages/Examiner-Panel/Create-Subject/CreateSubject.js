@@ -52,27 +52,42 @@ const CreateSubject = () => {
       <h2> Subjects Registered</h2>
       <form onSubmit={submitHandler}>
         <div className='row'>
-        <div className='col-md'>
+        <div className='col-md-3'>
+          <label className='label'>Subject 1</label>
+        </div>
+        <div className='col-md-9'>
           <input type="text" onChange={chaneHandler}  placeholder=" Subject" name='name_1'/>
         </div>
         </div>
         <div className='row'>
-        <div className='col-md'>
+        <div className='col-md-3'>
+          <label className='label'>Subject 2</label>
+        </div>
+        <div className='col-md-9'>
           <input type="text" onChange={chaneHandler}  placeholder="Subject" name='name_2'/>
         </div>
         </div>
         <div className='row'>
-        <div className='col-md'>
+        <div className='col-md-3'>
+          <label className='label'>Subject 3</label>
+        </div>
+        <div className='col-md-9'>
           <input type="text" onChange={chaneHandler}  placeholder="Subject" name='name_3'/>
         </div>
         </div>
         <div className='row'>
-        <div className='col-md'>
+        <div className='col-md-3'>
+          <label className='label'>Subject 4</label>
+        </div>
+        <div className='col-md-9'>
           <input type="text" onChange={chaneHandler}  placeholder="Subject" name='name_4'/>
         </div>
         </div>
         <div className='row'>
-        <div className='col-md-12'>
+        <div className='col-md-3'>
+          <label className='label'>Subject 5</label>
+        </div>
+        <div className='col-md-9'>
           <input type="text" onChange={chaneHandler}  placeholder="Subject" name='name_5'/>
         </div>
          </div>  

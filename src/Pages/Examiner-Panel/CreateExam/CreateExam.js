@@ -37,7 +37,7 @@ const CreateExam = () => {
 
         const token=JSON.parse(localStorage.getItem('data')).token;
         console.log(Data,'subectid');
-        navigate("/examinerDashboard/viewStudents",{state:{courseId :location.state.courseID}})
+        navigate("/examinerDashboard/StudentAddToExam",{state:{courseId :location.state.courseID}})
         dispatch(
         examCreate(Data)
         );
@@ -50,13 +50,21 @@ const CreateExam = () => {
     });
   return (
     <div className='createExam'>
-      <h1>Create-Exam</h1>
-      <div className='row'>
+      <h2>Create-Exam</h2>
+      <div>
             <CreateQuestion/>
-    </div>
+            </div>
+            <div>
+              <h2>Exam Details</h2>
+            </div>
+            <div className='all-content'>
           <form onSubmit={formik.handleSubmit}>
-          <div className='row'>
+          <div className='row content'>
             <div className='col-md-3'>
+              <label  className='label'>Date</label>
+
+          </div>
+            <div className='col-md-9'>
               <input   {...formik.getFieldProps("examDate")}  type="Date" placeholder="Date" />
               {formik.touched.examDate && formik.errors.examDate ? (
                           <p className="text-danger error">
@@ -64,7 +72,12 @@ const CreateExam = () => {
                           </p>
                         ) : null}
             </div>
+            </div>
+            <div className='row content'>
             <div className='col-md-3'>
+              <label className='label'>Start Time</label>
+          </div>
+            <div className='col-md-9'>
             <input  {...formik.getFieldProps("startTime")}  type="time" placeholder="Start Time" />
             {formik.touched.startTime && formik.errors.startTime ? (
                           <p className="text-danger error">
@@ -72,8 +85,12 @@ const CreateExam = () => {
                           </p>
                         ) : null}
             </div>
-          
+            </div>
+          <div className='row content'>
             <div className='col-md-3'>
+              <label className='label'>End Time</label>
+          </div>
+            <div className='col-md-9'>
               <input {...formik.getFieldProps("endTime")}  type="time" placeholder="End Time" />
               {formik.touched.endTime && formik.errors.endTime ? (
                           <p className="text-danger error">
@@ -81,7 +98,12 @@ const CreateExam = () => {
                           </p>
                         ) : null}
             </div>
+            </div>
+            <div className='row content'>
             <div className='col-md-3'>
+              <label className='label'>Duration</label>
+          </div>
+            <div className='col-md-9'>
             <input  {...formik.getFieldProps("duration")} type="text" placeholder="Duration" />
             {formik.touched.duration && formik.errors.duration ? (
                           <p className="text-danger error">
@@ -91,8 +113,11 @@ const CreateExam = () => {
             </div>
           </div>
           <div>
-          <div className='row'>
-          <div className='col-md-3'>
+          <div className='row content'>
+            <div className='col-md-3'>
+              <label className='label'>Access Code</label>
+          </div>
+          <div className='col-md-9'>
             <input  {...formik.getFieldProps("accessCode")}  type="text" placeholder="accessCode"/>
             {formik.touched.accessCode && formik.errors.accessCode ? (
                           <p className="text-danger error">
@@ -110,6 +135,7 @@ const CreateExam = () => {
             <button type='submit' className='btn' >Submit</button>
           </div>
         </form>
+    </div>
     </div>
   )
 }

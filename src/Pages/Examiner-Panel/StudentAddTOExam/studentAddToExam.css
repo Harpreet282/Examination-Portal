@@ -1,19 +1,11 @@
-
-.viewStudent .table .add{
+.table .add{
     margin-top: 15px;
     border: 2px solid var(--main-theme-color);
     border-radius: 25px;
     font-weight: 700;
     color:var(--main-theme-color)
 }
-.viewStudent .table thead{
-    font-family: cursive;
-}
-.viewStudent  h2{
-    text-align: center;
-    margin-top: 20px;
-}
- .viewStudent .table .add:hover{
+.table .add:hover{
     border: 2px solid var(--main-black-color);
     background-color:var(--main-black-color);
     color: var(--main-theme-color)
@@ -41,24 +33,4 @@
     display: flex;
   justify-content: center;
   align-items: center;
-}
-.viewStudent .trashIcon{
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-}
-.viewStudent .table tbody :hover{
-    background-color:rgb(182, 151, 112);
-    color: white;
-}
-.viewStudent .table{
-    width: 90%;
-    text-align: center;
-    /* box-shadow: 3px 1px 20px black; */
-    margin-left: auto;
-    margin-right: auto;
-    font-family: ui-sens-serif;
-}
-.viewStudent .table tbody{
-    background-color: aliceblue;
 }

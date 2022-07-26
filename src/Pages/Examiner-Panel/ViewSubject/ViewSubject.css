@@ -1,21 +1,42 @@
-.viewSubject .table button{
+.viewSubject{
+    height:90vh;
+    background-repeat: repeat-y;
+    /* background-image:url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
+} 
+.viewSubject h2{
+    text-align: center;
+}
+.viewSubject .table tbody{
+    background-color: white;
+}
+.viewSubject .table tbody td button{
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    margin-top: 15px;
-    width:60%;
+    margin-top: 5px;
+    width:50%;
     border: 1px solid var(--main-black-color);
     border-radius: 4px;
     font-weight: 500;
     color: var(--main-black-color);
-    padding: 3px;
 }
 .viewSubject .table button:hover{
-    background-color:var(--main-black-color);
+    border: 1px solid var(--main-white-color);
     color:white
 }
 .viewSubject h2{
     padding-top: 30px;
+}
+.viewSubject .table{
+    width: 90%;
+    text-align: center;
+    /* box-shadow: 3px 1px 20px black; */
+    margin-left: auto;
+    margin-right: auto;
+}
+.viewSubject .table tbody :hover{
+    background-color:rgb(163, 129, 129);
+    color: white;
 }

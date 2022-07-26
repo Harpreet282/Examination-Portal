@@ -39,9 +39,9 @@ const ViewSubject = () => {
     {loadingState?<Loader/> :
     <div className='viewSubject'>
      <h2>Subject List</h2>
-     <table className="table my-4">
+     <table className="table table-sm  table-bordered  my-4 ">
   <thead>
-    <tr>
+    <tr className='table-primary '>
       <th scope="col">Subject</th>
       <th scope="col">Remove</th>
       <th scope="col">Create Exam</th>
@@ -50,8 +50,8 @@ const ViewSubject = () => {
       {
         Subjects.map((item,i)=>{
           return(
-            <tbody  key={item.subjectID}>
-               <tr>
+            <tbody key={item.subjectID}>
+               <tr >
                <td>{item.name}</td>
                  <td><button className='btn'>Remove</button></td>  
                  <td><button onClick={()=>navigate("/examinerDashboard/createExam" ,{ state: { subjectId : item.subjectID,courseID:item._id  }})}  className='btn' >Create Exam</button></td>  

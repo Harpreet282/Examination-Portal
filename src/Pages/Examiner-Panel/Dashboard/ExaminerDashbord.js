@@ -5,20 +5,20 @@ import Index from '../../../Routes/Examiner-Routes'
 
 const ExaminerDashbord = () => {
   return (
-    <div>
-      <section className='examiner-dashboard-page'>
+    <>
+      <section className='examiner-dashboard-page margin-from-top'>
       
      <div className="row main-content">
-      <div className="col-md-3 left-content">
+      <div className="col-md-2 left-content">
       <SideBar/>
       </div>
-      <div className="col-md-9 right-content">
+      <div className="col-md-10 right-content">
         <Index/>
       </div>
      </div>
 
     </section>
-    </div>
+    </>
   )
 }
 

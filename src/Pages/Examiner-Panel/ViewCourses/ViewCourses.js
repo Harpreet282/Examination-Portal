@@ -28,43 +28,52 @@ const ViewCourses = () => {
           })
       },[])
   return (
-    <div>
+    <>
     {loadingState?<Loader/>:<>
         <section className='examinerDashboard'>
-            <div className='container  my-5'>
-                <div className='row all-content'>
-                <div className='row'>
+            <div className='container'>
+                <div className='row all-content my-5'>
+               
                 {
             request.map((item)=>{
                return( 
                 <>
                 
-                <div className='col-md-4'>
-                <div className="card text-center mx-3 my-2 course-card">
+                <div className='col-md-6'>
+                <div className="card  text-center my-3 course-card">
   
   <div class="card-body">
     <h5 class="card-title">{item.name}</h5>
-    <p class="card-text" style={{width:"120%", height:"20%"}}>{item.description}</p>
+    <p class="card-text">{item.description}</p>
     <div className='button-container'>
-    {/* <div className='row'> */}
     <div className='row'>
+    <div className='col-md-6 col-sm-12'>
         <button onClick={()=>navigate("/examinerDashboard/AddStudent" ,{ state: { courseId : item._id }})} className="btn AddStudent">Add Student </button>
     </div>
-    {/* <button onClick={()=>navigate("/examinerDashboard/viewStudents" ,{ state: { courseId : item._id }})}className='btn showAllStudent'> All students</button> */}
-    <div className='row'>
-    <button onClick={()=>navigate("/examinerDashboard/AddSubject" ,{ state: { courseId : item._id }})} className='btn SubjectAdd'>Subject Add</button>
+    
+    <div className='col-md-6 col-sm-12'>
+    <button onClick={()=>navigate("/examinerDashboard/viewStudents" ,{ state: { courseId : item._id }})} className='btn showAllStudent'> All students</button>
+    </div>
     </div>
     <div className='row'>
+    <div className='col-md-6 col-sm-12'>
+    <button onClick={()=>navigate("/examinerDashboard/AddSubject" ,{ state: { courseId : item._id }})} type="button" className=" btn SubjectAdd" data-backdrop="false" data-toggle="modal" data-target="#exampleModal">Subject Add</button> 
+    {/* <button >Subject Add</button> */}
+    </div>
+    <div className='col-md-6 col-sm-12'>
     <button onClick={()=>navigate("/examinerDashboard/viewAllSubject" ,{ state: {courseId :item._id }})} className='btn subjectShow'> View Subject</button>
     </div>
-    {/* </div> */}
+    </div>
+    <div className='row'>
+    <div className='col-md-12'>
+    <button onClick={()=>navigate("/examinerDashboard/viewAllSubject" ,{ state: {courseId :item._id }})} className='btn subjectShow'> Course Remove</button>
+    </div>
+    </div>
    
 </div>
 </div>
 </div>
 </div>
-
- 
                 </>
                )
             })
@@ -72,11 +81,10 @@ const ViewCourses = () => {
         </div>
                           
                 </div>
-            </div>
         </section>
         </>
         }
-    </div>
+    </>
    
   )
 }

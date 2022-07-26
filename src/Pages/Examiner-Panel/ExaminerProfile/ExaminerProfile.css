@@ -1,0 +1,127 @@
+.ExaminerProfile img{
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    border-radius:50%;
+}
+.ExaminerProfile{
+    
+}
+.ExaminerProfile .container{
+    text-align: center;
+    margin-left: auto;
+    box-shadow: 2px 2px 10px grey;
+    border-radius: 4px;
+    width: 30%;
+    /* border: 1px solid red; */
+    background-color:black;
+   
+    margin-right: auto;
+    color: grey;
+
+}
+.ExaminerProfile .container .headingOne{
+    margin-top: 20px;
+    color:grey;
+}
+.ExaminerProfile .container .firstName{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+}
+.ExaminerProfile .container .firstName .firstNameHeading{
+    width: 80px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.ExaminerProfile .container .firstName .firstNameData{
+    width: 200px;
+    font-weight: 700;
+    font-size: 14px;
+
+}
+.ExaminerProfile .container .lastName{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+}
+.ExaminerProfile .container .userType{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+}
+.ExaminerProfile .container .lastName .lastNameHeading{
+    width: 80px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.ExaminerProfile .container .lastName .lastNameData{
+    width: 200px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.ExaminerProfile .container .userType .userTypeHeading{
+    width: 80px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.ExaminerProfile .container .userType .userTypeData{
+    width: 200px;
+    font-weight: 700;
+    font-size:14px;
+}
+.ExaminerProfile .container .headingTwo{
+    margin-top: 20px;
+    color:grey;
+}
+.ExaminerProfile .container .email{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+}
+.ExaminerProfile .container .emailHeading{
+    width: 80px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.ExaminerProfile .container .emailData{
+    width: 200px;
+    font-weight: 700;
+    font-size:14px;
+}
+.ExaminerProfile .container .mobileNumber{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+.ExaminerProfile .container .mobileNumberHeading{
+    width: 130px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.ExaminerProfile .container .mobileNumberData{
+    width: 200px;
+    font-size: 14px;
+    font-weight: 700;
+}

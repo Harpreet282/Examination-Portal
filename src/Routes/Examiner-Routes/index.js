@@ -7,20 +7,24 @@ import ViewStudent from '../../Pages/Examiner-Panel/ViewStudent/ViewStudent';
 import AddSubject from '../../Pages/Examiner-Panel/AddSubject/AddSubject';
 import ViewSubject from '../../Pages/Examiner-Panel/ViewSubject/ViewSubject';
 import CreateSubject from '../../Pages/Examiner-Panel/Create-Subject/CreateSubject';
+import ExaminerProfile from '../../Pages/Examiner-Panel/ExaminerProfile/ExaminerProfile';
 import CreateExam from '../../Pages/Examiner-Panel/CreateExam/CreateExam';
+import StudentAddToExam from '../../Pages/Examiner-Panel/ViewSubject/StudentAddTOExam/StudentAddToExam';
 // import ExamDetails from '../../Pages/Examiner-Panel/ExamDetails/ExamDetails';
 const Index = () => {
   return (
     <>
 <Routes>
     <Route path="/AddStudent" element={<CreateStudents />} />
-    <Route path="/" element={<CreateCourse />} />
+    <Route path="/" element={<ExaminerProfile/>} />
+    <Route path="/course" element={<CreateCourse />} />
     <Route path="/viewCourse" element={<ViewCourses />} />
     <Route path="/viewStudents" element={<ViewStudent />} />
     <Route path="/AddSubject" element={<AddSubject />} />
     <Route path="/viewAllSubject" element={<ViewSubject />} />
     <Route path="/CreateSubject" element={<CreateSubject />} />
     <Route path="/CreateExam" element={<CreateExam/>} />
+    <Route path="/StudentAddToExam" element={<StudentAddToExam/>} />
     {/* <Route path="/examDetails" element={<ExamDetails/>}/> */}
 
     </Routes>

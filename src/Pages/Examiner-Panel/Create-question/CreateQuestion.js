@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react'
 import {question_detail} from '../../../redux/actions/index';
 import { useFormik} from "formik";
 import * as Yup from "yup";
+import './CreateQuestion.css'
 import { useDispatch } from 'react-redux';
 
 const CreateQuestion = () => {
@@ -54,11 +55,14 @@ useEffect(()=>{
     validationSchema,
   });
   return (
-    <div>
-       <form onSubmit={formik.handleSubmit}   className='px-5'>
-          <div className='row'>
-            <div className='col-md-12'>
-              <input type="text"  {...formik.getFieldProps("question")}     placeholder="Question" name='question'/>
+    <div className='create-question'>
+       <form onSubmit={formik.handleSubmit}>
+          <div className='row content'>
+          <div className='col-md-3'>
+            <label className='label'>Question</label>
+          </div>
+            <div className='col-md-9'>
+              <input type="text"  {...formik.getFieldProps("question")}   placeholder="Question" name='question'/>
               {formik.touched.question && formik.errors.question ? (
                           <p className="text-danger error">
                             {formik.errors.question}
@@ -66,8 +70,11 @@ useEffect(()=>{
                         ) : null}
             </div>
             </div>
-            <div className='row'>
+            <div className='row content'>
             <div className='col-md-3'>
+            <label className='label'>Option 1</label>
+          </div>
+            <div className='col-md-9'>
             <input type="text" {...formik.getFieldProps("optionOne")} placeholder="Option1"/>
             {formik.touched.optionOne && formik.errors.optionOne ? (
                           <p className="text-danger error">
@@ -75,8 +82,12 @@ useEffect(()=>{
                           </p>
                         ) : null}
             </div>
-         
-            <div className='col-md-3'>
+            </div>
+         <div className='row content'>
+         <div className='col-md-3'>
+            <label className='label'>Option 2</label>
+          </div>
+            <div className='col-md-9'>
               <input type="text"  {...formik.getFieldProps("optionTwo")} placeholder="Option2" />
               {formik.touched.optionTwo && formik.errors.optionTwo ? (
                           <p className="text-danger error">
@@ -84,8 +95,12 @@ useEffect(()=>{
                           </p>
                         ) : null}
             </div>
-            
+            </div>
+            <div className='row content'>
             <div className='col-md-3'>
+            <label className='label'>option 3</label>
+          </div>
+            <div className='col-md-9'>
             <input type="text" {...formik.getFieldProps("optionThree")}  placeholder="Option3"/>
             {formik.touched.optionThree && formik.errors.optionThree ? (
                           <p className="text-danger error">
@@ -93,9 +108,12 @@ useEffect(()=>{
                           </p>
                         ) : null}
             </div>
-         
-         
+            </div>
+            <div className='row content'>
             <div className='col-md-3'>
+            <label className='label'>Option 4</label>
+          </div>
+            <div className='col-md-9'>
               <input type="text" {...formik.getFieldProps("optionFour")}  placeholder="Option4" />
               {formik.touched.optionFour && formik.errors.optionFour ? (
                           <p className="text-danger error">
@@ -105,8 +123,11 @@ useEffect(()=>{
             </div>
             </div>
         
-          <div className='row'>
-            <div className='col-md-6'>
+          <div className='row content'>
+          <div className='col-md-3'>
+            <label className='label'>Marks</label>
+          </div>
+            <div className='col-md-9'>
               <input type="text" {...formik.getFieldProps("marks")}    placeholder="Marks"/>
               {formik.touched.marks && formik.errors.marks ? (
                           <p className="text-danger error">
@@ -114,7 +135,12 @@ useEffect(()=>{
                           </p>
                         ) : null}
             </div>
-            <div className='col-md-6'>
+            </div>
+            <div className='row content'>
+            <div className='col-md-3'>
+            <label className='label'>Answer</label>
+          </div>
+          <div className='col-md-9'>
             <input type="text"  {...formik.getFieldProps("correctOption")}  placeholder="Answer" name='correctOption'/>
             {formik.touched.correctOption && formik.errors.correctOption ? (
                           <p className="text-danger error">
@@ -122,7 +148,7 @@ useEffect(()=>{
                           </p>
                         ) : null}
             </div>
-          </div>
+            </div>
           <div>
             <button type='submit' className='btn'>Submit</button>
           </div>

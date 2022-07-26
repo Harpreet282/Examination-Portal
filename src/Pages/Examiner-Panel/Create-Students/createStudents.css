@@ -1,43 +1,55 @@
 .Student-Signup .all-content{
-height: 480px;
-overflow: hidden;
+height:100%;
 position: relative;
 text-align: center;
 }
-
+.Student-Signup .all-content .label{
+    padding-top: 16px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.Student-Signup .all-content .firstrow{
+    padding-top: 20px;
+}
 .Student-Signup .all-content .content {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    text-align: center;
-    width: 80%;
-    }
-
-    .Student-Signup h2{
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 10px black;
+    background-color: lightslategrey;
+    border-radius: 4px;
     margin-top: 20px;
+    text-align: center;
+    width: 60%;
+    }
+.Student-Signup{
+    background-color:aliceblue;
+}
+    .Student-Signup h2{
     color:var(--main-black-color);
     margin-left: auto !important;
     margin-right: auto !important;
+    text-align: center;
     }
 
     .Student-Signup .all-content .content input{
-        width: 100%;
+        width: 80%;
         padding: 5px 20px 5px 20px;
         border:none;
         border-radius: 4px;
         border:1px solid #4e4343;
+        margin-left: auto;
+        margin-right: auto;
         margin: 15px 0;
         font-weight: 500;
-
     }
-
-    
-    .Student-Signup .all-content .content select{
+.Student-Signup .all-content .content .form-control{
+    display:-webkit-inline-box;
+}
+    /* .Student-Signup .all-content .content select{
         color: black;
-    }
+    } */
     .Student-Signup .all-content .content select{
-        width: 100%;
+        width: 80%;
         padding: 5px 20px 5px 20px;
         border:none;
         border-radius: 4px;
@@ -70,6 +82,7 @@ text-align: center;
         border: 1px solid var(--main-black-color);
         border-radius: 4px;
         font-weight: 500;
+        margin-bottom: 20px;
         color: var(--main-black-color);
         padding: 5px;
     }
@@ -79,7 +92,7 @@ text-align: center;
     }  
 @media only screen and (max-width:1199.98px) {
     .Student-Signup .all-content{
-        height: 500px;
+        height: 600px;
         overflow: hidden;
         position: relative;
         text-align: center;
@@ -87,24 +100,24 @@ text-align: center;
 }
 @media (max-width: 991.98px) {
     .Student-Signup .all-content{
-        height: 500px;
+        height: 600px;
         overflow: hidden;
         position: relative;
         text-align: center;
         }
 } 
-@media (max-width: 767.98px) {
+/* @media (max-width: 767.98px) {
     .Student-Signup .all-content{
-        height: 500px;
+        height: 600px;
         overflow: hidden;
         position: relative;
         text-align: center;
         }
         
-}
+} */
 @media (max-width:575.98px) { 
     .Student-Signup .all-content{
-        height: 500px;
+        height:700px;
         overflow: hidden;
         position: relative;
         text-align: center;

@@ -63,16 +63,19 @@ const CreateStudents = () => {
     validationSchema,
   });
   return (
-    <div>
-       <section className='Student-Signup'>
-      <div className='container  my-5'>
-        <div className='row'>
+    <div className=''>
+       <section className='Student-Signup p-1 '>
+      <div className='container'>
+        <div className='my-5'>
           <h2>Please Enter Student's Details to make their Accounts</h2>
-        <div className='col-md-12 all-content'>
+        <div className=' all-content'>
         <div className='content'>
         <form onSubmit={formik.handleSubmit} >
-          <div className='row'>
-            <div className='col-md-6'>
+          <div className='row firstrow'>
+          <div className='col-md-3'>
+            <label className='label'>FirstName:</label>
+          </div>
+            <div className='col-md-9'>
               <input type="text"  {...formik.getFieldProps("firstName")} placeholder="First Name"/>
               {formik.touched.firstName && formik.errors.firstName ? (
                           <p className="text-danger error">
@@ -80,7 +83,12 @@ const CreateStudents = () => {
                           </p>
                         ) : null}
             </div>
-            <div className='col-md-6'>
+            </div>
+            <div className='row'>
+            <div className='col-md-3'>
+              <label className='label'>LastName:</label>
+            </div>
+            <div className='col-md-9'>
             <input type="text" {...formik.getFieldProps("lastName")}  placeholder="Last Name" />
             {formik.touched.lastName && formik.errors.lastName ? (
                           <p className="text-danger error">
@@ -90,15 +98,23 @@ const CreateStudents = () => {
             </div>
           </div>
           <div className='row'>
-            <div className='col-md-6'>
-              <input type="text"  {...formik.getFieldProps("email")} placeholder="Email"/>
+          <div className='col-md-3'>
+              <label className='label'>Email:</label>
+            </div>
+            <div className='col-md-9'>
+              <input type="text"  {...formik.getFieldProps("email")}  placeholder="Email"/>
               {formik.touched.email && formik.errors.email ? (
                           <p className="text-danger error">
                             {formik.errors.email}
                           </p>
                         ) : null}
             </div>
-            <div className='col-md-6'>
+            </div>
+            <div className='row'>
+            <div className='col-md-3'>
+              <label className='label'>Mobile Number: </label>
+            </div>
+            <div className='col-md-9'>
             <input type="text"  {...formik.getFieldProps("mobileNumber")}  placeholder="Mobile Number"/>
             {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
                           <p className="text-danger error">
@@ -108,7 +124,10 @@ const CreateStudents = () => {
             </div>
           </div>
           <div className='row'>
-            <div className='col-md-6'>
+          <div className='col-md-3'>
+              <label className='label'>Father Name: </label>
+            </div>
+            <div className='col-md-9'>
               <input type="text"  {...formik.getFieldProps("fatherName")}  placeholder="Father Name"/>
               {formik.touched.fatherName && formik.errors.fatherName ? (
                           <p className="text-danger error">
@@ -116,7 +135,12 @@ const CreateStudents = () => {
                           </p>
                         ) : null}
             </div>
-            <div className='col-md-6'>
+            </div>
+            <div className='row'>
+            <div className='col-md-3'>
+              <label className='label'>Mother Name: </label>
+            </div>
+            <div className='col-md-9'>
             <input type="text"  {...formik.getFieldProps("motherName")} placeholder="Mother Name" />
             {formik.touched.motherName && formik.errors.motherName ? (
                           <p className="text-danger error">
@@ -126,7 +150,10 @@ const CreateStudents = () => {
             </div>
           </div>
           <div className='row'>
-            <div className='col-md-6'>
+          <div className='col-md-3'>
+              <label className='label'>Date Of Birth: </label>
+            </div>
+            <div className='col-md-9'>
               <input type="date" {...formik.getFieldProps("dob")} placeholder="Date Of Birth"/>
               {formik.touched.dob && formik.errors.dob ? (
                           <p className="text-danger error">
@@ -134,7 +161,12 @@ const CreateStudents = () => {
                           </p>
                         ) : null}
             </div>
-            <div className='col-md-6'>
+            </div>
+            <div className='row'>
+            <div className='col-md-3'>
+              <label className='label'>State: </label>
+            </div>
+            <div className='col-md-9'>
             <input type="text" {...formik.getFieldProps("state")} placeholder="State" />
             {formik.touched.state && formik.errors.state ? (
                           <p className="text-danger error">
@@ -144,7 +176,10 @@ const CreateStudents = () => {
             </div>
           </div>
           <div className='row'>
-            <div className='col-md-6'>
+          <div className='col-md-3'>
+              <label className='label'>City: </label>
+            </div>
+            <div className='col-md-9'>
               <input type="text" {...formik.getFieldProps("city")}  placeholder="City"/>
               {formik.touched.city && formik.errors.city ? (
                           <p className="text-danger error">
@@ -152,7 +187,12 @@ const CreateStudents = () => {
                           </p>
                         ) : null}
             </div>
-            <div className='col-md-6'>
+            </div>
+            <div className='row'>
+            <div className='col-md-3'>
+              <label className='label'>Address: </label>
+            </div>
+            <div className='col-md-9'>
             <input  type="text" {...formik.getFieldProps("address")} placeholder="Address" />
             {formik.touched.address && formik.errors.address ? (
                           <p className="text-danger error">
@@ -162,7 +202,10 @@ const CreateStudents = () => {
             </div>
           </div>
           <div className='row'>
-            <div className='col-md-6'>
+          <div className='col-md-3'>
+              <label className='label'>Gender: </label>
+            </div>
+            <div className='col-md-9'>
             <select {...formik.getFieldProps("gender")}  className="form-control">
               <option name='gender' value="" disabled selected>Gender</option>
               <option name='gender' value="MALE">Male</option>
@@ -175,7 +218,12 @@ const CreateStudents = () => {
                           </p>
                         ) : null}
             </div>
-            <div className='col-md-6'>
+            </div>
+            <div className='row'>
+            <div className='col-md-3'>
+              <label className='label'>Password: </label>
+            </div>
+            <div className='col-md-9'>
             <input {...formik.getFieldProps("password")}  type="password" placeholder="Create Password" />
             {formik.touched.password && formik.errors.password ? (
                           <p className="text-danger error">
@@ -183,7 +231,8 @@ const CreateStudents = () => {
                           </p>
                         ) : null}
             </div>
-          </div>
+            </div>
+          
           <div>
             <button className='btn'>Sign up</button>
           </div>

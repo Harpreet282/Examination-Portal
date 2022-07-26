@@ -1,32 +1,48 @@
 .createExam input{
-    background-color: transparent;
-    width: 100%;
-    padding: 12px 20px 5px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid var(--main-theme-color);
+    width: 80%;
+    padding: 5px 20px 5px 20px;
+    border:none;
+    border-radius: 4px;
+    border:1px solid #4e4343;
+    margin: 15px 0;
     font-weight: 500;
-
+}
+.createExam  form .label{
+    padding-top: 16px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.createExam .content{
+    margin-left: auto;
+    margin-right: auto;
+}
+.createExam{
+    margin-left: auto;
+    margin-right:auto;
+    width: 60%;
+    background-color: slategrey;
+    text-align: center;
+    background-color: aliceblue;
 }
 .createExam form button{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    width: 50%;
-    /* justify-content: center;
+    justify-content: center;
     align-items: center;
     margin-left: auto;
-    margin-right: auto; */
-    margin-left:20%;
-    border: 2px solid var(--main-theme-color);
-    border-radius: 25px;
-    font-weight: 700;
-    color:var(--main-theme-color)
+    margin-right: auto;
+    overflow: hidden;
+    margin-top: 15px;
+    width:30%;
+    border: 1px solid var(--main-black-color);
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--main-black-color);
+    padding: 5px;
+    margin-bottom: 30px;
 }
 .createExam form button:hover{
-    border: 2px solid var(--main-black-color);
+   
     background-color: var(--main-black-color);
-    color: var(--main-theme-color);
+    color:white;
 }  
 .createExam form input:focus-visible{
     outline: none;
