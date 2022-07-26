@@ -1,11 +1,13 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import ExamGuildelines from "../Pages/Student-panel/studentView/Exams/ExamGuildelines"
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 const FullScreenModal = () => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
+    // console.log(location.state.data,'fullscreen')
     // const submitHandler = () => {
     //     // e.preventDefault()
     //     navigate('/studentDashboard/examguidelines')
@@ -15,7 +17,7 @@ const FullScreenModal = () => {
 
     const handleHandler = () => {
         handle.enter()
-        navigate("/giveexam")       
+        navigate("/giveexam",{state : {data : location.state.data}})       
     }
  
     return (

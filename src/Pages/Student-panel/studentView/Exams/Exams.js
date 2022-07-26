@@ -26,7 +26,7 @@ const Exams = () => {
        {
         console.log('resp',resp)
         dispatch(loaderValueFalse())
-        setItem(resp.data.data.student.exams)}
+        setItem(resp.data.data.student.studentexams)}
        )
     .catch(err => {console.log(err)
     dispatch(loaderValueFalse())})
@@ -59,7 +59,7 @@ const Exams = () => {
                     </div>
                     <div className="student">
                       <div href="#">
-                        <Timer data={content} date={content.examDate} starttime={content.startTime} end ={content.endTime}/>
+                        <Timer data={content} date={content.examDate} starttime={content.startTime} end={content.endTime}/>
                       </div>
                     </div>
                   </div>

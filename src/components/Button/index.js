@@ -8,4 +8,4 @@ function Button(props) {
 
 export default Button;
 
-  <Button handleSubmit={handleSubmit} type="success" title="SUbmit" />;
+<Button handleSubmit={handleSubmit} type="success" title="SUbmit" />;

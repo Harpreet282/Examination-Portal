@@ -1,14 +1,18 @@
 import React,{useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { toast,ToastContainer } from 'react-toastify';
 
 const ExamGuildelines = () => {
   
   const navigate = useNavigate();
+  const location = useLocation();
 
   const openModal = () => {
+  
+
     navigate("/fullScreenModal")
   }
+  console.log(location.state.detail,'guideline')
 
   const handleButton=()=>{
 
@@ -16,12 +20,12 @@ const ExamGuildelines = () => {
     const cb = document.getElementById("exam-checkbox")
     // console.log(cb.checked);
 
-    cb.checked  === false ? toast.error('Please accept the terms and conditions') :  navigate("/fullScreenModal");
+    cb.checked  === false ? toast.error('Please accept the terms and conditions') :  navigate("/fullScreenModal",{state : {data : location.state}});
     
   }
   return (
-    <div className='exam-guideline-section'> 
-      <h1 className='text-center mt-5'>Examination Instructions to students</h1>
+    <div className='exam-guideline-section margin-from-top'> 
+      <h1 className='text-center py-3'>Examination Instructions to students</h1>
       <div className='instruction-section my-5 mx-3'>
         <ol>
           <div className='instructions'>

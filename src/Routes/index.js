@@ -13,7 +13,7 @@ import GiveExam from '../Pages/Student-panel/studentView/Exams/GiveExam';
 import KeyModal from '../Modals/KeyModal';
 import FullScreenModal from '../Modals/FullScreenModal';
 
-import Modal from '../Pages/Student-panel/Timer/Modal';
+// import Modal from '../Pages/Student-panel/Timer/Modal';
 import ExaminerDashbord from '../Pages/Examiner-Panel/Dashboard/ExaminerDashbord';
 import Error from '../Pages/Error';
 import Header from '../components/Header/Header';
@@ -34,14 +34,16 @@ const Index = () => {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/modal" element={<Modal />} />
+          {/* <Route path="/modal" element={<Modal />} />
+          
+           */}
 
         </Route>
 
         <Route element={<ProtectedRoutes />}>
 
         <Route path="/profile" element={<Profile />} />     
-          <Route path="/modal" element={<Modal />} />
+          {/* <Route path="/modal" element={<Modal />} /> */}
           <Route path="/keymodal" element={<KeyModal />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
 
@@ -55,6 +57,9 @@ const Index = () => {
 
           <Route element={<StudentProtectedRoutes />}>
             <Route path="/studentDashboard/*" element={<StudentDashboard />} />
+            <Route path='/examguidelines/*' element={<ExamGuildelines />} /> 
+            <Route path="/fullScreenModal" element={<FullScreenModal />} />
+            <Route path='/giveexam/*' element={<GiveExam />} /> 
           </Route>
 
         </Route>
