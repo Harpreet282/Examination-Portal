@@ -1,0 +1,14 @@
+.button-component button{
+    overflow: hidden;
+    margin-top: 15px;
+    width: 40%;
+    border: 1px solid var(--main-black-color);
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--main-black-color);
+    padding: 3px;
+}
+  .button-component button:hover {
+    background-color: var(--main-black-color);
+    color: var( --second-main-theme-color);
+  }

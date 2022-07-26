@@ -18,11 +18,12 @@
   width: 50%;
   overflow: hidden;
   padding: 50px;
+ color: var(--main-theme-color)
 }
 
 .login-page .formsSection form{
   padding-left: 50px;
-  padding-right: 50px;
+  padding-right: 50px; 
 }
 
 .login-page .formsSection input {
@@ -46,22 +47,6 @@
 
 .login-page .formsSection ::placeholder {
   color: rgb(63, 50, 50);
-}
-
-.login-page .formsSection button {
-  overflow: hidden;
-  margin-top: 15px;
-  width: 40%;
-  border: 1px solid var(--main-black-color);
-  border-radius: 4px;
-  font-weight: 500;
-  color: var(--main-black-color);
-  padding: 3px;
-}
-
-.login-page .formsSection button:hover {
-  background-color: var(--main-black-color);
-  color: white;
 }
 
 .login-page .formsSection .signupLink {

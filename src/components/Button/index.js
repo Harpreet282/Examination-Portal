@@ -1,11 +1,11 @@
-import REact from 'react';
-
-function Button(props) {
+import React from 'react'
+import './button.css'
+const Button = (props) => {
   return (
-    <input type="button" onClick={props.handleSubmit} classNam={props.type === 'success' ? '' : ''} value={props.ttile} />
-  );
+    <div className='button-component'>
+<button type="submit" className={`${props.className} btn`}>{props.text}</button>
+    </div>
+  )
 }
 
-export default Button;
-
-  <Button handleSubmit={handleSubmit} type="success" title="SUbmit" />;
+export default Button
