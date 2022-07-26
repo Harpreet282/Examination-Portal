@@ -109,7 +109,7 @@ function Header() {
                     )}
 
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/login" onClick={() => dispatch(logoutAccount())}>
+                    <NavLink className="nav-link" to="/" onClick={() => dispatch(logoutAccount())}>
                       Logout
                     </NavLink>
                   </li>

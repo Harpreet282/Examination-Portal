@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import './sign-up.css';
-import {useNavigate, NavLink, Navigate } from 'react-router-dom';
+import {useNavigate, NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { SIGN_UP_API } from '../../Apis/apis';
 import Loader from '../../Loader';
 import Button from '../../components/Button';
+import { SignUpAxios } from '../../Services';
 
 const customId = 'custom-id';
 
@@ -47,11 +46,11 @@ function SignUp() {
   const onSubmit = (values, onSubmitProps) => {
     // console.log('Submit Values',values)
     setLoading(true);
-    axios.post(SIGN_UP_API, values)
+    SignUpAxios(values)
       .then((res) => {
         setLoading(false);
         // console.log(res)
-        toast.success('Register Successfully!', {
+        toast.success('Register Successfully!!', {
           toastId: customId,
         });
      

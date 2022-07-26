@@ -2,6 +2,13 @@
   color: var(--main-theme-color);
   margin-bottom: 25px;
 }
+.new-requests-page form input{
+  border: 2px solid var(--main-theme-color);
+  border-radius: 12px;
+}
+.new-requests-page form input::placeholder {
+  color: var(--main-theme-color);
+}
 .new-requests-page .table{
   background-color: var(--main-white-color);
 }

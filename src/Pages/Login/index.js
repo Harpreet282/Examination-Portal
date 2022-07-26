@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import './login.css';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { loginAccount } from '../../redux/actions';
-import { LOGIN_API } from '../../Apis/apis';
 import Loader from '../../Loader';
 import Button from '../../components/Button';
+import { LoginAxios } from '../../Services';
 
 const customId = 'custom-id';
 function Login() {
@@ -32,8 +31,7 @@ function Login() {
   const onSubmit = (values) => {
     // console.log('Submit Values',values)
     setLoading(true);
-    axios
-      .post(LOGIN_API, values)
+    LoginAxios(values)
       .then((res) => {
         setLoading(false);
         // console.log(res);
