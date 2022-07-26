@@ -9,7 +9,7 @@ import ViewSubject from '../../Pages/Examiner-Panel/ViewSubject/ViewSubject';
 import CreateSubject from '../../Pages/Examiner-Panel/Create-Subject/CreateSubject';
 import ExaminerProfile from '../../Pages/Examiner-Panel/ExaminerProfile/ExaminerProfile';
 import CreateExam from '../../Pages/Examiner-Panel/CreateExam/CreateExam';
-import StudentAddToExam from '../../Pages/Examiner-Panel/ViewSubject/StudentAddTOExam/StudentAddToExam';
+import StudentAddToExam from '../../Pages/Examiner-Panel/StudentAddTOExam/StudentAddToExam';
 // import ExamDetails from '../../Pages/Examiner-Panel/ExamDetails/ExamDetails';
 const Index = () => {
   return (

@@ -1,13 +1,13 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios'; 
-import {VIEW_STUDENT} from '../../../../Apis/apis'
+import {VIEW_STUDENT} from '../../../Apis/apis'
 import './studentAddToExam.css';
 import { useLocation } from 'react-router-dom';
 import { useSelector,useDispatch} from "react-redux";
-import {CREATE_EXAM} from '../../../../Apis/apis';
+import {CREATE_EXAM} from '../../../Apis/apis';
 import {toast,ToastContainer} from 'react-toastify'
-import Loader from '../../../../Loader'
-import { loaderValueFalse, loaderValueTrue } from "../../../../redux/actions";
+import Loader from '../../../Loader'
+import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
 
 const StudentAddToExam = () => {
     const[data,setData]=useState([]);
