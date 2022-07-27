@@ -27,3 +27,14 @@
 .approved-requests-page .content-box:hover{
   background-color: #ffe4b53d;
 }
+.approved-requests-page .pageButtons{
+  text-align: center;
+}
+.approved-requests-page .pageButtons button{
+  width: 100px;
+  overflow: hidden;
+  background-color: var(--main-theme-color);
+  color: var(--main-white-color);
+  border: 1px solid var(--main-theme-color);
+  border-radius:8px ;
+}

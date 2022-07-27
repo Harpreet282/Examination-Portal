@@ -68,11 +68,16 @@ function Header() {
                 <>
                 
                 <li className="nav-item">
-                    <NavLink className="nav-link" to="/profile">
+                    <NavLink className="nav-link" to="/">
                       Profile
                     </NavLink>
                   </li>
-                  {currentUser === myConstants.EXAMINER
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/dashboard">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                  {/* {currentUser === myConstants.EXAMINER
                     ? (
                     <>
                       <li className="nav-item">
@@ -106,10 +111,10 @@ function Header() {
                 )
 }
                       </>
-                    )}
+                    )} */}
 
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/" onClick={() => dispatch(logoutAccount())}>
+                    <NavLink className="nav-link" to="/login" onClick={() => dispatch(logoutAccount())}>
                       Logout
                     </NavLink>
                   </li>

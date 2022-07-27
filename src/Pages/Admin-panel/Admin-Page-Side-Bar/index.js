@@ -10,14 +10,14 @@ function AdminPageSideBar() {
           <div className="side-bar">
             <ul>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/adminDashboard/">
+                <NavLink className="nav-link" to="/dashboard">
                   New Requests
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
                   className="nav-link"
-                  to="/adminDashboard/approvedRequests"
+                  to="/dashboard/approvedRequests"
                 >
                   Approved Requests
                 </NavLink>
@@ -25,7 +25,7 @@ function AdminPageSideBar() {
               <li className="nav-item">
                 <NavLink
                   className="nav-link"
-                  to="/adminDashboard/declinedRequests"
+                  to="/dashboard/declinedRequests"
                 >
                   Declined Requests
                 </NavLink>

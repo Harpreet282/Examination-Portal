@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 import { useSelector } from 'react-redux';
-import * as myConst from '../../Constants';
 import Home from '../../Pages/Home';
 import Profile from '../../Pages/Profile';
 
@@ -29,42 +28,6 @@ function ProtectedRoutes2() {
   );
 }
 
-function AdminProtectedRoutes() {
-  const { userType } = JSON.parse(localStorage.getItem('data'));
-  // console.log(userType);
-  return (
-    <div>
-      {
- userType === myConst.ADMIN ? <Outlet /> : <Profile />
-}
-    </div>
-  );
-}
-
-function ExaminerProtectedRoutes() {
-  const { userType } = JSON.parse(localStorage.getItem('data'));
-  console.log(userType);
-  return (
-    <div>
-      {
- userType === myConst.EXAMINER ? <Outlet /> : <Profile />
-}
-    </div>
-  );
-}
-
-function StudentProtectedRoutes() {
-  const { userType } = JSON.parse(localStorage.getItem('data'));
-  console.log(userType);
-  return (
-    <div>
-      {
- userType === myConst.STUDENT ? <Outlet /> : <Profile />
-}
-    </div>
-  );
-}
-
 export {
-  ProtectedRoutes, ProtectedRoutes2, AdminProtectedRoutes, ExaminerProtectedRoutes, StudentProtectedRoutes,
+  ProtectedRoutes, ProtectedRoutes2
 };

@@ -13,20 +13,20 @@ const AdminProfileAxios = (token) => {
   });
 };
 
-const NewRequestsAxios = (token) => {
-  return axios.get(PENDING_REQUESTS_API, {
+const NewRequestsAxios = (token,pageIndex) => {
+  return axios.get(PENDING_REQUESTS_API+'?status=pending&pageSize=5&pageIndex='+pageIndex, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-const ApprovedRequestsAxios = (token) => {
-  return axios.get(APPROVED_REQUESTS_API, {
+const ApprovedRequestsAxios = (token,pageIndex) => {
+  return axios.get(APPROVED_REQUESTS_API+'?status=approved&pageSize=5&pageIndex='+pageIndex, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-const DeclinedRequestsAxios = (token) => {
-  return axios.get(DECLINED_REQUESTS_API, {
+const DeclinedRequestsAxios = (token,pageIndex) => {
+  return axios.get(DECLINED_REQUESTS_API+'?status=declined&pageSize=5&pageIndex='+pageIndex, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };

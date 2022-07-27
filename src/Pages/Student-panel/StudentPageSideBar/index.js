@@ -10,14 +10,14 @@ function StudentSideBar() {
           <div className="side-bar">
             <ul>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/studentDashboard/">
+                <NavLink className="nav-link" to="/dashboard">
                   Exam
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
                   className="nav-link"
-                  to="/studentDashboard/results"
+                  to="/dashboard/results"
                 >
                   Results
                 </NavLink>
@@ -25,7 +25,7 @@ function StudentSideBar() {
               <li className="nav-item">
                 <NavLink
                   className="nav-link"
-                  to="/studentDashboard/transaction"
+                  to="/dashboard/transaction"
                 >
                   Transaction History
                 </NavLink>

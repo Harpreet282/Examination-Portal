@@ -16,12 +16,12 @@ function SideBar() {
                   </NavLink>
                 </li> */}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/examinerDashboard">
+                <NavLink className="nav-link" to="/dashboard">
                   Create Courses
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/examinerDashboard/viewCourse">
+                <NavLink className="nav-link" to="/dashboard/viewCourse">
                   View Courses
                 </NavLink>
               </li>

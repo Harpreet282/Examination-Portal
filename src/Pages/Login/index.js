@@ -25,7 +25,7 @@ function Login() {
     email: Yup.string().email('Invalid email format!').required('**Required!'),
     password: Yup.string()
       .min(6, 'Password must be equal to or more than 6 characters!')
-      .max(50, 'Too Long!')
+      .max(20, 'Too Long!')
       .required('**Required!'),
   });
   const onSubmit = (values) => {
@@ -41,7 +41,7 @@ function Login() {
         dispatch(
           loginAccount(res.data.data.accessToken, res.data.data.userType),
         );
-        navigate('/profile');
+        navigate('/dashboard');
       })
       .catch((err) => {
         setLoading(false);
