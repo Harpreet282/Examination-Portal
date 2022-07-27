@@ -7,7 +7,7 @@ function Loader() {
     <div className="loader">
       <FadeLoader
         // size={20}
-        color="#000"
+        color="#4A171E"
       />
   </div>
   )

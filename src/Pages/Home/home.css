@@ -55,6 +55,7 @@
 
 .cardSection h5 {
     text-align: center;
+    color:var(--main-theme-color);
 }
 
 .cardSection .my-img {
@@ -74,7 +75,11 @@
     padding: 10px;
     display: none;
     width: 100%;
-    color: #fff;
+    /* color: #fff; */
+    color: var(--second-main-theme-color);
+}
+.cardSection .content h4{
+    color: var(--second-main-theme-color);
 }
 
 .cardSection .columns:hover img {

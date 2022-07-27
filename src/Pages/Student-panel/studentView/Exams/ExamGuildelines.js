@@ -53,7 +53,7 @@ const ExamGuildelines = () => {
         <button type="button"
            onClick={handleButton} 
            className="btn my-2 mr-5" 
-           style={{ padding:"8px 25px 8px 25px", float:"right", backgroundColor:" #F4831F",fontWeight:"500"}}
+           style={{ padding:"8px 25px 8px 25px", float:"right",fontWeight:"500"}}
            data-toggle="modal" 
            data-target="#exampleModalCenter"
            onSubmit={openModal}
