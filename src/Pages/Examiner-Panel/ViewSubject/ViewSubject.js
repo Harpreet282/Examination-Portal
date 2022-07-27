@@ -29,11 +29,6 @@ const ViewSubject = () => {
         })
 },[location.state.courseId])
 
-
-
-
-
-
   return (
     <>
     {loadingState?<Loader/> :

@@ -7,5 +7,7 @@ const Images = {
   sixthCard: require('./sixthCard.jpg'),
   seventhCard: require('./seventhCard.jpg'),
   eighthCard: require('./eighthCard.jpeg'),
+  adminProfile: require('./adminProfile.png'),
+  studentProfile:require('./profile-image.png')
 };
 export default Images;

@@ -19,6 +19,7 @@
   width: 50%;
   overflow: hidden;
   padding: 40px;
+  color: var(--main-theme-color)
   /* padding: 20px; */
   /* margin-left: auto;
   margin-right: auto;
@@ -54,22 +55,6 @@
 
 .signup-page .formsSection ::placeholder {
   color: rgb(63, 50, 50);
-}
-
-.signup-page .formsSection button {
-  overflow: hidden;
-  margin-top: 15px;
-  width: 40%;
-  border: 1px solid var(--main-black-color);
-  border-radius: 4px;
-  font-weight: 500;
-  color: var(--main-black-color);
-  padding: 3px;
-}
-
-.signup-page .formsSection button:hover {
-  background-color: var(--main-black-color);
-  color: white;
 }
 
 .signup-page .formsSection .signupLink {

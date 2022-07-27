@@ -1,29 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import { DECLINED_REQUESTS_API, UPDATE_REQUESTS_API } from '../../../Apis/apis';
+import React, { useState, useEffect } from 'react';
 import './declinedRequests.css';
 import Loader from '../../../Loader';
 import { useSelector, useDispatch } from 'react-redux';
 import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
 import * as myConstants from '../../../Constants';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { FcApproval } from "react-icons/fc";
+import { DeclinedRequestsAxios,ActionsHandleAxios } from '../../../Services/Admin';
 
 function DeclinedRequests() {
   const dispatch = useDispatch();
+  const [searchTerm,setSearchTerm]=useState("");
   const [declinedRequests, setDeclinedRequests] = useState([]);
-  let shouldLog = useRef(true);
   const loadingState = useSelector((state) => state.loadingState.loading);
 
   useEffect(() => {
-    if (shouldLog.current) {
-      shouldLog = false;
-      const { token } = JSON.parse(localStorage.getItem('data'));
+    const token = JSON.parse(localStorage.getItem("data")).token;
       // console.log(token)
       dispatch(loaderValueTrue());
-      axios
-        .get(DECLINED_REQUESTS_API, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+      DeclinedRequestsAxios(token)
         .then((response) => {
           setDeclinedRequests(response.data.data.Examiners);
           dispatch(loaderValueFalse());
@@ -33,21 +28,19 @@ function DeclinedRequests() {
           dispatch(loaderValueFalse());
           console.log(error);
         });
-    }
+    
   }, []);
 
   const handleAction = (id, action) => {
-    const { token } = JSON.parse(localStorage.getItem('data'));
+    const token = JSON.parse(localStorage.getItem("data")).token;
+
     dispatch(loaderValueTrue());
     // console.log(id)
     const data = {
       examinerID: id,
       action,
     };
-    axios
-      .put(UPDATE_REQUESTS_API, data, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+    ActionsHandleAxios(data,token)
       .then((response) => {
         // console.log(response);
         const newData = declinedRequests.filter((x) => x._id !== id);
@@ -69,59 +62,71 @@ function DeclinedRequests() {
   //  });
 
   return (
-    <section className="declined-requests-page my-4">
+    <section className="declined-requests-page ">
       {loadingState ? (
         <Loader />
       ) : (
         <>
           {declinedRequests.length > 0 ? (
-            <>
-              <h2>Declined Request :</h2>
-              {declinedRequests.map((req) => (
-                <div key={req._id} className="content-box p-2 my-2">
-                  <div className="row">
-                    <div className="col-md-8 requests-left-content">
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="reqData">
-                            {req.firstName}
-                            {' '}
-                            {req.lastName}
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="reqData">{req.email}</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 d-flex requests-right-content">
-                      <div>
+            <div className="py-4">
+               <div className="row">
+              <div className="col-md-6">
+              <h2>All Declined Requests</h2>
+              </div>
+              <div className="col-md-6">
+              <form className="form-inline my-2 my-lg-0" style={{justifyContent:'right'}}>
+      <input className="form-control mr-sm-2" type="search" placeholder="🔍Enter Email or Name" aria-label="Search" onChange={(e)=>{setSearchTerm(e.target.value)}} />
+    </form>
+              </div>
+             </div>
+           
+            <table className="table all-containers">
+              <thead>
+                <tr>
+                  <th scope="col" className='pl-4'>#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Mobile-Number</th>
+                  <th scope="col">Created-On</th>
+                  <th scope="col" style={{textAlign:'center'}}>Approve</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {declinedRequests.filter((req)=>{
+if(searchTerm==""){
+  return req
+} else if((req.firstName.toLowerCase() || req.email.toLowerCase()).includes(searchTerm.toLowerCase())){
+  return req
+}
+                    }).map((req, i) => (
+                      <tr key={req._id} className="content-box">
+                        <th scope="row" className='pl-4 main-index'>{i + 1}</th>
+                        <td>
+                          {req.firstName} {req.lastName}
+                        </td>
+                        <td>{req.email}</td>
+                        <td>+91 {req.mobileNumber}</td>
+                        <td>{new Date(new Date(req.createdOn).getTime() - 5 * 3600000 - 1800000).toLocaleString()}</td>
+                        <td align='center'>
                         <button
                           className="btn approveButton"
                           onClick={() => handleAction(req._id, myConstants.APPROVED)}
                         >
-                          Approve
-                        </button>
-                      </div>
-                      <div>
-                        <button
-                          className="btn btn deleteButton"
-                          onClick={() => handleAction(req._id, myConstants.DELETED)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </>
+                          <FcApproval size='25px' />
+                       </button>
+                        </td>
+                      </tr>
+                    ))}
+           
+              </tbody>
+            </table>
+          </div>
+            
           ) : (
-            <h2>No Declined Accounts</h2>
+            <h2 className='py-4'>No Declined Accounts</h2>
           )}
         </>
       )}
-      <ToastContainer />
     </section>
   );
 }

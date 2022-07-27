@@ -2,8 +2,8 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import { useSelector } from 'react-redux';
 import * as myConst from '../../Constants';
-import Profile from '../../Pages/Profile';
 import Home from '../../Pages/Home';
+import Profile from '../../Pages/Profile';
 
 function ProtectedRoutes() {
   const isLogged = useSelector((state) => state.loginState.authenticated);

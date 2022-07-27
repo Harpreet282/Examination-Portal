@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './sign-up.css';
-import { NavLink } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
+import {useNavigate, NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { SIGN_UP_API } from '../../Apis/apis';
 import Loader from '../../Loader';
+import Button from '../../components/Button';
+import { SignUpAxios } from '../../Services';
+
+const customId = 'custom-id';
 
 function SignUp() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
@@ -43,17 +46,23 @@ function SignUp() {
   const onSubmit = (values, onSubmitProps) => {
     // console.log('Submit Values',values)
     setLoading(true);
-    axios.post(SIGN_UP_API, values)
+    SignUpAxios(values)
       .then((res) => {
         setLoading(false);
         // console.log(res)
-        toast.success('Register Successfully!');
+        toast.success('Register Successfully!!', {
+          toastId: customId,
+        });
+     
         onSubmitProps.resetForm();
+        navigate('/login');
       })
       .catch((err) => {
         setLoading(false);
         // console.log(err)
-        toast.error('Error!');
+        toast.error('Error!', {
+          toastId: customId,
+        });
       });
   };
 
@@ -93,16 +102,16 @@ function SignUp() {
                     </div>
 
                     <div className="">
-                      <input type="text" {...formik.getFieldProps('password')} placeholder="Password" />
+                      <input type="password" {...formik.getFieldProps('password')} placeholder="Password" />
                       { formik.touched.password && formik.errors.password ? <p className="text-danger error">{formik.errors.password}</p> : null}
                     </div>
                     <div>
-                      <button type="submit" className="btn">Sign-up</button>
+                    <Button type='submit' className='btn' text='Sign-up' />
                     </div>
                     <div className="signupLink">
                       <p>
                         Already have an Account?
-                        <NavLink to="/login"> Login Here</NavLink>
+                        <NavLink to="/login"> Login Here!!</NavLink>
                       </p>
                     </div>
                   </form>
@@ -112,7 +121,6 @@ function SignUp() {
           )}
 
       </section>
-      <ToastContainer />
     </>
   );
 }

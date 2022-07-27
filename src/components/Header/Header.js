@@ -23,9 +23,9 @@ function Header() {
 
   return (
     <div className="header fixed-top">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-light px-5">
         <NavLink className="navbar-brand" to="/">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7_v03MXYtMYta3mga-w4zIuiTRnPJ_eEPAA&usqp=CAU" alt="logo" />
+          <img src="https://marvel-b1-cdn.bc0a.com/f00000000181213/www.valpo.edu/brand-dev/files/2014/07/Athletic_ValpoShield_Horiz_Full_Brown_Web.png" alt="logo" />
         </NavLink>
         <button
           className="navbar-toggler bg-dark"
@@ -43,20 +43,15 @@ function Header() {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item ">
+            
+            {!isLogged
+              ? (
+                <>
+                <li className="nav-item ">
               <NavLink className="nav-link" to="/">
                 Home
               </NavLink>
             </li>
-            {!isLogged
-              ? (
-                <>
-
-                  {/* <li className="nav-item">
-              <NavLink className="nav-link" to="/about">
-                About
-              </NavLink>
-            </li> */}
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/login">
                       Login
@@ -71,44 +66,50 @@ function Header() {
               )
               : (
                 <>
-                  <li className="nav-item">
+                
+                <li className="nav-item">
                     <NavLink className="nav-link" to="/profile">
                       Profile
                     </NavLink>
                   </li>
-
                   {currentUser === myConstants.EXAMINER
                     ? (
+                    <>
                       <li className="nav-item">
                         <NavLink className="nav-link" to="/examinerDashboard">
                           Dashboard
                         </NavLink>
                       </li>
+                    </>
                     )
                     : (
                       <>
                         {
               currentUser === myConstants.ADMIN
                 ? (
+                 <>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/adminDashboard">
                       Dashboard
                     </NavLink>
                   </li>
+                 </>
                 )
                 : (
+                  <>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/studentDashboard">
                       Dashboard
                     </NavLink>
                   </li>
+                  </>
                 )
 }
                       </>
                     )}
 
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/login" onClick={() => dispatch(logoutAccount())}>
+                    <NavLink className="nav-link" to="/" onClick={() => dispatch(logoutAccount())}>
                       Logout
                     </NavLink>
                   </li>
