@@ -10,6 +10,7 @@ import CreateSubject from '../../Pages/Examiner-Panel/Create-Subject/CreateSubje
 import ExaminerProfile from '../../Pages/Examiner-Panel/ExaminerProfile/ExaminerProfile';
 import CreateExam from '../../Pages/Examiner-Panel/CreateExam/CreateExam';
 import StudentAddToExam from '../../Pages/Examiner-Panel/StudentAddTOExam/StudentAddToExam';
+import ViewCourseInTable from '../../Pages/Examiner-Panel/ViewCourseInTable/ViewCourseInTable';
 // import ExamDetails from '../../Pages/Examiner-Panel/ExamDetails/ExamDetails';
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
     <Route path="/CreateSubject" element={<CreateSubject />} />
     <Route path="/CreateExam" element={<CreateExam/>} />
     <Route path="/StudentAddToExam" element={<StudentAddToExam/>} />
+    <Route path="/CourseInTable" element={<ViewCourseInTable/>} />
     {/* <Route path="/examDetails" element={<ExamDetails/>}/> */}
 
     </Routes>
