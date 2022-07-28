@@ -20,5 +20,10 @@
     border: none;
     padding: 0;
 } */
-
+.exam-page .card{
+    margin: 20px;
+    -webkit-box-shadow: 9px 10px 5px -3px rgba(84,18,0,1);
+-moz-box-shadow: 9px 10px 5px -3px rgba(84,18,0,1);
+box-shadow: 9px 10px 5px -3px rgba(84,18,0,1);
+}
 

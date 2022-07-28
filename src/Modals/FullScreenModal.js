@@ -16,8 +16,10 @@ const FullScreenModal = () => {
     const handle = useFullScreenHandle();
 
     const handleHandler = () => {
+        
         handle.enter()
-        navigate("/giveexam",{state : {data : location.state.data}})       
+        navigate("/giveexam",{state : {data : location.state.data}})     
+        // console.log("keymodal",location.state.data)  
     }
  
     return (

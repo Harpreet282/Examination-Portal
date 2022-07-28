@@ -6,6 +6,7 @@ import axios from "axios"
 import {loaderValueFalse, loaderValueTrue} from "../../../../redux/actions/index"
 import {useDispatch, useSelector} from "react-redux"
 import Loader from "../../../../Loader/index"
+import { EXAM_DASHBOARD } from '../../../../Apis/apis'
 
 const Exams = () => {
 
@@ -20,13 +21,13 @@ const Exams = () => {
   const getData = () => {
     const token = JSON.parse(localStorage.getItem('data')).token;
     dispatch(loaderValueTrue())
-    axios.get("https://exam-portal-by-hritik-sanam.herokuapp.com/student/dashboard",{headers: {Authorization: `Bearer ${token}`},}
+    axios.get(EXAM_DASHBOARD,{headers: {Authorization: `Bearer ${token}`},}
     )
     .then(resp =>
        {
-        console.log('resp',resp)
+        console.log('respDASH',resp)
         dispatch(loaderValueFalse())
-        setItem(resp.data.data.student.studentexams)}
+        setItem(resp.data.data.studentexams)}
        )
     .catch(err => {console.log(err)
     dispatch(loaderValueFalse())})
@@ -45,7 +46,7 @@ const Exams = () => {
       
       }
       {isLoading ? <Loader /> : 
-        <div className='container'>
+        <div className=''>
           <div className='row'>
             {item?.map((content) => {
               return (

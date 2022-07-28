@@ -4,45 +4,70 @@ import ReactCountdown from './Countdown'
 import "./GiveExam.css"
 import Swal from "sweetalert2"
 import './Questions.css'
+import axios from 'axios'
 
 
 
 const GiveExam = () => {
 
-    const navigate = useNavigate()
-    
-    const location = useLocation()
-    const dataq=location.state.data; // y api se aara hai data bhot door se 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const data = location.state.data; // y api se aara hai data bhot door se 
+    const [ques, setQues] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [pageNo, setPageNo] = useState(1)
+    const [btns, setBtns] = useState([]);
+    console.log(data.studentID)
+    console.log(data.exam.examID);
 
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [ques, setQues] = useState(dataq.detail.exam.questions)
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem('data')).token;
+        console.log(token, "token")
 
-    const [checkList, setCheckList] = useState(Array(dataq.detail.exam.questions.length).fill(Array(4).fill(false)))
-    const [btns, setBtns] = useState(Array(dataq.detail.exam.questions.length).fill("gray"))
-    const [ index, setIndex] = useState(0)
+        axios.get(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/questions?studentID=${data.studentID}&examID=${data.exam.examID}&pageIndex=${pageNo}`, {
+            headers: { Authorization: `Bearer ${token}` },
+        }).then((res) => {
+            // console.log("res", res);
+            setQues(res.data.data.question);
+            setTotal(res.data.data.Total);
+            console.log(total, "total")
+        }).catch((err) => {
+            // console.log("err", err)
+        })
 
-    const checkHandler = (i, j) =>{
-        setBtns(btns.map((color,i) => {
-            if(i === index){
-                return "green";
-            }
-            else{
-                return color;
-            }
-        }));
-        let values = Array(4).fill(false);
-        setCheckList(checkList.map((v, ind) => {
-            if(i === ind){
-                values[j] = true;
-                return values;
-            }
-            else{
-                return v;
-            }
-        }))
-    }
+    }, [pageNo])
 
-    console.log(location.state.data.detail.exam.questions, 'giveque')
+    useEffect(() => {
+        // console.log("arraytotal",Array(total.length))
+        setBtns(Array(total).fill('blue'));
+        console.log("btns", btns,"page",pageNo);
+    }, [total,pageNo])
+
+    // const [checkList, setCheckList] = useState(Array(1).fill(Array(4).fill(false)))
+    // const [index, setIndex] = useState(0)
+
+    // const checkHandler = (i, j) => {
+    //     setBtns(btns.map((color, i) => {
+    //         if (i === index) {
+    //             return "green";
+    //         }
+    //         else {
+    //             return color;
+    //         }
+    //     }));
+    //     let values = Array(4).fill(false);
+    //     setCheckList(checkList.map((v, ind) => {
+    //         if (i === ind) {
+    //             values[j] = true;
+    //             return values;
+    //         }
+    //         else {
+    //             return v;
+    //         }
+    //     }))
+    // }
+
+    // console.log(location.state.data.detail.exam.questions, 'giveque')
 
 
     const submitHandle = () => {
@@ -65,23 +90,24 @@ const GiveExam = () => {
 
     const handleNext = () => {
 
-        const nextQuestion = currentQuestion + 1;
+        const nextQuestion = pageNo + 1;
         if (nextQuestion < ques.length) {
-            setCurrentQuestion(nextQuestion)
+            setPageNo(nextQuestion)
         }
     }
     const handlePrevious = () => {
-        
-        const previousQuestion = currentQuestion - 1;
-        if (previousQuestion < ques.length && previousQuestion >= 0)  {
-            setCurrentQuestion(previousQuestion)
-        }
-        
-    }
 
+        const previousQuestion = pageNo - 1;
+        if (previousQuestion < ques.length && previousQuestion > 0) {
+            setPageNo(previousQuestion)
+        }
+
+    }
+    // console.log('ques',ques)
 
     return (
         <div>
+
             <div className='give-exam mx-5 margin-from-top'>
                 <div className='section-nav'>
                     <div className='row py-2'>
@@ -104,69 +130,58 @@ const GiveExam = () => {
                 <div className='col-md-8 mb-2  section-questions'>
                     <div className='give-exam mx-5'>
                         <div className=''>
-
-
-                            <div className='questions'>
-
-                                <div className='question-section'>
-                                    <div className='question-count'>
-                                        <span>Question{currentQuestion + 1}</span>/{ques.length}
-                                    </div>
-                                    <div className='question-text my-3 mx-5'>{ques[currentQuestion].question}</div>
-                                    <div className='answer-section mx-5'>
-                                        {
-                                            ques[currentQuestion].options.map((answerOption, i) => {
-                                                return (
-                                                <div className='options'>
-                                                    <input type="checkbox" value='' />
+                            {ques.map((Q) =>
+                                <div className='questions'>
+                                    {console.log(Q)}
+                                    <div className='question-section'>
+                                        <div className='question-count'>
+                                            <span>Question{pageNo}</span>/{ }
+                                        </div>
+                                        <div className='question-text my-3 mx-5'>{Q.question}</div>
+                                        <div className='answer-section mx-5'>
+                                            {
+                                                Q.options.map((answer, i) =>
+                                                    <div className='options'>
+                                                        <input type="checkbox" />
                                                         <label>
-                                                            <p>{answerOption}</p>
+                                                            <p>{answer}</p>
                                                         </label>
-                                                </div>
-                                            )
+                                                    </div>
 
-                                            })
-
-                                        }
-                                    </div>
-                                </div>
-                                <div className='buttons questions-button mt-4 mr-4'>
-                                    <button className='btn btn-info' onClick={handleNext}>Next</button>
-                                    <button className='btn btn-info' onClick={handlePrevious}>Previous </button>
-
-                                    <button className='btn btn-info' >Save</button>
-                                </div>
-                            </div>
-                            {/* <Questions /> */}
-                        </div>
-                    </div>
-                </div>
-
-                <div className='col-md-4'>
-                    <div className='row mt-4'>
-                        {
-                            ques.map((content, index) => {
-                                return (
-                                    <div key={content.id}>
-                                        <div className='btn-right-section my-3 col-md-4' >
-                                            <button type='button' className='btn' onClick={()=>setCurrentQuestion(index)}>{index+1}</button>
+                                                )
+                                            }
                                         </div>
                                     </div>
+                                </div>
+                            )}
+                        </div>
+                        <div className='buttons questions-button mt-4 mr-4'>
 
-                                )
-                            })
-                        }
-                    </div>
-                    <div className='col-md-12 mt-4 text-center'>
-                        <div className='button'>
-                            <button type="button" className="btn btn-success btn-left" onClick={submitHandle}>Submit</button>
+                            <button className='btn btn-info' onClick={handleNext}>Next</button>
+                            <button className='btn btn-info' onClick={handlePrevious}>Previous </button>
+                            <button className='btn btn-info' >Save</button>
                         </div>
                     </div>
-
                 </div>
 
+
+                <div className=''>
+                    <div className=''>
+                        {
+                            btns.map((color, i) =>
+                                <button className='btn btn-info' onClick={()=>setPageNo(i+1)}>{i + 1}</button>
+
+                            )
+                        }
+                    </div>
+                </div>
+                <div className='col-md-12 mt-4 text-center'>
+                    <div className='button'>
+                        <button type="button" className="btn btn-success btn-left" onClick={submitHandle}>Submit</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div >
     )
 }
 

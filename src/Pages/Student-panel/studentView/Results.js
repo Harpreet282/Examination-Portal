@@ -47,11 +47,11 @@ function Results() {
     },
   ];
   return (
-    <div>
-      <div className="container results-container">
+    <div className='student-result'>
+      <div className="results-container">
         <div className="row">
           {data.map((content) => (
-            <div className="col-md-6 results-col" key={content.id}>
+            <div className="col-md-4 results-col" key={content.id}>
               <div className="card">
                 <div className="card-body">
                   <div className="result-title">

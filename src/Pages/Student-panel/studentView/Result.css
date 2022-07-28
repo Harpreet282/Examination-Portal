@@ -1,14 +1,28 @@
-.result-bottom{
-    display: flex;
-    
+.student-result .result-bottom{
+    display: flex;   
+    margin-top: 10px; 
+    position: absolute;
+    bottom: 15px;
 }
-.results-col{
-    margin-top: 10px;
+.student-result .results-container{
+    padding-left: 20px;
+}
+.student-result .results-col{
+    margin-top: 30px;
     margin-bottom: 10px;
 }
-.result-bottom .btn{
-    background-color: #F4831F;
+.student-result .result-bottom .btn{
+    background-color: var(--main-theme-color);
     color: white;
     font-weight: 600;
-    margin-left:150px;  
+    margin-left:140px; 
+    width: 130px; 
+}
+.student-result .card-body{
+    height: 230px;
+}
+.student-result .card{
+    -webkit-box-shadow: 9px 10px 5px -3px rgba(84,18,0,1);
+-moz-box-shadow: 9px 10px 5px -3px rgba(84,18,0,1);
+box-shadow: 9px 10px 5px -3px rgba(84,18,0,1);
 }
