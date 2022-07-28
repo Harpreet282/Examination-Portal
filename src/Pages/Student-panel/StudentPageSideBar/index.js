@@ -10,7 +10,7 @@ function StudentSideBar() {
           <div className="side-bar">
             <ul>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/dashboard">
+                <NavLink className="nav-link" to="/dashboard/">
                   Exam
                 </NavLink>
               </li>

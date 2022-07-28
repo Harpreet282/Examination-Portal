@@ -10,7 +10,7 @@ function AdminPageSideBar() {
           <div className="side-bar">
             <ul>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/dashboard">
+                <NavLink className="nav-link" to="/dashboard/">
                   New Requests
                 </NavLink>
               </li>
