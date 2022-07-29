@@ -15,15 +15,14 @@
 .questions .options p{
     margin-left: 10px;
 }
-
 .section-questions{
     border-right: 1px solid #d2d7d2;
     height: 420px;
 }
 
 .btn-right-section .btn{
-    border: 1px solid rgb(180, 177, 177);
-    background-color: #d2d7d2;
+    border: 1px solid rgb(180, 177, 177) !important;
+    background-color: #66d9e6;
     width:40px;
     font-weight: 350;
     border-radius: 5px;
@@ -39,5 +38,16 @@
     color: white;
     padding: 2px 20px 2px 20px;
     border-radius: 10px;
+}
+.giveexam-btn{
+    
+    display: flex;
+}
+.giveexam-btn .btn{
+    width:40px;
+    font-weight: 350;
+    border-radius: 3px;
+    font-weight: 400;
+    /* margin-left:10px; */
 }
 

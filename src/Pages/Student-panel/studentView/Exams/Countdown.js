@@ -33,7 +33,8 @@ const ReactCountdown = () => {
   return (
     <div>
         <Countdown
-    date={Date.now() + 1500000}
+    date={Date.now() + 3600000
+    }
     renderer={renderer}
   />
     </div>
