@@ -1,64 +1,54 @@
 
-.viewStudent .table .add{
-    margin-top: 15px;
-    border: 2px solid var(--main-theme-color);
-    border-radius: 25px;
-    font-weight: 700;
-    color:var(--main-theme-color)
-}
-.viewStudent .table thead{
-    font-family: cursive;
-}
 .viewStudent  h2{
+    padding-top: 20px;
+    margin-bottom:30px;
     text-align: center;
-    margin-top: 20px;
+    font-family: cursive;
+    color: var(--main-theme-color);
+    font-weight:500px;
 }
- .viewStudent .table .add:hover{
-    border: 2px solid var(--main-black-color);
-    background-color:var(--main-black-color);
-    color: var(--main-theme-color)
-}
-.viewStudent .submit{
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    margin-top: 15px;
-    width:30%;
-    border: 1px solid var(--main-black-color);
-    border-radius: 4px;
-    font-weight: 500;
-    color: var(--main-black-color);
-    padding: 5px;
-    margin-bottom: 30px;
-}
-.viewStudent .submit:hover{
-    background-color:var(--main-black-color);
-    color: white
-}
-.viewStudent .submitButton{
-    display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.viewStudent .trashIcon{
+.viewStudent .table .trashIcon{
+    color: red;
     width: 20px;
     height: 20px;
-    margin-left: 10px;
-}
-.viewStudent .table tbody :hover{
-    background-color:rgb(182, 151, 112);
-    color: white;
-}
+    cursor: pointer;
+  } 
 .viewStudent .table{
     width: 90%;
     text-align: center;
-    /* box-shadow: 3px 1px 20px black; */
     margin-left: auto;
     margin-right: auto;
     font-family: ui-sens-serif;
+    margin-top: 20px;
+    background-color: var(--main-white-color);
+    box-shadow: 2px 2px 10px var(--main-black-color);
 }
-.viewStudent .table tbody{
-    background-color: aliceblue;
+
+.viewStudent .table thead tr th{
+    color: var(--main-theme-color);
+    font-weight: 500px;
+    font-size: 18px;
+  }
+  .viewStudent .content-box .btn {
+    padding: 0;
+    font-weight: 500;
+  }
+  .viewStudent .table  tbody  :hover{
+    background-color: #ffe4b53d;
+  }
+.viewStudent .CreateCourseButton{
+    margin-right: 50px;
+    background-color: var(--main-theme-color);
+    color:white;
+    display:flex;
+    font-size: 18px;
+    margin-top: 30px;
 }
+ .viewStudent .CreateCourseButton:active{
+    color:blue;
+  }
+.viewStudent .CreateCourseButton:hover{
+    border: 3px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+  }

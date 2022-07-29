@@ -33,46 +33,48 @@ const ExaminerProfile = () => {
     <>
      {loadingState?<Loader/>:<>
     <div className='ExaminerProfile'>
-        <div className='container my-5'>
+    <div className='row'>
+    <div className='col-md-3 sidebar'>
+    </div>
+    <div className='frame'>
             <img src="https://p7.hiclipart.com/preview/417/305/229/female-woman-icon-black-hair-cliparts.jpg"/>
-            <h4 className='headingOne'>Personal Information</h4>
+            </div>
+        <div className='col-md-9 rightContent my-5'>
+           
+            {/* <h4 className='headingOne'>Personal Information</h4> */}
               {
                 profile.map((item)=>{
                     return(
-                        <>
-                        <div className='firstName'>
-                            <p className='firstNameHeading'>FirstName:- </p>
-                            <p className='firstNameData'>{item.firstName}</p>
+                        <div className='examiner-profile-page'>
+                       
+                    <div className='absolute-center'>
+                    <h6 className='heading'>Personal Information</h6>
+                    <div className='row firstName'>
+                            <div className='col-md-6'>Name </div>
+                            <div className='col-md-6'>{item.firstName} {item.lastName}</div>
+                       
                         </div>
-                        <div className='lastName'>
-                        <p className='lastNameHeading'>LastName:- </p>
-                        <p className='lastNameData'>{item.lastName}</p>
+                        
+                        <div className='row userType'>
+                        <div className='col-md-6'>{item.userType}</div>  
+                        <div className='col-md-6'>UserType </div>
                         </div>
-                        <div className='userType'>
-                        <p className='userTypeHeading'>userType:- </p>
-                        <p className='userTypeData'>{item.userType}</p>  
+                        <div className='row email'>
+                            <div className='col-md-6'>Email </div>
+                            <div className='col-md-6'>{item.email}</div>  
                         </div>
-                   </>
+                        <div className='row mobileNumber'>
+                            <div className='col-md-6'>Mobile No. </div>
+                            <div className='col-md-6'>{item.mobileNumber}</div>  
+                        </div>
+                    </div>
+                        
+                   </div>
                     )
                 })
             } 
-            <h4 className='headingTwo'>Private Information:-</h4>
-            {
-                profile.map((item)=>{
-                    return(
-                        <>
-                        <div className='email'>
-                            <p className='emailHeading'>Email:- </p>
-                            <p className='emailData'>{item.email}</p>  
-                        </div>
-                        <div className='mobileNumber'>
-                            <p className='mobileNumberHeading'>mobileNumber:- </p>
-                            <p className='mobileNumberData'>{item.mobileNumber}</p>  
-                        </div>
-                   </>
-                    )
-                })
-            }    
+            {/* <h4 className='headingTwo'>Private Information:-</h4> */}   
+        </div>
         </div>
     </div>
     </>

@@ -51,7 +51,7 @@ const StudentAddToExam = () => {
     useEffect(()=>{
         const token=JSON.parse(localStorage.getItem('data')).token;
         dispatch(loaderValueTrue());
-        axios.get(VIEW_STUDENT + courseId ,{headers:{Authorization:`Bearer ${token}`}})
+        axios.get(VIEW_STUDENT + '?pageSize=12&courseID=' + courseId ,{headers:{Authorization:`Bearer ${token}`}})
             .then((res)=>{
                 setData(res.data.data.students);
                 setCheckList(Array(res.data.data.students.length).fill(false));

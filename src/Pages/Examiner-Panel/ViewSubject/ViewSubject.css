@@ -4,39 +4,89 @@
     /* background-image:url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
 } 
 .viewSubject h2{
+    padding-top: 10px;
+    margin-bottom:10px;
     text-align: center;
-}
-.viewSubject .table tbody{
-    background-color: white;
-}
-.viewSubject .table tbody td button{
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    margin-top: 5px;
-    width:50%;
-    border: 1px solid var(--main-black-color);
-    border-radius: 4px;
-    font-weight: 500;
-    color: var(--main-black-color);
-}
-.viewSubject .table button:hover{
-    border: 1px solid var(--main-white-color);
-    color:white
-}
-.viewSubject h2{
-    padding-top: 30px;
+    font-family: cursive;
+    color: var(--main-theme-color);
+    font-weight:500px;
 }
 .viewSubject .table{
-    width: 90%;
+    width: 95%;
     text-align: center;
-    /* box-shadow: 3px 1px 20px black; */
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
+    font-family: ui-sens-serif;
+    background-color: var(--main-white-color);
+    box-shadow: 2px 2px 10px var(--main-black-color);
+   
 }
-.viewSubject .table tbody :hover{
-    background-color:rgb(163, 129, 129);
+.viewSubject .table thead tr th{
+    color: var(--main-theme-color);
+    font-weight: 500px;
+    font-size: 18px;
+  }
+  .viewSubject .content-box .btn {
+    padding: 0;
+    font-weight: 500;
+  }
+  .viewSubject .table  tbody  :hover{
+    background-color: #ffe4b53d;
+  }
+ 
+.viewSubject .btnContainer{
+  text-align: center;
+  margin-top: 30px;
+}
+.viewSubject  .previousButton{
+    background-color: var(--main-theme-color);
     color: white;
+    width: 10%;
 }
+.viewSubject .previousButton:hover{
+    border: 3px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+ }
+.viewSubject .nextButton{
+    background-color: var(--main-theme-color);
+    color: white;
+    margin-left: 50px;
+    width: 10%;
+}
+.viewSubject .nextButton:hover{
+   border: 3px solid var(--main-theme-color);
+   background-color: transparent;
+   color: var(--main-theme-color);
+}
+.viewSubject .CreateCourseButton{
+    margin-right: 50px;
+    background-color: var(--main-theme-color);
+    color:white;
+    display:flex;
+    margin-bottom: 25px;
+    font-size: 18px;
+    margin-top: 30px;
+}
+ .viewSubject .CreateCourseButton:active{
+    color:blue;
+  }
+.viewSubject .CreateCourseButton:hover{
+        border: 3px solid var(--main-theme-color);
+        background-color: transparent;
+        color: var(--main-theme-color);
+  }
+  .viewSubject .table .trashIcon{
+    color: red;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  } 
+
+  .viewSubject .table .createIcon{
+    color: green;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }

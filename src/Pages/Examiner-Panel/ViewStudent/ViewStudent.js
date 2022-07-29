@@ -5,7 +5,8 @@ import './ViewStudent.css';
 import { useLocation } from 'react-router-dom';
 import { useSelector,useDispatch} from "react-redux";
 import {CREATE_EXAM} from '../../../Apis/apis';
-import {toast,ToastContainer} from 'react-toastify'
+import {toast,ToastContainer} from 'react-toastify';
+import {useNavigate} from 'react-router-dom';
 import Loader from "../../.././Loader";
 import {IoTrashOutline} from 'react-icons/io5'
 import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions/index";
@@ -13,6 +14,7 @@ import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions/index"
 const ViewStudent = () => {
     const[data,setData]=useState([]);
     const dispatch=useDispatch();
+    const navigate=useNavigate();
     const[checklist,setCheckList]=useState([]);
     const location=useLocation();
     const loadingState = useSelector((state) => state.loadingState.loading);
@@ -52,7 +54,7 @@ const ViewStudent = () => {
     useEffect(()=>{
         const token=JSON.parse(localStorage.getItem('data')).token;
         dispatch(loaderValueTrue());
-        axios.get(VIEW_STUDENT + courseId ,{headers:{Authorization:`Bearer ${token}`}})
+        axios.get(VIEW_STUDENT + '?pageSize=12&courseID=' + courseId ,{headers:{Authorization:`Bearer ${token}`}})
             .then((res)=>{
                 setData(res.data.data.students);
                 setCheckList(Array(res.data.data.students.length).fill(false));
@@ -77,9 +79,12 @@ const ViewStudent = () => {
     {loadingState?<Loader/> :
     <>
     <div className='viewStudent'>
+    <div className='upperSection' align="right">
+    <button type="button" align="right" className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/examinerDashboard/course")}>Create Course</button> 
+    </div>
     <ToastContainer/>
     <h2>Student List</h2>
-      <table className="table  my-4 table-bordered">
+      <table className="table">
   <thead >
     <tr className='table-primary' >
       <th scope='col'>#</th>
@@ -89,13 +94,12 @@ const ViewStudent = () => {
       <th scope="col">Delete</th>
     </tr>
   </thead>
-  
     {
         data.map((item,index)=>{
             return(
             
              <tbody>
-                <tr >
+                <tr className='content-box'>
                 <td>{index+1}</td>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
@@ -108,12 +112,9 @@ const ViewStudent = () => {
             )
         })
     }
+    </table>
     
   
-    </table>
-  <div className='submitButton'>
-    <button className='btn submit' onClick={handleSubmit}>Submit</button>
-  </div>
 
     </div>
     

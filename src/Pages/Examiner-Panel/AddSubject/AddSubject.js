@@ -61,7 +61,6 @@ const AddSubject = () => {
       <section className='Add-Subject'>
       <div className='container absolute-center'>
       <div className='all-content'>
-    
      <div className="modal" id="exampleModal" tabIndex="-1">
   <div className="modal-dialog">
     <div className="modal-content">

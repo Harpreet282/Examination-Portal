@@ -1,15 +1,8 @@
-.examinerDashboard .all-content .course-card{
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    border-radius: 12px ;
-    height: 260px;
-    background: linear-gradient(45deg, #3f87a6, #ebf8e1, #f69d3c);
-    box-shadow: 2px 2px 10px black;
-   }
 .examinerDashboard{
     margin-left:auto;
     overflow: hidden;
     position: relative;
-    width: 80%;
+    width: 90%;
     margin-right: auto;
     align-items: center;
     justify-content: center;
@@ -17,11 +10,34 @@
 }
 
 .examinerDashboard .custom-control{
-    float: right;
+   margin-left: auto;
+    margin-top: 5px;
+}
+.examinerDashboard .custom-control:hover{
+  color: blue;
+ }
+.examinerDashboard .upperSection{
+    display:flex;
+    width: 40%;
+    margin-left: auto;
+    padding-top: 15px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    color:var(--second-main-theme-color);
     margin-top: 20px;
 }
+.examinerDashboard .CreateCourseButton{
+   margin-left: auto;
+   font-size: 18px;
+   color: var(--alternate-theme-color);
+}
+.examinerDashboard .CreateCourseButton:active{
+   color:blue;
+ }
+ .examinerDashboard .CreateCourseButton:hover{
+    color:blue;
+ }
 .examinerDashboard .custom-control .custom-control-label{
-    color:orange;
     font-family: cursive;
 }
  .examinerDashboard  .dashboard-left-content{
@@ -43,46 +59,90 @@
     padding: 3px;
 }
 .examinerDashboard  .all-content button:hover{
-    color:white;
-    background-color: var(--main-black-color);
+    border: 1px solid var(--main-theme-color);
+    color:var(--main-theme-color);
+    background-color: white;
+    /* background-color: var(--main-black-color); */
 }  
-.examinerDashboard  .all-content  .AddStudent{
+/* .examinerDashboard  .all-content  .AddStudent{
     justify-content: center;
     align-items: center;
     margin-left: auto;
+    font-size: 14px;
+    background-color: var(--main-theme-color);
+    color: white;
     margin-right: auto;
-    border: 1px solid black;
-}
+    /* border: 1px solid black; */
+/* }  */
 
-.examinerDashboard  .all-content  .SubjectAdd{
+/* .examinerDashboard  .all-content  .SubjectAdd{
     justify-content: center;
     align-items: center;
+    font-size: 14px;
     margin-left: auto;
-    border: 1px solid black;
     margin-right: auto;
+    background-color: var(--main-theme-color);
+    color: white;
 }
 .examinerDashboard  .all-content  .subjectShow{
     justify-content: center;
     align-items: center;
+    font-size: 14px;
     margin-left: auto;
-    border: 1px solid black;
     margin-right: auto;
-} 
-.examinerDashboard .all-content .showAllStudent{
+    background-color: var(--main-theme-color);
+    color: white;
+}  */
+.examinerDashboard .all-content .view-course-btn{
     justify-content: center;
     align-items: center;
     margin-left: auto;
-    border: 1px solid black;
+    font-size: 14px;
     margin-right: auto;
+    padding:8px 8px 8px 8px;
+    background-color: var(--main-theme-color);
+    color: white;
 }
+.examinerDashboard .all-content .courseRemove{
+    position: absolute;
+    bottom: 20px;
+    width: 97%;
+}
+.examinerDashboard.all-content .courseRemove .courseRemoveButton{
+    background-color: var(--main-theme-color);
+    color: white;
+}
+.examinerDashboard .all-content .course-card{
+    /* box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; */
+    /* border-radius: 12px ; */
+    height: 280px;
+    /* background: linear-gradient(45deg, #3f87a6, #ebf8e1, #f69d3c); */
+    /* box-shadow: 2px 2px 10px black; */
+   }
+   .examinerDashboard .card-title{
+    text-align: left;
+    font-weight: 600;
+    font-size: 25px;
+   }
+   .examinerDashboard .card-text {
+    text-align: left;
+    font-weight: 30px;
+   }
 .examinerDashboard .all-content .card .card-body .button-container .row{
-    padding-left: 0px;
+    /* padding-left: 0px;
     padding-right: 0px;
     margin-left: 0px;
-    margin-right: 0px;
+    margin-right: 0px; */
 }
 .examinerDashboard .all-content .card .card-body .card-text{
     height: 10%;
+    font-family: cursive;
+    font-size: 15px;
+}
+.examinerDashboard .all-content .card .card-body .card-title{
+    color: var(--main-theme-color);
+    font-family: cursive;
+
 }
 @media (max-width: 1199.98px) { 
     .examinerDashboard .all-content .course-card{
@@ -104,7 +164,7 @@
      }
      .examinerDashboard .custom-control{
         float: right;
-        margin-top: 20px;
+        margin-top: 18px;
     
      }
     

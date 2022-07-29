@@ -3,6 +3,16 @@
     background-color:aliceblue;
 
 }
+.create-Subject .CreateCourseButton{
+    margin-right: 60px;
+    color: var(--alternate-theme-color);
+}
+ .create-Subject .CreateCourseButton:active{
+    color:blue;
+  }
+.create-Subject .CreateCourseButton:hover{
+     color:blue;
+  }
 .create-Subject  .all-content{
     width: 50%;
     text-align: center;

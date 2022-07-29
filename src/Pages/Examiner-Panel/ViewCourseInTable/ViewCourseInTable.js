@@ -41,6 +41,7 @@ const ViewCourseInTable = () => {
       <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">Date</th>
+      <th scope="col">Add</th>
     </tr>
   </thead>
       {
@@ -51,7 +52,7 @@ const ViewCourseInTable = () => {
                <td>{i+1}</td>
                  <td>{item.name}</td>
                  <td>{item.description}</td>
-                 <td>{item.createdDate}</td>  
+                 <td>{item.createdDate.slice(1,10)}</td>  
                  
                </tr>
            </tbody>

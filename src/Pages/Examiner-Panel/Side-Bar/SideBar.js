@@ -1,4 +1,4 @@
-import React,{useState,useRef,useEffect} from 'react'
+import React from 'react'
 import './sideBar.css'
 import {NavLink} from 'react-router-dom'
 import axios from 'axios';
@@ -15,21 +15,21 @@ const SideBar = () => {
                Create Students
                   </NavLink>
                 </li> */}
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink className="nav-link" to="/examinerDashboard/course" >
                   <button type="button" className="btn btn-lg btn-block" data-backdrop="false" data-toggle="modal" data-target="#exampleModal">Courses</button> 
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/viewCourse" >
+                  <NavLink className="nav-link" to="/examinerDashboard/" >
                   View Courses
                   </NavLink>
                 </li>
-                {/* <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/examDetails" >
-                  Exam Details
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/examinerDashboard/viewAllStudents" >
+                    View Students
                   </NavLink>
-                </li> */}
+                </li>
                 {/* <li className="nav-item">
                   <NavLink className="nav-link" to="/examinerDashboard/viewAllSubject" >
                   View Subject

@@ -1,8 +1,21 @@
 .Student-Signup .all-content{
-height:100%;
 position: relative;
 text-align: center;
 }
+.Student-Signup .CreateCourseButton{
+    margin-right: 50px;
+    background-color: var(--main-theme-color);
+    color:white;
+    display:flex;
+    margin-bottom: 25px;
+    font-size: 18px;
+    margin-top: 30px;
+}
+.Student-Signup .CreateCourseButton:hover{
+    border: 3px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+  }
 .Student-Signup .all-content .label{
     padding-top: 16px;
     font-size: 16px;

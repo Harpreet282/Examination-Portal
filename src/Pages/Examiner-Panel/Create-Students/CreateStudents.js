@@ -3,11 +3,13 @@ import './createStudents.css';
 import axios from 'axios';
 import { CREATE_STUDENT } from '../../../Apis/apis';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useFormik} from "formik";
 import * as Yup from "yup";
 
 const CreateStudents = () => {
   const [data,setdata]=useState([]);
+  const navigate=useNavigate();
   const location = useLocation();
   
   const initialValues = {
@@ -65,6 +67,9 @@ const CreateStudents = () => {
   return (
     <div className=''>
        <section className='Student-Signup p-1 '>
+       <div  align="right">
+    <button type="button"  className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/examinerDashboard/course")}>Create Course</button> 
+    </div>
       <div className='container'>
         <div className='my-5'>
           <h2>Please Enter Student's Details to make their Accounts</h2>

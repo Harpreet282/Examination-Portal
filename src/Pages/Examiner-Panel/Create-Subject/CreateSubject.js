@@ -1,11 +1,13 @@
 import React,{useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { ADD_SUBECT } from '../../../Apis/apis';
 import './createSubject.css'
 
 const CreateSubject = () => {
+  const navigate=useNavigate();
     const [SubjectName,setSubjectName]=useState({
         name_1:'',
         name_2:'',
@@ -47,6 +49,9 @@ const CreateSubject = () => {
     <div>
     <ToastContainer/>
        <section className='create-Subject'>
+       <div align="right">
+    <button type="button"  className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/examinerDashboard/course")}> Courses</button> 
+    </div>
       <div className='container absolute-center'>
       <div className='all-content'>
       <h2> Subjects Registered</h2>
