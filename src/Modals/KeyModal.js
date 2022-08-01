@@ -18,8 +18,8 @@ const KeyModal = () => {
     const [accessKey, setAccessKey] = useState('')
     const [id, setId] = useState({})
 
-    console.log(location.state.studentID, 'studentid')
-    console.log(location.state.examID, 'examId')
+    // console.log(location.state.studentID, 'studentid')
+    // console.log(location.state.examID, 'examId')
 
     useEffect(() => {
         setId(
@@ -36,13 +36,13 @@ const KeyModal = () => {
     const submitHandler = () => {
         dispatch(loaderValueTrue())
         const token = JSON.parse(localStorage.getItem('data')).token;
-        console.log('AccessCodeid', id);
+        // console.log('AccessCodeid', id);
 
         dispatch(loaderValueTrue())
         axios.post(EXAM_ACCESSCODE, id, { headers: { Authorization: `Bearer ${token}` }, }
         )
             .then(resp => {
-                console.log('responseKEY', resp)
+                // console.log('responseKEY', resp)
                 dispatch(loaderValueFalse())
 
                 console.log(resp.data.data, 'keymodal')
@@ -54,10 +54,6 @@ const KeyModal = () => {
                 navigate('/studentDashboard')
             })
     }
-
-    // useEffect(() => {
-    //     submitHandler();
-    // },[])
 
 
     return (

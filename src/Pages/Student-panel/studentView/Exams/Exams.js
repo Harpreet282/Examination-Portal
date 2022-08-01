@@ -25,7 +25,7 @@ const Exams = () => {
     )
     .then(resp =>
        {
-        console.log('respDASH',resp)
+        // console.log('respDASH',resp)
         dispatch(loaderValueFalse())
         setItem(resp.data.data.studentexams)}
        )
@@ -35,16 +35,13 @@ const Exams = () => {
 
   const navigate = useNavigate()
 
-  // const openModal = () => {
-  //   navigate('/modal');
-  // };
   
   return (
     <div className='exam-page'>
-      { 
+      {/* { 
   console.log(item,'item')
       
-      }
+      } */}
       {isLoading ? <Loader /> : 
         <div className=''>
           <div className='row'>

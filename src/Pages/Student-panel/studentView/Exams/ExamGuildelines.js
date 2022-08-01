@@ -12,7 +12,7 @@ const ExamGuildelines = () => {
 
     navigate("/giveexam")
   }
-  console.log(location.state.detail,'guideline')
+  // console.log(location.state.detail,'guideline')
 
   const handleButton=()=>{
 

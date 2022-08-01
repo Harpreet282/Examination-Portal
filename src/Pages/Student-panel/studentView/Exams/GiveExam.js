@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ReactCountdown from './Countdown'
 import "./GiveExam.css"
 import Swal from "sweetalert2"
-import './Questions.css'
+// import './Questions.css'
 import axios from 'axios'
 import { loaderValueTrue, loaderValueFalse } from "../../../../../src/redux/actions/index"
 import { useDispatch, useSelector } from 'react-redux'
@@ -24,29 +24,37 @@ const GiveExam = () => {
     const [checkList, setCheckList] = useState([]);
     const loadingState = useSelector((state) => state.loadingState.loading);
     const [answer, setAnswer] = useState('');
+    let hrs = parseInt(data.exam.duration.split(":")[0]) * 3600000;
+    let mins = parseInt(data.exam.duration.split(":")[1])?parseInt(data.exam.duration.split(":")[1]) * 60000:0;
+    const [remaining, setRemaining] = useState(hrs+mins);
     useEffect(() => {
         const token = JSON.parse(localStorage.getItem('data')).token;
-        console.log(token, "token")
+        // console.log(token, "token")
         dispatch(loaderValueTrue())
+        console.log(data,"IDSSSS")
         axios.get(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/questions?studentID=${data.studentID}&examID=${data.exam.examID}&pageIndex=${pageNo}`, {
             headers: { Authorization: `Bearer ${token}` },
         }).then((res) => {
-
-            // console.log("res", res);
             dispatch(loaderValueFalse())
             setQues(res.data.data.question);
-            console.log(res.data.data.question,"Qusetions");
-            setTotal(res.data.data.Total);
-            setBtns(Array(res.data.data.Total).fill('#d2d7d2'));
-            setCheckList(Array(res.data.data.Total).fill(Array(4).fill(false)));
+            setTotal(res.data.data.totalPages);
+            setBtns(Array(res.data.data.totalPages).fill('#d2d7d2'));
+            setCheckList(Array(res.data.data.totalPages).fill(Array(4).fill(false)));
         }).catch((err) => {
             dispatch(loaderValueFalse())
-            // console.log("err", err)
         })
+    },[])
 
-    }, [])
+    // const pageHandler=(i)=>{
+    //     setPageNo(i);
+    // }
+    
+   
+    useMemo(() => {
 
-    const pageHandler = (page)=>{
+    },[checkList,btns,total])
+
+    const pageHandler= (page)=>{
         const token = JSON.parse(localStorage.getItem('data')).token;
         axios.get(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/questions?studentID=${data.studentID}&examID=${data.exam.examID}&pageIndex=${page}`, {
             headers: { Authorization: `Bearer ${token}` },
@@ -58,20 +66,13 @@ const GiveExam = () => {
             dispatch(loaderValueFalse())
         })
     }
-    // useEffect(() => {
-    //     setBtns(Array(total).fill('#d2d7d2'));
-    //     setCheckList(Array(total).fill(Array(4).fill(false)));
-    // }, [total, pageNo])
+
+    useEffect(() => {
+        setBtns(Array(total).fill('#d2d7d2'));
+        setCheckList(Array(total).fill(Array(4).fill(false)));
+    }, [total, pageNo])
 
     const checkHandler = (i, j) => {
-        setBtns(btns.map((color, index) => {
-            if (i === index) {
-                return "#66d9e6";
-            }
-            else {
-                return color;
-            }
-        }));
         let values = Array(4).fill(false);
         setCheckList(checkList.map((v, ind) => {
             if (i === ind) {
@@ -87,27 +88,44 @@ const GiveExam = () => {
 
 
     const submitHandle = () => {
+
+        const token = JSON.parse(localStorage.getItem('data')).token;
+        dispatch(loaderValueTrue())
+        let submitData={
+            studentID:data.studentID,
+            examID:data.exam.examID,
+            }
+            // console.log(submitData,"SubmitData")
         Swal.fire({
             type: 'success',
             text: 'You have successfully completed the exam!! ',
             confirmButtonText: "Ok",
-        }).then(
-            () => {
+        })
+        axios.post(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/exam`,submitData,{
+            headers: { Authorization: `Bearer ${token}` },
+        })
+        .then(
+            (res) => {
+
                 navigate("/studentDashboard")
+                console.log(res,'submitted');
+            })
+            .catch((err) => {
+                console.log(err);
             })
     }
-
-    // const saveAnswer = () => {
-    //     const nextQuestion = currentQuestion + 1;
-    //     if (nextQuestion < questions.length) {   
-    //         setCurrentQuestion(nextQuestion)
-    //     }
-    // }
-
     
         
         const saveAnswer = () => {
-         
+        setBtns(btns.map((color, index) => {
+            if (pageNo === index) {
+                return "green";
+            }
+            else {
+                return color;
+            }
+        }));
+            
         const token = JSON.parse(localStorage.getItem('data')).token;
         
         let postData={
@@ -129,18 +147,24 @@ const GiveExam = () => {
             })
     }
     const handleNext = () => {
+
         const nextQuestion = pageNo + 1;
         if (nextQuestion < total) {
             setPageNo(nextQuestion)
+
         }
     }
     const handlePrevious = () => {
+
         const previousQuestion = pageNo - 1;
         if (previousQuestion < total && previousQuestion >= 0) {
             setPageNo(previousQuestion)
         }
     }
-    console.log('ques',ques)
+    // console.log('ques',ques)
+    useMemo(() => {
+        
+    },[remaining])
 
     return (
 
@@ -156,7 +180,7 @@ const GiveExam = () => {
                             </div>
                         </div>
                         <div className='col timer my-4 mr-4'>
-                            <p>Remaining time: <button><ReactCountdown /></button> </p>
+                            <p>Remaining time: <button><ReactCountdown remaining={remaining}></ReactCountdown></button> </p>
                         </div>
                     </div>
                 </div>
@@ -217,8 +241,8 @@ const GiveExam = () => {
                     <div className='col-md-4 giveexam-btn mx-3'>
                         {
                             btns.map((color, i) =>
-                                <div className="">
-                                    <button className='btn ml-2' style={{ backgroundColor:`${pageNo===i?'#66d9e6':'#d2d7d2'}`}} onClick={() => pageHandler(i)}>{i + 1}</button>
+                                <div className="" key={i}>
+                                    <button className='btn ml-2' style={{backgroundColor:color}} onClick={() => pageHandler(i)}>{i + 1}</button>
                                 </div>
                             )
                         }
