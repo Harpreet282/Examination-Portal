@@ -33,7 +33,7 @@ function Index() {
         <Route path="/" element={<Profile />} />     
           <Route path="/modal" element={<Modal />} />
           <Route element={<ProtectedRoutes />}>
-          <Route path="/dashboard/*" element={<Dashboard />} />        
+          <Route path={"/dashboard/*"} element={<Dashboard />} />        
 </Route>
         </Route>
 

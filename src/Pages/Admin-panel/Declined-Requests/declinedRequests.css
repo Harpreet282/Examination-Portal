@@ -30,7 +30,7 @@
 .declined-requests-page .pageButtons{
   text-align: center;
 }
-.declined-requests-page .pageButtons button{
+.declined-requests-page .pageButtons a{
   width: 100px;
   overflow: hidden;
   background-color: var(--main-theme-color);

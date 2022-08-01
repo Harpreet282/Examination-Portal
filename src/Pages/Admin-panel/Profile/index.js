@@ -29,13 +29,15 @@ function AdminProfile() {
   }, []);
 
   return (
-    <section className="profile-page margin-from-top">
+    <div className="admin-profile-page">
       {loadingState ? (
         <Loader />
       ) : (
         <>
-          <div className="container ">
-            <div className="row absolute-center profile-details">
+          <div className="container absolute-center">
+            <section className="profile-details">
+              <h3 className="mt-4">Profile-Details</h3>
+            <div className="row">
               <div className="col-md-6 col-sm-12 left-container">
                 <div className="image-container">
                   <img src={Images.adminProfile} alt="admin" />
@@ -84,10 +86,15 @@ function AdminProfile() {
                 </div>
               </div>
             </div>
+            
+            </section>
+            {/* <section className="change-profile">
+              <h3>Change Profile</h3>
+            </section> */}
           </div>
         </>
       )}
-    </section>
+    </div>
   );
 }
 

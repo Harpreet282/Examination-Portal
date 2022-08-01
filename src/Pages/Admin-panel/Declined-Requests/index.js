@@ -7,14 +7,15 @@ import * as myConstants from "../../../Constants";
 import { toast } from "react-toastify";
 import { FcApproval } from "react-icons/fc";
 import {
-  DeclinedRequestsAxios,
+RequestsAxios,
   ActionsHandleAxios,
 } from "../../../Services/Admin";
 
 function DeclinedRequests() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-    const [pageIndex, setPageIndex] = useState(1);
+  const [totalPages, setTotalPages] = useState(0)
+    const [pageIndex, setPageIndex] = useState(0);
   const [declinedRequests, setDeclinedRequests] = useState([]);
   const loadingState = useSelector((state) => state.loadingState.loading);
 
@@ -22,10 +23,12 @@ function DeclinedRequests() {
     const token = JSON.parse(localStorage.getItem("data")).token;
     // console.log(token)
     dispatch(loaderValueTrue());
-    DeclinedRequestsAxios(token,pageIndex)
+    const status='declined';
+    RequestsAxios(token,status,pageIndex)
       .then((response) => {
         setDeclinedRequests(response.data.data.Examiners);
         dispatch(loaderValueFalse());
+        setTotalPages(response.data.data.totalPages);
         // console.log(response.data.data.Examiners);
       })
       .catch((error) => {
@@ -122,10 +125,10 @@ function DeclinedRequests() {
                         return req;
                       }
                     })
-                    .map((req, i) => (
+                    .map((req, i) => 
                       <tr key={req._id} className="content-box">
                         <th scope="row" className="pl-4 main-index">
-                          {i + 1}
+                        {(pageIndex * 5) +  i + 1}
                         </th>
                         <td>
                           {req.firstName} {req.lastName}
@@ -150,13 +153,18 @@ function DeclinedRequests() {
                           </button>
                         </td>
                       </tr>
-                    ))}
+                    )}
                 </tbody>
               </table>
               <div className="pageButtons my-5">
-             <button className="btn mx-1" onClick={()=>setPageIndex(pageIndex-1)}>Previous</button>
-              <button className="btn mx-1" onClick={()=>setPageIndex(pageIndex+1)}>Next</button>
-             </div>
+              <a className={`btn mx-1 ${pageIndex<1?'disabled':''}`} onClick={()=>setPageIndex(pageIndex-1)}>Previous</a>
+              <a
+                  className={`btn mx-1 ${!(pageIndex < totalPages - 1) ? "disabled" : ""}`}
+                  onClick={() => setPageIndex(pageIndex + 1)}
+                >
+                  Next
+                </a>
+              </div>
             </div>
           ) : (
             <h2 className="py-4">No Declined Accounts</h2>

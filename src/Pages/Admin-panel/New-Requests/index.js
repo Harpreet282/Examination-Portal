@@ -6,22 +6,25 @@ import Loader from "../../../Loader";
 import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from "../../../Constants";
 import { FcApproval, FcDeleteRow } from "react-icons/fc";
-import { NewRequestsAxios, ActionsHandleAxios } from "../../../Services/Admin";
+import { RequestsAxios, ActionsHandleAxios } from "../../../Services/Admin";
 
 function NewRequests() {
   const [searchTerm, setSearchTerm] = useState("");
   const [requests, setRequests] = useState([]);
-  const [pageIndex, setPageIndex] = useState(1);
+  const [totalPages, setTotalPages] = useState(0)
+  const [pageIndex, setPageIndex] = useState(0);
   const dispatch = useDispatch();
   const loadingState = useSelector((state) => state.loadingState.loading);
 
   useEffect(() => {
     // console.log(token)
     const token = JSON.parse(localStorage.getItem("data")).token;
+    const status='pending';
     dispatch(loaderValueTrue());
-    NewRequestsAxios(token,pageIndex)
+    RequestsAxios(token,status,pageIndex)
       .then((response) => {
         setRequests(response.data.data.Examiners);
+        setTotalPages(response.data.data.totalPages);
         dispatch(loaderValueFalse());
         // console.log(response.data.data.Examiners);
       })
@@ -117,10 +120,10 @@ function NewRequests() {
                         return req;
                       }
                     })
-                    .map((req, i) => (
+                    .map((req, i) =>
                       <tr key={req._id} className="content-box">
                         <th scope="row" className="pl-4">
-                          {i + 1}
+                        {(pageIndex * 5) +  i + 1}
                         </th>
                         <td>
                           {req.firstName} {req.lastName}
@@ -155,12 +158,17 @@ function NewRequests() {
                           </button>
                         </td>
                       </tr>
-                    ))}
+                    )}
                 </tbody>
               </table>
               <div className="pageButtons my-5">
-             <button className="btn mx-1" onClick={()=>setPageIndex(pageIndex-1)}>Previous</button>
-              <button className="btn mx-1" onClick={()=>setPageIndex(pageIndex+1)}>Next</button>
+              <a className={`btn mx-1 ${pageIndex<1?'disabled':''}`} onClick={()=>setPageIndex(pageIndex-1)}>Previous</a>
+             <a
+                  className={`btn mx-1 ${!(pageIndex < totalPages - 1) ? "disabled" : ""}`}
+                  onClick={() => setPageIndex(pageIndex + 1)}
+                >
+                  Next
+                </a>
              </div>
             </div>
           ) : (
