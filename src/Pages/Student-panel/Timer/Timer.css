@@ -22,8 +22,11 @@
     color: white;
     padding: 25px;
     font-size: 25px;
-    background-color: #53b9f5;
-    width: 100%;
+    /* background-color: #53b9f5; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
 }
 .timer-page .timer-btn-time-up div{
     border: none;
