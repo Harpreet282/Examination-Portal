@@ -25,13 +25,13 @@ const GiveExam = () => {
     const loadingState = useSelector((state) => state.loadingState.loading);
     const [answer, setAnswer] = useState('');
     let hrs = parseInt(data.exam.duration.split(":")[0]) * 3600000;
-    let mins = parseInt(data.exam.duration.split(":")[1])?parseInt(data.exam.duration.split(":")[1]) * 60000:0;
-    const [remaining, setRemaining] = useState(hrs+mins);
+    let mins = parseInt(data.exam.duration.split(":")[1]) ? parseInt(data.exam.duration.split(":")[1]) * 60000 : 0;
+    const [remaining, setRemaining] = useState(hrs + mins);
+
+
     useEffect(() => {
         const token = JSON.parse(localStorage.getItem('data')).token;
-        // console.log(token, "token")
         dispatch(loaderValueTrue())
-        console.log(data,"IDSSSS")
         axios.get(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/questions?studentID=${data.studentID}&examID=${data.exam.examID}&pageIndex=${pageNo}`, {
             headers: { Authorization: `Bearer ${token}` },
         }).then((res) => {
@@ -43,21 +43,23 @@ const GiveExam = () => {
         }).catch((err) => {
             dispatch(loaderValueFalse())
         })
-    },[])
+    }, [])
 
-    // const pageHandler=(i)=>{
-    //     setPageNo(i);
-    // }
-    
-   
     useMemo(() => {
 
-    },[checkList,btns,total])
+    }, [checkList, btns, total,remaining])
 
-    const pageHandler= (page)=>{
+    const pageHandler = (page) => {
+
         const token = JSON.parse(localStorage.getItem('data')).token;
-        axios.get(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/questions?studentID=${data.studentID}&examID=${data.exam.examID}&pageIndex=${page}`, {
+
+        axios.get(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/questions`, {
             headers: { Authorization: `Bearer ${token}` },
+            params: {
+                studentID: data.studentID,
+                examID: data.exam.examID,
+                pageIndex: page
+            }
         }).then((res) => {
             dispatch(loaderValueFalse())
             setPageNo(page);
@@ -67,104 +69,95 @@ const GiveExam = () => {
         })
     }
 
-    useEffect(() => {
-        setBtns(Array(total).fill('#d2d7d2'));
-        setCheckList(Array(total).fill(Array(4).fill(false)));
-    }, [total, pageNo])
 
-    const checkHandler = (i, j) => {
+    const checkHandler = (quesNo, optionIndex) => {
         let values = Array(4).fill(false);
-        setCheckList(checkList.map((v, ind) => {
-            if (i === ind) {
-                values[j] = true;
+        setCheckList(checkList.map((currentValue, index) => {
+            if (quesNo === index) {
+                values[optionIndex] = true;
                 return values;
             }
             else {
-                return v;
+                return currentValue;
             }
         }))
     }
-
-
 
     const submitHandle = () => {
 
         const token = JSON.parse(localStorage.getItem('data')).token;
         dispatch(loaderValueTrue())
-        let submitData={
-            studentID:data.studentID,
-            examID:data.exam.examID,
-            }
-            // console.log(submitData,"SubmitData")
+        let submitData = {
+            studentID: data.studentID,
+            examID: data.exam.examID,
+        }
         Swal.fire({
             type: 'success',
             text: 'You have successfully completed the exam!! ',
             confirmButtonText: "Ok",
         })
-        axios.post(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/exam`,submitData,{
+        axios.post(`https://exam-portal-by-hritik-sanam.herokuapp.com/student/exam`, submitData, {
             headers: { Authorization: `Bearer ${token}` },
         })
-        .then(
-            (res) => {
+            .then(
+                (res) => {
 
-                navigate("/studentDashboard")
-                console.log(res,'submitted');
-            })
+                    navigate("/studentDashboard")
+                    console.log(res, 'submitted');
+                })
             .catch((err) => {
                 console.log(err);
             })
     }
-    
-        
-        const saveAnswer = () => {
+
+    const saveAnswer = () => {
+        let isOptionChecked = checkList[pageNo].includes(true);
         setBtns(btns.map((color, index) => {
-            if (pageNo === index) {
-                return "green";
+            if (pageNo === index && isOptionChecked) {
+                return "#228B22";
             }
             else {
                 return color;
             }
         }));
-            
+
         const token = JSON.parse(localStorage.getItem('data')).token;
-        
-        let postData={
-            studentID:data.studentID,
-            questionID:ques[0]._id,
-            answer:answer
-            }
-            console.log(postData,'sdfgh');
-            axios.post('https://exam-portal-by-hritik-sanam.herokuapp.com/student/answer',postData,{
-                headers: {Authorization: `Bearer ${token}`},
-            }
-            
-            )
-            .then((res)=>{
-                console.log("res",res)
+
+        let postData = {
+            studentID: data.studentID,
+            questionID: ques[0]._id,
+            answer: answer
+        }
+        console.log(postData, 'sdfgh');
+        axios.post('https://exam-portal-by-hritik-sanam.herokuapp.com/student/answer', postData, {
+            headers: { Authorization: `Bearer ${token}` },
+        }
+
+        )
+            .then((res) => {
+                console.log("res", res)
             })
-            .catch((err)=>{
-                console.log("err",err)
+            .catch((err) => {
+                console.log("err", err)
             })
     }
+
     const handleNext = () => {
 
         const nextQuestion = pageNo + 1;
         if (nextQuestion < total) {
-            setPageNo(nextQuestion)
-
+            pageHandler(nextQuestion)
         }
+
     }
+
     const handlePrevious = () => {
 
         const previousQuestion = pageNo - 1;
         if (previousQuestion < total && previousQuestion >= 0) {
-            setPageNo(previousQuestion)
+            pageHandler(previousQuestion)
         }
     }
-    // console.log('ques',ques)
-    useMemo(() => {
-        
-    },[remaining])
 
     return (
 
@@ -180,7 +173,7 @@ const GiveExam = () => {
                             </div>
                         </div>
                         <div className='col timer my-4 mr-4'>
-                            <p>Remaining time: <button><ReactCountdown remaining={remaining}></ReactCountdown></button> </p>
+                            <p>Remaining time: <button><ReactCountdown remaining={remaining} /></button> </p>
                         </div>
                     </div>
                 </div>
@@ -218,7 +211,7 @@ const GiveExam = () => {
                                                                     <p>{option}</p>
                                                                 </label>
                                                             </div>
-                                                    )}
+                                                        )}
                                                 </div>
                                             </div>
                                         </div>
@@ -242,12 +235,12 @@ const GiveExam = () => {
                         {
                             btns.map((color, i) =>
                                 <div className="" key={i}>
-                                    <button className='btn ml-2' style={{backgroundColor:color}} onClick={() => pageHandler(i)}>{i + 1}</button>
+                                    <button className='btn ml-2' style={{ backgroundColor: i===pageNo ? "#20B2AA" : color }} onClick={() => pageHandler(i)}>{i + 1}</button>
                                 </div>
                             )
                         }
-                    </div>                  
-                    <div className='col-md-12 mt-4 text-center'>
+                    </div>
+                    <div className='col-md-12 mt-4 center-content-in-div'>
                         <div className='button'>
                             <button type="button" className="btn btn-success btn-left" onClick={submitHandle}>Submit</button>
                         </div>
