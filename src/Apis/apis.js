@@ -15,9 +15,11 @@ const VIEW_SUBECTS = getApiUrl('/examiner/subjects/');
 const ADMIN_PROFILE = getApiUrl('/admin/dashboard/');
 const STUDENT_PROFILE = getApiUrl('/student/dashboard/');
 const EXAMINER_PROFILE = getApiUrl('/examiner/dashboard/');
+const UPDATE_PROFILE_API=getApiUrl('/admin/profile')
 
 export {
   LOGIN_API, SIGN_UP_API, REQUESTS_API, UPDATE_REQUESTS_API,
   CREATE_COURSE_API, VIEW_COURSES, CREATE_STUDENT, ADD_SUBECT, 
   VIEW_SUBECTS, VIEW_STUDENT, ADMIN_PROFILE, STUDENT_PROFILE, EXAMINER_PROFILE,
+  UPDATE_PROFILE_API
 };

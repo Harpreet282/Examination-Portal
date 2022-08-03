@@ -3,6 +3,7 @@ import {
   ADMIN_PROFILE,
   REQUESTS_API,
   UPDATE_REQUESTS_API,
+  UPDATE_PROFILE_API,
 } from "../../Apis/apis";
 
 const AdminProfileAxios = (token) => {
@@ -11,7 +12,12 @@ const AdminProfileAxios = (token) => {
   });
 };
 
-const RequestsAxios = (token,status,pageIndex) => {
+const RequestsAxios = (token,status,pageIndex,search,searchIndex) => {
+  if(search){
+    return axios.get(REQUESTS_API+'?status='+status+'&pageSize=5&pageIndex='+searchIndex+"&search="+search, {
+      headers: { Authorization: `Bearer ${token}` },
+    });  
+  }
   return axios.get(REQUESTS_API+'?status='+status+'&pageSize=5&pageIndex='+pageIndex, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -21,14 +27,15 @@ const ActionsHandleAxios = (data, token) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
-const SearchRequestsAxios=(token,status,searchPageIndex,searchTerm)=>{
-  return axios.get(REQUESTS_API+'?status='+status+'&pageIndex='+searchPageIndex+'&pageSize=5&search='+searchTerm, {
+const UpdateAdminProfileAxios=(values,token)=>{
+  return axios.patch(UPDATE_PROFILE_API,values, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
+
 export {
   AdminProfileAxios,
   ActionsHandleAxios,
-  SearchRequestsAxios,
   RequestsAxios,
+  UpdateAdminProfileAxios,
 };

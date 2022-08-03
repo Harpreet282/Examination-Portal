@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./declinedRequests.css";
 import Loader from "../../../Loader";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,18 +13,30 @@ RequestsAxios,
 
 function DeclinedRequests() {
   const dispatch = useDispatch();
+
+  const [onChangeSearchTerm, setOnChangeSearchTerm] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [totalPages, setTotalPages] = useState(0)
-    const [pageIndex, setPageIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(0);
+  const [searchIndex, setsearchIndex] = useState(0);
   const [declinedRequests, setDeclinedRequests] = useState([]);
+
   const loadingState = useSelector((state) => state.loadingState.loading);
+
+useEffect(()=>{
+  if(onChangeSearchTerm.length>=3){
+    setSearchTerm(onChangeSearchTerm)
+      }else{
+        setSearchTerm("")
+      }
+})
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("data")).token;
     // console.log(token)
     dispatch(loaderValueTrue());
     const status='declined';
-    RequestsAxios(token,status,pageIndex)
+    RequestsAxios(token,status,pageIndex,searchTerm,searchIndex)
       .then((response) => {
         setDeclinedRequests(response.data.data.Examiners);
         dispatch(loaderValueFalse());
@@ -35,7 +47,16 @@ function DeclinedRequests() {
         dispatch(loaderValueFalse());
         console.log(error);
       });
-  }, [pageIndex]);
+  }, [pageIndex,searchIndex,searchTerm]);
+  
+useEffect(()=>{
+  setPageIndex(0);
+  setsearchIndex(0);  
+},[searchTerm])
+
+  useMemo(()=>{
+
+  },[searchTerm])
 
   const handleAction = (id, action) => {
     const token = JSON.parse(localStorage.getItem("data")).token;
@@ -63,39 +84,45 @@ function DeclinedRequests() {
         dispatch(loaderValueFalse());
       });
   };
-  //   useEffect(()=>{
-  //     handleAction();
-  //  });
 
   return (
     <section className="declined-requests-page ">
-      {loadingState ? (
+      {loadingState ? 
         <Loader />
-      ) : (
-        <>
-          {declinedRequests.length > 0 ? (
-            <div className="py-4">
-              <div className="row">
+       : 
+       <>
+       {
+        declinedRequests.length<=0 && searchTerm===""?
+        <h2 className="absolute-center">No Declined Accounts!!</h2>:
+                <>
+                 <div className="row pt-4">
                 <div className="col-md-6">
-                  <h2>All Declined Requests</h2>
+                  <h2 className={declinedRequests.length<=0 && searchTerm !==""?'d-none':""} >All Declined Requests</h2>
                 </div>
                 <div className="col-md-6">
                   <form
-                    className="form-inline my-2 my-lg-0"
-                    style={{ justifyContent: "right" }}
+                    className="form-inline my-2 my-lg-0 d-block"
+                    style={{ textAlign:'right' }}
+                
                   >
                     <input
-                      className="form-control mr-sm-2"
+                      className="form-control"
+                      value={onChangeSearchTerm}
                       type="search"
-                      placeholder="🔍Enter Email or Name"
+                      placeholder="🔍Write keyword to search..."
                       aria-label="Search"
-                      onChange={(e) => {
-                        setSearchTerm(e.target.value);
-                      }}
+                      onChange={(e) => {setOnChangeSearchTerm(e.target.value)}}
                     />
+                    <br/>
+                    <small>***Enter Minimum 3 characters to search!!***</small>
                   </form>
                 </div>
               </div>
+              {
+                declinedRequests.length<=0 && searchTerm !==""?
+                <h2 className="absolute-center">No Records Match!!</h2> :
+                            <div className="py-4">
+             
 
               <table className="table all-containers">
                 <thead>
@@ -113,22 +140,10 @@ function DeclinedRequests() {
                   </tr>
                 </thead>
                 <tbody>
-                  {declinedRequests
-                    .filter((req) => {
-                      if (searchTerm === "") {
-                        return req;
-                      } else if (
-                        (
-                          req.firstName.toLowerCase() || req.email.toLowerCase()
-                        ).includes(searchTerm.toLowerCase())
-                      ) {
-                        return req;
-                      }
-                    })
-                    .map((req, i) => 
+                  {declinedRequests.map((req, i) => 
                       <tr key={req._id} className="content-box">
                         <th scope="row" className="pl-4 main-index">
-                        {(pageIndex * 5) +  i + 1}
+                        {((searchTerm?searchIndex:pageIndex) * 5) +  i + 1}
                         </th>
                         <td>
                           {req.firstName} {req.lastName}
@@ -157,20 +172,26 @@ function DeclinedRequests() {
                 </tbody>
               </table>
               <div className="pageButtons my-5">
-              <a className={`btn mx-1 ${pageIndex<1?'disabled':''}`} onClick={()=>setPageIndex(pageIndex-1)}>Previous</a>
+              <a className={`btn mx-1 ${(searchTerm?searchIndex<1:pageIndex<1)?'disabled':''}`} onClick={()=>{
+                searchTerm?
+                setsearchIndex(searchIndex-1):
+                setPageIndex(pageIndex-1)
+                }}>Previous</a>
               <a
-                  className={`btn mx-1 ${!(pageIndex < totalPages - 1) ? "disabled" : ""}`}
-                  onClick={() => setPageIndex(pageIndex + 1)}
+                  className={`btn mx-1 ${(searchTerm?!(searchIndex < totalPages - 1) : !(pageIndex < totalPages - 1)) ? "disabled" : ""}`}
+                  onClick={() =>{
+                    searchTerm?setsearchIndex(searchIndex+1):
+                     setPageIndex(pageIndex + 1)}}
                 >
                   Next
                 </a>
               </div>
             </div>
-          ) : (
-            <h2 className="py-4">No Declined Accounts</h2>
-          )}
-        </>
-      )}
+              }
+                </>
+       }
+       </>
+      }
     </section>
   );
 }

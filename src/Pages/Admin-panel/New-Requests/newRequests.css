@@ -5,6 +5,11 @@
 .new-requests-page form input{
   border: 2px solid var(--main-theme-color);
   border-radius: 12px;
+  width: 50% !important;
+}
+.new-requests-page form small{
+  color: var(--main-theme-color);
+  font-weight: 500;
 }
 .new-requests-page form input::placeholder {
   color: var(--main-theme-color);
@@ -12,18 +17,20 @@
 .new-requests-page .table{
   background-color: var(--main-white-color);
 }
-.new-requests-page .table thead tr th{
+.declined-requests-page .table thead tr th{
   color: var(--main-theme-color);
 }
 .new-requests-page .content-box .main-index{
   color: var(--main-theme-color);
 }
+
 .new-requests-page .content-box .btn {
   padding: 0;
   font-weight: 500;
+  /* font-size: 18px; */
 }
 .new-requests-page .content-box:hover{
-  background-color: #ffe4b53d;;
+  background-color: #ffe4b53d;
 }
 .new-requests-page .pageButtons{
   text-align: center;

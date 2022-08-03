@@ -5,7 +5,7 @@
     margin-left: auto;
     margin-right: auto;
     color: var(--main-theme-color);
-    height: 90vh;  /* can be commented */
+    /* height: 90vh;   */
 }
 .admin-profile-page h3{
     text-align: center;
@@ -35,6 +35,50 @@
     /* color: var(--main-theme-color); */
     border-bottom: 2px solid var(--second-main-theme-color);
     line-height: 40px;
+}
+.admin-profile-page .change-profile form{
+    /* margin-left: auto;
+    margin-right: auto;
+    width: 70%; */
+    font-weight: 500;
+    overflow: hidden;
+}
+.admin-profile-page .change-profile form .row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.admin-profile-page .change-profile form input,.admin-profile-page .change-profile form label{
+    border: none;
+    border-bottom: 2px solid var(--second-main-theme-color);
+    font-size: 15px !important;
+    color: var(--main-theme-color);
+    border-radius: 0px;
+}
+.admin-profile-page .change-profile form input:focus{
+    box-shadow: none;
+}
+.admin-profile-page .change-profile .button-div{
+    text-align: right;
+    font-size: 18px;
+    color: var(--main-theme-color);
+    font-weight: 500;
+}
+.admin-profile-page .button-div .btn{
+background-color: var(--main-theme-color);
+color: var(--second-main-theme-color);
+border-radius: 25px;
+font-weight: 500;
+font-size: 15px;
+padding: 4px 20px
+}
+.admin-profile-page .modal-footer .btn{
+    background-color: var(--main-theme-color);
+    color: var(--second-main-theme-color);
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 4px 20px;
+    width: 20%;
 }
 @media (max-width: 991.98px) {
     .admin-profile-page .profile-details {
