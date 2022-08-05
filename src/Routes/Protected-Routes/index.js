@@ -1,17 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 import { useSelector } from 'react-redux';
-import Login from '../../Pages/Login';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function ProtectedRoutes() {
   const isLogged = useSelector((state) => state.loginState.authenticated);
-  // const navigate = useNavigate();
-
   return (
     <div>
       {
-  isLogged ?  <Outlet /> : <Login/> 
+  isLogged ?  <Outlet /> : <Navigate to="/login" />
 }
     </div>
   );
@@ -19,12 +16,11 @@ function ProtectedRoutes() {
 
 function ProtectedRoutes2() {
   const isLogged = useSelector((state) => state.loginState.authenticated);
-  const navigate = useNavigate();
 
   return (
     <div>
       {
-  !isLogged ? <Outlet /> :  navigate('/dashboard')
+  !isLogged ? <Outlet /> : <Navigate to="/dashboard" />
 }
     </div>
   );

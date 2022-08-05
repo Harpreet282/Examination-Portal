@@ -18,19 +18,18 @@ function Index() {
       <Header />
 
       <Routes>
+      
       <Route element={<ProtectedRoutes2 />}>
         <Route path="/" element={<Home />} />
-    
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/modal" element={<Modal />} />
-
-        </Route>
+  </Route>
 
         <Route element={<ProtectedRoutes />}>
         {/* <Route path="/" element={<Profile />} /> */}
-        <Route path="/" element={<Profile />} />     
+        <Route path="/profile" element={<Profile />} />     
           <Route path="/modal" element={<Modal />} />
           <Route path={"/dashboard/*"} element={<Dashboard />} />        
         </Route>

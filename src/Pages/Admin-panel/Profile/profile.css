@@ -53,6 +53,7 @@
     font-size: 15px !important;
     color: var(--main-theme-color);
     border-radius: 0px;
+    background-color: transparent;
 }
 .admin-profile-page .change-profile form input:focus{
     box-shadow: none;
@@ -70,6 +71,11 @@ border-radius: 25px;
 font-weight: 500;
 font-size: 15px;
 padding: 4px 20px
+}
+.admin-profile-page .modal-content{
+border-radius: 12px;
+border: 2px solid var(--main-theme-color);
+background-color: #e8ded0;
 }
 .admin-profile-page .modal-footer .btn{
     background-color: var(--main-theme-color);
