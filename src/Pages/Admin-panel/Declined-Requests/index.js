@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from "../../../Constants";
 import { toast } from "react-toastify";
-import { FcApproval } from "react-icons/fc";
+import Tippy from '@tippyjs/react';
+import { FcApproval,FcUp } from "react-icons/fc";
 import {
 RequestsAxios,
   ActionsHandleAxios,
@@ -130,7 +131,11 @@ useEffect(()=>{
                     <th scope="col" className="pl-4">
                       #
                     </th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Name 
+                    <Tippy content={<span style={{color:'#E2B144'} } >Sort by Ascending Order</span>}>
+   <span> <FcUp/></span>
+</Tippy>
+                  </th>
                     <th scope="col">Email</th>
                     <th scope="col">Mobile-Number</th>
                     <th scope="col">Created-On</th>
