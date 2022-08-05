@@ -48,7 +48,7 @@ function Timer({ date, starttime, end , data}) {
   return (
     <div className="timer-page">
       {eventStartStamp <= currentStamp && eventEndStamp >= currentStamp ? (
-        <div className="timer-btn-apply" style={{ backgroundColor: "blue" }}>
+        <div className="timer-btn-apply center-content-in-div">
           <button
             data-toggle="modal"
             data-target="#staticBackdrop"

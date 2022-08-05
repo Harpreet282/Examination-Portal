@@ -10,9 +10,9 @@ const ExamGuildelines = () => {
   const openModal = () => {
   
 
-    navigate("/giveexam")
+    navigate("/fullScreenModal")
   }
-  // console.log(location.state.detail,'guideline')
+  console.log(location.state.detail,'guideline')
 
   const handleButton=()=>{
 
@@ -20,7 +20,7 @@ const ExamGuildelines = () => {
     const cb = document.getElementById("exam-checkbox")
     // console.log(cb.checked);
 
-    cb.checked  === false ? toast.error('Please accept the terms and conditions') :  navigate("/giveexam",{state : {data : location.state.detail}});
+    cb.checked  === false ? toast.error('Please accept the terms and conditions') :  navigate("/fullScreenModal",{state : {data : location.state.detail}});
     
   }
   return (

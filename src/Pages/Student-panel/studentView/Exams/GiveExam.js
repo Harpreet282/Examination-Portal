@@ -206,7 +206,8 @@ const GiveExam = () => {
                                                                     onClick={() => {
                                                                         setAnswer(option)
                                                                         checkHandler(pageNo, i)
-                                                                    }} />
+                                                                    }}
+                                                                    onChange={(e) => {e.preventDefault()}} />
                                                                 <label>
                                                                     <p>{option}</p>
                                                                 </label>
@@ -231,7 +232,7 @@ const GiveExam = () => {
 
 
                 <div className='row mt-2'>
-                    <div className='col-md-4 giveexam-btn mx-3'>
+                    <div className='col-md-10 giveexam-btn mx-3'>
                         {
                             btns.map((color, i) =>
                                 <div className="" key={i}>

@@ -44,10 +44,10 @@
     display: flex;
 }
 .giveexam-btn .btn{
-    width:40px;
-    font-weight: 350;
+    width:50px;
+    font-weight: 450;
     border-radius: 3px;
-    font-weight: 400;
+    box-shadow: 1px solid #336469;
 }
 .question-count{
     font-weight: 300;

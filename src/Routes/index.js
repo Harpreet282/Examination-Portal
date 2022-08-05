@@ -58,7 +58,7 @@ const Index = () => {
           <Route element={<StudentProtectedRoutes />}>
             <Route path="/studentDashboard/*" element={<StudentDashboard />} />
             <Route path='/examguidelines/*' element={<ExamGuildelines />} /> 
-            {/* <Route path="/fullScreenModal" element={<FullScreenModal />} /> */}
+            <Route path="/fullScreenModal" element={<FullScreenModal />} />
             <Route path='/giveexam/*' element={<GiveExam />} /> 
           </Route>
 
