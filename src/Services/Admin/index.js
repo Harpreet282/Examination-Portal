@@ -19,7 +19,7 @@ const RequestsAxios = (token,status,pageIndex,search,searchIndex,sortBy,order) =
     });
   }
   else if(order){
-    return axios.get(REQUESTS_API+'?status='+status+'&pageSize=5&pageIndex='+pageIndex+"&sortBy="+sortBy+"&order="+order, {
+    return axios.get(REQUESTS_API+'?status='+status+'&pageSize=5&pageIndex='+searchIndex+"&sortBy="+sortBy+"&order="+order, {
       headers: { Authorization: `Bearer ${token}` },
     });
   }
