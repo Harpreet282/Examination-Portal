@@ -78,6 +78,9 @@ font-weight: 500;
 font-size: 15px;
 padding: 4px 20px
 }
+.admin-profile-page .button-div .btn:hover{
+    color: #fff;
+}
 .admin-profile-page .modal-content{
 border-radius: 12px;
 border: 2px solid var(--main-theme-color);
@@ -91,6 +94,9 @@ background-color: #e8ded0;
     font-size: 15px;
     padding: 4px 20px;
     width: 20%;
+}
+.admin-profile-page .modal-footer .btn:hover{
+    color: #fff;
 }
 @media (max-width: 991.98px) {
     .admin-profile-page .profile-details {

@@ -23,12 +23,11 @@ function Index() {
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-  </Route>
+         </Route>
 
         <Route element={<ProtectedRoutes />}>
-        {/* <Route path="/" element={<Profile />} /> */}
         <Route path="/profile" element={<Profile />} />     
-          <Route path={"/dashboard/*"} element={<Dashboard />} />        
+          <Route path="/dashboard/*" element={<Dashboard />} />      
         </Route>
 
         <Route path="*" element={<Error />} />
