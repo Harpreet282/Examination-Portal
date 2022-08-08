@@ -2,7 +2,7 @@ import React from "react";
 import * as myConstants from "../../Constants";
 import AdminProfile from "../Admin-panel/Profile";
 import StudentProfile from "../Student-panel/Profile";
-import About from "../About";
+import Home from "../Home";
 
 function Profile() {
   return (
@@ -14,7 +14,7 @@ function Profile() {
         myConstants.STUDENT ? (
         <StudentProfile />
       ) : (
-        <About />
+        <Home />
       )}
     </section>
   );
