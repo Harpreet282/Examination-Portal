@@ -144,7 +144,10 @@ useEffect(()=>{
                       #
                     </th>
                     <th scope="col">Name
-                    {order==="" || order==="-1"?
+                    {
+                  searchTerm?"":
+                 <>
+                  {order==="" || order==="-1"?
  <Tippy content={<span style={{color:'#E2B144'} } >Sort by Ascending Order</span>}>
  <button className="btn" onClick={()=>setOrder("1")}> <FcUp/></button>
 </Tippy>
@@ -153,6 +156,9 @@ useEffect(()=>{
    <button className="btn" onClick={()=>setOrder("-1")}> <FcDown/></button>
 </Tippy>
          }
+         </>
+                 }
+                   
                     </th>
                     <th scope="col">Email</th>
                     <th scope="col">Mobile-Number</th>
