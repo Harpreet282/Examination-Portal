@@ -6,7 +6,7 @@ import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from "../../../Constants";
 import { toast } from "react-toastify";
 import Tippy from '@tippyjs/react';
-import { FcApproval,FcUp } from "react-icons/fc";
+import { FcApproval,FcUp,FcDown } from "react-icons/fc";
 import {
 RequestsAxios,
   ActionsHandleAxios,
@@ -16,6 +16,7 @@ function DeclinedRequests() {
   const dispatch = useDispatch();
 
   const [onChangeSearchTerm, setOnChangeSearchTerm] = useState("");
+  const [order, setOrder] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [totalPages, setTotalPages] = useState(0)
   const [pageIndex, setPageIndex] = useState(0);
@@ -37,7 +38,8 @@ useEffect(()=>{
     // console.log(token)
     dispatch(loaderValueTrue());
     const status='declined';
-    RequestsAxios(token,status,pageIndex,searchTerm,searchIndex)
+    const sortBy='firstName';
+    RequestsAxios(token,status,pageIndex,searchTerm,searchIndex,sortBy,order)
       .then((response) => {
         setDeclinedRequests(response.data.data.Examiners);
         dispatch(loaderValueFalse());
@@ -48,7 +50,7 @@ useEffect(()=>{
         dispatch(loaderValueFalse());
         console.log(error);
       });
-  }, [pageIndex,searchIndex,searchTerm]);
+  }, [pageIndex,searchIndex,searchTerm,order]);
   
 useEffect(()=>{
   setPageIndex(0);
@@ -132,9 +134,17 @@ useEffect(()=>{
                       #
                     </th>
                     <th scope="col">Name 
-                    <Tippy content={<span style={{color:'#E2B144'} } >Sort by Ascending Order</span>}>
-   <span> <FcUp/></span>
+                    {order==="" || order==="-1"?
+ <Tippy content={<span style={{color:'#E2B144'} } >Sort by Ascending Order</span>}>
+ <button className="btn" onClick={()=>setOrder("1")}> <FcUp/></button>
 </Tippy>
+:
+<Tippy content={<span style={{color:'#E2B144'} } >Sort by Descending Order</span>}>
+   <button className="btn" onClick={()=>setOrder("-1")}> <FcDown/></button>
+</Tippy>
+         }
+                   
+
                   </th>
                     <th scope="col">Email</th>
                     <th scope="col">Mobile-Number</th>

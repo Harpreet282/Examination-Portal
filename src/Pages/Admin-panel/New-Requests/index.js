@@ -5,12 +5,14 @@ import { toast } from "react-toastify";
 import Loader from "../../../Loader";
 import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from "../../../Constants";
-import { FcApproval, FcDeleteRow } from "react-icons/fc";
+import { FcApproval, FcDeleteRow,FcUp, FcDown} from "react-icons/fc";
+import Tippy from '@tippyjs/react';
 import { RequestsAxios, ActionsHandleAxios } from "../../../Services/Admin";
 
 function NewRequests() {
   const [onChangeSearchTerm, setOnChangeSearchTerm] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [order, setOrder] = useState("");
   const [totalPages, setTotalPages] = useState(0)
   const [pageIndex, setPageIndex] = useState(0);
   const [searchIndex, setsearchIndex] = useState(0);
@@ -33,7 +35,8 @@ function NewRequests() {
     // console.log(token)
     dispatch(loaderValueTrue());
     const status='pending';
-    RequestsAxios(token,status,pageIndex,searchTerm,searchIndex)
+    const sortBy='firstName';
+    RequestsAxios(token,status,pageIndex,searchTerm,searchIndex,sortBy,order)
       .then((response) => {
         setNewRequests(response.data.data.Examiners);
         dispatch(loaderValueFalse());
@@ -44,7 +47,7 @@ function NewRequests() {
         dispatch(loaderValueFalse());
         console.log(error);
       });
-  }, [pageIndex,searchIndex,searchTerm]);
+  }, [pageIndex,searchIndex,searchTerm,order]);
   
 useEffect(()=>{
   setPageIndex(0);
@@ -128,7 +131,17 @@ useEffect(()=>{
                     <th scope="col" className="pl-4">
                       #
                     </th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Name
+                    {order==="" || order==="-1"?
+ <Tippy content={<span style={{color:'#E2B144'} } >Sort by Ascending Order</span>}>
+ <button className="btn" onClick={()=>setOrder("1")}> <FcUp/></button>
+</Tippy>
+:
+<Tippy content={<span style={{color:'#E2B144'} } >Sort by Descending Order</span>}>
+   <button className="btn" onClick={()=>setOrder("-1")}> <FcDown/></button>
+</Tippy>
+         }
+         </th>
                     <th scope="col">Email</th>
                     <th scope="col">Mobile-Number</th>
                     <th scope="col">Created-On</th>

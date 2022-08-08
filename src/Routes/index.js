@@ -7,7 +7,6 @@ import SignUp from '../Pages/Signup';
 import {
   ProtectedRoutes, ProtectedRoutes2
 } from './Protected-Routes';
-import Modal from '../Pages/Student-panel/Timer/Modal';
 import Error from '../Pages/Error';
 import Header from '../components/Header/Header';
 import Profile from '../Pages/Profile';
@@ -24,13 +23,11 @@ function Index() {
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/modal" element={<Modal />} />
   </Route>
 
         <Route element={<ProtectedRoutes />}>
         {/* <Route path="/" element={<Profile />} /> */}
         <Route path="/profile" element={<Profile />} />     
-          <Route path="/modal" element={<Modal />} />
           <Route path={"/dashboard/*"} element={<Dashboard />} />        
         </Route>
 

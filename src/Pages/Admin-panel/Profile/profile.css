@@ -49,14 +49,20 @@
 }
 .admin-profile-page .change-profile form input,.admin-profile-page .change-profile form label{
     border: none;
-    border-bottom: 2px solid var(--second-main-theme-color);
     font-size: 15px !important;
     color: var(--main-theme-color);
     border-radius: 0px;
     background-color: transparent;
 }
+.admin-profile-page .change-profile form input{
+    border-bottom: 2px solid var(--main-theme-color);
+}
 .admin-profile-page .change-profile form input:focus{
     box-shadow: none;
+}
+.admin-profile-page .change-profile form .errors{
+    padding-left: 10px !important;
+
 }
 .admin-profile-page .change-profile .button-div{
     text-align: right;

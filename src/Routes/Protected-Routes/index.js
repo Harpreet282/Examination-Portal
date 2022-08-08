@@ -8,7 +8,7 @@ function ProtectedRoutes() {
   return (
     <div>
       {
-  isLogged ?  <Outlet /> : <Navigate to="/login" />
+  !isLogged ? <Navigate to="/login" />  :<Outlet /> 
 }
     </div>
   );

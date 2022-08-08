@@ -44,7 +44,7 @@ function AdminProfile() {
     mobileNumber: Yup.string()
     .matches(/^[0-9]{10}$/, 'Phone number is not valid'),
     password: Yup.string()
-      .min(6, 'Password must be equal to or more than 6 characters!')
+      .min(6, 'Password must contain minimum 6 characters!')
       .max(20, 'Too Long!'),
   });
 
@@ -179,15 +179,15 @@ Click here!!
     <label htmlFor="mobileNumber" className="col-sm-4 col-form-label">Mobile-Number : </label>
     <div className="col-sm-8">
       <input type="text" className="form-control" id="mobileNumber" placeholder="Enter new mobile-number" {...formik.getFieldProps('mobileNumber')} autoComplete="off"/>
-    </div>
-      { formik.touched.mobileNumber && formik.errors.mobileNumber ? <p className="text-danger error">{formik.errors.mobileNumber}</p> : null}
+      { formik.touched.mobileNumber && formik.errors.mobileNumber ? <p className="text-danger error errors">{formik.errors.mobileNumber}</p> : null}
+      </div>
 
   </div>
               <div className="form-group row">
     <label htmlFor="inputPassword" className="col-sm-4 col-form-label">Password : </label>
     <div className="col-sm-8">
       <input type="text" className="form-control" id="inputPassword" {...formik.getFieldProps('password')} placeholder="Enter new password"/>
-      { formik.touched.password && formik.errors.password ? <p className="text-danger error">{formik.errors.password}</p> : null}
+      { formik.touched.password && formik.errors.password ? <p className="text-danger error errors">{formik.errors.password}</p> : null}
     </div>
   </div>
   {/* <div className="button-div">
