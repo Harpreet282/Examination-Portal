@@ -7,6 +7,7 @@ import ViewStudent from '../../Pages/Examiner-Panel/ViewStudent/ViewStudent';
 import AddSubject from '../../Pages/Examiner-Panel/AddSubject/AddSubject';
 import ViewSubject from '../../Pages/Examiner-Panel/ViewSubject/ViewSubject';
 import CreateSubject from '../../Pages/Examiner-Panel/Create-Subject/CreateSubject';
+import Error from '../../Pages/Error';
 
 function Index() {
   return (
@@ -18,7 +19,7 @@ function Index() {
       <Route path="/AddSubject" element={<AddSubject />} />
       <Route path="/viewAllSubject" element={<ViewSubject />} />
       <Route path="/CreateSubject" element={<CreateSubject />} />
-
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 }

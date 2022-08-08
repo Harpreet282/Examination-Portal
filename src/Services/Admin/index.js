@@ -1,10 +1,9 @@
 import axios from "axios";
 import {
   ADMIN_PROFILE,
-  PENDING_REQUESTS_API,
-  APPROVED_REQUESTS_API,
-  DECLINED_REQUESTS_API,
+  REQUESTS_API,
   UPDATE_REQUESTS_API,
+  UPDATE_PROFILE_API,
 } from "../../Apis/apis";
 
 const AdminProfileAxios = (token) => {
@@ -13,33 +12,36 @@ const AdminProfileAxios = (token) => {
   });
 };
 
-const NewRequestsAxios = (token) => {
-  return axios.get(PENDING_REQUESTS_API, {
+const RequestsAxios = (token,status,pageIndex,search,searchIndex,sortBy,order) => {
+  if(search){
+    return axios.get(REQUESTS_API+'?status='+status+'&pageSize=5&pageIndex='+searchIndex+"&search="+search, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  }
+  else if(order){
+    return axios.get(REQUESTS_API+'?status='+status+'&pageSize=5&pageIndex='+pageIndex+"&sortBy="+sortBy+"&order="+order, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  }
+  return axios.get(REQUESTS_API+'?status='+status+'&pageSize=5&pageIndex='+pageIndex, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-const ApprovedRequestsAxios = (token) => {
-  return axios.get(APPROVED_REQUESTS_API, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-};
-
-const DeclinedRequestsAxios = (token) => {
-  return axios.get(DECLINED_REQUESTS_API, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-};
 const ActionsHandleAxios = (data, token) => {
   return axios.put(UPDATE_REQUESTS_API, data, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+const UpdateAdminProfileAxios=(values,token)=>{
+  return axios.patch(UPDATE_PROFILE_API,values, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
 
 export {
   AdminProfileAxios,
-  NewRequestsAxios,
-  ApprovedRequestsAxios,
-  DeclinedRequestsAxios,
   ActionsHandleAxios,
+  RequestsAxios,
+  UpdateAdminProfileAxios,
 };
