@@ -3,31 +3,31 @@
   background-image: url('https://wallpaperaccess.com/full/1175481.jpg');
   background-size: cover;
   height: 90vh;
-  }
-  
-  .signup-page::before {
-    content: "";
-    display: block;
-    background: #0a0a0a94;
-    height: 100%;
-    width: 100%;
-    position: absolute;
 }
-  
+
+.signup-page::before {
+  content: "";
+  display: block;
+  background: #0a0a0a94;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
 .signup-page .formsSection {
   background-color: #ffffffa8;
   width: 50%;
   overflow: hidden;
   padding: 40px;
   color: var(--main-theme-color)
-  /* padding: 20px; */
-  /* margin-left: auto;
+    /* padding: 20px; */
+    /* margin-left: auto;
   margin-right: auto;
   position: relative;
   text-align: center; */
 }
 
-.signup-page .formsSection form{
+.signup-page .formsSection form {
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -42,9 +42,10 @@
   border: none;
   /* border-bottom: 2px solid var(--main-black-color); */
   font-weight: 500;
-  border:1px solid #4e4343;
+  border: 1px solid #4e4343;
   border-radius: 4px;
 }
+
 /* .signup-page .formsSection input:-internal-autofill-selected {
   background-color: transparent !important;
 } */
@@ -79,8 +80,8 @@
 }
 
 @media (max-width: 575.98px) {
-  .signup-page .formsSection form{
+  .signup-page .formsSection form {
     padding-left: 10px;
     padding-right: 10px;
   }
-} 
+}

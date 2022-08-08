@@ -5,12 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions";
 import * as myConstants from "../../../Constants";
 import { toast } from "react-toastify";
-import Tippy from '@tippyjs/react';
-import { FcApproval,FcUp,FcDown } from "react-icons/fc";
-import {
-RequestsAxios,
-  ActionsHandleAxios,
-} from "../../../Services/Admin";
+import Tippy from "@tippyjs/react";
+import { FcApproval, FcUp, FcDown } from "react-icons/fc";
+import { RequestsAxios, ActionsHandleAxios } from "../../../Services/Admin";
 
 function DeclinedRequests() {
   const dispatch = useDispatch();
@@ -18,28 +15,36 @@ function DeclinedRequests() {
   const [onChangeSearchTerm, setOnChangeSearchTerm] = useState("");
   const [order, setOrder] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [totalPages, setTotalPages] = useState(0)
+  const [totalPages, setTotalPages] = useState(0);
   const [pageIndex, setPageIndex] = useState(0);
   const [searchIndex, setsearchIndex] = useState(0);
   const [declinedRequests, setDeclinedRequests] = useState([]);
 
   const loadingState = useSelector((state) => state.loadingState.loading);
 
-useEffect(()=>{
-  if(onChangeSearchTerm.length>=3){
-    setSearchTerm(onChangeSearchTerm)
-      }else{
-        setSearchTerm("")
-      }
-})
+  useEffect(() => {
+    if (onChangeSearchTerm.length >= 3) {
+      setSearchTerm(onChangeSearchTerm);
+    } else {
+      setSearchTerm("");
+    }
+  });
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("data")).token;
     // console.log(token)
     dispatch(loaderValueTrue());
-    const status='declined';
-    const sortBy='firstName';
-    RequestsAxios(token,status,pageIndex,searchTerm,searchIndex,sortBy,order)
+    const status = "declined";
+    const sortBy = "firstName";
+    RequestsAxios(
+      token,
+      status,
+      pageIndex,
+      searchTerm,
+      searchIndex,
+      sortBy,
+      order
+    )
       .then((response) => {
         setDeclinedRequests(response.data.data.Examiners);
         dispatch(loaderValueFalse());
@@ -50,16 +55,14 @@ useEffect(()=>{
         dispatch(loaderValueFalse());
         console.log(error);
       });
-  }, [pageIndex,searchIndex,searchTerm,order]);
-  
-useEffect(()=>{
-  setPageIndex(0);
-  setsearchIndex(0);  
-},[searchTerm,order])
+  }, [pageIndex, searchIndex, searchTerm, order]);
 
-  useMemo(()=>{
+  useEffect(() => {
+    setPageIndex(0);
+    setsearchIndex(0);
+  }, [searchTerm, order]);
 
-  },[searchTerm])
+  useMemo(() => {}, [searchTerm]);
 
   const handleAction = (id, action) => {
     const token = JSON.parse(localStorage.getItem("data")).token;
@@ -90,23 +93,30 @@ useEffect(()=>{
 
   return (
     <section className="declined-requests-page ">
-      {loadingState ? 
+      {loadingState ? (
         <Loader />
-       : 
-       <>
-       {
-        declinedRequests.length<=0 && searchTerm===""?
-        <h2 className="absolute-center">No Declined Accounts!!</h2>:
-                <>
-                 <div className="row pt-4">
+      ) : (
+        <>
+          {declinedRequests.length <= 0 && searchTerm === "" ? (
+            <h2 className="absolute-center">No Declined Accounts!!</h2>
+          ) : (
+            <>
+              <div className="row pt-4">
                 <div className="col-md-6">
-                  <h2 className={declinedRequests.length<=0 && searchTerm !==""?'d-none':""} >All Declined Requests</h2>
+                  <h2
+                    className={
+                      declinedRequests.length <= 0 && searchTerm !== ""
+                        ? "d-none"
+                        : ""
+                    }
+                  >
+                    All Declined Requests
+                  </h2>
                 </div>
                 <div className="col-md-6">
                   <form
                     className="form-inline my-2 my-lg-0 d-block"
-                    style={{ textAlign:'right' }}
-                
+                    style={{ textAlign: "right" }}
                   >
                     <input
                       className="form-control"
@@ -114,103 +124,156 @@ useEffect(()=>{
                       type="search"
                       placeholder="🔍Write keyword to search..."
                       aria-label="Search"
-                      onChange={(e) => {setOnChangeSearchTerm(e.target.value)}}
+                      onChange={(e) => {
+                        setOnChangeSearchTerm(e.target.value);
+                      }}
                     />
-                    <br/>
+                    <br />
                     <small>***Enter Minimum 3 characters to search!!***</small>
                   </form>
                 </div>
               </div>
-              {
-                declinedRequests.length<=0 && searchTerm !==""?
-                <h2 className="absolute-center">No Records Match!!</h2> :
-                            <div className="py-4">
-             
-
-              <table className="table all-containers">
-                <thead>
-                  <tr>
-                    <th scope="col" className="pl-4">
-                      #
-                    </th>
-                    <th scope="col">Name 
-                 {
-                  searchTerm?"":
-                 <>
-                  {order==="" || order==="-1"?
-                  <Tippy content={<span style={{color:'#E2B144'} } >Sort by Ascending Order</span>}>
-                  <button className="btn py-0" onClick={()=>setOrder("1")}> <FcUp/></button>
-                 </Tippy>
-                 :
-                 <Tippy content={<span style={{color:'#E2B144'} } >Sort by Descending Order</span>}>
-                    <button className="btn py-0" onClick={()=>setOrder("-1")}> <FcDown/></button>
-                 </Tippy>
-                          }</>
-                 }
-                   
-
-                  </th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Mobile-Number</th>
-                    <th scope="col">Created-On</th>
-                    <th scope="col" style={{ textAlign: "center" }}>
-                      Approve
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {declinedRequests.map((req, i) => 
-                      <tr key={req._id} className="content-box">
-                        <th scope="row" className="pl-4 main-index">
-                        {((searchTerm || order.length>0?searchIndex:pageIndex) * 5) +  i + 1}
+              {declinedRequests.length <= 0 && searchTerm !== "" ? (
+                <h2 className="absolute-center">No Records Match!!</h2>
+              ) : (
+                <div className="py-4">
+                  <table className="table all-containers">
+                    <thead>
+                      <tr>
+                        <th scope="col" className="pl-4">
+                          #
                         </th>
-                        <td>
-                          {req.firstName} {req.lastName}
-                        </td>
-                        <td>{req.email}</td>
-                        <td>+91 {req.mobileNumber}</td>
-                        <td>
-                          {new Date(
-                            new Date(req.createdOn).getTime() -
-                              5 * 3600000 -
-                              1800000
-                          ).toLocaleString()}
-                        </td>
-                        <td align="center">
-                          <button
-                            className="btn approveButton"
-                            onClick={() =>
-                              handleAction(req._id, myConstants.APPROVED)
-                            }
-                          >
-                            <FcApproval size="25px" />
-                          </button>
-                        </td>
+                        <th scope="col">
+                          Name
+                          {searchTerm ? (
+                            ""
+                          ) : (
+                            <>
+                              {order === "" || order === "-1" ? (
+                                <Tippy
+                                  content={
+                                    <span style={{ color: "#E2B144" }}>
+                                      Sort by Ascending Order
+                                    </span>
+                                  }
+                                >
+                                  <button
+                                    className="btn py-0"
+                                    onClick={() => setOrder("1")}
+                                  >
+                                    {" "}
+                                    <FcUp />
+                                  </button>
+                                </Tippy>
+                              ) : (
+                                <Tippy
+                                  content={
+                                    <span style={{ color: "#E2B144" }}>
+                                      Sort by Descending Order
+                                    </span>
+                                  }
+                                >
+                                  <button
+                                    className="btn py-0"
+                                    onClick={() => setOrder("-1")}
+                                  >
+                                    {" "}
+                                    <FcDown />
+                                  </button>
+                                </Tippy>
+                              )}
+                            </>
+                          )}
+                        </th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile-Number</th>
+                        <th scope="col">Created-On</th>
+                        <th scope="col" style={{ textAlign: "center" }}>
+                          Approve
+                        </th>
                       </tr>
-                    )}
-                </tbody>
-              </table>
-              <div className="pageButtons my-5">
-              <a className={`btn mx-1 ${(searchTerm || order.length>0?searchIndex<1:pageIndex<1)?'disabled':''}`} onClick={()=>{
-                searchTerm || order.length>0?
-                setsearchIndex(searchIndex-1):
-                setPageIndex(pageIndex-1)
-                }}>Previous</a>
-              <a
-                  className={`btn mx-1 ${(searchTerm || order.length>0?!(searchIndex < totalPages - 1) : !(pageIndex < totalPages - 1)) ? "disabled" : ""}`}
-                  onClick={() =>{
-                    searchTerm || order.length>0?setsearchIndex(searchIndex+1):
-                     setPageIndex(pageIndex + 1)}}
-                >
-                  Next
-                </a>
-              </div>
-            </div>
-              }
-                </>
-       }
-       </>
-      }
+                    </thead>
+                    <tbody>
+                      {declinedRequests.map((req, i) => (
+                        <tr key={req._id} className="content-box">
+                          <th scope="row" className="pl-4 main-index">
+                            {(searchTerm || order.length > 0
+                              ? searchIndex
+                              : pageIndex) *
+                              5 +
+                              i +
+                              1}
+                          </th>
+                          <td>
+                            {req.firstName} {req.lastName}
+                          </td>
+                          <td>{req.email}</td>
+                          <td>+91 {req.mobileNumber}</td>
+                          <td>
+                            {new Date(
+                              new Date(req.createdOn).getTime() -
+                                5 * 3600000 -
+                                1800000
+                            ).toLocaleString()}
+                          </td>
+                          <td align="center">
+                            <button
+                              className="btn approveButton"
+                              onClick={() =>
+                                handleAction(req._id, myConstants.APPROVED)
+                              }
+                            >
+                              <FcApproval size="25px" />
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div className="pageButtons my-5">
+                    <a
+                      className={`btn mx-1 ${
+                        (
+                          searchTerm || order.length > 0
+                            ? searchIndex < 1
+                            : pageIndex < 1
+                        )
+                          ? "disabled"
+                          : ""
+                      }`}
+                      onClick={() => {
+                        searchTerm || order.length > 0
+                          ? setsearchIndex(searchIndex - 1)
+                          : setPageIndex(pageIndex - 1);
+                      }}
+                    >
+                      Previous
+                    </a>
+                    <a
+                      className={`btn mx-1 ${
+                        (
+                          searchTerm || order.length > 0
+                            ? !(searchIndex < totalPages - 1)
+                            : !(pageIndex < totalPages - 1)
+                        )
+                          ? "disabled"
+                          : ""
+                      }`}
+                      onClick={() => {
+                        searchTerm || order.length > 0
+                          ? setsearchIndex(searchIndex + 1)
+                          : setPageIndex(pageIndex + 1);
+                      }}
+                    >
+                      Next
+                    </a>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </>
+      )}
     </section>
   );
 }
