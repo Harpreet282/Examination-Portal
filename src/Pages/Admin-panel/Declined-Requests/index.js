@@ -139,11 +139,11 @@ useEffect(()=>{
                  <>
                   {order==="" || order==="-1"?
                   <Tippy content={<span style={{color:'#E2B144'} } >Sort by Ascending Order</span>}>
-                  <button className="btn" onClick={()=>setOrder("1")}> <FcUp/></button>
+                  <button className="btn py-0" onClick={()=>setOrder("1")}> <FcUp/></button>
                  </Tippy>
                  :
                  <Tippy content={<span style={{color:'#E2B144'} } >Sort by Descending Order</span>}>
-                    <button className="btn" onClick={()=>setOrder("-1")}> <FcDown/></button>
+                    <button className="btn py-0" onClick={()=>setOrder("-1")}> <FcDown/></button>
                  </Tippy>
                           }</>
                  }

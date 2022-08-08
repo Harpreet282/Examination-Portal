@@ -48,8 +48,6 @@ function AdminProfile() {
       .max(20, 'Too Long!'),
   });
 
-
-
   const onSubmit = (values,onSubmitProps) => {
     // console.log('Submit Values',values)
     const token = JSON.parse(localStorage.getItem("data")).token;
@@ -197,7 +195,7 @@ Click here!!
         <button type="button" className="btn" data-dismiss="modal">Close</button>
         <button type="button" onClick={formik.handleSubmit} data-dismiss="modal" className="btn" >Submit</button>
       </div>
-              </form>
+      </form>
       </div>
       
     </div>
