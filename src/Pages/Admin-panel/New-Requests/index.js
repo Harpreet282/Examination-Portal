@@ -52,7 +52,7 @@ function NewRequests() {
 useEffect(()=>{
   setPageIndex(0);
   setsearchIndex(0);  
-},[searchTerm])
+},[searchTerm,order])
 
   useMemo(()=>{
 
@@ -157,7 +157,7 @@ useEffect(()=>{
                   {newRequests.map((req, i) => 
                       <tr key={req._id} className="content-box">
                         <th scope="row" className="pl-4 main-index">
-                        {((searchTerm?searchIndex:pageIndex) * 5) +  i + 1}
+                        {((searchTerm || order.length>0?searchIndex:pageIndex) * 5) +  i + 1}
                         </th>
                         <td>
                           {req.firstName} {req.lastName}
@@ -196,15 +196,15 @@ useEffect(()=>{
                 </tbody>
               </table>
               <div className="pageButtons my-5">
-              <a className={`btn mx-1 ${(searchTerm?searchIndex<1:pageIndex<1)?'disabled':''}`} onClick={()=>{
-                searchTerm?
+              <a className={`btn mx-1 ${(searchTerm || order.length>0?searchIndex<1:pageIndex<1)?'disabled':''}`} onClick={()=>{
+                searchTerm || order.length>0?
                 setsearchIndex(searchIndex-1):
                 setPageIndex(pageIndex-1)
                 }}>Previous</a>
               <a
-                  className={`btn mx-1 ${(searchTerm?!(searchIndex < totalPages - 1) : !(pageIndex < totalPages - 1)) ? "disabled" : ""}`}
+                  className={`btn mx-1 ${(searchTerm || order.length>0?!(searchIndex < totalPages - 1) : !(pageIndex < totalPages - 1)) ? "disabled" : ""}`}
                   onClick={() =>{
-                    searchTerm?setsearchIndex(searchIndex+1):
+                    searchTerm || order.length>0?setsearchIndex(searchIndex+1):
                      setPageIndex(pageIndex + 1)}}
                 >
                   Next
