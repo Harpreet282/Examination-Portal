@@ -7,6 +7,7 @@ const PENDING_REQUESTS_API = getApiUrl('/admin/examiners/pending');
 const APPROVED_REQUESTS_API = getApiUrl('/admin/examiners/approved');
 const DECLINED_REQUESTS_API = getApiUrl('/admin/examiners/declined');
 const UPDATE_REQUESTS_API = getApiUrl('/admin/examiners/action');
+const REQUESTS_API = getApiUrl('/admin/examiners');
 const CREATE_COURSE_API = getApiUrl('/examiner/course');
 const VIEW_COURSES = getApiUrl('/examiner/dashboard');
 const CREATE_STUDENT = getApiUrl('/examiner/student');
@@ -18,6 +19,7 @@ const STUDENT_PROFILE = getApiUrl('/student/dashboard/');
 const EXAMINER_PROFILE = getApiUrl('/examiner/dashboard/');
 const EXAM_DASHBOARD = getApiUrl('/student/exams');
 const EXAM_ACCESSCODE = getApiUrl('/student/accessExam');
+const UPDATE_PROFILE_API=getApiUrl('/admin/profile')
 
  
 
@@ -28,5 +30,6 @@ export {
   DECLINED_REQUESTS_API, UPDATE_REQUESTS_API,
   CREATE_COURSE_API, VIEW_COURSES, CREATE_STUDENT, ADD_SUBECT,
   VIEW_SUBECTS, VIEW_STUDENT, ADMIN_PROFILE, STUDENT_PROFILE, EXAMINER_PROFILE,
-  EXAM_DASHBOARD,EXAM_ACCESSCODE
+  EXAM_DASHBOARD,EXAM_ACCESSCODE,UPDATE_PROFILE_API,REQUESTS_API
+  
 };

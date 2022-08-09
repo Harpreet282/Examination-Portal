@@ -73,7 +73,7 @@ function Home() {
         <h5 className="mb-4">EXAMINATION GUIDANCE</h5>
         <div className="container">
           <div className="row cardsRow">
-            {data.map((item) => (
+            {data.map((item) => 
               <div className="col-md-3 col-sm-6 p-1 columns" key={item.id}>
                 <div className="my-img">
                   <img src={item.src} alt="Cards" />
@@ -85,7 +85,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>

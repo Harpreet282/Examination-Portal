@@ -18,7 +18,6 @@ function Index() {
       <Route path="/AddSubject" element={<AddSubject />} />
       <Route path="/viewAllSubject" element={<ViewSubject />} />
       <Route path="/CreateSubject" element={<CreateSubject />} />
-
     </Routes>
   );
 }
