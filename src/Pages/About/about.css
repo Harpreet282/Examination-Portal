@@ -1,0 +1,23 @@
+.about-page .about-container{
+    margin-top: 80px;
+}
+.about-page .about-container-img img{
+    margin-top: 40px;
+    height: 680px;
+    width: 617px;
+    /* align-items: right; */
+    margin-left: 70px;
+}
+.about-page .about-container-content .content-section h1, .about-page .about-container-content .content-section p{
+    text-align: left;
+    margin-left: 70px;
+    margin-top: 20px;
+}
+.about-page .about-container-content .content-section h1{
+    font-size: 50px;
+    font-weight: 700;
+}
+.about-page .about-container-content .content-section p{
+    font-size: 22px;
+    word-spacing: 5px;
+}

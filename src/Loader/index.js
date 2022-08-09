@@ -1,6 +1,6 @@
-import React from "react";
-import "./loader.css";
-import FadeLoader from "react-spinners/FadeLoader";
+import React from 'react'
+import './loader.css';
+import FadeLoader from 'react-spinners/FadeLoader';
 
 function Loader() {
   return (
@@ -9,8 +9,8 @@ function Loader() {
         // size={20}
         color="#4A171E"
       />
-    </div>
-  );
+  </div>
+  )
 }
 
 export default Loader;
