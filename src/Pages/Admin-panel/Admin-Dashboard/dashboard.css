@@ -1,0 +1,25 @@
+.admin-dashboard-page .left-content {
+  padding: 0;
+  position: fixed;
+  background-color: var(--main-theme-color);
+  height: 90vh;
+}
+
+.admin-dashboard-page .right-content{
+  margin-left: 16.666667%;
+  /* overflow: hidden; */
+  background-color: #dcdcdc4d;
+  height: 90vh;
+}
+
+
+@media (max-width: 575.98px) {
+  .admin-dashboard-page .left-content {
+    max-width: 33.33%;
+    height: 100%;
+  }
+ 
+  .admin-dashboard-page .right-content{
+    margin-left: 33.33%;
+  }
+}

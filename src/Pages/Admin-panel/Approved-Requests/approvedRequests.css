@@ -1,0 +1,45 @@
+.approved-requests-page h2 {
+  color: var(--main-theme-color);
+  margin-bottom: 25px;
+}
+.approved-requests-page form input{
+  border: 2px solid var(--main-theme-color);
+  border-radius: 12px;
+  width: 50% !important;
+}
+.approved-requests-page form small{
+  color: var(--main-theme-color);
+  font-weight: 500;
+}
+.approved-requests-page form input::placeholder {
+  color: var(--main-theme-color);
+}
+.approved-requests-page .table{
+  background-color: var(--main-white-color);
+}
+.declined-requests-page .table thead tr th{
+  color: var(--main-theme-color);
+}
+.approved-requests-page .content-box .main-index{
+  color: var(--main-theme-color);
+}
+
+.approved-requests-page .content-box .btn {
+  padding: 0;
+  font-weight: 500;
+  /* font-size: 18px; */
+}
+.approved-requests-page .content-box:hover{
+  background-color: #ffe4b53d;
+}
+.approved-requests-page .pageButtons{
+  text-align: center;
+}
+.approved-requests-page .pageButtons a{
+  width: 100px;
+  overflow: hidden;
+  background-color: var(--main-theme-color);
+  color: var(--main-white-color);
+  border: 1px solid var(--main-theme-color);
+  border-radius:8px ;
+}

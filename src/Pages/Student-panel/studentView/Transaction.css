@@ -1,0 +1,7 @@
+.transaction-page h5,.transaction-page h6{
+    text-align: center;
+    color: orangered;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}

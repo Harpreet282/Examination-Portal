@@ -1,0 +1,78 @@
+.login-page {
+  position: relative;
+  height: 90vh;
+  background-image: url('https://wallpaperaccess.com/full/1176274.jpg');
+  background-size: cover;
+  }
+  .login-page::before {
+    content: "";
+    display: block;
+    background: #0a0a0a94;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.login-page .formsSection {
+  background-color: #ffffffa8;
+  width: 50%;
+  overflow: hidden;
+  padding: 50px;
+ color: var(--main-theme-color)
+}
+
+.login-page .formsSection form{
+  padding-left: 50px;
+  padding-right: 50px; 
+}
+
+.login-page .formsSection input {
+  /* text-align: center; */
+  background-color: transparent;
+  font-size: 14px;
+  width: 100%;
+  padding: 5px 20px 5px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  /* border-bottom: 2px solid var(--main-black-color); */
+  font-weight: 500;
+  border:1px solid #4e4343;
+  border-radius: 4px;
+}
+
+.login-page .formsSection input:focus-visible {
+  outline: none;
+}
+
+.login-page .formsSection ::placeholder {
+  color: rgb(63, 50, 50);
+}
+
+.login-page .formsSection .signupLink {
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 1199.98px) {}
+
+@media (max-width: 991.98px) {
+  .login-page .formsSection {
+    width: 70%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .login-page .formsSection {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .login-page .formsSection form{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+} 

@@ -1,0 +1,124 @@
+.admin-profile-page{
+    overflow: hidden;
+    position: relative;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--main-theme-color);
+    /* height: 90vh;   */
+}
+.admin-profile-page h3{
+    text-align: center;
+}
+.admin-profile-page .profile-details .left-container{
+    overflow: hidden;
+    margin: auto ;
+}
+.admin-profile-page .profile-details .left-container .image-container{
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+  
+}
+.admin-profile-page .profile-details .left-container .image-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.admin-profile-page .profile-details .right-container{
+    margin:auto;
+    text-align: left; 
+    overflow: hidden;
+}
+.admin-profile-page .profile-details .right-container h5{
+    margin: 20px 0px;
+    /* color: var(--main-theme-color); */
+    border-bottom: 2px solid var(--second-main-theme-color);
+    line-height: 40px;
+}
+.admin-profile-page .change-profile form{
+    /* margin-left: auto;
+    margin-right: auto;
+    width: 70%; */
+    font-weight: 500;
+    overflow: hidden;
+}
+.admin-profile-page .change-profile form .row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.admin-profile-page .change-profile form input,.admin-profile-page .change-profile form label{
+    border: none;
+    font-size: 15px !important;
+    color: var(--main-theme-color);
+    border-radius: 0px;
+    background-color: transparent;
+}
+.admin-profile-page .change-profile form input{
+    border-bottom: 2px solid var(--main-theme-color);
+}
+.admin-profile-page .change-profile form input:focus{
+    box-shadow: none;
+}
+.admin-profile-page .change-profile form .errors{
+    padding-left: 10px !important;
+
+}
+.admin-profile-page .change-profile .button-div{
+    text-align: right;
+    font-size: 18px;
+    color: var(--main-theme-color);
+    font-weight: 500;
+}
+.admin-profile-page .button-div .btn{
+background-color: var(--main-theme-color);
+color: var(--second-main-theme-color);
+border-radius: 25px;
+font-weight: 500;
+font-size: 15px;
+padding: 4px 20px
+}
+.admin-profile-page .button-div .btn:hover{
+    color: #fff;
+}
+.admin-profile-page .modal-content{
+border-radius: 12px;
+border: 2px solid var(--main-theme-color);
+background-color: #e8ded0;
+}
+.admin-profile-page .modal-footer .btn{
+    background-color: var(--main-theme-color);
+    color: var(--second-main-theme-color);
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 4px 20px;
+    width: 20%;
+}
+.admin-profile-page .modal-footer .btn:hover{
+    color: #fff;
+}
+@media (max-width: 991.98px) {
+    .admin-profile-page .profile-details {
+        width: 90%;
+    }
+    .admin-profile-page .profile-details .left-container .image-container{
+        height: 300px;
+        width: 300px;
+    }
+}
+@media (max-width: 767.98px) {
+    .admin-profile-page .profile-details .left-container .image-container{
+        height: 200px;
+        width: 200px;
+    }
+}
+@media (max-width: 575.98px) {
+    .admin-profile-page .profile-details .right-container h5{
+        font-size: 20px;
+    }
+    .admin-profile-page .profile-details .left-container .image-container{
+        height: 100%;
+        width: 100%;
+    }
+}

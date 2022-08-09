@@ -1,0 +1,12 @@
+.modal-body input{
+  border: 1px solid #e2dede;
+  border-radius: 10px;
+  padding:10px 55px 10px 15px;
+  margin-right: 20px;
+}
+.modal-header{
+  border-bottom: 0 none;
+}
+.modal-footer{
+  border-top: 0 none;
+}

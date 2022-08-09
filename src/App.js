@@ -1,8 +1,11 @@
+import Index from './Routes';
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   return (
     <>
-   <h1>Pratigya  first change </h1>
+    <Index />
+    <ToastContainer/>
     </>
   );
 }
