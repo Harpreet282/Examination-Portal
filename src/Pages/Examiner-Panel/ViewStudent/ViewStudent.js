@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios'; 
-import {  VIEW_STUDENT } from '../../../Apis/apis';
+import {  VIEW_STUDENT,DELETE_STUDENT } from '../../../Apis/apis';
 import './ViewStudent.css';
 import { useLocation } from 'react-router-dom';
 import { useSelector,useDispatch} from "react-redux";
@@ -24,32 +24,6 @@ const ViewStudent = () => {
      const courseId = location.state.courseId;
     console.log(courseId,'studentCourseId');
 
-    const handleSubmit=()=>{
-      let students = data.filter((student,index)=>checklist[index]);
-      console.log(students);
-      let ids = students.map((student)=>student._id);
-      console.log(ids);
-      const body = {
-        questions:exam.data,
-        ...exam.payload,
-        students:ids
-      }
-      console.log(body,"shvb");
-      const token=JSON.parse(localStorage.getItem('data')).token;
-      axios.post(CREATE_EXAM,body,{headers:{Authorization:`Bearer ${token}`}})
-        .then((res)=>{
-          console.log(res);
-        })
-        .catch((err)=>{
-          console.log(err);
-          if(err.response.data.message==='Start Time Is Not Valid'){
-            toast.error("Please Enter the Exam Details");
-          }
-          else if(err.response.data.message==='Questions Is Not Valid')  {
-            toast.error("Please Enter the Question");
-          }
-          })
-        }
     
     useEffect(()=>{
         const token=JSON.parse(localStorage.getItem('data')).token;
@@ -57,16 +31,31 @@ const ViewStudent = () => {
         axios.get(VIEW_STUDENT + '?pageSize=12&courseID=' + courseId ,{headers:{Authorization:`Bearer ${token}`}})
             .then((res)=>{
                 setData(res.data.data.students);
+                console.log(res.data.data.students,'data');
                 setCheckList(Array(res.data.data.students.length).fill(false));
                 dispatch(loaderValueFalse());
                 // localStorage.setItem("course",courseId);
-                console.log(data);
+              
             })
             .catch((error)=>{
                 console.log(error);
                 dispatch(loaderValueFalse());
             })
     },[])
+
+    const deleteStudent=(studentID)=>{
+      const token=JSON.parse(localStorage.getItem('data')).token;
+      axios.delete(DELETE_STUDENT+ '/' +studentID,{headers:{Authorization:`Bearer ${token}`}})
+      .then((res)=>{
+        console.log(res);
+        const newData = data.filter((x) => x._id!== studentID);
+        setData(newData);
+        toast.success("Student is deleted");
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+    }
 
   function checkHandler(index){
     setCheckList(checklist.map((v,i)=>
@@ -84,7 +73,7 @@ const ViewStudent = () => {
     </div>
     <ToastContainer/>
     <h2>Student List</h2>
-      <table className="table">
+      <table className="table all-containers">
   <thead >
     <tr className='table-primary' >
       <th scope='col'>#</th>
@@ -101,10 +90,10 @@ const ViewStudent = () => {
              <tbody>
                 <tr className='content-box'>
                 <td>{index+1}</td>
-                <td>{item.name}</td>
+                <td>{item.studentName}</td>
                 <td>{item.email}</td>
                 <td>{item.gender}</td>
-                <td><IoTrashOutline className='trashIcon'/> </td>  
+                <td><IoTrashOutline onClick={()=>deleteStudent(item._id)}  className='trashIcon'/> </td>  
                 </tr>
             </tbody>
 

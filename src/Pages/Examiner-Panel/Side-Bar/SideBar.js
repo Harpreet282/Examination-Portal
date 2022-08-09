@@ -30,11 +30,11 @@ const SideBar = () => {
                     View Students
                   </NavLink>
                 </li>
-                {/* <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/viewAllSubject" >
-                  View Subject
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/examinerDashboard/ExamDetails" >
+                  Exam
                   </NavLink>
-                </li> */}
+                </li>
 
         </ul>
     </div>

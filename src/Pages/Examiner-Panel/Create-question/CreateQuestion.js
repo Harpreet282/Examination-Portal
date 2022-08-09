@@ -2,12 +2,16 @@ import React,{useEffect, useState} from 'react'
 import {question_detail} from '../../../redux/actions/index';
 import { useFormik} from "formik";
 import * as Yup from "yup";
-import './CreateQuestion.css'
+import './CreateQuestion.css';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 const CreateQuestion = () => {
     const[questions,setQuestions]=useState([])
-    const dispatch=useDispatch()
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
+    const location=useLocation();
 
   const initialValues = {
     question:"",
@@ -41,11 +45,13 @@ useEffect(()=>{
     }
     
     console.log(que);
+    console.log(location.state.subjectId,'subject id')
 
     setQuestions([...questions,que]);
     resetForm({values:""})
     dispatch(
-      question_detail(questions)
+      question_detail(questions),
+      // subjectID_details(location.state.subjectId)
       );
         
   }
@@ -56,6 +62,7 @@ useEffect(()=>{
   });
   return (
     <div className='create-question'>
+       <h2 className='headingOne'>Create-Exam</h2>
        <form onSubmit={formik.handleSubmit}>
           <div className='row content'>
           <div className='col-md-3'>
@@ -150,7 +157,10 @@ useEffect(()=>{
             </div>
             </div>
           <div>
-            <button type='submit' className='btn'>Submit</button>
+          <div  className='buttonContainer'>
+            <button type='submit' className='btn nextButton'>Submit</button>
+             <button  onClick={()=>navigate("/examinerDashboard/createExam",{ state: { subjectId :location.state.subjectId,courseID:location.state.courseID}})} className='btn submitButton'>Next</button>
+          </div>
           </div>
           </form>
     </div>

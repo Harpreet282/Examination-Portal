@@ -12,6 +12,11 @@ import CreateExam from '../../Pages/Examiner-Panel/CreateExam/CreateExam';
 import StudentAddToExam from '../../Pages/Examiner-Panel/StudentAddTOExam/StudentAddToExam';
 import ViewCourseInTable from '../../Pages/Examiner-Panel/ViewCourseInTable/ViewCourseInTable';
 import ViewAllStudents from '../../Pages/Examiner-Panel/ViewAllStudents/ViewAllStudents';
+import CreateQuestion from '../../Pages/Examiner-Panel/Create-question/CreateQuestion';
+import ViewExam from '../../Pages/Examiner-Panel/ViewExam/ViewExam';
+import ViewExamWithStudent from '../../Pages/Examiner-Panel/ViewExamWithStudent/ViewExamWithStudent';
+import ViewQuestions from '../../Pages/Examiner-Panel/ViewQuestions/ViewQuestions';
+import ViewResult from '../../Pages/Examiner-Panel/ViewResult/ViewResult';
 // import ExamDetails from '../../Pages/Examiner-Panel/ExamDetails/ExamDetails';
 const Index = () => {
   return (
@@ -26,11 +31,14 @@ const Index = () => {
     <Route path="/viewAllSubject" element={<ViewSubject />} />
     <Route path="/CreateSubject" element={<CreateSubject />} />
     <Route path="/CreateExam" element={<CreateExam/>} />
+    <Route path="/createQuestion" element={<CreateQuestion/>} />
     <Route path="/StudentAddToExam" element={<StudentAddToExam/>} />
     <Route path="/CourseInTable" element={<ViewCourseInTable/>} />
     <Route path="/viewAllStudents" element={<ViewAllStudents/>} />
-    {/* <Route path="/examDetails" element={<ExamDetails/>}/> */}
-
+    <Route path="/examDetails" element={<ViewExam/>}/>
+    <Route path="/viewExamWithStudent" element={<ViewExamWithStudent/>}/>
+    <Route path="/viewQuestions" element={<ViewQuestions/>}/>
+    <Route path="/Result" element={<ViewResult/>}/>
     </Routes>
     </>
   )

@@ -12,7 +12,7 @@ const CreateExam = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const location=useLocation();
-
+  const SubjectID = useSelector((state) => state.examCreateReducer);
       const initialValues = {
         examDate:"",
         startTime: "",
@@ -32,15 +32,15 @@ const CreateExam = () => {
     const onSubmit = (values) => {
         const Data = {
           ...values,
-          subjectID:location.state.subjectId
         }
 
         const token=JSON.parse(localStorage.getItem('data')).token;
         console.log(Data,'subectid');
-        navigate("/examinerDashboard/StudentAddToExam",{state:{courseId :location.state.courseID}})
+        navigate("/examinerDashboard/StudentAddToExam",{state:{courseId :location.state.courseID, subjectId :location.state.subjectId}})
         dispatch(
         examCreate(Data)
         );
+      
     }
 
     const formik = useFormik({
@@ -51,9 +51,6 @@ const CreateExam = () => {
   return (
     <div className='createExam'>
       <h2>Create-Exam</h2>
-      <div>
-            <CreateQuestion/>
-            </div>
             <div>
               <h2>Exam Details</h2>
             </div>

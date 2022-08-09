@@ -3,6 +3,7 @@ import './createStudents.css';
 import axios from 'axios';
 import { CREATE_STUDENT } from '../../../Apis/apis';
 import { useLocation } from 'react-router-dom';
+import {toast,ToastContainer} from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
 import { useFormik} from "formik";
 import * as Yup from "yup";
@@ -45,7 +46,7 @@ const CreateStudents = () => {
       .required("**Required!"),
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = (values,{resetForm}) => {
     // event.preventDefault()
     console.log(values);
 
@@ -54,9 +55,15 @@ const CreateStudents = () => {
    .then((res)=>{
     const data=res.data;
     console.log(data);
+    toast.success("Successfully Registered");
+    resetForm({values:""})
 })
 .catch((error)=>{
   console.log(error);
+  if(error.response.data.message==='EMAIL_ALREADY_TAKEN')
+  toast.error("Email already taken")
+
+  
 })
   }
   const formik = useFormik({
@@ -65,8 +72,9 @@ const CreateStudents = () => {
     validationSchema,
   });
   return (
-    <div className=''>
+    <div>
        <section className='Student-Signup p-1 '>
+       <ToastContainer/>
        <div  align="right">
     <button type="button"  className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/examinerDashboard/course")}>Create Course</button> 
     </div>
@@ -239,7 +247,7 @@ const CreateStudents = () => {
             </div>
           
           <div>
-            <button className='btn'>Sign up</button>
+            <button className='btn'>Submit</button>
           </div>
         </form>
         </div>

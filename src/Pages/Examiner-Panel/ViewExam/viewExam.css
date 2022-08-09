@@ -1,0 +1,47 @@
+.viewExam h2{
+    margin-top:50px;
+    text-align: center;
+    font-weight: 700;
+    font-family: cursive;
+    color: var(--alternate-theme-color);
+}
+.viewExam img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+   
+}
+.viewExam .allContent{
+    border-bottom:1px dotted var(--alternate-theme-color);
+}
+.viewExam .content{
+    margin-left:auto;
+    margin-right:auto;
+    align-items:center;
+    padding-top: 10px;
+    justify-content: center;
+
+}
+.viewExam{
+    margin-top:30px;
+}
+.viewExam p{
+    font-family: revert;
+    font-weight: 500;
+    color: sienna;
+}
+.viewExam .buttonContainer{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.viewExam .showDetails{
+    background-color: var(--main-theme-color);
+    color:white;
+    width:20%;
+    height:35px;
+}
+.viewExam .showDetails:hover{
+    border:1px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+}

@@ -12,33 +12,43 @@
     margin-right: auto;
     /* box-shadow: 2px 2px 10px black; */
     /* background-color: slategrey; */
-    width: 60%;
+    width: 80%;
+
 }
-.create-question form .label{
+.create-question .headingOne{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: cursive;
+}
+.create-question form label{
     font-weight: 500;
-    font-size: 18px;
-    margin-top:15px;
-}
-.create-question form button{
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
+    font-size: 16px;
     margin-top: 15px;
-    width:30%;
-    border: 1px solid var(--main-black-color);
-    border-radius: 4px;
-    font-weight: 500;
-    color: var(--main-black-color);
-    padding: 5px;
-    margin-bottom: 30px;
 }
-.create-question form button:hover{
-   
-    background-color: var(--main-black-color);
-    color:white;
-}  
-.create-question form input:focus-visible{
-    outline: none;
+.create-question form  .nextButton{
+    background-color: var(--main-theme-color);
+    color: white;
+    width: 10%;
+}
+.create-question .nextButton:hover{
+    border: 3px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+ }
+
+.create-question form .buttonContainer{
+    text-align: center;
+    margin-top: 20px;
+}
+.create-question form .submitButton{
+    background-color: var(--main-theme-color);
+    color: white;
+    margin-left: 50px;
+    width: 10%;
+}
+.create-question form .submitButton:hover{
+   border: 3px solid var(--main-theme-color);
+   background-color: transparent;
+   color: var(--main-theme-color);
 }

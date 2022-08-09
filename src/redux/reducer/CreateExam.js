@@ -22,6 +22,14 @@ const examCreateReducer=(state=initialState,action)=>{
                 return {
                     data:data
                 };
+               case 'EXAM_DETAILS':
+                const exam=action.data;
+                console.log(exam,'reducer');
+                return {
+                    exam:exam
+                };
+            // case 'subjectID_details':
+            //        return action.data;
             
         // case 'Student_id':
         //     const studentID=action.id;

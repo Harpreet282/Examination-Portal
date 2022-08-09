@@ -1,10 +1,11 @@
 import React, { useEffect,useState } from 'react'
 import './viewCourse.css'
 import {useNavigate} from "react-router-dom"
-import { VIEW_COURSES } from '../../../Apis/apis';
+import { VIEW_COURSES,DELETE_COURSE} from '../../../Apis/apis';
 import {useSelector,useDispatch} from "react-redux";
 import Loader from "../../.././Loader";
 import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions/index";
+import { ToastContainer,toast } from 'react-toastify';
 import axios from 'axios';
 const ViewCourses = () => {
       const[request,setDeclineRequest]=useState([]);
@@ -26,10 +27,26 @@ const ViewCourses = () => {
               dispatch(loaderValueFalse());
           })
       },[])
+
+      const courseRemove=(CourseId)=>{
+        console.log(CourseId)
+    const token=JSON.parse(localStorage.getItem('data')).token;
+    axios.delete(DELETE_COURSE+ '/' +CourseId,{headers:{Authorization:`Bearer ${token}`}})
+    .then((res)=>{
+      console.log(res);
+      const newData = request.filter((x) => x._id !== CourseId);
+      setDeclineRequest(newData);
+      toast.success("Course is deleted");
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+      }
   return (
     <>
     {loadingState?<Loader/>:<>
         <section className='examinerDashboard'>
+        <ToastContainer/>
         <div className='upperSection' >
         <button type="button" className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/examinerDashboard/course")}> Courses</button> 
         <div class="custom-control custom-switch custom-switch-xl">
@@ -63,8 +80,8 @@ const ViewCourses = () => {
     </div>
     <div className='row'>
     <div className='col-md-6 '>
-    <button onClick={()=>navigate("/examinerDashboard/AddSubject" ,{ state: { courseId : item._id }})} type="button" className=" btn SubjectAdd view-course-btn" data-backdrop="false" data-toggle="modal" data-target="#exampleModal">Subject Add</button> 
-    {/* <button >Subject Add</button> */}
+    <button onClick={()=>navigate("/examinerDashboard/AddSubject" ,{ state: { courseId : item._id }})} type="button" className=" btn SubjectAdd view-course-btn" data-backdrop="false" data-toggle="modal"  data-target="#exampleModal">Subject Add</button> 
+    {/* <button>Subject Add</button> */}
     </div>
     <div className='col-md-6 '>
     <button onClick={()=>navigate("/examinerDashboard/viewAllSubject" ,{ state: {courseId :item._id }})} className='btn subjectShow view-course-btn'> View Subject</button>
@@ -72,7 +89,7 @@ const ViewCourses = () => {
     </div>
     <div className='row '>
     <div className=' courseRemove col-md-12'>
-    <button onClick={()=>navigate("/examinerDashboard/viewAllSubject" ,{ state: {courseId :item._id }})} className='btn courseRemoveButton'> Course Remove</button>
+    <button onClick={()=>courseRemove(item._id)} className='btn courseRemoveButton'> Course Remove</button>
     </div>
     </div>
    

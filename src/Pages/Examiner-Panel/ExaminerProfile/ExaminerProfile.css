@@ -55,5 +55,31 @@
 .ExaminerProfile .rightContent .mobileNumber{
     margin-bottom: 18px;
 }
+.ExaminerProfile .rightContent .updatedProfile{
+    background-color: darkcyan;
+    border: none;
+    color: white;
+    width: 50%;
+    margin-top: 30px;
+    height:40px;
+}
+.ExaminerProfile .rightContent .modal .modal-body form label{
+    color: var(--main-theme-color);
+}
+.ExaminerProfile .rightContent .modal.show .modal-dialog {
+    position: absolute;
+    top: 50%;
+    box-shadow: 2px 2px 32px #472e2e;
+    left: 50%;
+    border-radius:15px ;
+    transform: translate(-50%,-50%);
+}
+.ExaminerProfile .rightContent .modal.show .modal-body input{
+    
+    padding: 5px 20px 5px 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    /* font-weight: 500; */
+}
 
 

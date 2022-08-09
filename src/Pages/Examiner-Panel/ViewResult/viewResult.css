@@ -1,0 +1,13 @@
+.result{
+    margin-top: 30px;
+    text-align: center;
+}
+.result .declareButton{
+    background-color: var(--main-theme-color);
+    color: white;
+}
+.result .declareButton:hover{
+    border: 1px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+}

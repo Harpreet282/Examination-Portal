@@ -92,29 +92,25 @@ text-align: center;
         overflow: hidden;
         margin-top: 15px;
         width: 30%;
-        border: 1px solid var(--main-black-color);
+        border: 1px solid var(--main-theme-color);
         border-radius: 4px;
         font-weight: 500;
         margin-bottom: 20px;
-        color: var(--main-black-color);
+        color: var(--main-theme-color);
         padding: 5px;
     }
     .Student-Signup .all-content .content form button:hover{
         color: white;
-        background-color:var(--main-black-color) ;
+        background-color:var(--main-theme-color) ;
     }  
 @media only screen and (max-width:1199.98px) {
     .Student-Signup .all-content{
-        height: 600px;
-        overflow: hidden;
         position: relative;
         text-align: center;
         }
 }
 @media (max-width: 991.98px) {
     .Student-Signup .all-content{
-        height: 600px;
-        overflow: hidden;
         position: relative;
         text-align: center;
         }
@@ -130,8 +126,6 @@ text-align: center;
 } */
 @media (max-width:575.98px) { 
     .Student-Signup .all-content{
-        height:700px;
-        overflow: hidden;
         position: relative;
         text-align: center;
         }

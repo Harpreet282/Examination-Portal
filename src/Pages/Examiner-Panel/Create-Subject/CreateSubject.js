@@ -36,12 +36,17 @@ const CreateSubject = () => {
         toast.success("Sujects are Registered")
         const data=res.data;
         console.log(data);
+        navigate("/examinerDashboard/")
     })
 
     .catch((error)=>{
         console.log(error);
         if(error.response.data.message==='Subject Name Is Not Valid'){
           toast.error("please fill the subjects");
+        }
+    
+        else if(error.response.data.message==='SUBJECT_ALREADY_EXIST'){
+          toast.error("subjects are already registered");
         }
     })
   }

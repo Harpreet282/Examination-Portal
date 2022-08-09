@@ -2,9 +2,11 @@ import axios from 'axios'
 import React,{useEffect, useState} from 'react'
 import { ToastContainer } from 'react-toastify';
 import { VIEWALLSTUDENT_API } from '../../../Apis/apis';
+import './viewAllStudents.css';
 import Loader from '../../../Loader';
 import { useNavigate } from 'react-router-dom';
-import {IoTrashOutline} from 'react-icons/io5'
+import {IoTrashOutline} from 'react-icons/io5';
+import {AiOutlineUsergroupAdd} from 'react-icons/ai'
 import {loaderValueTrue,loaderValueFalse } from '../../../redux/actions';
 import { useSelector,useDispatch } from 'react-redux';
 
@@ -29,6 +31,21 @@ const ViewAllStudents = () => {
             // dispatch(loaderValueFalse());
         })
     },[AllStudents])
+
+    // const AddStudent=(studentID)=>{
+    //   const token=JSON.parse(localStorage.getItem('data')).token;
+    //   axios.delete( ADD_STUDENT+ '/' +studentID,{headers:{Authorization:`Bearer ${token}`}})
+    //   .then((res)=>{
+    //     console.log(res);
+    //     const newData = data.filter((x) => x._id!== studentID);
+    //     setData(newData);
+    //     toast.success("Student is deleted");
+    //   })
+    //   .catch((err)=>{
+    //     console.log(err);
+    //   })
+    // }
+    
     let totalPages = 3;
    
   return (
@@ -41,14 +58,14 @@ const ViewAllStudents = () => {
     </div>
     <ToastContainer/>
     <h2>Student List</h2>
-      <table className="table  my-4 table-bordered">
+      <table className="table all-containers">
   <thead >
     <tr className='table-primary' >
       <th scope='col'>#</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Mobile No.</th>
-      <th scope="col">Delete</th>
+      {/* <th scope="col">Add</th> */}
     </tr>
   </thead>
   
@@ -62,7 +79,9 @@ const ViewAllStudents = () => {
                 <td>{item.firstName} {item.lastName}</td>
                 <td>{item.email}</td>
                 <td>{item.mobileNumber}</td>
-                <td><IoTrashOutline className='trashIcon'/> </td>  
+                {/* <td><AiOutlineUsergroupAdd onClick={()=>AddStudent(item._id)} className='AddIcon'/> </td>   */}
+             
+               
                 </tr>
             </tbody>
 

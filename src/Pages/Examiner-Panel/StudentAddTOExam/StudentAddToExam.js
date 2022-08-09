@@ -6,7 +6,8 @@ import { useLocation } from 'react-router-dom';
 import { useSelector,useDispatch} from "react-redux";
 import {CREATE_EXAM} from '../../../Apis/apis';
 import {toast,ToastContainer} from 'react-toastify'
-import Loader from '../../../Loader'
+import Loader from '../../../Loader';
+import swal from 'sweetalert'
 import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
 
 const StudentAddToExam = () => {
@@ -29,13 +30,20 @@ const StudentAddToExam = () => {
       const body = {
         questions:exam.data,
         ...exam.payload,
-        students:ids
+        students:ids,
+        subjectID:location.state.subjectId
       }
       console.log(body,"shvb");
       const token=JSON.parse(localStorage.getItem('data')).token;
       axios.post(CREATE_EXAM,body,{headers:{Authorization:`Bearer ${token}`}})
         .then((res)=>{
           console.log(res);
+          swal({
+            title: "Good job!",
+            text: "Successfully create the Exam!",
+            icon: "success",
+            button: "Aww yiss!",
+          });
         })
         .catch((err)=>{
           console.log(err);
@@ -94,7 +102,7 @@ const StudentAddToExam = () => {
             
              <tbody>
                 <tr>
-                <td>{item.name}</td>
+                <td>{item.studentName}</td>
                 <td>{item.email}</td>
                 <td>{item.gender}</td>
                 <td><input type="checkbox" defaultChecked={checklist[index]} className='btn add' onClick={()=>checkHandler(index)}/></td>  

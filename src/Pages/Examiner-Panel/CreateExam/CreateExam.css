@@ -7,6 +7,11 @@
     margin: 15px 0;
     font-weight: 500;
 }
+.createExam .headingOne{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: cursive;
+}
 .createExam  form .label{
     padding-top: 16px;
     font-size: 16px;
