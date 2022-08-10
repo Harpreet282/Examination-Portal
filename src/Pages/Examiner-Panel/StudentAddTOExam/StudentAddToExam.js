@@ -101,7 +101,7 @@ const StudentAddToExam = () => {
         data.map((item,index)=>{
             return(
             
-             <tbody>
+             <tbody key={index}>
                 <tr>
                 <td>{item.studentName}</td>
                 <td>{item.email}</td>

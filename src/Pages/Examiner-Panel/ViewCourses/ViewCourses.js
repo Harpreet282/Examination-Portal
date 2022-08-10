@@ -49,25 +49,24 @@ const ViewCourses = () => {
         <ToastContainer/>
         <div className='upperSection' >
         <button type="button" className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/dashboard/course")}> Courses</button> 
-        <div class="custom-control custom-switch custom-switch-xl">
-            <input type="checkbox"  onClick={()=>{navigate("/dashboard/CourseInTable")}} class="custom-control-input" id="customSwitch1"/>
-            <label class="custom-control-label" for="customSwitch1">courses View In Table</label>
+        <div className="custom-control custom-switch custom-switch-xl">
+            <input type="checkbox"  onClick={()=>{navigate("/dashboard/CourseInTable")}} className="custom-control-input" id="customSwitch1"/>
+            <label className="custom-control-label" htmlFor="customSwitch1">courses View In Table</label>
         </div>
         </div>
             
                 <div className='row all-content '>
                
                 {
-            request.map((item)=>{
+            request.map((item,i)=>{
                return( 
-                <>
                 
-                <div className='col-md-4'>
+                <div className='col-md-4' key={i}>
                 <div className="card  text-center my-3 course-card">
   
-  <div class="card-body">
-    <h5 class="card-title">{item.name}</h5>
-    <p class="card-text">{item.description}</p>
+  <div className="card-body">
+    <h5 className="card-title">{item.name}</h5>
+    <p className="card-text">{item.description}</p>
     <div className='button-container'>
     <div className='row'>
     <div className='col-md-6 '>
@@ -97,7 +96,6 @@ const ViewCourses = () => {
 </div>
 </div>
 </div>
-                </>
                )
             })
         }

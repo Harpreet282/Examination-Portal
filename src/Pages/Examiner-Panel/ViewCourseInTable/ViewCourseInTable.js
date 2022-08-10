@@ -51,9 +51,9 @@ const ViewCourseInTable = () => {
     {loadingState?<Loader/>:<>
         <section className='examinerDashboardTable'>
         <ToastContainer/>
-        <div class="custom-control custom-switch">
-            <input type="checkbox"  onClick={()=>{navigate("/dashboard/")}} class="custom-control-input" id="customSwitch1"/>
-            <label class="custom-control-label" for="customSwitch1">courses View In Cards</label>
+        <div className="custom-control custom-switch">
+            <input type="checkbox"  onClick={()=>{navigate("/dashboard/")}} className="custom-control-input" id="customSwitch1"/>
+            <label className="custom-control-label" for="customSwitch1">courses View In Cards</label>
         </div>
             <table className="table all-containers">
   <thead align="center">
@@ -72,7 +72,7 @@ const ViewCourseInTable = () => {
       {
         request.map((item,i)=>{
           return(
-            <tbody align="center">
+            <tbody key={i} align="center">
                <tr >
                <td>{i+1}</td>
                  <td>{item.name}</td>

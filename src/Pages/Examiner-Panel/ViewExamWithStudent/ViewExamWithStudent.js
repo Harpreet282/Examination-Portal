@@ -67,7 +67,7 @@ today = dd + '-' + mm + '-' + yyyy;
                 </div>
                 </div>
     <table className="table all-containers">
-        <thead >
+        <thead  key={1}>
         <tr className='table-primary' >
         <th scope='col'>#</th>
         <th scope="col">Name</th>
@@ -79,7 +79,7 @@ today = dd + '-' + mm + '-' + yyyy;
              <tbody>   
             {examDetails.exam.students.map((value,index)=>
             <>
-            <tr className='content-box'>
+            <tr key={index} className='content-box'>
                 <td>{index+1}</td>
                 <td>{value.studentName}</td>
                 <td>{value.email}</td>

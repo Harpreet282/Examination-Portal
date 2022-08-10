@@ -73,7 +73,7 @@ const ViewAllStudents = () => {
         AllStudents.map((item,index)=>{
             return(
             
-             <tbody>
+             <tbody key={index}>
                 <tr >
                 <td>{index+1}</td>
                 <td>{item.firstName} {item.lastName}</td>

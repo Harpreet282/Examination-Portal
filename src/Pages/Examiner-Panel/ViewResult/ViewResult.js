@@ -49,7 +49,7 @@ const ViewResult = () => {
       {
         Result.map((item,i)=>{
           return(
-            <tbody>
+            <tbody key={i}>
                <tr className='content-box'>
                <td>{item.name}</td>
                <td>{item.total_marks}</td>
