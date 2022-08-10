@@ -29,7 +29,7 @@ function Index() {
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/profile" element={<Profile />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/keyModal" element={< KeyModal />} />
           <Route path='/examguidelines' element={<ExamGuildelines />} />
           <Route path="/fullScreenModal" element={<FullScreenModal />} />
