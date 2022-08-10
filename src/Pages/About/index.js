@@ -6,7 +6,7 @@ import aboutImage from "../../Assets/images/About/about-us.webp"
 function About() {
   return (
     <section className="about-page">
-     <div className='about-container' >
+     <div className='about-container container' >
       <div className='row mt-5 mx-0'>
         <div className='col-md-6 about-container-content'>
           <div className='content-section'>
@@ -20,7 +20,7 @@ function About() {
               The interest of students is given top priority and counseling is taken up to help students identify their interests and careers. PAGE’s course structure is comprehensive and scientifically designed for both teachers and students to evaluate progress.</p>
           </div>
         </div>
-        <div className='col-md-6 p-0'>
+        <div className='col-md-6 overflow-hidden'>
           <div className='about-container-img'>
             <img src={aboutImage} />
           </div>
