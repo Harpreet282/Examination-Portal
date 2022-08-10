@@ -16,7 +16,6 @@ function Index() {
       <Route path="/" element={<Exam />} />
       <Route path="/results" element={<Results />} />
       <Route path="/transaction" element={<Transaction />} />
-      {/* <Route path="/examguidelines" element={<ExamGuildelines />} /> */}
       
       {/* <Route path="/modal" element={<Modal />} /> */}
       <Route path='/keymodal' element={<KeyModal />} />
