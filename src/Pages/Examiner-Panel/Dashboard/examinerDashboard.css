@@ -1,5 +1,21 @@
+.examiner-dashboard-page{
+    margin-top:60px;
+  
+}
+
 .examiner-dashboard-page .left-content{
-    padding: 0;
-background-color: var(--main-gray-color);
-border-radius: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.examiner-dashboard-page .right-content{
+    width:83.34%;
+    background-color:whitesmoke;
+    margin-left: auto;
+    /* background-image:url("https://cdn.pixabay.com/photo/2015/12/03/08/50/paper-1074131_960_720.jpg"); */
+    margin-right: auto;
+}
+.examiner-dashboard-page .main-content{
+    margin:0px;
+    padding: 0px;
 }

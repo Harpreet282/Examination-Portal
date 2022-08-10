@@ -1,0 +1,53 @@
+
+.viewStudent  h2{
+    padding-top: 20px;
+    margin-bottom:30px;
+    text-align: center;
+    font-family: cursive;
+    color: var(--main-theme-color);
+    font-weight:500px;
+}
+.viewStudent .table .trashIcon{
+    color: red;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  } 
+.viewStudent .table{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: ui-sens-serif;
+    margin-top: 20px;
+    background-color: var(--main-white-color);
+    box-shadow: 2px 2px 10px var(--main-black-color);
+}
+
+.viewStudent .table thead tr th{
+    color: var(--main-theme-color);
+    font-weight: 500px;
+    font-size: 18px;
+  }
+  .viewStudent .content-box .btn {
+    padding: 0;
+    font-weight: 500;
+  }
+  .viewStudent .table  tbody  :hover{
+    background-color: #ffe4b53d;
+  }
+.viewStudent .CreateCourseButton{
+    margin-right: 50px;
+    background-color: var(--main-theme-color);
+    color:white;
+    display:flex;
+    font-size: 18px;
+    margin-top: 30px;
+}
+ .viewStudent .CreateCourseButton:active{
+    color:blue;
+  }
+.viewStudent .CreateCourseButton:hover{
+    border: 3px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+  }

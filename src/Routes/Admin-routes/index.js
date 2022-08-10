@@ -13,7 +13,6 @@ function Index() {
       <Route path="/declinedRequests" element={<DeclinedRequests />} />
       <Route path="*" element={<Error />} />
     </Routes>
-
   );
 }
 
