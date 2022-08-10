@@ -1,0 +1,64 @@
+.examinerDashboardTable .custom-control {
+    float: right;
+     margin-top: 30px;
+     margin-right: 80px;
+     margin-bottom: 30px;
+     font-size: 18px;
+     color: var(--alternate-theme-color);
+ }
+ .examinerDashboardTable .custom-control:active{
+    color:blue;
+  }
+  .examinerDashboardTable .custom-control:hover{
+     color:blue;
+  }
+ .examinerDashboardTable .custom-control .custom-control-label{
+     font-family: cursive;
+ }
+ .examinerDashboardTable .table{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: ui-sens-serif;
+    margin-top: 20px;
+    background-color: var(--main-white-color);
+    box-shadow: 2px 2px 10px var(--main-black-color);
+}
+
+.examinerDashboardTable .table thead tr th{
+    color: var(--main-theme-color);
+    font-weight: 500px;
+    font-size: 18px;
+  }
+  .examinerDashboardTable .content-box .btn {
+    padding: 0;
+    font-weight: 500;
+  }
+  .examinerDashboardTable .table  tbody  :hover{
+    background-color: #ffe4b53d;
+  }
+  .examinerDashboardTable .table .AddStudentIcon{
+    color: green;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .examinerDashboardTable .table .viewStudentIcon{
+    color:var(--main-theme-color);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .examinerDashboardTable .table .viewSubjectIcon{
+    color:var(--main-theme-color);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .examinerDashboardTable .table .AddSubjectIcon{
+    color:purple;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .examinerDashboardTable .table .RemoveIcon{
+    color:red;
+    font-size: 24px;
+    cursor: pointer;
+  }

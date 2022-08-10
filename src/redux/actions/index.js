@@ -12,6 +12,35 @@ export const logoutAccount = () => ({
   type: reduxConstants.LOGOUT,
 });
 
+export const examCreate = (data) => {
+  return {
+    type: "CREATE_EXAM",
+    payload:data,
+  };
+};
+export const question_detail = (data) => {
+  console.log('QUESTION',data)
+  return {
+    type: "QUESTION_DETAILS",
+    data:data,
+  };
+}
+export const ExamDetailsWithStudent = (data) => {
+  console.log('examDetail',data)
+  return {
+    type: "EXAM_DETAILS",
+    data:data,
+  };
+}
+
+// export const subjectID_details = (data) => {
+//   console.log('QUESTION',data)
+//   return {
+//     type: "QUESTION_DETAILS",
+//     data:data,
+//   };
+// }
+
 export const loaderValueFalse = () => ({
   type: reduxConstants.LOADING_FALSE,
 });

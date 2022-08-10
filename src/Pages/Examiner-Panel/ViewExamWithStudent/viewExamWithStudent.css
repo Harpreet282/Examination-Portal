@@ -1,0 +1,55 @@
+.viewExamWithStudent{
+    margin-top:30px;
+}
+.viewExamWithStudent img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-top: 30px;
+   
+}
+.viewExamWithStudent h2{
+    margin-top:50px;
+    text-align: center;
+    font-weight: 700;
+    font-family: cursive;
+    color: var(--alternate-theme-color);
+}
+.viewExamWithStudent p{
+    font-family: revert;
+    font-weight: 500;
+    font-size: 20px;
+    color: sienna;
+}
+.viewExamWithStudent .content{
+  text-align: center;
+
+}
+.viewExamWithStudent .buttonContainer{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+.viewExamWithStudent .viewQuestions{
+    background-color: var(--main-theme-color);
+    color:white;
+    width:30%;
+   
+    height:35px;
+}
+.viewExamWithStudent .viewQuestions:hover{
+    border:1px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+}
+.viewExamWithStudent .showResult{
+    background-color: var(--main-theme-color);
+    color:white;
+    width:30%;
+    height:35px;
+}
+.viewExamWithStudent .showResult:hover{
+    border:1px solid var(--main-theme-color);
+    background-color: transparent;
+    color: var(--main-theme-color);
+}

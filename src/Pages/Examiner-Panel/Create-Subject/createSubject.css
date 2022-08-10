@@ -1,0 +1,61 @@
+.create-Subject{
+    height: 90vh;
+    background-color:aliceblue;
+
+}
+.create-Subject .CreateCourseButton{
+    margin-right: 60px;
+    color: var(--alternate-theme-color);
+}
+ .create-Subject .CreateCourseButton:active{
+    color:blue;
+  }
+.create-Subject .CreateCourseButton:hover{
+     color:blue;
+  }
+.create-Subject  .all-content{
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    padding-top:20px;
+    margin-right: auto;
+    box-shadow: 2px 2px 10px black;
+    background-color: lightslategrey;
+    border-radius: 4px;
+}
+.create-Subject .all-content .label{
+    padding-top: 18px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.create-Subject  .all-content button{
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    margin-top: 15px;
+    width: 20%;
+    border: 1px solid var(--main-black-color);
+    border-radius: 4px;
+    font-weight:500;
+    color: var(--main-black-color);
+    margin-bottom: 30px;
+    padding: 3px;
+}
+.create-Subject  .all-content button:hover{
+    color: white;
+    background-color:var(--main-black-color);
+}  
+.create-Subject .all-content input{
+    width:80%;
+    padding: 5px 20px 5px 20px;
+    border:none;
+    border-radius: 4px;
+    border:1px solid #4e4343;
+    margin: 15px 0;
+    font-weight: 500;
+}
+.create-Subject .all-content input:focus-visible{
+    outline: none;
+}

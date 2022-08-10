@@ -1,20 +1,19 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios'; 
-import {  VIEW_STUDENT,DELETE_STUDENT } from '../../../Apis/apis';
-import './ViewStudent.css';
+import {VIEW_STUDENT} from '../../../Apis/apis'
+import './studentAddToExam.css';
 import { useLocation } from 'react-router-dom';
 import { useSelector,useDispatch} from "react-redux";
 import {CREATE_EXAM} from '../../../Apis/apis';
-import {toast,ToastContainer} from 'react-toastify';
-import {useNavigate} from 'react-router-dom';
-import Loader from "../../.././Loader";
-import {IoTrashOutline} from 'react-icons/io5'
-import { loaderValueFalse, loaderValueTrue } from "../../../redux/actions/index";
+import {toast,ToastContainer} from 'react-toastify'
+import Loader from '../../../Loader';
+import SweetAlert from 'sweetalert2-react';
+// import swal from 'sweetalert'
+import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
 
-const ViewStudent = () => {
+const StudentAddToExam = () => {
     const[data,setData]=useState([]);
     const dispatch=useDispatch();
-    const navigate=useNavigate();
     const[checklist,setCheckList]=useState([]);
     const location=useLocation();
     const loadingState = useSelector((state) => state.loadingState.loading);
@@ -24,6 +23,39 @@ const ViewStudent = () => {
      const courseId = location.state.courseId;
     console.log(courseId,'studentCourseId');
 
+    const handleSubmit=()=>{
+      let students = data.filter((student,index)=>checklist[index]);
+      console.log(students);
+      let ids = students.map((student)=>student._id);
+      console.log(ids);
+      const body = {
+        questions:exam.data,
+        ...exam.payload,
+        students:ids,
+        subjectID:location.state.subjectId
+      }
+      console.log(body,"shvb");
+      const token=JSON.parse(localStorage.getItem('data')).token;
+      axios.post(CREATE_EXAM,body,{headers:{Authorization:`Bearer ${token}`}})
+        .then((res)=>{
+          console.log(res);
+          SweetAlert  ({
+            title: "Good job!",
+            text: "Successfully create the Exam!",
+            icon: "success",
+            button: "Aww yiss!",
+          });
+        })
+        .catch((err)=>{
+          console.log(err);
+          if(err.response.data.message==='Start Time Is Not Valid'){
+            toast.error("Please Enter the Exam Details");
+          }
+          else if(err.response.data.message==='Questions Is Not Valid')  {
+            toast.error("Please Enter the Question");
+          }
+          })
+        }
     
     useEffect(()=>{
         const token=JSON.parse(localStorage.getItem('data')).token;
@@ -31,31 +63,16 @@ const ViewStudent = () => {
         axios.get(VIEW_STUDENT + '?pageSize=12&courseID=' + courseId ,{headers:{Authorization:`Bearer ${token}`}})
             .then((res)=>{
                 setData(res.data.data.students);
-                console.log(res.data.data.students,'data');
                 setCheckList(Array(res.data.data.students.length).fill(false));
                 dispatch(loaderValueFalse());
                 // localStorage.setItem("course",courseId);
-              
+                console.log(data);
             })
             .catch((error)=>{
                 console.log(error);
                 dispatch(loaderValueFalse());
             })
     },[])
-
-    const deleteStudent=(studentID)=>{
-      const token=JSON.parse(localStorage.getItem('data')).token;
-      axios.delete(DELETE_STUDENT+ '/' +studentID,{headers:{Authorization:`Bearer ${token}`}})
-      .then((res)=>{
-        console.log(res);
-        const newData = data.filter((x) => x._id!== studentID);
-        setData(newData);
-        toast.success("Student is deleted");
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
-    }
 
   function checkHandler(index){
     setCheckList(checklist.map((v,i)=>
@@ -68,32 +85,28 @@ const ViewStudent = () => {
     {loadingState?<Loader/> :
     <>
     <div className='viewStudent'>
-    <div className='upperSection' align="right">
-    <button type="button" align="right" className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/dashboard/course")}>Create Course</button> 
-    </div>
     <ToastContainer/>
     <h2>Student List</h2>
-      <table className="table all-containers">
-  <thead >
-    <tr className='table-primary' >
-      <th scope='col'>#</th>
+      <table className="table my-4">
+  <thead>
+    <tr>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Gender</th>
-      <th scope="col">Delete</th>
+      <th scope="col">Add</th>
     </tr>
   </thead>
+  
     {
         data.map((item,index)=>{
             return(
             
              <tbody>
-                <tr className='content-box'>
-                <td>{index+1}</td>
+                <tr>
                 <td>{item.studentName}</td>
                 <td>{item.email}</td>
                 <td>{item.gender}</td>
-                <td><IoTrashOutline onClick={()=>deleteStudent(item._id)}  className='trashIcon'/> </td>  
+                <td><input type="checkbox" defaultChecked={checklist[index]} className='btn add' onClick={()=>checkHandler(index)}/></td>  
                 </tr>
             </tbody>
 
@@ -101,9 +114,12 @@ const ViewStudent = () => {
             )
         })
     }
-    </table>
     
   
+    </table>
+  <div className='submitButton'>
+    <button className='btn submit' onClick={handleSubmit}>Submit</button>
+  </div>
 
     </div>
     
@@ -114,4 +130,4 @@ const ViewStudent = () => {
   
 }
 
-export default ViewStudent
+export default StudentAddToExam

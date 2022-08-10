@@ -15,7 +15,6 @@ const ViewResult = () => {
         marks_obtained:10,
         grade:'c',
         status:'pass',
-
     }]
     const DeclareResult=(examId)=>{
         const token=JSON.parse(localStorage.getItem('data')).token;
@@ -23,13 +22,13 @@ const ViewResult = () => {
         .then((res)=>{
             console.log(res);
             toast.success("Result Declared!")
+            
         })
         .catch((err)=>{
             console.log(err);
             if(err.response.data.message==='RESULT_ALREADY_DECLARED'){
               toast.error("Result already Declared");
             }
-           
         })
     }
   return (

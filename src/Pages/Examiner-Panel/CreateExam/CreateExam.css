@@ -1,0 +1,54 @@
+.createExam input{
+    width: 80%;
+    padding: 5px 20px 5px 20px;
+    border:none;
+    border-radius: 4px;
+    border:1px solid #4e4343;
+    margin: 15px 0;
+    font-weight: 500;
+}
+.createExam .headingOne{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: cursive;
+}
+.createExam  form .label{
+    padding-top: 16px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.createExam .content{
+    margin-left: auto;
+    margin-right: auto;
+}
+.createExam{
+    margin-left: auto;
+    margin-right:auto;
+    width: 60%;
+    background-color: slategrey;
+    text-align: center;
+    background-color: aliceblue;
+}
+.createExam form button{
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    margin-top: 15px;
+    width:30%;
+    border: 1px solid var(--main-black-color);
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--main-black-color);
+    padding: 5px;
+    margin-bottom: 30px;
+}
+.createExam form button:hover{
+   
+    background-color: var(--main-black-color);
+    color:white;
+}  
+.createExam form input:focus-visible{
+    outline: none;
+}
