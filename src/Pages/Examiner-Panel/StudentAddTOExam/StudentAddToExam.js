@@ -7,7 +7,7 @@ import { useSelector,useDispatch} from "react-redux";
 import {CREATE_EXAM} from '../../../Apis/apis';
 import {toast,ToastContainer} from 'react-toastify'
 import Loader from '../../../Loader';
-import SweetAlert from 'sweetalert2-react';
+import swal from 'sweetalert';
 // import swal from 'sweetalert'
 import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
 
@@ -39,7 +39,7 @@ const StudentAddToExam = () => {
       axios.post(CREATE_EXAM,body,{headers:{Authorization:`Bearer ${token}`}})
         .then((res)=>{
           console.log(res);
-          SweetAlert  ({
+          swal  ({
             title: "Good job!",
             text: "Successfully create the Exam!",
             icon: "success",
