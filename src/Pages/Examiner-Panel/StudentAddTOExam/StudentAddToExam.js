@@ -7,8 +7,7 @@ import { useSelector,useDispatch} from "react-redux";
 import {CREATE_EXAM} from '../../../Apis/apis';
 import {toast,ToastContainer} from 'react-toastify'
 import Loader from '../../../Loader';
-import swal from 'sweetalert';
-// import swal from 'sweetalert'
+import swal from 'sweetalert'
 import { loaderValueFalse, loaderValueTrue } from '../../../redux/actions';
 
 const StudentAddToExam = () => {
@@ -39,7 +38,7 @@ const StudentAddToExam = () => {
       axios.post(CREATE_EXAM,body,{headers:{Authorization:`Bearer ${token}`}})
         .then((res)=>{
           console.log(res);
-          swal  ({
+          swal({
             title: "Good job!",
             text: "Successfully create the Exam!",
             icon: "success",
@@ -101,7 +100,7 @@ const StudentAddToExam = () => {
         data.map((item,index)=>{
             return(
             
-             <tbody key={index}>
+             <tbody>
                 <tr>
                 <td>{item.studentName}</td>
                 <td>{item.email}</td>
