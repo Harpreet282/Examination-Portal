@@ -40,7 +40,7 @@ function Timer({ date, starttime, end , data}) {
 
   const openModal = () => {
 
-    navigate("/keymodal",{state : { studentID : data.studentID,examID : data.examID}});
+    navigate("/keyModal",{state : { studentID : data.studentID,examID : data.examID}});
     console.log(data.studentID,"studentID")
     console.log(data.examID,"examId")
   };

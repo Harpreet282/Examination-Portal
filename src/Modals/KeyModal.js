@@ -51,7 +51,7 @@ const KeyModal = () => {
             .catch(err => {
                 dispatch(loaderValueFalse())
                 alert("Enter the valid key");
-                navigate('/studentDashboard')
+                navigate('/dashboard')
             })
     }
 
@@ -66,7 +66,7 @@ const KeyModal = () => {
                         <div className="modal-content">
                             <div className="modal-header" style={{ borderBottom: "0" }}>
                                 <h5 className="modal-title" id="staticBackdropLabel">Student Verification</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => navigate('/studentDashboard/')}>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => navigate('/dashboard/')}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -85,7 +85,7 @@ const KeyModal = () => {
                                 />
                             </div>
                             <div className="modal-footer" style={{ borderTop: "0 none" }}>
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => navigate('/studentDashobard/')}>Close</button>
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => navigate('/dashobard/')}>Close</button>
                                 <button type="button" className="btn btn-success" data-dismiss="modal" onClick={submitHandler}>Submit</button>
                             </div>
                         </div>

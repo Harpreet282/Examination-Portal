@@ -150,7 +150,7 @@ const GiveExam = () => {
         }
       )
       .then((res) => {
-        navigate("/studentDashboard");
+        navigate("/dashboard");
         console.log(res, "submitted");
       })
       .catch((err) => {
