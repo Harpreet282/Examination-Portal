@@ -1,47 +1,177 @@
-.examinerDashboard .all-content .course-card{
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    border-radius: 12px;
-    width: 40%;
-    
-   }
-
-.examinerDashboard .all-content{
+.examinerDashboard{
+    margin-left:auto;
     overflow: hidden;
     position: relative;
-    margin-left:auto;
+    width: 90%;
+    height: 90vh;
     margin-right: auto;
     align-items: center;
     justify-content: center;
- }
+    /* background-image:url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
+}
 
+.examinerDashboard .custom-control{
+   margin-left: auto;
+    margin-top: 5px;
+}
+.examinerDashboard .custom-control:hover{
+  color: blue;
+ }
+.examinerDashboard .upperSection{
+    display:flex;
+    width: 40%;
+    margin-left: auto;
+    padding-top: 15px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    color:var(--second-main-theme-color);
+    margin-top: 20px;
+}
+.examinerDashboard .CreateCourseButton{
+   margin-left: auto;
+   font-size: 18px;
+   color: var(--alternate-theme-color);
+}
+.examinerDashboard .CreateCourseButton:active{
+   color:blue;
+ }
+ .examinerDashboard .CreateCourseButton:hover{
+    color:blue;
+ }
+.examinerDashboard .custom-control .custom-control-label{
+    font-family: cursive;
+}
  .examinerDashboard  .dashboard-left-content{
-    background-color: grey;
-    color: white;
+    background-color: var(--main-gray-color);
+    color: var(--main-white-color);
  }
  .examinerDashboard  .all-content button{
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
     margin-top: 15px;
-    width: 50%;
-    border: 2px solid #F4831F;
-    border-radius: 25px;
-    font-weight: 700;
-    color:#F4831F
+    width:100%;
+    border: 1px solid var(--main-black-color);
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--main-black-color);
+    padding: 3px;
 }
 .examinerDashboard  .all-content button:hover{
-    border: 2px solid black;
-    background-color: black;
+    border: 1px solid var(--main-theme-color);
+    color:var(--main-theme-color);
+    background-color: white;
+    /* background-color: var(--main-black-color); */
 }  
-.examinerDashboard  .all-content  .AddStudent{
-    width:130px;
+.examinerDashboard .all-content .view-course-btn{
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    font-size: 14px;
+    margin-right: auto;
+    padding:8px 8px 8px 8px;
+    background-color: var(--main-theme-color);
+    color: white;
 }
-.examinerDashboard  .all-content  .showAllStudent{
-    width: 130px;
-    margin-left: 10px;
+.examinerDashboard .all-content .courseRemove{
+    position: absolute;
+    bottom: 20px;
+    width: 97%;
 }
-.examinerDashboard  .all-content  .SubjectAdd{
-    width: 130px;
+.examinerDashboard.all-content .courseRemove .courseRemoveButton{
+    background-color: var(--main-theme-color);
+    color: white;
 }
-.examinerDashboard  .all-content  .subjectShow{
-     width: 130px;
-     margin-left: 10px;
-} 
+.examinerDashboard .all-content .course-card{
+    height: 280px;
+    box-shadow: 2px 2px 10px var(--main-theme-color);
+   }
+   .examinerDashboard .card-title{
+    text-align: left;
+    font-weight: 600;
+    font-size: 25px;
+   }
+   .examinerDashboard .card-text {
+    text-align: left;
+    font-weight: 30px;
+   }
+.examinerDashboard .all-content .card .card-body .button-container .row{
+    /* padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px; */
+}
+.examinerDashboard .all-content .card .card-body .card-text{
+    height: 10%;
+    font-family: cursive;
+    font-size: 15px;
+}
+.examinerDashboard .all-content .card .card-body .card-title{
+    color: var(--main-theme-color);
+    font-family: cursive;
 
+}
+@media (max-width: 1199.98px) { 
+    .examinerDashboard .all-content .course-card{
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        border-radius: 12px;
+        height: 300px;
+        background: linear-gradient(45deg, #3f87a6, #ebf8e1, #f69d3c);
+        box-shadow: 2px 2px 10px black;
+     }
+    
+ }
+ @media (max-width: 991.98px) { 
+    .examinerDashboard .all-content .course-card{
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        border-radius: 12px;
+        height: 360px;
+        /* background: linear-gradient(45deg, #3f87a6, #ebf8e1, #f69d3c); */
+        box-shadow: 2px 2px 10px black;
+     }
+     .examinerDashboard .custom-control{
+        float: right;
+        margin-top: 18px;
+    
+     }
+    
+  }
+@media (max-width: 767.98px) { 
+    .examinerDashboard .all-content .course-card{
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        border-radius: 12px;
+        height:400px;
+        box-shadow: 2px 2px 10px black;
+     }
+     .examinerDashboard .container{
+        padding-left: 0px;
+        padding-right:0px;
+        margin-left: 16.6%;
+    }
+    .examinerDashboard{
+        margin-left:auto;
+        overflow: hidden;
+        position: relative;
+        width: 80%;
+        margin-top: 55px;
+        margin-right: auto;
+        align-items: center;
+        justify-content: center;
+    }
+ }
+ @media (max-width: 575.98px) { 
+    .examinerDashboard .all-content .course-card{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 12px;
+    height:575px;
+    width: 80%;
+    box-shadow: 2px 2px 10px black;
+ }
+ .examinerDashboard .custom-control{
+    float: right;
+    margin-top: 40px;
+}
+
+ }

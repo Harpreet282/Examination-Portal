@@ -1,48 +1,44 @@
-import React from 'react';
-import './sideBar.css';
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import './sideBar.css'
+import {NavLink} from 'react-router-dom'
 
-function SideBar() {
+const SideBar = () => {
   return (
-    <section className="examiner-sidebar-page">
-
-      <div>
-        <div>
-          <div className="side-bar">
-            <ul>
-              {/* <li className="nav-item">
+    <>
+    <section className='examiner-sidebar-page'>
+        <div className="side-bar">
+        <ul>
+        {/* <li className="nav-item">
                   <NavLink className="nav-link" to="/examinerDashboard/" >
                Create Students
                   </NavLink>
                 </li> */}
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/dashboard/">
-                  Create Courses
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/dashboard/viewCourse">
+                {/* <li className="nav-item">
+                  <NavLink className="nav-link" to="/examinerDashboard/course" >
+                  <button type="button" className="btn btn-lg btn-block" data-backdrop="false" data-toggle="modal" data-target="#exampleModal">Courses</button> 
+                  </NavLink>
+                </li> */}
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/dashboard/" >
                   View Courses
-                </NavLink>
-              </li>
-              {/* <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/AddSubject" >
-                  Add Subject
                   </NavLink>
-                </li> */}
-              {/* <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/viewAllSubject" >
-                  View Subject
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/dashboard/viewAllStudents">
+                    View Students
                   </NavLink>
-                </li> */}
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/dashboard/ExamDetails">
+                  Exam
+                  </NavLink>
+                </li>
 
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  );
+        </ul>
+    </div>
+        </section>
+        </>
+  )
 }
 
-export default SideBar;
+export default SideBar

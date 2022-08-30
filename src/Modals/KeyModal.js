@@ -42,7 +42,7 @@ const KeyModal = () => {
         axios.post(EXAM_ACCESSCODE, id, { headers: { Authorization: `Bearer ${token}` }, }
         )
             .then(resp => {
-                // console.log('responseKEY', resp)
+                console.log('responseKEY', resp)
                 dispatch(loaderValueFalse())
 
                 console.log(resp.data.data, 'keymodal')

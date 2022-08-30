@@ -1,0 +1,47 @@
+.viewQuestion{
+    margin-top:30px;
+    height: auto;
+}
+.viewQuestion h2{
+    margin-top:50px;
+    text-align: center;
+    font-weight: 700;
+    font-family: cursive;
+    color: var(--alternate-black-color);
+}
+.viewQuestion  .Answer{
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+.viewQuestion .leftContent .option{
+    margin-bottom:10px;
+  
+}
+.viewQuestion .leftContent{
+    padding-left: 50px;
+}
+.viewQuestion .content{
+    border-bottom: 1px dotted var(--alternate-theme-color);
+}
+.viewQuestion  .trashIcon{
+    color: red;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.viewQuestion .modal-content  .modal-body input{
+    padding: 5px 20px 5px 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.viewQuestion .modal-content  .modal-body button{
+    background-color: var(--main-theme-color);
+    color: white;
+}
+.viewQuestion .modal-content  .modal-body button:hover{
+    background-color:transparent;
+    border: 1px solid var(--main-theme-color);
+    color: var(--main-theme-color);
+}
