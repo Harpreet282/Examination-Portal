@@ -13,5 +13,4 @@ function Index() {
     </Routes>
   );
 }
-
 export default Index;

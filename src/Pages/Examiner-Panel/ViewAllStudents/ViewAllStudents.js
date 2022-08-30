@@ -13,24 +13,27 @@ import { useSelector,useDispatch } from 'react-redux';
 const ViewAllStudents = () => {
     const loadingState = useSelector((state) => state.loadingState.loading);
     const[AllStudents,setAllStudents]=useState([]);
-    const[pageIndex,setPageIndex]=useState(1);
+    const[TotalPages,setTotal]=useState();
+    const[pageIndex,setPageIndex]=useState(0);
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const token=JSON.parse(localStorage.getItem('data')).token;
     // dispatch(loaderValueTrue());
     useEffect(()=>{
-        axios.get(VIEWALLSTUDENT_API + '?&pageSize=5&pageIndex',{headers:{Authorization:`Bearer ${token}`}})
+        axios.get(VIEWALLSTUDENT_API + '?&pageSize=5&pageIndex='+pageIndex,{headers:{Authorization:`Bearer ${token}`}})
         .then((res)=>{
-            console.log(res.data.data.students);
+            console.log(res.data.data.students,'new');
+            setTotal(res.data.data.totalPages);
             // dispatch(loaderValueFalse());
             setAllStudents(res.data.data.students);
-            console.log(AllStudents);
+            console.log(AllStudents,'old');
+            console.log(res.data.data.totalPages,pageIndex)
         })
         .catch((err)=>{
             console.log(err);
             // dispatch(loaderValueFalse());
         })
-    },[AllStudents])
+    },[pageIndex])
 
     // const AddStudent=(studentID)=>{
     //   const token=JSON.parse(localStorage.getItem('data')).token;
@@ -46,7 +49,7 @@ const ViewAllStudents = () => {
     //   })
     // }
     
-    let totalPages = 3;
+    // let totalPages = 3;h
    
   return (
     <div>
@@ -75,7 +78,7 @@ const ViewAllStudents = () => {
             
              <tbody>
                 <tr >
-                <td>{index+1}</td>
+                <td>{(5*pageIndex)+index+1}</td>
                 <td>{item.firstName} {item.lastName}</td>
                 <td>{item.email}</td>
                 <td>{item.mobileNumber}</td>
@@ -93,13 +96,13 @@ const ViewAllStudents = () => {
   
     </table>
     <div className='btnContainer'>
-      <button className=' btn  previousButton' onClick={()=>{if(pageIndex - 1 > 0){setPageIndex(pageIndex - 1)}
+      <button className=' btn  previousButton' onClick={()=>{if(pageIndex > 0){setPageIndex(pageIndex - 1)}
       else{
         alert("no more records");
       }
       }}>Previous </button>
       <button className=' btn  nextButton' onClick={()=>{
-        if(pageIndex + 1 <= totalPages){setPageIndex(pageIndex + 1)}
+        if(pageIndex + 1 < TotalPages){setPageIndex(pageIndex + 1)}
         else{
         alert("no more records");
       }
