@@ -1,7 +1,7 @@
 const API_BASE_URL = 'https://exam-portal-by-hritik-sanam.herokuapp.com';
 
 const getApiUrl = (endpoint) => API_BASE_URL + endpoint;
-const LOGIN_API = getApiUrl('/login');
+const LOGIN_API = getApiUrl('/user/login');
 const SIGN_UP_API = getApiUrl('/register');
 const PENDING_REQUESTS_API = getApiUrl('/admin/examiners/pending');
 const APPROVED_REQUESTS_API = getApiUrl('/admin/examiners/approved');
