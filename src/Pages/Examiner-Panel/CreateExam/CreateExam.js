@@ -36,7 +36,7 @@ const CreateExam = () => {
 
         const token=JSON.parse(localStorage.getItem('data')).token;
         console.log(Data,'subectid');
-        navigate("/examinerDashboard/StudentAddToExam",{state:{courseId :location.state.courseID, subjectId :location.state.subjectId}})
+        navigate("/dashboard/StudentAddToExam",{state:{courseId :location.state.courseID, subjectId :location.state.subjectId}})
         dispatch(
         examCreate(Data)
         );

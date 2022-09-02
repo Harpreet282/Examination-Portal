@@ -36,7 +36,7 @@ const CreateSubject = () => {
         toast.success("Sujects are Registered")
         const data=res.data;
         console.log(data);
-        navigate("/examinerDashboard/")
+        navigate("/dashboard/")
     })
 
     .catch((error)=>{

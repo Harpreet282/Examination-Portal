@@ -72,9 +72,9 @@ const ExaminerProfile = () => {
             </div>
         <div className='col-md-9 rightContent my-5'>
               {
-                profile?.map((item)=>{
+                profile?.map((item,i)=>{
                     return(
-                        <div className='examiner-profile-page'>
+                        <div className='examiner-profile-page' key={i}>
                     <div className='absolute-center'>
                     <h6 className='heading'>Personal Information</h6>
                     <div className='row firstName'>
@@ -103,7 +103,7 @@ const ExaminerProfile = () => {
     <div className="modal-content">
       <div className="modal-header">
       <h4 className="modal-title">Add Subject</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -149,7 +149,7 @@ const ExaminerProfile = () => {
         </div>
         </div>
             <div className="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" className="btn btn-primary">Submit</button>
             </div>
           </form>  

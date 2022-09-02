@@ -1,69 +1,71 @@
-import React from 'react';
-import './Exams.css';
-import { useNavigate } from 'react-router-dom';
-import Timer from '../../Timer/Timer';
+import React, { useState,useEffect } from 'react'
+import "./Exams.css"
+import Timer from "../../Timer/Timer" 
+import {  useNavigate } from 'react-router-dom'
+import axios from "axios"
+import {loaderValueFalse, loaderValueTrue} from "../../../../redux/actions/index"
+import {useDispatch, useSelector} from "react-redux"
+import Loader from "../../../../Loader/index"
+import { EXAM_DASHBOARD } from '../../../../Apis/apis'
 
-function Exams() {
-  const navigate = useNavigate();
+const Exams = () => {
 
-  const openModal = () => {
-    navigate('/modal');
-  };
+  const [item, setItem] = useState([]);
+  const dispatch = useDispatch()
+  const isLoading = useSelector((state) => state.loadingState.loading)
+  
+  useEffect(() => {
+   getData()
+  },[]);
 
-  const data = [
-    {
-      id: 1,
-      subject: 'Data Structure',
-      date: '2022-07-14',
-      timings: '9:00am to 12:00pm',
-    },
-    {
-      id: 2,
-      subject: 'Programming in C',
-      date: '2022-07-20',
-      timings: '9:00am to 12:00pm',
-    },
-    {
-      id: 3,
-      subject: 'Comp Automation',
-      date: '2022-07-18',
-      timings: '11:00am to 2:00pm',
-    },
-    {
-      id: 4,
-      subject: 'Mathematics',
-      date: '2022-07-15',
-      timings: '12:00am to 3:00pm',
-    },
-  ];
+  const getData = () => {
+    const token = JSON.parse(localStorage.getItem('data')).token;
+    dispatch(loaderValueTrue())
+    axios.get(EXAM_DASHBOARD,{headers: {Authorization: `Bearer ${token}`},}
+    )
+    .then(resp =>
+       {
+        // console.log('respDASH',resp)
+        dispatch(loaderValueFalse())
+        setItem(resp.data.data.studentexams)}
+       )
+    .catch(err => {console.log(err)
+    dispatch(loaderValueFalse())})
+  }
+
+  const navigate = useNavigate()
+
+  
   return (
-    <div>
-      <div className="container">
-        <div className="row">
-          {data.map((content) => (
-            <div className="col-md-6 exams-col" key={content.id}>
-              <div className="card exams-card">
-                <div className="card-body">
-                  <h3 className="card-title">{content.subject}</h3>
-                  <p>
-                    Exams date:
-                    {content.date}
-                  </p>
-                  <p className="card-text  exams-timings">
-                    Timings:
-                    {content.timings}
-                  </p>
+    <div className='exam-page'>
+      {/* { 
+  console.log(item,'item')
+      
+      } */}
+      {isLoading ? <Loader /> : 
+        <div className=''>
+          <div className='row'>
+            {item?.map((content) => {
+              return (
+                <div className='col-md-4 exams-col' key={content.examID}>
+                  <div className="card exams-card">
+                    <div className="card-body">
+                      <h3 className="card-title">{content.subject}</h3>
+                      <p>Exams date: {content.examDate.slice(0,10)}</p>
+                      <p className="card-text  exams-timings">Start Time: {content.startTime} {content.startTime.slice(0,2) <=12 ? "A.M." : "P.M."}</p>
+                      <p className="card-text  exams-timings">End time: {content.endTime} {content.endTime.slice(0,2) <=12 ? "A.M." : "P.M."}</p>
+                    </div>
+                    <div className="student">
+                      <div href="#">
+                        <Timer data={content} date={content.examDate} starttime={content.startTime} end={content.endTime}/>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="student-card-body">
-                  <button href="#" className="card-button" data-toggle="modal" data-target="#exampleModalCenter" onClick={openModal}>
-                    <Timer date={content.date} time={content.time} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+              )})}
+            
+          </div>
+        </div>}
     </div>
   );
 }

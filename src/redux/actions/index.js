@@ -1,4 +1,4 @@
-import * as reduxConstants from '../redux-constants';
+import * as reduxConstants from "../redux-constants";
 
 export const loginAccount = (token, userType) => ({
   type: reduxConstants.LOGIN,

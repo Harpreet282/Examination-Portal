@@ -1,8 +1,8 @@
-import * as reduxConstants from '../redux-constants';
+import * as reduxConstants from "../redux-constants";
 
 const initialState = {
   authenticated: false,
-  userType: '',
+  userType: "",
 };
 
 const loginState = (state = initialState, action) => {
@@ -16,7 +16,7 @@ const loginState = (state = initialState, action) => {
         token,
         userType,
       };
-      localStorage.setItem('data', JSON.stringify(data));
+      localStorage.setItem("data", JSON.stringify(data));
       // return state=token
       return {
         ...state,
@@ -24,8 +24,8 @@ const loginState = (state = initialState, action) => {
       };
 
     case reduxConstants.LOGOUT:
-      localStorage.removeItem('data');
-      return state = false;
+      localStorage.removeItem("data");
+      return (state = false);
     default:
       return state;
   }

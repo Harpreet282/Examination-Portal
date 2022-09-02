@@ -159,7 +159,7 @@ useEffect(()=>{
           <div>
           <div  className='buttonContainer'>
             <button type='submit' className='btn nextButton'>Submit</button>
-             <button  onClick={()=>navigate("/examinerDashboard/createExam",{ state: { subjectId :location.state.subjectId,courseID:location.state.courseID}})} className='btn submitButton'>Next</button>
+             <button  onClick={()=>navigate("/dashboard/createExam",{ state: { subjectId :location.state.subjectId,courseID:location.state.courseID}})} className='btn submitButton'>Next</button>
           </div>
           </div>
           </form>

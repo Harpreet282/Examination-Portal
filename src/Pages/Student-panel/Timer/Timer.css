@@ -1,19 +1,47 @@
-.timer-content-para span{
+.timer-page .timer-content-para span{
     color: white;
     font-weight: 500; 
 }
-.timer-span{
+.timer-page .timer-span{
     margin: 15px;
     border-radius: 3px;
     padding: 5px;
     background-color: rgba(255,255,255,0.15);
 }
-.timer-content-para a{
+/* .timer-content-para a{
     color: white !important;
     margin-top: 24px;
     font-size: 25px;
-}
-.timer-content-para p{
+} */
+.timer-page .timer-content-para p{
     margin-left: auto;
     margin-right: auto;
+}
+.timer-page .timer-btn-apply button{ 
+    border: none;
+    color: white;
+    padding: 25px;
+    font-size: 25px;
+    background-color: #53b9f5;
+    width: 100%;
+}
+.timer-page .timer-btn-time-up div{
+    border: none;
+    color: white;
+    padding: 25px;
+    font-size: 25px;
+    background-color:#912727;
+    width: 100%;
+    /* background-color:#d11212 */
+}
+.timer-page .timer-content-para{
+    border: none;
+    color: white;
+    /* padding: 25px; */
+    font-size: 15px;
+    background-color:#7e7e78;
+    width: 100%;
+}
+.timer-page .timer-content-para a{
+    margin-top: 28px;
 }

@@ -1,6 +1,24 @@
 .student-dashboard-page .left-content {
-    padding: 0;
-    background-color: var(--main-gray-color);
-    border-radius: 8px;
+  padding: 0;
+  position: fixed;
+  background-color: var(--main-theme-color);
+  height: 90vh;
+}
+
+.student-dashboard-page .right-content {
+  margin-left: 16.666667%;
+  /* overflow: hidden; */
+  background-color: #dcdcdc4d;
+  height: 90vh;
+}
+
+@media(max-width:575.98px) {
+  .student-dashboard-page .left-content {
+    max-width: 33.33%;
+    height: 100%;
   }
-  
+
+  .student-dashboard-page .right-content {
+    margin-left: 33.33%;
+  }
+}

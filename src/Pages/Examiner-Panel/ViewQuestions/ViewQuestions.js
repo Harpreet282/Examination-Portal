@@ -105,7 +105,7 @@ const ViewQuestions = () => {
                 
       {location.state.questions.questions.map((item,index)=>
         <>
-        <div className='row question'>
+        <div key={index} className='row question'>
             <div   className='col-md-8 leftContent'>
                 <h5>Q{index+1}:- {item.question}</h5>
                 <div className='col' >
@@ -131,7 +131,7 @@ const ViewQuestions = () => {
     <div className="modal-content">
     <div className="modal-header">
       <h4 className="modal-title">Edit Question</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
       </button>
       </div>

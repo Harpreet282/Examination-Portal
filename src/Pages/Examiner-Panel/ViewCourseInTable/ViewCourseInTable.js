@@ -51,9 +51,9 @@ const ViewCourseInTable = () => {
     {loadingState?<Loader/>:<>
         <section className='examinerDashboardTable'>
         <ToastContainer/>
-        <div class="custom-control custom-switch">
-            <input type="checkbox"  onClick={()=>{navigate("/examinerDashboard/")}} class="custom-control-input" id="customSwitch1"/>
-            <label class="custom-control-label" for="customSwitch1">courses View In Cards</label>
+        <div className="custom-control custom-switch">
+            <input type="checkbox"  onClick={()=>{navigate("/dashboard/")}} className="custom-control-input" id="customSwitch1"/>
+            <label className="custom-control-label" for="customSwitch1">courses View In Cards</label>
         </div>
             <table className="table all-containers">
   <thead align="center">
@@ -72,16 +72,16 @@ const ViewCourseInTable = () => {
       {
         request.map((item,i)=>{
           return(
-            <tbody align="center">
+            <tbody key={i} align="center">
                <tr >
                <td>{i+1}</td>
                  <td>{item.name}</td>
                  {/* <td>{item.description}</td> */}
                  <td>{item.createdDate.slice(1,10)}</td>  
-                 <td className='AddStudentIcon'><AiOutlineUsergroupAdd onClick={()=>navigate("/examinerDashboard/AddStudent" ,{ state: { courseId : item._id }})}/></td>
-                 <td className='viewStudentIcon'><BiStreetView onClick={()=>navigate("/examinerDashboard/viewStudents" ,{ state: { courseId : item._id }})}/></td>
-                 <td className='viewSubjectIcon'><FaRegNewspaper  onClick={()=>navigate("/examinerDashboard/viewAllSubject" ,{ state: {courseId :item._id }})} /></td>
-                 <td className='AddSubjectIcon'><MdPostAdd onClick={()=>navigate("/examinerDashboard/AddSubject" ,{ state: { courseId : item._id }})}  data-backdrop="false" data-toggle="modal" data-target="#exampleModal"/></td>
+                 <td className='AddStudentIcon'><AiOutlineUsergroupAdd onClick={()=>navigate("/dashboard/AddStudent" ,{ state: { courseId : item._id }})}/></td>
+                 <td className='viewStudentIcon'><BiStreetView onClick={()=>navigate("/dashboard/viewStudents" ,{ state: { courseId : item._id }})}/></td>
+                 <td className='viewSubjectIcon'><FaRegNewspaper  onClick={()=>navigate("/dashboard/viewAllSubject" ,{ state: {courseId :item._id }})} /></td>
+                 <td className='AddSubjectIcon'><MdPostAdd onClick={()=>navigate("/dashboard/AddSubject" ,{ state: { courseId : item._id }})}  data-backdrop="false" data-toggle="modal" data-target="#exampleModal"/></td>
                  <td className='RemoveIcon'><IoTrashOutline  onClick={()=>courseRemove(item._id)}/></td>
                </tr>
            </tbody>

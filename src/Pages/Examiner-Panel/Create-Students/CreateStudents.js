@@ -76,7 +76,7 @@ const CreateStudents = () => {
        <section className='Student-Signup p-1 '>
        <ToastContainer/>
        <div  align="right">
-    <button type="button"  className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/examinerDashboard/course")}>Create Course</button> 
+    <button type="button"  className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/dashboard/course")}>Create Course</button> 
     </div>
       <div className='container'>
         <div className='my-5'>

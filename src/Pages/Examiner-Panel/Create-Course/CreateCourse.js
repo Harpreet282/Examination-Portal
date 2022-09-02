@@ -29,7 +29,7 @@ const CreateCourse = () => {
           const data=res.data;
           console.log(data);
          
-          navigate('/examinerDashboard/CreateSubject',{ state: { courseId :res.data.data.course._id }});
+          navigate('/dashboard/CreateSubject',{ state: { courseId :res.data.data.course._id }});
       })
   
       .catch((error)=>{

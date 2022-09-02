@@ -69,7 +69,7 @@ const ViewSubject = () => {
     const token=JSON.parse(localStorage.getItem('data')).token;
     dispatch(loaderValueTrue());
     console.log(location.state.courseId,'course id');
-    axios.get(VIEW_SUBECTS + '?courseID=' + location.state.courseId +'&pageSize=2&pageIndex='+pageIndex,{headers:{Authorization:`Bearer ${token}`}})
+    axios.get(VIEW_SUBECTS + '?courseID=' + location.state.courseId ,{headers:{Authorization:`Bearer ${token}`}})
         .then((res)=>{
             console.log(res.data.data.subjects,'subjects');
             dispatch(loaderValueFalse());
@@ -98,7 +98,7 @@ const formik = useFormik({
     <div className='viewSubject'>
     <ToastContainer/>
     <div className='upperSection' align="right">
-    <button type="button" align="right" className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/examinerDashboard/course")}>Create Course</button> 
+    <button type="button" align="right" className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/dashboard/course")}>Create Course</button> 
    
      <h2>Subject List</h2>
      </div>
@@ -118,7 +118,7 @@ const formik = useFormik({
                <tr className='content-box'>
                <td>{item.subjectName}</td>
                <td><IoTrashOutline onClick={()=>subjectDelete(item.subjectID)} className='trashIcon'/> </td>   
-              <td><IoCreateSharp className='createIcon' onClick={()=>navigate("/examinerDashboard/createQuestion" ,{ state: { subjectId : item.subjectID,courseID:item._id  }})} ></IoCreateSharp></td> 
+              <td><IoCreateSharp className='createIcon' onClick={()=>navigate("/dashboard/createQuestion" ,{ state: { subjectId : item.subjectID,courseID:item._id  }})} ></IoCreateSharp></td> 
              <td><AiOutlineEdit className='editIcon' data-backdrop="false" data-toggle="modal" data-target="#exampleModal1" /></td>
                </tr>
            </tbody>
@@ -160,19 +160,20 @@ const formik = useFormik({
            </>
       )}
       </table>
-      <div className='btnContainer'>
+      {/* <div className='btnContainer'>
       <button className=' btn  previousButton' onClick={()=>{if(pageIndex > 0){setPageIndex(pageIndex - 1)}
       else{
         alert("no more records");
       }
       }}>Previous </button>
-     <button className='btn  nextButton' onClick={()=>{
+      <button className=' btn  nextButton' onClick={()=>{
         if(pageIndex + 1 < TotalPages){setPageIndex(pageIndex + 1)}
         else{
         alert("no more records");
       }
         }}>Next</button>
-     </div>
+     </div> */}
+
      </div>
      }
      

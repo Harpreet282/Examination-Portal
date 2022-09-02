@@ -69,7 +69,7 @@ const ViewStudent = () => {
     <>
     <div className='viewStudent'>
     <div className='upperSection' align="right">
-    <button type="button" align="right" className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/examinerDashboard/course")}>Create Course</button> 
+    <button type="button" align="right" className="btn btn-md CreateCourseButton" data-backdrop="false" data-toggle="modal" data-target="#exampleModal"  onClick={()=>navigate("/dashboard/course")}>Create Course</button> 
     </div>
     <ToastContainer/>
     <h2>Student List</h2>

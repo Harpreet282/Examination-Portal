@@ -21,18 +21,18 @@ const SideBar = () => {
                   </NavLink>
                 </li> */}
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/" >
+                  <NavLink className="nav-link" to="/dashboard/" >
                    Courses
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/viewAllStudents" >
+                  <NavLink className="nav-link" to="/dashboard/viewAllStudents" >
                      Students
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/examinerDashboard/ExamDetails" >
-                  Exam
+                  <NavLink className="nav-link" to="/dashboard/ExamDetails" >
+                    Exam
                   </NavLink>
                 </li>
 

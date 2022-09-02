@@ -12,7 +12,7 @@ const ViewExam = () => {
     const dispatch=useDispatch();
     const SendExamDetails=(x)=>{
         dispatch(ExamDetailsWithStudent(x))
-        navigate("/examinerDashboard/viewExamWithStudent");
+        navigate("/dashboard/viewExamWithStudent");
     }
     useEffect(()=>{
         const token=JSON.parse(localStorage.getItem('data')).token;
@@ -30,8 +30,8 @@ const ViewExam = () => {
     <>
     <div className='viewExam'>
      <h2>Exams</h2>
-            {examList.map((item)=>
-                <>
+            {examList.map((item,i)=>
+                <div key={i}>
                 <div className='allContent'>
                 <div className='row content'>
                 <div align="center" className="col-md-3">
@@ -63,7 +63,7 @@ const ViewExam = () => {
                 
                 </div>
                 </div>
-                </>
+                </div>
             )
 
             }

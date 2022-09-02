@@ -15,7 +15,6 @@ const ViewResult = () => {
         marks_obtained:10,
         grade:'c',
         status:'pass',
-
     }]
     const DeclareResult=(examId)=>{
         const token=JSON.parse(localStorage.getItem('data')).token;
@@ -30,7 +29,6 @@ const ViewResult = () => {
             if(err.response.data.message==='RESULT_ALREADY_DECLARED'){
               toast.error("Result already Declared");
             }
-           
         })
     }
   return (
@@ -51,7 +49,7 @@ const ViewResult = () => {
       {
         Result.map((item,i)=>{
           return(
-            <tbody>
+            <tbody key={i}>
                <tr className='content-box'>
                <td>{item.name}</td>
                <td>{item.total_marks}</td>

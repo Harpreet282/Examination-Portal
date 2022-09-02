@@ -37,7 +37,7 @@ const AddSubject = () => {
         toast.success(" Additional Subject is Registered")
         const data=res.data;
         console.log(data);
-        navigate("/examinerDashboard/viewAllSubject",{ state: {courseId :location.state.courseId }});
+        navigate("/dashboard/viewAllSubject",{ state: {courseId :location.state.courseId }});
     })
 
     .catch((error)=>{

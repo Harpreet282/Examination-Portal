@@ -1,4 +1,4 @@
-import * as reduxConstants from '../redux-constants';
+import * as reduxConstants from "../redux-constants";
 
 const initialState = {
   loading: true,

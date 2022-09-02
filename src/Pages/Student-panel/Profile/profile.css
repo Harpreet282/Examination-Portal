@@ -1,6 +1,5 @@
 .student-profile-page{
     position: relative;
-    height: 90vh;
 }
 .student-profile-page-header{
     display: flex;
@@ -25,8 +24,8 @@
     list-style: none;
     padding: 28px;
     border-radius: 5px;
-    width: 185px;
-    height: 120px;
+    width: 215px;
+    height: 150px;
     text-align: center;
     font-size: 15px;
     font-weight: 500;
