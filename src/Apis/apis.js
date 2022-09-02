@@ -2,15 +2,15 @@ const API_BASE_URL = 'https://exam-portal-by-hritik-sanam.herokuapp.com';
 
 const getApiUrl = (endpoint) => API_BASE_URL + endpoint;
 const LOGIN_API = getApiUrl('/user/login');
-const SIGN_UP_API = getApiUrl('/register');
+const SIGN_UP_API = getApiUrl('/user/register');
 const PENDING_REQUESTS_API = getApiUrl('/admin/examiners/pending');
 const APPROVED_REQUESTS_API = getApiUrl('/admin/examiners/approved');
 const DECLINED_REQUESTS_API = getApiUrl('/admin/examiners/declined');
 const UPDATE_REQUESTS_API = getApiUrl('/admin/examiners/action');
 const REQUESTS_API = getApiUrl('/admin/examiners');
-const CREATE_COURSE_API = getApiUrl('/examiner/course');
+const CREATE_COURSE_API = getApiUrl('/examiner/createCourse');
 const VIEW_COURSES = getApiUrl('/examiner/dashboard');
-const CREATE_STUDENT = getApiUrl('/examiner/student');
+const CREATE_STUDENT = getApiUrl('/examiner/createStudent');
 const VIEW_STUDENT = getApiUrl('/examiner/courseStudents');
 const ADD_SUBECT = getApiUrl('/examiner/addsubjects');
 const VIEW_SUBECTS = getApiUrl('/examiner/courseSubjects');

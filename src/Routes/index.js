@@ -37,6 +37,9 @@ function Index() {
           <Route path="/giveexam" element={<GiveExam />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/" element={<Exams />} />
+          {/* <Route path="/examguidelines" element={<ExamGuildelines />} />
+          <Route path='/fullScreenModal' element={<FullScreenModal />} /> */}
+          {/* <Route path="/" element={<Exams />} /> */}
         </Route>
 
 

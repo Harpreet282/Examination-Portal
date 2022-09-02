@@ -1,6 +1,8 @@
 import React from 'react'
 import './sideBar.css'
 import {NavLink} from 'react-router-dom'
+import axios from 'axios';
+import { EXAMINER_PROFILE } from '../../../Apis/apis';
 
 const SideBar = () => {
   return (
@@ -20,17 +22,17 @@ const SideBar = () => {
                 </li> */}
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/dashboard/" >
-                  View Courses
+                   Courses
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/dashboard/viewAllStudents">
-                    View Students
+                  <NavLink className="nav-link" to="/dashboard/viewAllStudents" >
+                     Students
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/dashboard/ExamDetails">
-                  Exam
+                  <NavLink className="nav-link" to="/dashboard/ExamDetails" >
+                    Exam
                   </NavLink>
                 </li>
 
