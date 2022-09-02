@@ -34,7 +34,7 @@ function Index() {
           <Route path="/keyModal" element={< KeyModal />} />
           <Route path='/examguidelines' element={<ExamGuildelines />} />
           <Route path="/fullScreenModal" element={<FullScreenModal />} />
-          <Route path="/givexam" element={<GiveExam />} />
+          <Route path="/giveexam" element={<GiveExam />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/" element={<Exams />} />
         </Route>
