@@ -18,7 +18,8 @@ function Index() {
       <Route path="/transaction" element={<Transaction />} />
       
       {/* <Route path="/modal" element={<Modal />} /> */}
-      <Route path='/keymodal' element={<KeyModal />} />
+      {/* <Route path='/keymodal' element={<KeyModal />} /> */}
+      
       <Route path="*" element={<Error />} />
     </Routes>
     </>

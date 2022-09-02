@@ -40,7 +40,7 @@ function Timer({ date, starttime, end , data}) {
 
   const openModal = () => {
 
-    navigate("/keymodal",{state : { studentID : data.studentID,examID : data.examID}});
+    navigate("/keyModal",{state : { studentID : data.studentID,examID : data.examID}});
     console.log(data.studentID,"studentID")
     console.log(data.examID,"examId")
   };
@@ -87,7 +87,6 @@ function Timer({ date, starttime, end , data}) {
               <span>{duration._data.hours}</span>
               <br />
               <span>HRS</span>
-              {/* {time.hrs === time ? "Apply for exam" : ""} */}
             </div>
             <a>:</a>
             <div className="timer-span">

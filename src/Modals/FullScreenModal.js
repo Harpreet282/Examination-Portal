@@ -7,10 +7,6 @@ const FullScreenModal = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    
-    
-
-
 
     const handle = useFullScreenHandle();
     
@@ -35,7 +31,7 @@ const FullScreenModal = () => {
                             <button type="submit" className="btn btn-success" data-dismiss="modal" 
                                 onClick={(e) => {handleHandler(e)
                                     
-                                }}>Enter full screen</button>
+                            }}>Enter full screen</button>
                         </div>
                     </div>
                 </div>

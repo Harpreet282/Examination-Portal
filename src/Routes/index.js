@@ -9,8 +9,10 @@ import Error from "../Pages/Error";
 import Header from "../components/Header/Header";
 import Profile from "../Pages/Profile";
 import Dashboard from "../Pages/Dashboard/index";
+import KeyModal from "../Modals/KeyModal";
 import ExamGuildelines from "../Pages/Student-panel/studentView/Exams/ExamGuildelines";
-import FullScreenModal from '../Modals/FullScreenModal'
+import FullScreenModal from "../Modals/FullScreenModal"
+import GiveExam from "../Pages/Student-panel/studentView/Exams/GiveExam";
 import Exams from "../Pages/Student-panel/studentView/Exams/Exams";
 
 function Index() {
@@ -31,10 +33,10 @@ function Index() {
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/examguidelines" element={<ExamGuildelines />} />
           <Route path='/fullScreenModal' element={<FullScreenModal />} />
-          <Route path="/giveexam" element={<Exams />} />
+          <Route path="/" element={<Exams />} />
+          <Route path="/keyModal" element={< KeyModal />} />
+          <Route path="/giveexam" element={<GiveExam /> } />
         </Route>
-
-
         <Route path="*" element={<Error />} />
       </Routes>
     </>

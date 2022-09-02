@@ -15,6 +15,7 @@ const ViewSubject = () => {
   const location=useLocation();
   const[Subjects,setSubjects]=useState([]);
   const[render,setRender]=useState(true)
+  const[TotalPages,setTotal]=useState();
   const [id,setId]=useState();
   const[pageIndex,setPageIndex]=useState(0);
   const dispatch=useDispatch();
@@ -68,11 +69,13 @@ const ViewSubject = () => {
     const token=JSON.parse(localStorage.getItem('data')).token;
     dispatch(loaderValueTrue());
     console.log(location.state.courseId,'course id');
-    axios.get(VIEW_SUBECTS + '?courseID=' + location.state.courseId +'&pageSize=3&pageIndex='+pageIndex,{headers:{Authorization:`Bearer ${token}`}})
+    axios.get(VIEW_SUBECTS + '?courseID=' + location.state.courseId ,{headers:{Authorization:`Bearer ${token}`}})
         .then((res)=>{
             console.log(res.data.data.subjects,'subjects');
             dispatch(loaderValueFalse());
+            setTotal(res.data.data.totalPages);
             setSubjects(res.data.data.subjects);
+            console.log(res.data.data.totalPages,pageIndex)
             console.log(Subjects,'subjects')
              setRender(!render);
         })
@@ -83,7 +86,7 @@ const ViewSubject = () => {
       }
 },[location.state.courseId,pageIndex,render])
 
-let totalPages = 2;
+// let totalPages = 2;
 const formik = useFormik({
   initialValues,
   onSubmit,
@@ -157,19 +160,20 @@ const formik = useFormik({
            </>
       )}
       </table>
-      <div className='btnContainer'>
-      <button className=' btn  previousButton' onClick={()=>{if(pageIndex - 1 > 0){setPageIndex(pageIndex - 1)}
+      {/* <div className='btnContainer'>
+      <button className=' btn  previousButton' onClick={()=>{if(pageIndex > 0){setPageIndex(pageIndex - 1)}
       else{
         alert("no more records");
       }
       }}>Previous </button>
       <button className=' btn  nextButton' onClick={()=>{
-        if(pageIndex + 1 <= totalPages){setPageIndex(pageIndex + 1)}
+        if(pageIndex + 1 < TotalPages){setPageIndex(pageIndex + 1)}
         else{
         alert("no more records");
       }
         }}>Next</button>
-     </div>
+     </div> */}
+
      </div>
      }
      

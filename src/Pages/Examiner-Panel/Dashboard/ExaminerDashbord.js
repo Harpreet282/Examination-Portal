@@ -9,10 +9,10 @@ const ExaminerDashbord = () => {
       <section className='examiner-dashboard-page margin-from-top'>
       
      <div className="row main-content">
-      <div className="col-md-2 left-content">
+      <div className="col-md-2  col-sm-4 left-content">
       <SideBar/>
       </div>
-      <div className="col-md-10 right-content">
+      <div className="col-md-10 col-sm-8 right-content">
         <Index/>
       </div>
      </div>

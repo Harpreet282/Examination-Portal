@@ -3,3 +3,28 @@
     font-size: 24px;
     cursor: pointer;
 }
+.viewStudent .btnContainer{
+    text-align: center;
+    margin-top: 30px;
+  }
+  .viewStudent  .previousButton{
+      background-color: var(--main-theme-color);
+      color: white;
+      width: 10%;
+  }
+  .viewStudent .previousButton:hover{
+      border: 3px solid var(--main-theme-color);
+      background-color: transparent;
+      color: var(--main-theme-color);
+   }
+  .viewStudent .nextButton{
+      background-color: var(--main-theme-color);
+      color: white;
+      margin-left: 50px;
+      width: 10%;
+  }
+  .viewStudent .nextButton:hover{
+     border: 3px solid var(--main-theme-color);
+     background-color: transparent;
+     color: var(--main-theme-color);
+  }

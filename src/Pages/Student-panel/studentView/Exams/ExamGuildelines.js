@@ -8,10 +8,9 @@ const ExamGuildelines = () => {
   const location = useLocation();
 
   const openModal = () => {
-  
-
     navigate("/fullScreenModal")
   }
+  
   console.log(location.state.detail,'guideline')
 
   const handleButton=()=>{
