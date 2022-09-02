@@ -88,7 +88,6 @@ function Timer({ date, starttime, end , data}) {
               <span>{duration._data.hours}</span>
               <br />
               <span>HRS</span>
-              {/* {time.hrs === time ? "Apply for exam" : ""} */}
             </div>
             <a>:</a>
             <div className="timer-span">
